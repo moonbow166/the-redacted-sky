@@ -25,6 +25,8 @@ type Morphology = THREE.Group & {
     home: THREE.Vector3;
     exit: THREE.Vector3;
     phase: number;
+    introScale: number;
+    fieldScale: number;
   };
 };
 
@@ -48,6 +50,51 @@ function seededRandom(seed: number) {
     value = (value * 16807) % 2147483647;
     return (value - 1) / 2147483646;
   };
+}
+
+function makeHullTexture(kind: "color" | "roughness") {
+  const size = 512;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return new THREE.CanvasTexture(canvas);
+  const image = ctx.createImageData(size, size);
+  const random = seededRandom(kind === "color" ? 1947 : 2004);
+  for (let i = 0; i < image.data.length; i += 4) {
+    const grain = Math.floor(random() * (kind === "color" ? 22 : 78));
+    if (kind === "color") {
+      image.data[i] = 58 + grain;
+      image.data[i + 1] = 70 + grain;
+      image.data[i + 2] = 68 + grain;
+    } else {
+      image.data[i] = 84 + grain;
+      image.data[i + 1] = 84 + grain;
+      image.data[i + 2] = 84 + grain;
+    }
+    image.data[i + 3] = 255;
+  }
+  ctx.putImageData(image, 0, 0);
+  ctx.strokeStyle = kind === "color" ? "rgba(174,206,199,.16)" : "rgba(220,220,220,.28)";
+  ctx.lineWidth = 1;
+  for (let x = 0; x <= size; x += 64) {
+    ctx.beginPath();
+    ctx.moveTo(x + 0.5, 0);
+    ctx.lineTo(x + 0.5, size);
+    ctx.stroke();
+  }
+  for (let y = 0; y <= size; y += 128) {
+    ctx.beginPath();
+    ctx.moveTo(0, y + 0.5);
+    ctx.lineTo(size, y + 0.5);
+    ctx.stroke();
+  }
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set(2, 1);
+  texture.anisotropy = 8;
+  return texture;
 }
 
 function makeEvidenceTexture(kind: "document" | "video" | "image", variant: number) {
@@ -177,17 +224,24 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
 
     const fleet = new THREE.Group();
     scene.add(fleet);
+    const hullColorTexture = makeHullTexture("color");
+    const hullRoughnessTexture = makeHullTexture("roughness");
     const morphologyMaterials: THREE.MeshPhysicalMaterial[] = [];
     const makeSkin = (tint = 0x61716f) => {
       const material = new THREE.MeshPhysicalMaterial({
         color: tint,
-        metalness: 0.86,
-        roughness: 0.2,
-        transmission: 0.08,
+        map: hullColorTexture,
+        roughnessMap: hullRoughnessTexture,
+        metalness: 0.92,
+        roughness: 0.29,
+        clearcoat: 0.72,
+        clearcoatRoughness: 0.16,
+        iridescence: 0.18,
+        iridescenceIOR: 1.34,
         transparent: true,
-        opacity: 0.92,
-        emissive: 0x0b302e,
-        emissiveIntensity: 0.72,
+        opacity: 0.98,
+        emissive: 0x061817,
+        emissiveIntensity: 0.38,
         side: THREE.DoubleSide,
       });
       morphologyMaterials.push(material);
@@ -214,87 +268,204 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       home: THREE.Vector3,
       exit: THREE.Vector3,
       phase: number,
-      scale: number,
+      introScale: number,
+      fieldScale = introScale * 0.72,
     ) => {
       const morphology = model as Morphology;
       morphology.position.copy(home);
-      morphology.scale.setScalar(scale);
-      morphology.userData = { home, exit, phase };
+      morphology.scale.setScalar(introScale);
+      morphology.userData = { home, exit, phase, introScale, fieldScale };
       morphologies.push(morphology);
       fleet.add(morphology);
       return morphology;
     };
 
+    const glowMaterials: THREE.MeshBasicMaterial[] = [];
+    const makeGlow = (color = 0xa9fff2, opacity = 0.72) => {
+      const material = new THREE.MeshBasicMaterial({
+        color,
+        transparent: true,
+        opacity,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+      glowMaterials.push(material);
+      return material;
+    };
+
     const orb = new THREE.Group();
-    const orbCore = new THREE.Mesh(new THREE.IcosahedronGeometry(0.82, 3), makeSkin(0x688784));
+    const orbCore = new THREE.Mesh(new THREE.IcosahedronGeometry(0.58, 4), makeSkin(0x405c59));
     orb.add(orbCore);
-    addEdges(orbCore, 0.28);
-    orb.add(new THREE.Mesh(
-      new THREE.TorusGeometry(1.13, 0.012, 5, 96),
-      new THREE.MeshBasicMaterial({ color: 0xa9fff2, transparent: true, opacity: 0.5 }),
-    ));
-    registerMorphology(orb, new THREE.Vector3(5.3, 3.7, 12), new THREE.Vector3(12, 8, -8), 0.2, 1.15);
+    addEdges(orbCore, 0.18);
+    const orbEnergy = new THREE.Mesh(new THREE.IcosahedronGeometry(0.36, 2), makeGlow(0xc8fff8, 0.92));
+    orb.add(orbEnergy);
+    const orbShellMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x91bbb5,
+      metalness: 0.08,
+      roughness: 0.08,
+      transmission: 0.72,
+      thickness: 0.7,
+      transparent: true,
+      opacity: 0.28,
+      clearcoat: 1,
+    });
+    morphologyMaterials.push(orbShellMaterial);
+    orb.add(new THREE.Mesh(new THREE.SphereGeometry(0.88, 64, 48), orbShellMaterial));
+    [0, Math.PI / 2].forEach((rotation) => {
+      const meridian = new THREE.Mesh(new THREE.TorusGeometry(1.04, 0.009, 6, 128), makeGlow(0xa9fff2, 0.42));
+      meridian.rotation.y = rotation;
+      orb.add(meridian);
+    });
+    registerMorphology(orb, new THREE.Vector3(4.9, 3.7, 11.2), new THREE.Vector3(-7.2, 3.5, -1.5), 0.2, 1.2, 0.86);
 
     const ticTac = new THREE.Group();
-    const ticMaterial = makeSkin(0x8c9794);
-    const ticBody = new THREE.Mesh(new THREE.CylinderGeometry(0.48, 0.48, 1.78, 48), ticMaterial);
+    const ticMaterial = makeSkin(0x89918e);
+    const ticBody = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 1.9, 64), ticMaterial);
     ticBody.rotation.z = Math.PI / 2;
     ticTac.add(ticBody);
-    const ticEndA = new THREE.Mesh(new THREE.SphereGeometry(0.48, 36, 24), ticMaterial);
+    const ticEndA = new THREE.Mesh(new THREE.SphereGeometry(0.5, 48, 32), ticMaterial);
     const ticEndB = ticEndA.clone();
-    ticEndA.position.x = -0.89;
-    ticEndB.position.x = 0.89;
+    ticEndA.position.x = -0.95;
+    ticEndB.position.x = 0.95;
     ticTac.add(ticEndA, ticEndB);
-    addEdges(ticBody, 0.34);
-    registerMorphology(ticTac, new THREE.Vector3(9.1, 2.1, 10.5), new THREE.Vector3(14, 2, -10), 1.4, 1.15);
+    for (const x of [-0.72, 0.72]) {
+      const seam = new THREE.Mesh(new THREE.TorusGeometry(0.505, 0.012, 8, 64), makeGlow(0x688f8a, 0.48));
+      seam.rotation.y = Math.PI / 2;
+      seam.position.x = x;
+      ticTac.add(seam);
+    }
+    for (let i = 0; i < 4; i += 1) {
+      const port = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.035, 0.018), makeGlow(0xc7a56e, 0.6));
+      port.position.set(-0.3 + i * 0.2, -0.49, 0.08);
+      ticTac.add(port);
+    }
+    registerMorphology(ticTac, new THREE.Vector3(9.6, 3.0, 10.2), new THREE.Vector3(7.1, 4.1, -1.8), 1.4, 1.18, 0.82);
 
     const disk = new THREE.Group();
-    const diskMaterial = makeSkin(0x465f5d);
-    const diskBody = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.2, 64), diskMaterial);
+    const diskMaterial = makeSkin(0x374b49);
+    const diskProfile = [
+      new THREE.Vector2(0.02, -0.4),
+      new THREE.Vector2(0.82, -0.38),
+      new THREE.Vector2(1.55, -0.26),
+      new THREE.Vector2(2.28, -0.09),
+      new THREE.Vector2(2.62, 0),
+      new THREE.Vector2(2.3, 0.09),
+      new THREE.Vector2(1.45, 0.28),
+      new THREE.Vector2(0.58, 0.43),
+      new THREE.Vector2(0.02, 0.46),
+    ];
+    const diskBody = new THREE.Mesh(new THREE.LatheGeometry(diskProfile, 96), diskMaterial);
     diskBody.rotation.x = Math.PI / 2;
     disk.add(diskBody);
-    const diskDome = new THREE.Mesh(new THREE.SphereGeometry(0.48, 36, 18, 0, Math.PI * 2, 0, Math.PI / 2), diskMaterial);
-    diskDome.position.z = 0.09;
+    const domeMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x456c69,
+      metalness: 0.28,
+      roughness: 0.12,
+      transmission: 0.52,
+      thickness: 0.8,
+      transparent: true,
+      opacity: 0.72,
+      clearcoat: 1,
+      iridescence: 0.48,
+    });
+    morphologyMaterials.push(domeMaterial);
+    const diskDome = new THREE.Mesh(new THREE.SphereGeometry(0.82, 64, 36), domeMaterial);
+    diskDome.scale.z = 0.42;
+    diskDome.position.z = 0.34;
     disk.add(diskDome);
-    addEdges(diskBody, 0.42);
-    registerMorphology(disk, new THREE.Vector3(5.75, 0.65, 9.4), new THREE.Vector3(10, -1, -12), 2.2, 1.28);
+    const aperture = new THREE.Mesh(new THREE.CylinderGeometry(0.54, 0.68, 0.2, 64), makeSkin(0x172422));
+    aperture.rotation.x = Math.PI / 2;
+    aperture.position.z = -0.38;
+    disk.add(aperture);
+    const rimGlow = new THREE.Mesh(new THREE.TorusGeometry(2.16, 0.022, 8, 160), makeGlow(0x9fffee, 0.68));
+    disk.add(rimGlow);
+    for (let i = 0; i < 28; i += 1) {
+      const angle = (i / 28) * Math.PI * 2;
+      const panel = new THREE.Mesh(
+        new THREE.BoxGeometry(0.28, 0.045, 0.035),
+        i % 7 === 0 ? makeGlow(0xc7a56e, 0.72) : makeGlow(0x86b8b1, 0.3),
+      );
+      panel.position.set(Math.cos(angle) * 1.82, Math.sin(angle) * 1.82, -0.24);
+      panel.rotation.z = angle;
+      disk.add(panel);
+    }
+    const diskHalo = new THREE.Mesh(new THREE.TorusGeometry(2.95, 0.012, 6, 180), makeGlow(0xa9fff2, 0.18));
+    disk.add(diskHalo);
+    registerMorphology(disk, new THREE.Vector3(7.1, 0.25, 10.4), new THREE.Vector3(7.2, -3.2, 0.5), 2.2, 1.82, 0.82);
 
     const triangle = new THREE.Group();
-    const triangleBody = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 0.16, 3), makeSkin(0x263a39));
-    triangleBody.rotation.x = Math.PI / 2;
-    triangleBody.rotation.z = Math.PI / 6;
+    const triangleShape = new THREE.Shape();
+    triangleShape.moveTo(0, 1.35);
+    triangleShape.lineTo(-1.22, -0.86);
+    triangleShape.lineTo(1.22, -0.86);
+    triangleShape.closePath();
+    const triangleBody = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(triangleShape, { depth: 0.16, bevelEnabled: true, bevelSize: 0.08, bevelThickness: 0.06, bevelSegments: 4 }),
+      makeSkin(0x182826),
+    );
+    triangleBody.geometry.center();
     triangle.add(triangleBody);
-    addEdges(triangleBody, 0.74);
-    for (let i = 0; i < 3; i += 1) {
-      const angle = i * (Math.PI * 2) / 3 + Math.PI / 6;
-      const light = new THREE.Mesh(
-        new THREE.SphereGeometry(0.08, 16, 12),
-        new THREE.MeshBasicMaterial({ color: i === 0 ? 0xc7a56e : 0xa9fff2 }),
-      );
-      light.position.set(Math.cos(angle) * 0.7, Math.sin(angle) * 0.7, 0.13);
+    addEdges(triangleBody, 0.5);
+    const triangleInner = new THREE.Mesh(new THREE.RingGeometry(0.36, 0.47, 3), makeGlow(0x6d9f99, 0.38));
+    triangleInner.rotation.z = Math.PI / 2;
+    triangleInner.position.z = 0.16;
+    triangle.add(triangleInner);
+    [[0, 0.9], [-0.78, -0.52], [0.78, -0.52]].forEach(([x, y], i) => {
+      const light = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.035, 24), makeGlow(i === 0 ? 0xc7a56e : 0xa9fff2, 0.92));
+      light.rotation.x = Math.PI / 2;
+      light.position.set(x, y, 0.17);
       triangle.add(light);
-    }
-    registerMorphology(triangle, new THREE.Vector3(9.3, -0.75, 11.4), new THREE.Vector3(13, -5, -9), 3.1, 1.25);
+    });
+    registerMorphology(triangle, new THREE.Vector3(9.25, -1.65, 11), new THREE.Vector3(-7.2, -3.25, -2), 3.1, 1.22, 0.82);
 
     const cylinder = new THREE.Group();
-    const cylinderBody = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 2.25, 40), makeSkin(0x6f7774));
-    cylinderBody.rotation.z = Math.PI / 2.7;
-    cylinder.add(cylinderBody);
-    addEdges(cylinderBody, 0.48);
-    registerMorphology(cylinder, new THREE.Vector3(6.7, -2.65, 11.2), new THREE.Vector3(9, -8, -11), 4.2, 1.18);
+    const cylinderAssembly = new THREE.Group();
+    cylinderAssembly.rotation.z = Math.PI / 2.7;
+    cylinder.add(cylinderAssembly);
+    const cylinderMaterial = makeSkin(0x626b68);
+    const cylinderBody = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 2.3, 64), cylinderMaterial);
+    cylinderAssembly.add(cylinderBody);
+    for (const y of [-1.08, -0.62, 0, 0.62, 1.08]) {
+      const band = new THREE.Mesh(new THREE.TorusGeometry(0.39, 0.017, 8, 64), makeGlow(y === 0 ? 0xc7a56e : 0x7aa8a2, 0.48));
+      band.rotation.x = Math.PI / 2;
+      band.position.y = y;
+      cylinderAssembly.add(band);
+    }
+    const capA = new THREE.Mesh(new THREE.SphereGeometry(0.38, 40, 24), cylinderMaterial);
+    const capB = capA.clone();
+    capA.scale.y = 0.48;
+    capB.scale.y = 0.48;
+    capA.position.y = -1.17;
+    capB.position.y = 1.17;
+    cylinderAssembly.add(capA, capB);
+    registerMorphology(cylinder, new THREE.Vector3(5.9, -3.15, 11.6), new THREE.Vector3(-2.4, 5.2, -4.5), 4.2, 1.18, 0.78);
 
     const boomerang = new THREE.Group();
-    const boomMaterial = makeSkin(0x314c49);
-    const leftWing = new THREE.Mesh(new THREE.BoxGeometry(1.75, 0.48, 0.14), boomMaterial);
-    const rightWing = leftWing.clone();
-    leftWing.position.x = -0.68;
-    rightWing.position.x = 0.68;
-    leftWing.rotation.z = -0.38;
-    rightWing.rotation.z = 0.38;
-    boomerang.add(leftWing, rightWing);
-    addEdges(leftWing, 0.56);
-    addEdges(rightWing, 0.56);
-    registerMorphology(boomerang, new THREE.Vector3(10.15, -3.35, 9.1), new THREE.Vector3(16, -8, -7), 5.1, 1.25);
+    const boomShape = new THREE.Shape();
+    boomShape.moveTo(-2.05, 0.68);
+    boomShape.lineTo(-0.24, -0.18);
+    boomShape.lineTo(0, -0.58);
+    boomShape.lineTo(0.24, -0.18);
+    boomShape.lineTo(2.05, 0.68);
+    boomShape.lineTo(1.9, 0.02);
+    boomShape.lineTo(0.38, -0.84);
+    boomShape.lineTo(0, -0.98);
+    boomShape.lineTo(-0.38, -0.84);
+    boomShape.lineTo(-1.9, 0.02);
+    boomShape.closePath();
+    const boomBody = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(boomShape, { depth: 0.14, bevelEnabled: true, bevelSize: 0.06, bevelThickness: 0.05, bevelSegments: 3 }),
+      makeSkin(0x203a37),
+    );
+    boomBody.geometry.center();
+    boomerang.add(boomBody);
+    addEdges(boomBody, 0.45);
+    for (const x of [-1.45, -0.78, 0, 0.78, 1.45]) {
+      const node = new THREE.Mesh(new THREE.SphereGeometry(0.065, 18, 12), makeGlow(x === 0 ? 0xc7a56e : 0x9fffee, 0.86));
+      node.position.set(x, 0.05 + Math.abs(x) * 0.25, 0.18);
+      boomerang.add(node);
+    }
+    registerMorphology(boomerang, new THREE.Vector3(10.4, -3.55, 9.4), new THREE.Vector3(2.8, -5.2, -4.5), 5.1, 1.08, 0.74);
 
     const textures = {
       documents: Array.from({ length: 5 }, (_, index) => makeEvidenceTexture("document", index)),
@@ -621,27 +792,23 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
 
       morphologies.forEach((morphology, index) => {
         const home = morphology.userData.home;
-        const destination = activeRef.current ? morphology.userData.exit : home;
+        const destination = (activeRef.current ? morphology.userData.exit : home).clone();
+        destination.y += Math.sin(elapsed * 0.45 + morphology.userData.phase) * (activeRef.current ? 0.24 : 0.16);
         morphology.position.lerp(destination, activeRef.current ? 0.045 : 0.028);
-        if (!activeRef.current) {
-          morphology.position.y = THREE.MathUtils.lerp(
-            morphology.position.y,
-            home.y + Math.sin(elapsed * 0.5 + morphology.userData.phase) * 0.16,
-            0.09,
-          );
-        }
-        const targetScale = activeRef.current ? 0.05 : 1;
+        const targetScale = activeRef.current ? morphology.userData.fieldScale : morphology.userData.introScale;
         const currentScale = morphology.scale.x;
-        const baseScale = [1.15, 1.15, 1.28, 1.25, 1.18, 1.25][index];
-        const nextScale = THREE.MathUtils.lerp(currentScale, targetScale * baseScale, activeRef.current ? 0.055 : 0.028);
+        const nextScale = THREE.MathUtils.lerp(currentScale, targetScale, activeRef.current ? 0.035 : 0.028);
         morphology.scale.setScalar(nextScale);
       });
 
       morphologyMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0 : 0.92, 0.05);
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.78 : 0.98, 0.035);
       });
       edgeMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0 : 0.54, 0.05);
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.26 : 0.48, 0.035);
+      });
+      glowMaterials.forEach((material) => {
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.5 : 0.72, 0.03);
       });
 
       artifacts.forEach((artifact) => {
@@ -726,8 +893,11 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       });
       liveTextures.forEach((texture) => texture.dispose());
       liveMaterials.forEach((material) => material.dispose());
+      hullColorTexture.dispose();
+      hullRoughnessTexture.dispose();
       morphologyMaterials.forEach((material) => material.dispose());
       edgeMaterials.forEach((material) => material.dispose());
+      glowMaterials.forEach((material) => material.dispose());
       renderer.dispose();
       mount.removeChild(renderer.domElement);
     };

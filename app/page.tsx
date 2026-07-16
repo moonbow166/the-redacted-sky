@@ -270,6 +270,12 @@ export default function Home() {
         </ol>
       </aside>
 
+      <div className="craft-callout" aria-hidden={entered}>
+        <span>PRIMARY RECONSTRUCTION / 03</span>
+        <strong>DISK FORM</strong>
+        <small>REALTIME 3D · UNKNOWN SCALE</small>
+      </div>
+
       <aside className="field-index" aria-hidden={!entered || selectedIndex !== null}>
         <div className="index-kicker">CURRENT FIELD</div>
         <div className="index-number">161</div>
