@@ -5,6 +5,71 @@ import SkyScene from "../components/SkyScene";
 
 const featuredCases = [
   {
+    index: 105,
+    id: "CONTACT 106",
+    title: "TWO OBJECTS / RAPID ZOOM CYCLE",
+    location: "NORTH AMERICA",
+    date: "2026",
+    agency: "DEPARTMENT OF THE ARMY / AARO",
+    duration: "00:01:49",
+    classification: "UNRESOLVED / 2026 RELEASE",
+    assessment: "NO REPORTER DESCRIPTION",
+    description:
+      "An Army infrared sensor shifts from an initial area of interest to two areas of contrast, repeatedly changing zoom and contrast while keeping both objects centered. This is among the newest records in the release.",
+    video:
+      "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689168/DOD_111689168-1280x720-3000k.mp4",
+    isPreview: false,
+  },
+  {
+    index: 85,
+    id: "CONTACT 086",
+    title: "DIAMOND FORM / SWIR ONLY",
+    location: "GREECE",
+    date: "JAN 2024",
+    agency: "U.S. CENTRAL COMMAND / AARO",
+    duration: "00:01:06",
+    classification: "UNRESOLVED / MULTI-SENSOR",
+    assessment: "REPORTED 434 KNOTS",
+    description:
+      "A diamond-shaped object is reported at approximately 434 knots. It appears in short-wave infrared, then disappears when the operator switches to the visible spectrum.",
+    video:
+      "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688954/DOD_111688954-1280x720-3000k.mp4",
+    isPreview: false,
+  },
+  {
+    index: 102,
+    id: "CONTACT 103",
+    title: "FOOTBALL BODY / THREE PROJECTIONS",
+    location: "EAST CHINA SEA",
+    date: "2024",
+    agency: "U.S. INDO-PACIFIC COMMAND / AARO",
+    duration: "00:00:09",
+    classification: "UNRESOLVED / INFRARED",
+    assessment: "MORPHOLOGY UNDETERMINED",
+    description:
+      "An infrared sensor holds on a football-shaped body with three radial projections: one vertical and two descending at roughly forty-five degrees from the main axis.",
+    video:
+      "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689133/DOD_111689133-1280x720-3000k.mp4",
+    isPreview: false,
+  },
+  {
+    index: 86,
+    id: "CONTACT 087",
+    title: "INVERTED TEARDROP / WATERLINE",
+    location: "GULF OF OMAN",
+    date: "JUN 2024",
+    agency: "U.S. NORTHERN COMMAND / AARO",
+    duration: "00:00:21",
+    classification: "UNRESOLVED / INFRARED",
+    assessment: "POSSIBLE WATER REFLECTION",
+    description:
+      "An inverted teardrop-like area of contrast with a vertical mass below remains centered in the sensor view. The report also preserves the possibility of a reflection from an object in the water.",
+    video:
+      "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688964/DOD_111688964-1280x720-3000k.mp4",
+    isPreview: false,
+  },
+  {
+    index: 80,
     id: "CONTACT 081",
     title: "TWO AREAS OF CONTRAST",
     location: "IRAQ",
@@ -19,35 +84,9 @@ const featuredCases = [
       "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688762/DOD_111688762-1280x720-3000k.mp4",
     isPreview: false,
   },
-  {
-    id: "CONTACT 141",
-    title: "OBJECT EN ROUTE TO THE MOON",
-    location: "CISLUNAR SPACE",
-    date: "JUL 1969",
-    agency: "NASA / APOLLO 11",
-    duration: "CREW DEBRIEF",
-    classification: "ARCHIVAL / PARTIAL",
-    assessment: "POSSIBLE S-IVB STAGE",
-    description:
-      "The crew reported an object with a sizeable dimension while one day out from Earth. Through a monocular, they considered whether it could be the separated S-IVB stage.",
-    video: "",
-    isPreview: false,
-  },
-  {
-    id: "CONTACT 067",
-    title: "SPHERICAL UAP / WATERLINE",
-    location: "UNDISCLOSED",
-    date: "MAR 2022",
-    agency: "DEPARTMENT OF WAR",
-    duration: "00:03:05",
-    classification: "UNRESOLVED / REDACTED",
-    assessment: "INSUFFICIENT DATA",
-    description:
-      "An infrared sensor tracks multiple areas of contrast near a waterline. Sensor movement, range, wind and target velocity remain unavailable in the public record.",
-    video: "",
-    isPreview: false,
-  },
 ];
+
+const featuredByIndex = new Map(featuredCases.map((item) => [item.index, item]));
 
 const verdicts = ["ORDINARY", "SENSOR AMBIGUITY", "INSUFFICIENT", "ANOMALOUS"];
 
@@ -60,9 +99,8 @@ export default function Home() {
 
   const selectedCase = useMemo(() => {
     if (selectedIndex === null) return null;
-    if (selectedIndex === 80) return featuredCases[0];
-    if (selectedIndex === 140) return featuredCases[1];
-    if (selectedIndex === 66) return featuredCases[2];
+    const connectedCase = featuredByIndex.get(selectedIndex);
+    if (connectedCase) return connectedCase;
     const type = selectedIndex < 119 ? "DOCUMENT" : selectedIndex < 147 ? "VIDEO" : "IMAGERY";
     return {
       id: `CONTACT ${String(selectedIndex + 1).padStart(3, "0")}`,
@@ -83,6 +121,8 @@ export default function Home() {
   const hoveredType =
     hoveredIndex === null
       ? ""
+      : featuredByIndex.has(hoveredIndex)
+        ? "VIDEO"
       : hoveredIndex < 119
         ? "DOCUMENT"
         : hoveredIndex < 147
@@ -175,7 +215,7 @@ export default function Home() {
         <div className="system-status">
           <span className="status-light" />
           <span>FIELD ACTIVE</span>
-          <span className="dim hide-mobile">3 INGESTED / 158 INDEXED</span>
+          <span className="dim hide-mobile">5 INGESTED / 156 INDEXED</span>
           <button
             className="sound-toggle"
             type="button"
@@ -188,7 +228,7 @@ export default function Home() {
       </header>
 
       <section className="intro-copy" aria-hidden={entered}>
-        <div className="eyebrow">DECLASSIFIED UAP FIELD / RELEASE 01</div>
+        <div className="eyebrow">REPORTED MORPHOLOGIES / DECLASSIFIED FIELD 01</div>
         <h1>
           <span>THE</span>
           <span className="redacted-word">REDACTED</span>
@@ -199,14 +239,36 @@ export default function Home() {
           <br />
           You are here to notice how you decide what is real.
         </p>
-        <button className="enter-button" type="button" onClick={() => setEntered(true)}>
-          <span>ENTER THE FIELD</span>
-          <span aria-hidden="true">[ ↗ ]</span>
+        <button
+          className="signal-lock"
+          type="button"
+          onClick={() => setEntered(true)}
+          aria-label="Acquire the signal and enter the field"
+        >
+          <span className="lock-orbit orbit-a" aria-hidden="true" />
+          <span className="lock-orbit orbit-b" aria-hidden="true" />
+          <span className="lock-cross" aria-hidden="true" />
+          <span className="lock-core">
+            <small>ACQUIRE</small>
+            <strong>SIGNAL</strong>
+          </span>
         </button>
         <div className="entry-note">
           HEADPHONES RECOMMENDED · MOVE TO SCAN · CLICK TO INSPECT
         </div>
       </section>
+
+      <aside className="morphology-index" aria-hidden={entered}>
+        <div className="morphology-heading">REPORTED FORMS / NOT VERIFIED CONSTRUCTION</div>
+        <ol>
+          <li><span>01</span> ORB</li>
+          <li><span>02</span> TIC-TAC</li>
+          <li><span>03</span> DISK</li>
+          <li><span>04</span> TRIANGLE</li>
+          <li><span>05</span> CYLINDER</li>
+          <li><span>06</span> BOOMERANG</li>
+        </ol>
+      </aside>
 
       <aside className="field-index" aria-hidden={!entered || selectedIndex !== null}>
         <div className="index-kicker">CURRENT FIELD</div>
@@ -232,7 +294,7 @@ export default function Home() {
           </div>
           <div>
             <dt>CONNECTED</dt>
-            <dd>003</dd>
+            <dd>005</dd>
           </div>
         </dl>
       </aside>
@@ -379,7 +441,7 @@ export default function Home() {
       </section>
 
       <footer className="credit-line">
-        VISUAL PROTOTYPE V0.2 · SOURCE: U.S. GOVERNMENT RELEASE 01 · CHINESE INDEX: CHINLEEZ / CC BY 4.0
+        VISUAL PROTOTYPE V0.3 · SOURCE: U.S. GOVERNMENT RELEASE 01 · CHINESE INDEX: CHINLEEZ / CC BY 4.0
       </footer>
 
       <p className="sr-only">

@@ -16,8 +16,31 @@ type Artifact = THREE.Group & {
     phase: number;
     speed: number;
     index: number;
+    home: THREE.Vector3;
   };
 };
+
+type Morphology = THREE.Group & {
+  userData: {
+    home: THREE.Vector3;
+    exit: THREE.Vector3;
+    phase: number;
+  };
+};
+
+const featuredVideoTargets = new Map<number, THREE.Vector3>([
+  [105, new THREE.Vector3(0.2, 2.65, 6.4)],
+  [85, new THREE.Vector3(-4.6, 0.65, 4.2)],
+  [102, new THREE.Vector3(4.8, 0.95, 3.8)],
+  [86, new THREE.Vector3(-2.7, -2.45, 5.25)],
+  [80, new THREE.Vector3(3.15, -2.35, 4.7)],
+]);
+
+const livePreviewUrls = new Map<number, string>([
+  [105, "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689168/DOD_111689168-1024x576-2000k.mp4"],
+  [85, "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688954/DOD_111688954-1024x576-2000k.mp4"],
+  [102, "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689133/DOD_111689133-1024x576-2000k.mp4"],
+]);
 
 function seededRandom(seed: number) {
   let value = seed % 2147483647;
@@ -133,6 +156,8 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
     renderer.setClearColor(0x020405, 1);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.25;
     renderer.domElement.setAttribute("aria-label", "Interactive three-dimensional UAP evidence archive");
     renderer.domElement.setAttribute("role", "img");
     mount.appendChild(renderer.domElement);
@@ -140,6 +165,136 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     const field = new THREE.Group();
     field.rotation.x = -0.04;
     scene.add(field);
+
+    const ambient = new THREE.HemisphereLight(0x9fffee, 0x030608, 1.15);
+    scene.add(ambient);
+    const cyanLight = new THREE.PointLight(0x8effed, 18, 34, 1.8);
+    cyanLight.position.set(8, 3, 17);
+    scene.add(cyanLight);
+    const amberLight = new THREE.PointLight(0xc7a56e, 9, 28, 1.8);
+    amberLight.position.set(3, -5, 14);
+    scene.add(amberLight);
+
+    const fleet = new THREE.Group();
+    scene.add(fleet);
+    const morphologyMaterials: THREE.MeshPhysicalMaterial[] = [];
+    const makeSkin = (tint = 0x61716f) => {
+      const material = new THREE.MeshPhysicalMaterial({
+        color: tint,
+        metalness: 0.86,
+        roughness: 0.2,
+        transmission: 0.08,
+        transparent: true,
+        opacity: 0.92,
+        emissive: 0x0b302e,
+        emissiveIntensity: 0.72,
+        side: THREE.DoubleSide,
+      });
+      morphologyMaterials.push(material);
+      return material;
+    };
+    const edgeMaterials: THREE.LineBasicMaterial[] = [];
+    const addEdges = (mesh: THREE.Mesh, opacity = 0.7) => {
+      const material = new THREE.LineBasicMaterial({
+        color: 0xb9fff5,
+        transparent: true,
+        opacity,
+        blending: THREE.AdditiveBlending,
+      });
+      edgeMaterials.push(material);
+      const edges = new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry), material);
+      edges.scale.setScalar(1.012);
+      edges.rotation.copy(mesh.rotation);
+      edges.position.copy(mesh.position);
+      mesh.parent?.add(edges);
+    };
+    const morphologies: Morphology[] = [];
+    const registerMorphology = (
+      model: THREE.Group,
+      home: THREE.Vector3,
+      exit: THREE.Vector3,
+      phase: number,
+      scale: number,
+    ) => {
+      const morphology = model as Morphology;
+      morphology.position.copy(home);
+      morphology.scale.setScalar(scale);
+      morphology.userData = { home, exit, phase };
+      morphologies.push(morphology);
+      fleet.add(morphology);
+      return morphology;
+    };
+
+    const orb = new THREE.Group();
+    const orbCore = new THREE.Mesh(new THREE.IcosahedronGeometry(0.82, 3), makeSkin(0x688784));
+    orb.add(orbCore);
+    addEdges(orbCore, 0.28);
+    orb.add(new THREE.Mesh(
+      new THREE.TorusGeometry(1.13, 0.012, 5, 96),
+      new THREE.MeshBasicMaterial({ color: 0xa9fff2, transparent: true, opacity: 0.5 }),
+    ));
+    registerMorphology(orb, new THREE.Vector3(5.3, 3.7, 12), new THREE.Vector3(12, 8, -8), 0.2, 1.15);
+
+    const ticTac = new THREE.Group();
+    const ticMaterial = makeSkin(0x8c9794);
+    const ticBody = new THREE.Mesh(new THREE.CylinderGeometry(0.48, 0.48, 1.78, 48), ticMaterial);
+    ticBody.rotation.z = Math.PI / 2;
+    ticTac.add(ticBody);
+    const ticEndA = new THREE.Mesh(new THREE.SphereGeometry(0.48, 36, 24), ticMaterial);
+    const ticEndB = ticEndA.clone();
+    ticEndA.position.x = -0.89;
+    ticEndB.position.x = 0.89;
+    ticTac.add(ticEndA, ticEndB);
+    addEdges(ticBody, 0.34);
+    registerMorphology(ticTac, new THREE.Vector3(9.1, 2.1, 10.5), new THREE.Vector3(14, 2, -10), 1.4, 1.15);
+
+    const disk = new THREE.Group();
+    const diskMaterial = makeSkin(0x465f5d);
+    const diskBody = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.2, 64), diskMaterial);
+    diskBody.rotation.x = Math.PI / 2;
+    disk.add(diskBody);
+    const diskDome = new THREE.Mesh(new THREE.SphereGeometry(0.48, 36, 18, 0, Math.PI * 2, 0, Math.PI / 2), diskMaterial);
+    diskDome.position.z = 0.09;
+    disk.add(diskDome);
+    addEdges(diskBody, 0.42);
+    registerMorphology(disk, new THREE.Vector3(5.75, 0.65, 9.4), new THREE.Vector3(10, -1, -12), 2.2, 1.28);
+
+    const triangle = new THREE.Group();
+    const triangleBody = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 0.16, 3), makeSkin(0x263a39));
+    triangleBody.rotation.x = Math.PI / 2;
+    triangleBody.rotation.z = Math.PI / 6;
+    triangle.add(triangleBody);
+    addEdges(triangleBody, 0.74);
+    for (let i = 0; i < 3; i += 1) {
+      const angle = i * (Math.PI * 2) / 3 + Math.PI / 6;
+      const light = new THREE.Mesh(
+        new THREE.SphereGeometry(0.08, 16, 12),
+        new THREE.MeshBasicMaterial({ color: i === 0 ? 0xc7a56e : 0xa9fff2 }),
+      );
+      light.position.set(Math.cos(angle) * 0.7, Math.sin(angle) * 0.7, 0.13);
+      triangle.add(light);
+    }
+    registerMorphology(triangle, new THREE.Vector3(9.3, -0.75, 11.4), new THREE.Vector3(13, -5, -9), 3.1, 1.25);
+
+    const cylinder = new THREE.Group();
+    const cylinderBody = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 2.25, 40), makeSkin(0x6f7774));
+    cylinderBody.rotation.z = Math.PI / 2.7;
+    cylinder.add(cylinderBody);
+    addEdges(cylinderBody, 0.48);
+    registerMorphology(cylinder, new THREE.Vector3(6.7, -2.65, 11.2), new THREE.Vector3(9, -8, -11), 4.2, 1.18);
+
+    const boomerang = new THREE.Group();
+    const boomMaterial = makeSkin(0x314c49);
+    const leftWing = new THREE.Mesh(new THREE.BoxGeometry(1.75, 0.48, 0.14), boomMaterial);
+    const rightWing = leftWing.clone();
+    leftWing.position.x = -0.68;
+    rightWing.position.x = 0.68;
+    leftWing.rotation.z = -0.38;
+    rightWing.rotation.z = 0.38;
+    boomerang.add(leftWing, rightWing);
+    addEdges(leftWing, 0.56);
+    addEdges(rightWing, 0.56);
+    registerMorphology(boomerang, new THREE.Vector3(10.15, -3.35, 9.1), new THREE.Vector3(16, -8, -7), 5.1, 1.25);
 
     const textures = {
       documents: Array.from({ length: 5 }, (_, index) => makeEvidenceTexture("document", index)),
@@ -164,13 +319,40 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     const videoMaterials = buildMaterials(textures.videos, 0.72);
     const imageMaterials = buildMaterials(textures.images, 0.64);
 
+    const liveVideos: HTMLVideoElement[] = [];
+    const liveTextures: THREE.VideoTexture[] = [];
+    const liveMaterials = new Map<number, THREE.MeshBasicMaterial>();
+    livePreviewUrls.forEach((src, index) => {
+      const video = document.createElement("video");
+      video.src = src;
+      video.crossOrigin = "anonymous";
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      const texture = new THREE.VideoTexture(video);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.minFilter = THREE.LinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      const material = new THREE.MeshBasicMaterial({
+        map: texture,
+        transparent: true,
+        opacity: 0.08,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+      });
+      liveVideos.push(video);
+      liveTextures.push(texture);
+      liveMaterials.set(index, material);
+    });
+
     const documentGeometry = new THREE.PlaneGeometry(0.78, 1.04);
     const videoGeometry = new THREE.PlaneGeometry(1.16, 0.68);
     const imageGeometry = new THREE.PlaneGeometry(0.86, 0.86);
     const hitTargets: THREE.Mesh[] = [];
     const artifacts: Artifact[] = [];
     const positions: THREE.Vector3[] = [];
-    const important = new Set([66, 80, 140]);
+    const important = new Set(featuredVideoTargets.keys());
 
     for (let i = 0; i < 161; i += 1) {
       const radius = 4.7 + Math.pow(random(), 0.62) * 15.8;
@@ -191,22 +373,20 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
         phase: random() * Math.PI * 2,
         speed: 0.28 + random() * 0.38,
         index: i,
+        home: position.clone(),
       };
 
-      const forcedVideo = i === 66 || i === 80;
-      const forcedDocument = i === 140;
+      const forcedVideo = important.has(i);
       const kind = forcedVideo
         ? "video"
-        : forcedDocument
-          ? "document"
-          : i < 119
+        : i < 119
             ? "document"
             : i < 147
               ? "video"
               : "image";
       const geometry = kind === "document" ? documentGeometry : kind === "video" ? videoGeometry : imageGeometry;
       const materialSet = kind === "document" ? documentMaterials : kind === "video" ? videoMaterials : imageMaterials;
-      const mesh = new THREE.Mesh(geometry, materialSet[i % materialSet.length]);
+      const mesh = new THREE.Mesh(geometry, liveMaterials.get(i) ?? materialSet[i % materialSet.length]);
       mesh.userData.index = i;
       artifact.add(mesh);
       hitTargets.push(mesh);
@@ -224,13 +404,19 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       artifact.add(edge);
 
       if (important.has(i)) {
-        artifact.scale.setScalar(1.7);
+        artifact.scale.setScalar(1.12);
         const beacon = new THREE.Mesh(
           new THREE.TorusGeometry(0.72, 0.008, 5, 72),
           new THREE.MeshBasicMaterial({ color: 0xa9fff2, transparent: true, opacity: 0.55 }),
         );
         beacon.position.z = 0.02;
         artifact.add(beacon);
+        const outerBeacon = new THREE.Mesh(
+          new THREE.TorusGeometry(0.94, 0.006, 4, 84),
+          new THREE.MeshBasicMaterial({ color: 0xc7a56e, transparent: true, opacity: 0.32 }),
+        );
+        outerBeacon.position.z = -0.01;
+        artifact.add(outerBeacon);
       } else {
         artifact.scale.setScalar(0.68 + random() * 0.7);
       }
@@ -365,6 +551,7 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     const raycaster = new THREE.Raycaster();
     let hovered: number | null = null;
     let frameId = 0;
+    let videosStarted = false;
     const startedAt = performance.now();
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -402,6 +589,13 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       const selectedNow = selectedRef.current !== null;
       pointer.lerp(pointerTarget, reduceMotion ? 0.025 : 0.055);
 
+      if (activeRef.current && !videosStarted) {
+        videosStarted = true;
+        liveVideos.forEach((video) => {
+          void video.play().catch(() => undefined);
+        });
+      }
+
       const targetZ = selectedNow ? 21 : activity ? 18.2 : 31;
       camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, selectedNow ? 0.055 : 0.022);
       camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.x * 3.1, 0.022);
@@ -416,11 +610,53 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
         scanner.rotation.y = elapsed * 0.085;
         scanner.rotation.z = Math.sin(elapsed * 0.11) * 0.08;
         trajectoryGroup.rotation.y = Math.sin(elapsed * 0.045) * 0.1;
+        morphologies.forEach((morphology, index) => {
+          morphology.rotation.x += 0.00055 + index * 0.00008;
+          morphology.rotation.y += (index % 2 ? -1 : 1) * (0.001 + index * 0.00011);
+        });
         artifacts.forEach((artifact, index) => {
-          artifact.position.y = artifact.userData.baseY + Math.sin(elapsed * artifact.userData.speed + artifact.userData.phase) * 0.085;
           artifact.rotation.z += (index % 2 === 0 ? 1 : -1) * 0.00018;
         });
       }
+
+      morphologies.forEach((morphology, index) => {
+        const home = morphology.userData.home;
+        const destination = activeRef.current ? morphology.userData.exit : home;
+        morphology.position.lerp(destination, activeRef.current ? 0.045 : 0.028);
+        if (!activeRef.current) {
+          morphology.position.y = THREE.MathUtils.lerp(
+            morphology.position.y,
+            home.y + Math.sin(elapsed * 0.5 + morphology.userData.phase) * 0.16,
+            0.09,
+          );
+        }
+        const targetScale = activeRef.current ? 0.05 : 1;
+        const currentScale = morphology.scale.x;
+        const baseScale = [1.15, 1.15, 1.28, 1.25, 1.18, 1.25][index];
+        const nextScale = THREE.MathUtils.lerp(currentScale, targetScale * baseScale, activeRef.current ? 0.055 : 0.028);
+        morphology.scale.setScalar(nextScale);
+      });
+
+      morphologyMaterials.forEach((material) => {
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0 : 0.92, 0.05);
+      });
+      edgeMaterials.forEach((material) => {
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0 : 0.54, 0.05);
+      });
+
+      artifacts.forEach((artifact) => {
+        const target = featuredVideoTargets.get(artifact.userData.index);
+        if (target) {
+          const destination = activeRef.current ? target : artifact.userData.home;
+          artifact.position.lerp(destination, activeRef.current ? 0.036 : 0.018);
+          artifact.position.y += Math.sin(elapsed * artifact.userData.speed + artifact.userData.phase) * 0.0025;
+          const targetScale = activeRef.current ? 2.1 : 1.12;
+          const nextScale = THREE.MathUtils.lerp(artifact.scale.x, targetScale, 0.035);
+          artifact.scale.setScalar(nextScale);
+        } else {
+          artifact.position.y = artifact.userData.baseY + Math.sin(elapsed * artifact.userData.speed + artifact.userData.phase) * 0.085;
+        }
+      });
 
       if (activeRef.current && !selectedNow) {
         raycaster.setFromCamera(pointer, camera);
@@ -456,6 +692,9 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       documentMaterials.forEach((material) => { material.opacity = fade; });
       videoMaterials.forEach((material) => { material.opacity = Math.min(0.78, fade + 0.16); });
       imageMaterials.forEach((material) => { material.opacity = Math.min(0.7, fade + 0.08); });
+      liveMaterials.forEach((material) => {
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activity ? 0.92 : 0.08, 0.045);
+      });
       renderer.render(scene, camera);
     };
 
@@ -480,6 +719,15 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       slabGeometry.dispose();
       textures.documents.concat(textures.videos, textures.images).forEach((texture) => texture.dispose());
       materials.forEach((material) => material.dispose());
+      liveVideos.forEach((video) => {
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+      });
+      liveTextures.forEach((texture) => texture.dispose());
+      liveMaterials.forEach((material) => material.dispose());
+      morphologyMaterials.forEach((material) => material.dispose());
+      edgeMaterials.forEach((material) => material.dispose());
       renderer.dispose();
       mount.removeChild(renderer.domElement);
     };
