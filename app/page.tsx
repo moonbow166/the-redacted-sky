@@ -259,7 +259,7 @@ export default function Home() {
       </section>
 
       <aside className="morphology-index" aria-hidden={entered}>
-        <div className="morphology-heading">REPORTED FORMS / NOT VERIFIED CONSTRUCTION</div>
+        <div className="morphology-heading">SECONDARY FORMS / ENTER TO INSPECT</div>
         <ol>
           <li><span>01</span> ORB</li>
           <li><span>02</span> TIC-TAC</li>
@@ -271,9 +271,9 @@ export default function Home() {
       </aside>
 
       <div className="craft-callout" aria-hidden={entered}>
-        <span>PRIMARY RECONSTRUCTION / 03</span>
-        <strong>DISK FORM</strong>
-        <small>REALTIME 3D · UNKNOWN SCALE</small>
+        <span>PRIMARY RECONSTRUCTION / L-01</span>
+        <strong>THE SILENT LENS</strong>
+        <small>ARTIST MODEL · SCALE INDETERMINATE</small>
       </div>
 
       <aside className="field-index" aria-hidden={!entered || selectedIndex !== null}>

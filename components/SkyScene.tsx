@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 type SkySceneProps = {
   active: boolean;
@@ -27,6 +28,7 @@ type Morphology = THREE.Group & {
     phase: number;
     introScale: number;
     fieldScale: number;
+    aspectX: number;
   };
 };
 
@@ -196,7 +198,7 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x020506, 0.028);
 
-    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 150);
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 150);
     camera.position.set(0, 0.4, 31);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: "high-performance" });
@@ -204,23 +206,38 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     renderer.setClearColor(0x020405, 1);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.25;
+    renderer.toneMappingExposure = 0.94;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.domElement.setAttribute("aria-label", "Interactive three-dimensional UAP evidence archive");
     renderer.domElement.setAttribute("role", "img");
     mount.appendChild(renderer.domElement);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const roomEnvironment = new RoomEnvironment();
+    const environmentTarget = pmrem.fromScene(roomEnvironment, 0.055);
+    scene.environment = environmentTarget.texture;
 
     const field = new THREE.Group();
     field.rotation.x = -0.04;
     scene.add(field);
 
-    const ambient = new THREE.HemisphereLight(0x9fffee, 0x030608, 1.15);
+    const ambient = new THREE.HemisphereLight(0xc8d5d2, 0x030404, 0.38);
     scene.add(ambient);
-    const cyanLight = new THREE.PointLight(0x8effed, 18, 34, 1.8);
-    cyanLight.position.set(8, 3, 17);
-    scene.add(cyanLight);
-    const amberLight = new THREE.PointLight(0xc7a56e, 9, 28, 1.8);
-    amberLight.position.set(3, -5, 14);
-    scene.add(amberLight);
+    const keyLight = new THREE.DirectionalLight(0xd8e3e1, 4.8);
+    keyLight.position.set(-7, 11, 15);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(2048, 2048);
+    keyLight.shadow.camera.near = 1;
+    keyLight.shadow.camera.far = 55;
+    keyLight.shadow.bias = -0.0002;
+    scene.add(keyLight);
+    const rimLight = new THREE.PointLight(0xc79f68, 5.2, 30, 1.7);
+    rimLight.position.set(12, -6, 4);
+    scene.add(rimLight);
+    const coldFill = new THREE.PointLight(0x789892, 3.2, 34, 2);
+    coldFill.position.set(2, 5, 19);
+    scene.add(coldFill);
 
     const fleet = new THREE.Group();
     scene.add(fleet);
@@ -232,17 +249,16 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
         color: tint,
         map: hullColorTexture,
         roughnessMap: hullRoughnessTexture,
-        metalness: 0.92,
-        roughness: 0.29,
-        clearcoat: 0.72,
-        clearcoatRoughness: 0.16,
-        iridescence: 0.18,
+        bumpMap: hullRoughnessTexture,
+        bumpScale: 0.012,
+        metalness: 0.76,
+        roughness: 0.36,
+        clearcoat: 0.18,
+        clearcoatRoughness: 0.32,
+        iridescence: 0.035,
         iridescenceIOR: 1.34,
-        transparent: true,
-        opacity: 0.98,
-        emissive: 0x061817,
-        emissiveIntensity: 0.38,
-        side: THREE.DoubleSide,
+        emissive: 0x030706,
+        emissiveIntensity: 0.08,
       });
       morphologyMaterials.push(material);
       return material;
@@ -270,11 +286,12 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       phase: number,
       introScale: number,
       fieldScale = introScale * 0.72,
+      aspectX = 1,
     ) => {
       const morphology = model as Morphology;
       morphology.position.copy(home);
-      morphology.scale.setScalar(introScale);
-      morphology.userData = { home, exit, phase, introScale, fieldScale };
+      morphology.scale.set(introScale * aspectX, introScale, introScale);
+      morphology.userData = { home, exit, phase, introScale, fieldScale, aspectX };
       morphologies.push(morphology);
       fleet.add(morphology);
       return morphology;
@@ -316,7 +333,7 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       meridian.rotation.y = rotation;
       orb.add(meridian);
     });
-    registerMorphology(orb, new THREE.Vector3(4.9, 3.7, 11.2), new THREE.Vector3(-7.2, 3.5, -1.5), 0.2, 1.2, 0.86);
+    registerMorphology(orb, new THREE.Vector3(12.8, 4.8, 1), new THREE.Vector3(-7.2, 3.5, -1.5), 0.2, 0.28, 0.86);
 
     const ticTac = new THREE.Group();
     const ticMaterial = makeSkin(0x89918e);
@@ -339,59 +356,65 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       port.position.set(-0.3 + i * 0.2, -0.49, 0.08);
       ticTac.add(port);
     }
-    registerMorphology(ticTac, new THREE.Vector3(9.6, 3.0, 10.2), new THREE.Vector3(7.1, 4.1, -1.8), 1.4, 1.18, 0.82);
+    registerMorphology(ticTac, new THREE.Vector3(11.5, -4.2, 3), new THREE.Vector3(7.1, 4.1, -1.8), 1.4, 0.34, 0.82);
 
     const disk = new THREE.Group();
-    const diskMaterial = makeSkin(0x374b49);
+    const diskMaterial = makeSkin(0x5a5046);
     const diskProfile = [
-      new THREE.Vector2(0.02, -0.4),
-      new THREE.Vector2(0.82, -0.38),
-      new THREE.Vector2(1.55, -0.26),
-      new THREE.Vector2(2.28, -0.09),
+      new THREE.Vector2(0.02, -0.48),
+      new THREE.Vector2(0.82, -0.45),
+      new THREE.Vector2(1.55, -0.3),
+      new THREE.Vector2(2.28, -0.11),
       new THREE.Vector2(2.62, 0),
-      new THREE.Vector2(2.3, 0.09),
-      new THREE.Vector2(1.45, 0.28),
-      new THREE.Vector2(0.58, 0.43),
-      new THREE.Vector2(0.02, 0.46),
+      new THREE.Vector2(2.3, 0.1),
+      new THREE.Vector2(1.45, 0.3),
+      new THREE.Vector2(0.58, 0.49),
+      new THREE.Vector2(0.02, 0.52),
     ];
     const diskBody = new THREE.Mesh(new THREE.LatheGeometry(diskProfile, 96), diskMaterial);
     diskBody.rotation.x = Math.PI / 2;
     disk.add(diskBody);
-    const domeMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0x456c69,
-      metalness: 0.28,
-      roughness: 0.12,
-      transmission: 0.52,
-      thickness: 0.8,
-      transparent: true,
-      opacity: 0.72,
-      clearcoat: 1,
-      iridescence: 0.48,
-    });
-    morphologyMaterials.push(domeMaterial);
-    const diskDome = new THREE.Mesh(new THREE.SphereGeometry(0.82, 64, 36), domeMaterial);
-    diskDome.scale.z = 0.42;
-    diskDome.position.z = 0.34;
+    const crownMaterial = makeSkin(0x403b36);
+    const diskDome = new THREE.Mesh(new THREE.SphereGeometry(0.92, 64, 36), crownMaterial);
+    diskDome.scale.z = 0.24;
+    diskDome.position.set(0.14, -0.08, 0.48);
     disk.add(diskDome);
-    const aperture = new THREE.Mesh(new THREE.CylinderGeometry(0.54, 0.68, 0.2, 64), makeSkin(0x172422));
+    const apertureMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x080a09,
+      metalness: 0.52,
+      roughness: 0.72,
+      emissive: 0x1d1308,
+      emissiveIntensity: 0.16,
+    });
+    morphologyMaterials.push(apertureMaterial);
+    const aperture = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.76, 0.18, 64), apertureMaterial);
     aperture.rotation.x = Math.PI / 2;
-    aperture.position.z = -0.38;
+    aperture.position.z = -0.46;
     disk.add(aperture);
-    const rimGlow = new THREE.Mesh(new THREE.TorusGeometry(2.16, 0.022, 8, 160), makeGlow(0x9fffee, 0.68));
-    disk.add(rimGlow);
-    for (let i = 0; i < 28; i += 1) {
-      const angle = (i / 28) * Math.PI * 2;
-      const panel = new THREE.Mesh(
-        new THREE.BoxGeometry(0.28, 0.045, 0.035),
-        i % 7 === 0 ? makeGlow(0xc7a56e, 0.72) : makeGlow(0x86b8b1, 0.3),
-      );
-      panel.position.set(Math.cos(angle) * 1.82, Math.sin(angle) * 1.82, -0.24);
-      panel.rotation.z = angle;
-      disk.add(panel);
-    }
-    const diskHalo = new THREE.Mesh(new THREE.TorusGeometry(2.95, 0.012, 6, 180), makeGlow(0xa9fff2, 0.18));
-    disk.add(diskHalo);
-    registerMorphology(disk, new THREE.Vector3(7.1, 0.25, 10.4), new THREE.Vector3(7.2, -3.2, 0.5), 2.2, 1.82, 0.82);
+    const seamMaterial = new THREE.MeshPhysicalMaterial({ color: 0x171817, metalness: 0.8, roughness: 0.48 });
+    morphologyMaterials.push(seamMaterial);
+    const hullSeam = new THREE.Mesh(new THREE.TorusGeometry(2.37, 0.018, 8, 192), seamMaterial);
+    hullSeam.position.z = -0.015;
+    disk.add(hullSeam);
+    [[-0.92, -0.28, -0.08], [0.15, -0.66, 0.12], [1.05, -0.16, -0.16]].forEach(([x, y, rotation]) => {
+      const recess = new THREE.Mesh(new THREE.SphereGeometry(0.25, 36, 20), apertureMaterial);
+      recess.scale.set(1.72, 0.62, 0.14);
+      recess.position.set(x, y, -0.52);
+      recess.rotation.z = rotation;
+      disk.add(recess);
+    });
+    const asymmetry = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.19, 0.08), seamMaterial);
+    asymmetry.position.set(-2.35, 0.34, -0.08);
+    asymmetry.rotation.z = -0.2;
+    disk.add(asymmetry);
+    const heatMark = new THREE.Mesh(
+      new THREE.TorusGeometry(1.64, 0.028, 8, 72, Math.PI * 0.42),
+      new THREE.MeshPhysicalMaterial({ color: 0x725b42, metalness: 0.62, roughness: 0.58 }),
+    );
+    heatMark.position.z = 0.34;
+    heatMark.rotation.z = 2.3;
+    disk.add(heatMark);
+    registerMorphology(disk, new THREE.Vector3(6.8, 0.1, 9.3), new THREE.Vector3(7.2, -3.2, 0.5), 2.2, 1.94, 0.86, 1.14);
 
     const triangle = new THREE.Group();
     const triangleShape = new THREE.Shape();
@@ -416,7 +439,7 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       light.position.set(x, y, 0.17);
       triangle.add(light);
     });
-    registerMorphology(triangle, new THREE.Vector3(9.25, -1.65, 11), new THREE.Vector3(-7.2, -3.25, -2), 3.1, 1.22, 0.82);
+    registerMorphology(triangle, new THREE.Vector3(13, -2, 0), new THREE.Vector3(-7.2, -3.25, -2), 3.1, 0.32, 0.82);
 
     const cylinder = new THREE.Group();
     const cylinderAssembly = new THREE.Group();
@@ -438,7 +461,7 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     capA.position.y = -1.17;
     capB.position.y = 1.17;
     cylinderAssembly.add(capA, capB);
-    registerMorphology(cylinder, new THREE.Vector3(5.9, -3.15, 11.6), new THREE.Vector3(-2.4, 5.2, -4.5), 4.2, 1.18, 0.78);
+    registerMorphology(cylinder, new THREE.Vector3(5.5, -5.5, 0), new THREE.Vector3(-2.4, 5.2, -4.5), 4.2, 0.3, 0.78);
 
     const boomerang = new THREE.Group();
     const boomShape = new THREE.Shape();
@@ -465,7 +488,14 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       node.position.set(x, 0.05 + Math.abs(x) * 0.25, 0.18);
       boomerang.add(node);
     }
-    registerMorphology(boomerang, new THREE.Vector3(10.4, -3.55, 9.4), new THREE.Vector3(2.8, -5.2, -4.5), 5.1, 1.08, 0.74);
+    registerMorphology(boomerang, new THREE.Vector3(10, 5, -2), new THREE.Vector3(2.8, -5.2, -4.5), 5.1, 0.26, 0.74);
+
+    fleet.traverse((object) => {
+      if (object instanceof THREE.Mesh) {
+        object.castShadow = true;
+        object.receiveShadow = true;
+      }
+    });
 
     const textures = {
       documents: Array.from({ length: 5 }, (_, index) => makeEvidenceTexture("document", index)),
@@ -769,9 +799,9 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
 
       const targetZ = selectedNow ? 21 : activity ? 18.2 : 31;
       camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, selectedNow ? 0.055 : 0.022);
-      camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.x * 3.1, 0.022);
-      camera.position.y = THREE.MathUtils.lerp(camera.position.y, pointer.y * 1.8 + 0.25, 0.022);
-      camera.lookAt(pointer.x * 0.75, pointer.y * 0.42, -2.4);
+      camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.x * (activeRef.current ? 3.1 : 0.55), 0.022);
+      camera.position.y = THREE.MathUtils.lerp(camera.position.y, pointer.y * (activeRef.current ? 1.8 : 0.38) + 0.25, 0.022);
+      camera.lookAt(pointer.x * (activeRef.current ? 0.75 : 0.18), pointer.y * (activeRef.current ? 0.42 : 0.12), -2.4);
 
       if (!reduceMotion) {
         field.rotation.y += activeRef.current ? 0.00034 : 0.0001;
@@ -782,33 +812,39 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
         scanner.rotation.z = Math.sin(elapsed * 0.11) * 0.08;
         trajectoryGroup.rotation.y = Math.sin(elapsed * 0.045) * 0.1;
         morphologies.forEach((morphology, index) => {
-          morphology.rotation.x += 0.00055 + index * 0.00008;
-          morphology.rotation.y += (index % 2 ? -1 : 1) * (0.001 + index * 0.00011);
+          if (index === 2) return;
+          morphology.rotation.x += 0.00009 + index * 0.00002;
+          morphology.rotation.y += (index % 2 ? -1 : 1) * (0.00016 + index * 0.000025);
         });
         artifacts.forEach((artifact, index) => {
           artifact.rotation.z += (index % 2 === 0 ? 1 : -1) * 0.00018;
         });
       }
 
-      morphologies.forEach((morphology, index) => {
+      const correctionPhase = elapsed % 11.4;
+      const correction = correctionPhase > 11.15
+        ? Math.sin(((correctionPhase - 11.15) / 0.25) * Math.PI) * 0.042
+        : 0;
+      disk.rotation.x = -0.24 + Math.sin(elapsed * 0.09) * 0.008 + pointer.y * 0.012;
+      disk.rotation.y = 0.13 + pointer.x * 0.024 + correction;
+      disk.rotation.z = -0.075 + Math.sin(elapsed * 0.055) * 0.006;
+
+      morphologies.forEach((morphology) => {
         const home = morphology.userData.home;
         const destination = (activeRef.current ? morphology.userData.exit : home).clone();
         destination.y += Math.sin(elapsed * 0.45 + morphology.userData.phase) * (activeRef.current ? 0.24 : 0.16);
         morphology.position.lerp(destination, activeRef.current ? 0.045 : 0.028);
         const targetScale = activeRef.current ? morphology.userData.fieldScale : morphology.userData.introScale;
-        const currentScale = morphology.scale.x;
+        const currentScale = morphology.scale.y;
         const nextScale = THREE.MathUtils.lerp(currentScale, targetScale, activeRef.current ? 0.035 : 0.028);
-        morphology.scale.setScalar(nextScale);
+        morphology.scale.set(nextScale * morphology.userData.aspectX, nextScale, nextScale);
       });
 
-      morphologyMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.78 : 0.98, 0.035);
-      });
       edgeMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.26 : 0.48, 0.035);
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.2 : 0.08, 0.035);
       });
       glowMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.5 : 0.72, 0.03);
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.28 : 0.14, 0.03);
       });
 
       artifacts.forEach((artifact) => {
@@ -898,6 +934,9 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       morphologyMaterials.forEach((material) => material.dispose());
       edgeMaterials.forEach((material) => material.dispose());
       glowMaterials.forEach((material) => material.dispose());
+      environmentTarget.dispose();
+      roomEnvironment.dispose();
+      pmrem.dispose();
       renderer.dispose();
       mount.removeChild(renderer.domElement);
     };
