@@ -17,6 +17,7 @@ const featuredCases = [
       "Two areas of contrast move together near the center of an infrared sensor's field of view. The accompanying mission report offers a probable identification. The visual record alone does not settle it.",
     video:
       "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688762/DOD_111688762-1280x720-3000k.mp4",
+    isPreview: false,
   },
   {
     id: "CONTACT 141",
@@ -30,6 +31,7 @@ const featuredCases = [
     description:
       "The crew reported an object with a sizeable dimension while one day out from Earth. Through a monocular, they considered whether it could be the separated S-IVB stage.",
     video: "",
+    isPreview: false,
   },
   {
     id: "CONTACT 067",
@@ -43,6 +45,7 @@ const featuredCases = [
     description:
       "An infrared sensor tracks multiple areas of contrast near a waterline. Sensor movement, range, wind and target velocity remain unavailable in the public record.",
     video: "",
+    isPreview: false,
   },
 ];
 
@@ -57,10 +60,34 @@ export default function Home() {
 
   const selectedCase = useMemo(() => {
     if (selectedIndex === null) return null;
+    if (selectedIndex === 80) return featuredCases[0];
     if (selectedIndex === 140) return featuredCases[1];
     if (selectedIndex === 66) return featuredCases[2];
-    return featuredCases[0];
+    const type = selectedIndex < 119 ? "DOCUMENT" : selectedIndex < 147 ? "VIDEO" : "IMAGERY";
+    return {
+      id: `CONTACT ${String(selectedIndex + 1).padStart(3, "0")}`,
+      title: "FILE INDEXED / CONNECTION PENDING",
+      location: "SOURCE INDEX",
+      date: "RELEASE 01",
+      agency: "U.S. GOVERNMENT ARCHIVE",
+      duration: type,
+      classification: "VISUAL PROTOTYPE",
+      assessment: "NOT YET INGESTED",
+      description:
+        "This contact is present in the 161-record source index. Its full document, media and translated metadata have not yet been connected to this visual prototype.",
+      video: "",
+      isPreview: true,
+    };
   }, [selectedIndex]);
+
+  const hoveredType =
+    hoveredIndex === null
+      ? ""
+      : hoveredIndex < 119
+        ? "DOCUMENT"
+        : hoveredIndex < 147
+          ? "VIDEO"
+          : "IMAGERY";
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -148,7 +175,7 @@ export default function Home() {
         <div className="system-status">
           <span className="status-light" />
           <span>FIELD ACTIVE</span>
-          <span className="dim hide-mobile">161 CONTACTS / 108 REDACTED</span>
+          <span className="dim hide-mobile">3 INGESTED / 158 INDEXED</span>
           <button
             className="sound-toggle"
             type="button"
@@ -203,6 +230,10 @@ export default function Home() {
             <dt>REDACTED</dt>
             <dd>108</dd>
           </div>
+          <div>
+            <dt>CONNECTED</dt>
+            <dd>003</dd>
+          </div>
         </dl>
       </aside>
 
@@ -216,7 +247,7 @@ export default function Home() {
           <strong>
             CONTACT {String((hoveredIndex ?? 0) + 1).padStart(3, "0")}
           </strong>
-          <small>CLICK TO OPEN EVIDENCE</small>
+          <small>{hoveredType} · CLICK TO INSPECT</small>
         </div>
         <span className="target-bracket">]</span>
       </div>
@@ -236,7 +267,9 @@ export default function Home() {
           <>
             <div className="case-topline">
               <span>{selectedCase.id}</span>
-              <span className="classification">{selectedCase.classification}</span>
+              <span className={`classification ${selectedCase.isPreview ? "is-preview" : ""}`}>
+                {selectedCase.classification}
+              </span>
               <button type="button" onClick={closeCase} aria-label="Close evidence file">
                 CLOSE [ESC]
               </button>
@@ -256,9 +289,19 @@ export default function Home() {
                       crossOrigin="anonymous"
                     />
                   ) : (
-                    <div className="signal-placeholder">
-                      <div className="signal-orb" />
-                      <span>VISUAL RECORD RESTRICTED</span>
+                    <div className={`signal-placeholder ${selectedCase.isPreview ? "pending-record" : ""}`}>
+                      <div className="pending-document" aria-hidden="true">
+                        <i />
+                        <i />
+                        <i />
+                        <b />
+                        <b />
+                      </div>
+                      <span>
+                        {selectedCase.isPreview
+                          ? "FULL RECORD CONNECTION PENDING"
+                          : "VISUAL RECORD RESTRICTED"}
+                      </span>
                     </div>
                   )}
                   <span className="frame-corner corner-a" />
@@ -299,24 +342,30 @@ export default function Home() {
                 </div>
                 <p className="case-description">{selectedCase.description}</p>
 
-                <div className="assessment">
+                <div className={`assessment ${selectedCase.isPreview ? "is-disabled" : ""}`}>
                   <div className="assessment-title">
                     <span>WHAT DO YOU THINK YOU SAW?</span>
                     <small>YOUR RESPONSE REMAINS ON THIS DEVICE</small>
                   </div>
-                  <div className="verdicts">
-                    {verdicts.map((item) => (
-                      <button
-                        key={item}
-                        type="button"
-                        className={verdict === item ? "is-selected" : ""}
-                        onClick={() => setVerdict(item)}
-                      >
-                        <span className="verdict-dot" />
-                        {item}
-                      </button>
-                    ))}
-                  </div>
+                  {selectedCase.isPreview ? (
+                    <div className="ingestion-notice">
+                      THIS FILE WILL BECOME INTERACTIVE WHEN ITS SOURCE MATERIAL IS CONNECTED.
+                    </div>
+                  ) : (
+                    <div className="verdicts">
+                      {verdicts.map((item) => (
+                        <button
+                          key={item}
+                          type="button"
+                          className={verdict === item ? "is-selected" : ""}
+                          onClick={() => setVerdict(item)}
+                        >
+                          <span className="verdict-dot" />
+                          {item}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   {verdict && (
                     <div className="verdict-response">
                       ASSESSMENT LOGGED: <strong>{verdict}</strong>
@@ -330,7 +379,7 @@ export default function Home() {
       </section>
 
       <footer className="credit-line">
-        SOURCE: U.S. GOVERNMENT RELEASE 01 · CHINESE INDEX: CHINLEEZ / CC BY 4.0
+        VISUAL PROTOTYPE V0.2 · SOURCE: U.S. GOVERNMENT RELEASE 01 · CHINESE INDEX: CHINLEEZ / CC BY 4.0
       </footer>
 
       <p className="sr-only">
