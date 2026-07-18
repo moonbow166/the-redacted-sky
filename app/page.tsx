@@ -92,10 +92,12 @@ const verdicts = ["ORDINARY", "SENSOR AMBIGUITY", "INSUFFICIENT", "ANOMALOUS"];
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
+  const [scrollStage, setScrollStage] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [soundOn, setSoundOn] = useState(true);
   const [verdict, setVerdict] = useState<string | null>(null);
+  const storyActive = entered || scrollStage > 0;
 
   const selectedCase = useMemo(() => {
     if (selectedIndex === null) return null;
@@ -132,13 +134,38 @@ export default function Home() {
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setSelectedIndex(null);
-        setVerdict(null);
+        if (selectedIndex !== null) {
+          setSelectedIndex(null);
+          setVerdict(null);
+        } else if (entered) {
+          setEntered(false);
+          window.setTimeout(() => window.scrollTo({ top: window.innerHeight * 4.2, behavior: "smooth" }), 50);
+        }
       }
-      if (event.key === "Enter" && !entered) setEntered(true);
+      if (event.key === "Enter" && !storyActive) {
+        window.scrollTo({ top: window.innerHeight * 0.92, behavior: "smooth" });
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
+  }, [entered, selectedIndex, storyActive]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const unit = Math.max(window.innerHeight, 1);
+      const nextStage = Math.max(0, Math.min(4, Math.floor((window.scrollY + unit * 0.24) / unit)));
+      setScrollStage((current) => (current === nextStage ? current : nextStage));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = entered ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [entered]);
 
   useEffect(() => {
@@ -190,10 +217,22 @@ export default function Home() {
     setVerdict(null);
   };
 
+  const enterArchive = () => {
+    setEntered(true);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
+  const leaveArchive = () => {
+    setSelectedIndex(null);
+    setVerdict(null);
+    setEntered(false);
+    window.setTimeout(() => window.scrollTo({ top: window.innerHeight * 4.15, behavior: "smooth" }), 60);
+  };
+
   return (
-    <main className={`experience ${entered ? "is-entered" : "is-intro"}`}>
+    <main className={`experience ${storyActive ? "is-entered" : "is-intro"} ${entered ? "is-archive" : "is-story"}`}>
       <SkyScene
-        active={entered}
+        active={storyActive}
         selected={selectedIndex}
         onHover={setHoveredIndex}
         onSelect={(index) => {
@@ -214,8 +253,13 @@ export default function Home() {
         </div>
         <div className="system-status">
           <span className="status-light" />
-          <span>FIELD ACTIVE</span>
-          <span className="dim hide-mobile">5 INGESTED / 156 INDEXED</span>
+          <span>{entered ? "FIELD ACTIVE" : "PURSUE ARCHIVE"}</span>
+          <span className="dim hide-mobile">RELEASE 01 CONNECTED / 04 DISCOVERED</span>
+          {entered && (
+            <button className="archive-exit" type="button" onClick={leaveArchive}>
+              EXIT FIELD [ESC]
+            </button>
+          )}
           <button
             className="sound-toggle"
             type="button"
@@ -242,19 +286,19 @@ export default function Home() {
         <button
           className="signal-lock"
           type="button"
-          onClick={() => setEntered(true)}
-          aria-label="Acquire the signal and enter the field"
+          onClick={() => window.scrollTo({ top: window.innerHeight * 0.92, behavior: "smooth" })}
+          aria-label="Scroll down to begin declassification"
         >
           <span className="lock-orbit orbit-a" aria-hidden="true" />
           <span className="lock-orbit orbit-b" aria-hidden="true" />
           <span className="lock-cross" aria-hidden="true" />
           <span className="lock-core">
-            <small>ACQUIRE</small>
-            <strong>SIGNAL</strong>
+            <small>BEGIN</small>
+            <strong>DECLASSIFY</strong>
           </span>
         </button>
         <div className="entry-note">
-          HEADPHONES RECOMMENDED · MOVE TO SCAN · CLICK TO INSPECT
+          SCROLL TO DECLASSIFY · HEADPHONES RECOMMENDED
         </div>
       </section>
 
@@ -274,6 +318,143 @@ export default function Home() {
         <span>PRIMARY RECONSTRUCTION / L-01</span>
         <strong>THE SILENT LENS</strong>
         <small>ARTIST MODEL · SCALE INDETERMINATE</small>
+      </div>
+
+      <nav className="story-progress" aria-label="Declassification chapters">
+        {["ENCOUNTER", "DISCLOSURE", "RELEASES", "EVIDENCE", "ARCHIVE"].map((label, index) => (
+          <button
+            key={label}
+            type="button"
+            className={scrollStage === index ? "is-current" : ""}
+            onClick={() => window.scrollTo({ top: window.innerHeight * index, behavior: "smooth" })}
+            aria-label={`Go to ${label.toLowerCase()} chapter`}
+          >
+            <i />
+            <span>{label}</span>
+          </button>
+        ))}
+      </nav>
+
+      <div className={`story-rail stage-${scrollStage}`} aria-hidden={entered}>
+        <div className="story-spacer" aria-hidden="true" />
+
+        <section className="story-chapter declassification-chapter" id="declassification">
+          <div className="chapter-copy chapter-copy-left">
+            <div className="chapter-index">01 / DISCLOSURE</div>
+            <p className="chapter-overline">CLEARED FOR PUBLIC RELEASE</p>
+            <h2>
+              THE FILES ARE OPEN.
+              <br />
+              <span>THE ANSWER IS NOT.</span>
+            </h2>
+            <p>
+              Records can be released without becoming clear. Every missing coordinate,
+              clipped sensor frame and black bar changes what remains possible.
+            </p>
+          </div>
+
+          <div className="declassified-sheet" aria-label="Animated declassified document">
+            <div className="sheet-topline">
+              <span>UNCLASSIFIED // RELEASE AUTHORIZED</span>
+              <span>CASE L-01</span>
+            </div>
+            <div className="release-stamp">DECLASSIFIED</div>
+            <div className="sheet-heading">OBSERVATION OF ANOMALOUS AERIAL OBJECT</div>
+            <div className="sheet-line long" />
+            <div className="sheet-line medium" />
+            <div className="sheet-line long" />
+            <div className="sheet-line short" />
+            <div className="redaction-strip strip-a">SOURCE IDENTITY</div>
+            <div className="redaction-strip strip-b">SENSOR PLATFORM</div>
+            <div className="redaction-strip strip-c">EXACT LOCATION</div>
+            <div className="sheet-coordinates">██°██′██″ N &nbsp; / &nbsp; ███°██′██″ W</div>
+            <div className="sheet-footer">RELEASE DOES NOT CONSTITUTE ANALYTICAL JUDGMENT</div>
+          </div>
+        </section>
+
+        <section className="story-chapter release-chapter" id="releases">
+          <div className="chapter-index">02 / THE RELEASES</div>
+          <div className="release-headline">
+            <span>THE FIRST DROP</span>
+            <strong>161</strong>
+            <span>PUBLIC RECORDS</span>
+          </div>
+          <div className="release-stats">
+            <div><strong>119</strong><span>PDF DOCUMENTS</span></div>
+            <div><strong>028</strong><span>VIDEOS</span></div>
+            <div><strong>014</strong><span>IMAGES</span></div>
+            <div><strong>004</strong><span>RELEASE WAVES</span></div>
+          </div>
+          <div className="release-tape">
+            <div><span>01</span><strong>MAY 08</strong><small>CONNECTED</small></div>
+            <div><span>02</span><strong>MAY 22</strong><small>INGEST QUEUED</small></div>
+            <div><span>03</span><strong>JUN 12</strong><small>INGEST QUEUED</small></div>
+            <div className="is-latest"><span>04</span><strong>JUL 10</strong><small>LATEST OFFICIAL DROP</small></div>
+          </div>
+          <p className="release-disclaimer">
+            RELEASE 01 IS CONNECTED TO THIS PROTOTYPE. RELEASES 02–04 ARE VERIFIED AND AWAITING NORMALIZATION.
+          </p>
+        </section>
+
+        <section className="story-chapter evidence-chapter" id="evidence">
+          <div className="evidence-heading">
+            <div>
+              <div className="chapter-index">03 / FEATURED EVIDENCE</div>
+              <h2>THREE SIGNALS.<br /><span>NO SINGLE STORY.</span></h2>
+            </div>
+            <p>
+              Official footage is presented as released. Reconstruction, description and
+              community interpretation remain separate layers.
+            </p>
+          </div>
+          <div className="featured-dossiers">
+            {featuredCases.slice(0, 3).map((item, index) => (
+              <button
+                className="featured-dossier"
+                type="button"
+                key={item.id}
+                onClick={() => {
+                  setSelectedIndex(item.index);
+                  setVerdict(null);
+                }}
+              >
+                <video
+                  src={item.video}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  crossOrigin="anonymous"
+                />
+                <span className="dossier-scan" aria-hidden="true" />
+                <span className="dossier-number">0{index + 1}</span>
+                <span className="dossier-meta">{item.location} / {item.date}</span>
+                <strong>{item.title}</strong>
+                <span className="dossier-open">OPEN EVIDENCE ↗</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="story-chapter archive-chapter" id="archive">
+          <div className="archive-gate">
+            <div className="chapter-index">04 / THE ARCHIVE</div>
+            <p className="archive-count">161 CONTACTS / 5 FULLY CONNECTED</p>
+            <h2>THE SKY IS<br /><span>NOT EMPTY.</span></h2>
+            <p>
+              Enter the spatial archive to scan records, open official footage and leave
+              your own assessment. The field will expand as later releases are ingested.
+            </p>
+            <button className="archive-enter" type="button" onClick={enterArchive}>
+              <span>ENTER THE FULL FIELD</span>
+              <i aria-hidden="true" />
+            </button>
+            <div className="archive-source-line">
+              SOURCE 01 / U.S. GOVERNMENT PURSUE · INDEX / CHINLEEZ CC BY 4.0
+            </div>
+          </div>
+        </section>
       </div>
 
       <aside className="field-index" aria-hidden={!entered || selectedIndex !== null}>
@@ -325,7 +506,7 @@ export default function Home() {
         MOVE TO SCAN THE FIELD
       </div>
 
-      <div className="coordinates" aria-hidden="true">
+      <div className={`coordinates ${entered ? "is-visible" : ""}`} aria-hidden="true">
         <span>OBSERVATION NODE 34.0522° N / 118.2437° W</span>
         <span>T+ {entered ? "00:00:17:26" : "STANDBY"}</span>
       </div>
@@ -447,7 +628,7 @@ export default function Home() {
       </section>
 
       <footer className="credit-line">
-        VISUAL PROTOTYPE V0.3 · SOURCE: U.S. GOVERNMENT RELEASE 01 · CHINESE INDEX: CHINLEEZ / CC BY 4.0
+        VISUAL PROTOTYPE V0.6 · PURSUE RELEASES 01–04 · CHINESE INDEX: CHINLEEZ / CC BY 4.0
       </footer>
 
       <p className="sr-only">
