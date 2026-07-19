@@ -1,0 +1,1953 @@
+{
+  "generatedAt": "2026-07-18T02:04:10Z",
+  "parserVersion": "1.0.0",
+  "sourceSnapshot": {
+    "path": "data/source/pursue.snapshot.json",
+    "sha256": "ae80e6ec7acfbd1304db538256bc3089a18012ed39ebb3e7a742d6b2d02b9965"
+  },
+  "sources": [
+    {
+      "id": "war-pursue-page",
+      "role": "primary official index and release metadata",
+      "url": "https://www.war.gov/UFO/",
+      "fetchedAt": "2026-07-18T02:04:10Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.war.gov/UFO/",
+      "retrievalMethod": "browser-rendered DOM",
+      "contentHashAlgorithm": "sha256",
+      "contentHash": "91ff0add0188e0b9597feba673a5a34eae4e2f59d18402e43e183a0f6fa95b55",
+      "license": "U.S. federal government work; public domain where 17 U.S.C. §105 applies, subject to per-asset markings."
+    },
+    {
+      "id": "war-pursue-csv",
+      "role": "primary official record feed observed by the official page",
+      "url": "https://www.war.gov/Portals/1/Interactive/2026/UFO/uap-data.csv?release=4",
+      "fetchedAt": "2026-07-18T02:04:10Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.war.gov/Portals/1/Interactive/2026/UFO/uap-data.csv?release=4",
+      "retrievalMethod": "browser resource request; 334 rendered rows paginated and verified",
+      "contentHashAlgorithm": "sha256",
+      "contentHash": "91ff0add0188e0b9597feba673a5a34eae4e2f59d18402e43e183a0f6fa95b55",
+      "contentHashScope": "Canonical JSON projection of every rendered official row; direct non-browser CSV retrieval returned HTTP 403.",
+      "license": "U.S. federal government work; public domain where 17 U.S.C. §105 applies, subject to per-asset markings."
+    },
+    {
+      "id": "pursue-report-mirror",
+      "role": "auxiliary mirror used only for descriptions, DVIDS metadata, and remote asset URLs",
+      "url": "https://pursue.report/",
+      "fetchedAt": "2026-07-18T02:04:10Z",
+      "httpStatus": 200,
+      "finalUrl": "https://pursue.report/",
+      "retrievalMethod": "HTTP GET and Next.js public payload extraction",
+      "contentHashAlgorithm": "sha256",
+      "contentHash": "a5584e97834fb3e6f9ffbf77bcb89d677fc114fcc422f572701157cdca7b22fd",
+      "license": "Third-party mirror; no editorial scoring or analysis imported."
+    },
+    {
+      "id": "chinleez-release-01-index",
+      "role": "Release 01 translation matching and bilingual community index",
+      "url": "https://raw.githubusercontent.com/chinleez/uap-disclosure-2026/main/uap_index.json",
+      "fetchedAt": "2026-07-18T02:04:10Z",
+      "httpStatus": 200,
+      "finalUrl": "https://raw.githubusercontent.com/chinleez/uap-disclosure-2026/main/uap_index.json",
+      "retrievalMethod": "HTTP GET",
+      "contentHashAlgorithm": "sha256",
+      "contentHash": "38545f8fa2918c877eb4cabcac33a50682df094a1d12cb010f2178f930966147",
+      "license": "CC BY 4.0; attribution: chinleez/uap-disclosure-2026."
+    },
+    {
+      "id": "chinleez-release-01-translations",
+      "role": "Release 01 Chinese descriptions",
+      "url": "https://raw.githubusercontent.com/chinleez/uap-disclosure-2026/main/translations_zh.json",
+      "fetchedAt": "2026-07-18T02:04:10Z",
+      "httpStatus": 200,
+      "finalUrl": "https://raw.githubusercontent.com/chinleez/uap-disclosure-2026/main/translations_zh.json",
+      "retrievalMethod": "HTTP GET",
+      "contentHashAlgorithm": "sha256",
+      "contentHash": "68a95169cf26ab3aa20971a8add7c186d56ba922e012f7af6380ab19fab3bc0a",
+      "license": "CC BY 4.0; attribution: chinleez/uap-disclosure-2026."
+    }
+  ],
+  "licenseNotes": [
+    "U.S. federal-government originals are labeled public domain where 17 U.S.C. §105 applies; individual asset markings and third-party material must still be checked.",
+    "Release 01 Chinese translations and community index structure are attributed to chinleez/uap-disclosure-2026 under CC BY 4.0."
+  ],
+  "normalizationPolicies": {
+    "identifiers": "Official identifier prefixes are preserved. Only the one identifier reused in multiple releases receives an @release-NN collision suffix.",
+    "dates": "Dates are normalized only when the source supplies enough precision; otherwise the source value is retained and reported.",
+    "locations": "No coordinates were inferred. Regional, withheld, and unknown locations always retain null coordinates.",
+    "statuses": "Unresolved and resolved require explicit official wording. Historical is a temporal class for pre-2000 non-video material, not a resolution claim.",
+    "summaries": "Case summaries are source descriptions shortened to 420 characters; no extraterrestrial interpretation is added."
+  },
+  "manualOverrides": [
+    {
+      "field": "source enrichment",
+      "reason": "The official CSV rejected non-browser retrieval with HTTP 403. Official browser-rendered rows were used to verify all 334 index entries; descriptions and asset URLs were enriched from the public pursue.report mirror and kept separately attributed."
+    },
+    {
+      "field": "descriptionZh",
+      "reason": "Release 01 translations were matched by official asset URL, thumbnail URL, DVIDS ID, or unique raw identifier; translation origin is recorded per source snapshot."
+    },
+    {
+      "field": "record id",
+      "reason": "Collision suffixes were added only for reused identifiers: FBI-UAP-D014 (2)."
+    },
+    {
+      "field": "coordinates",
+      "reason": "All coordinates remain null because the official index supplies place labels but no authoritative coordinates."
+    },
+    {
+      "field": "case grouping sts-80-1996",
+      "recordIds": [
+        "NASA-UAP-D030",
+        "NASA-UAP-D031",
+        "NASA-UAP-D032"
+      ],
+      "reason": "The official titles identify three consecutively numbered images from the same STS-80 mission incident and source package."
+    },
+    {
+      "field": "case grouping colorado-springs-2022",
+      "recordIds": [
+        "FBI-UAP-D001",
+        "FBI-UAP-D002",
+        "FBI-UAP-D003",
+        "ICA-UAP-D001"
+      ],
+      "reason": "All four official titles name the Colorado Springs 2022 incident; the ICA record is explicitly an analysis of that incident."
+    },
+    {
+      "field": "case grouping western-us-event-2023",
+      "recordIds": [
+        "DOW-UAP-D077",
+        "DOW-UAP-D078",
+        "DOW-UAP-D079",
+        "DOW-UAP-D080",
+        "DOW-UAP-D081",
+        "DOW-UAP-D082",
+        "DOW-UAP-D083",
+        "FBI-UAP-D014@release-03",
+        "FBI-UAP-D015",
+        "FBI-UAP-D016",
+        "FBI-UAP-D017",
+        "FBI-UAP-D018",
+        "FBI-UAP-D019",
+        "FBI-UAP-D020",
+        "FBI-UAP-D021",
+        "FBI-UAP-D022",
+        "FBI-UAP-D023",
+        "FBI-UAP-PR005",
+        "FBI-UAP-PR006",
+        "Western US Event"
+      ],
+      "reason": "The records share the official event name, 2023 date, region, narrative numbering, and update/source-package language across Releases 01 and 03."
+    },
+    {
+      "field": "case grouping apollo-16-scientific-debriefing",
+      "recordIds": [
+        "NASA-UAP-D024",
+        "NASA-UAP-D025"
+      ],
+      "reason": "Both official records use the identical Apollo 16 Scientific Debriefing source-package title and adjacent identifiers."
+    },
+    {
+      "field": "case grouping fbi-62-hq-83894",
+      "recordIds": [
+        "65_HS1-834228961_62-HQ-83894_SUB_A",
+        "65_HS1-834228961_62-HQ-83894_Section_001",
+        "65_HS1-834228961_62-HQ-83894_Section_002",
+        "65_HS1-834228961_62-HQ-83894_Section_003",
+        "65_HS1-834228961_62-HQ-83894_Section_004",
+        "65_HS1-834228961_62-HQ-83894_Section_005",
+        "65_HS1-834228961_62-HQ-83894_Section_006",
+        "65_HS1-834228961_62-HQ-83894_Section_007",
+        "65_HS1-834228961_62-HQ-83894_Section_008",
+        "65_HS1-834228961_62-HQ-83894_Section_009",
+        "65_HS1-834228961_62-HQ-83894_Section_010",
+        "65_HS1-834228961_62-HQ-83894_Serial_130",
+        "65_HS1-834228961_62-HQ-83894_Serial_153",
+        "65_HS1-834228961_62-HQ-83894_Serial_164",
+        "65_HS1-834228961_62-HQ-83894_Serial_220",
+        "65_HS1-834228961_62-HQ-83894_Serial_403",
+        "65_HS1-834228961_62-HQ-83894_Serial_438",
+        "65_HS1-834228961_62-HQ-83894_Serial_449"
+      ],
+      "reason": "The official filenames identify sections, serials, and a subfile of the same FBI 62-HQ-83894 source package."
+    },
+    {
+      "field": "case grouping usaf-flying-objects-analysis-1-172",
+      "recordIds": [
+        "DOW-UAP-D087",
+        "DOW-UAP-D088"
+      ],
+      "reason": "The official titles label the records as consecutive 1–100 and 101–172 parts of one U.S. Air Force analysis package."
+    },
+    {
+      "field": "case grouping cia-unconventional-aircraft-1955",
+      "recordIds": [
+        "CIA-UAP-D020",
+        "CIA-UAP-D021"
+      ],
+      "reason": "The D020 description explicitly points to D021 as the contemporary analysis of the same 1955 sightings package."
+    },
+    {
+      "field": "case grouping dvids-1006056",
+      "recordIds": [
+        "DOW-UAP-D010",
+        "DOW-UAP-PR019"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006056, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006059",
+      "recordIds": [
+        "DOW-UAP-D014",
+        "DOW-UAP-PR021"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006059, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006060",
+      "recordIds": [
+        "DOW-UAP-D016",
+        "DOW-UAP-PR022"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006060, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006062",
+      "recordIds": [
+        "DOW-UAP-D018",
+        "DOW-UAP-PR023"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006062, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006063",
+      "recordIds": [
+        "DOW-UAP-D023",
+        "DOW-UAP-PR026"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006063, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006076",
+      "recordIds": [
+        "DOW-UAP-D032",
+        "DOW-UAP-PR031"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006076, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006080",
+      "recordIds": [
+        "DOW-UAP-D033",
+        "DOW-UAP-PR034"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006080, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006082",
+      "recordIds": [
+        "DOW-UAP-D035",
+        "DOW-UAP-PR035"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006082, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006083",
+      "recordIds": [
+        "DOW-UAP-D038",
+        "DOW-UAP-PR036"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006083, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006111",
+      "recordIds": [
+        "DOW-UAP-PR049",
+        "FBI Photo A001"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006111, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1007720",
+      "recordIds": [
+        "DOW-UAP-PR057a",
+        "DOW-UAP-PR057b"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1007720, an explicit media/source-package pairing."
+    }
+  ],
+  "statusDecisions": [
+    {
+      "recordId": "DOE-UAP-D004",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D094",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D097",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-PR104",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR105",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR113",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR115",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "NASA-UAP-D030",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D031",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D032",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "18_100754_ General 1946-7_Vol_2",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "18_6369445_General_1948_Vol_1",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "255_413270_UFO's_and_Defense_What_Should_we_Prepare_For",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "331_120752_Numeric_Files_1944–1945_37153_German_Armament_Equipment_Documents",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "341_110448_Records_Relating_to_the_Collection_and_Dissemination_of_Intelligence_1948-1955-TS_CONT_No.2_2-5300-2-5399",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "341_110677_Numerical_File,_5-2500",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "342_HS1-416511228_319.1 Flying Discs 1949",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "38_143685_box_Incident_Summaries_101-172",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "38_143685_box_Incident_Summaries_173-233",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "38_143685_box7_Incident_Summaries_1-100",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "59_214434_SP 16 [7.18.1963]",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "59_64634_711.5612[7-2852",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "65_HS1-101634279_100-DE-18221_Serial_844",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "65_HS1-101634279_100-DE-26505",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_002",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_003",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_006",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_007",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_008",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_009",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_010",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_130",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_153",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_164",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_220",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_403",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_438",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_449",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_SUB_A",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "CIA-UAP-002",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-003",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-004",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-005",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-006",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-007",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-008",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-009",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-010",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-011",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-012",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-013",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-014",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-015",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "CIA-UAP-016",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-017",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "CIA-UAP-018",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-019",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-D001",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-D020",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "CIA-UAP-D021",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOE-UAP-D001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOE-UAP-D002",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOE-UAP-D003",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOE-UAP-D005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D003",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D006",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D007",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D008",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D010",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D012",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D014",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D016",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D017",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D018",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D019",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D020",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D023",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D025",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D027",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D028",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D032",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D033",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D035",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D038",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D042",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D044",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D048",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D049",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D050",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D051",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D052",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D054",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D055",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D056",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D057",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D058",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D060",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D061",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D062",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D063",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D064",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D065",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D074",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D075",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D077",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-D078",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D079",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D080",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D081",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D082",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D083",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D084",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D085",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D086",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D087",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D088",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D089",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D090",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D091",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-D092",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D093",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D095",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-D096",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "DOW-UAP-PR019",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR020",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR021",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR022",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR023",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR024",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR026",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR027",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR028",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR029",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR030",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR031",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR032",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR033",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR034",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR035",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR036",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR037",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR038",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR039",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR040",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR041",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR042",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR043",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR044",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR045",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR046",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR047",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR048",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR049",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR050",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR051",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR052",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR053",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR054",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR055",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR056",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR057a",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR057b",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR058",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR059",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR060",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR061",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR062",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR063",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR064",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR065",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR066",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR067",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR068",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR069",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR070",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR071",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR072",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR073",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR074",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR075",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR076",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR077",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR078",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR079",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR080",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR081",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR082",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR083",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR084",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR085",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR086",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR087",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR088",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR089",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR090",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR091",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR092",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR093",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR094",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR095",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR096",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR097",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR098",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR099",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "DOW-UAP-PR100",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR101",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR102",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR103",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR106",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR107",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR108",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR109",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR110",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR111",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR112",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR114",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "DOW-UAP-PR116",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "FBI Photo A001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo A002",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo A003",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo A004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo A005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo A006",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo A007",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo A008",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B002",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B003",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B006",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B007",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B008",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B009",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B010",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B011",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B012",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B013",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B014",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B015",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B016",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B017",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B018",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B019",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B020",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B021",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B022",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B023",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI Photo B024",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI September 2023 Sighting - Composite Sketch",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI September 2023 Sighting - Serial 003",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI September 2023 Sighting - Serial 004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI September 2023 Sighting - Serial 005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D001",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "FBI-UAP-D002",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "FBI-UAP-D003",
+      "status": "unresolved",
+      "basis": "Official title or description explicitly says unresolved."
+    },
+    {
+      "recordId": "FBI-UAP-D004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D006",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D007",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D008",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D009",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D010",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D011",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "FBI-UAP-D012",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "FBI-UAP-D013",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "FBI-UAP-D014@release-04",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "FBI-UAP-D014@release-03",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D015",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D016",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D017",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D018",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D019",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D020",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D021",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D022",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-D023",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-PR001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-PR002",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-PR003",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-PR004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-PR005",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "FBI-UAP-PR006",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "ICA-UAP-D001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "NASA-UAP-D001",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D002",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D003",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D003A",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D004",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D005",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D006",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D007",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D008",
+      "status": "resolved",
+      "basis": "Official NASA description states a determination."
+    },
+    {
+      "recordId": "NASA-UAP-D009",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D010",
+      "status": "resolved",
+      "basis": "Official NASA description states a determination."
+    },
+    {
+      "recordId": "NASA-UAP-D011",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D012",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D013",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D014",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D015",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D016",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D017",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D018",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D019",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D020",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D021",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D022",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D023",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D024",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "NASA-UAP-D025",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "NASA-UAP-D026",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D027",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D028",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-D029",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-VM001",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-VM002",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-VM003",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-VM004",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-VM005",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "NASA-UAP-VM006",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "ODNI-UAP-D001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "State Department UAP Cable 001, Papua New Guinea, January 28, 1985",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "State Department UAP Cable 002, Kazakhstan, January 31, 1994",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "State Department UAP Cable 003, Tbilisi, Georgia, October 30, 2001",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "State Department UAP Cable 004, Ashgabat, Turkmenistan, November 5, 2004",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "State Department UAP Cable 005, Mexico, September 16, 2003",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "USG-UAP-D001",
+      "status": "historical",
+      "basis": "Temporal classification: pre-2000 non-video source, not a resolution claim."
+    },
+    {
+      "recordId": "USPER Statement about UAP Sighting",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    },
+    {
+      "recordId": "Western US Event",
+      "status": "not-stated",
+      "basis": "No explicit official disposition was found."
+    }
+  ]
+}

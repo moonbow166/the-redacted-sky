@@ -6,6 +6,9 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
 type SkySceneProps = {
   active: boolean;
+  stage: number;
+  recordKinds: string[];
+  featuredIndexes: number[];
   selected: number | null;
   onHover: (index: number | null) => void;
   onSelect: (index: number) => void;
@@ -33,17 +36,15 @@ type Morphology = THREE.Group & {
 };
 
 const featuredVideoTargets = new Map<number, THREE.Vector3>([
-  [105, new THREE.Vector3(0.2, 2.65, 6.4)],
-  [85, new THREE.Vector3(-4.6, 0.65, 4.2)],
-  [102, new THREE.Vector3(4.8, 0.95, 3.8)],
-  [86, new THREE.Vector3(-2.7, -2.45, 5.25)],
-  [80, new THREE.Vector3(3.15, -2.35, 4.7)],
+  [206, new THREE.Vector3(0.2, 2.65, 6.4)],
+  [207, new THREE.Vector3(-4.6, 0.65, 4.2)],
+  [215, new THREE.Vector3(4.8, 0.95, 3.8)],
 ]);
 
 const livePreviewUrls = new Map<number, string>([
-  [105, "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689168/DOD_111689168-1024x576-2000k.mp4"],
-  [85, "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688954/DOD_111688954-1024x576-2000k.mp4"],
-  [102, "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689133/DOD_111689133-1024x576-2000k.mp4"],
+  [206, "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830027/DOD_111830027.mp4"],
+  [207, "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830030/DOD_111830030.mp4"],
+  [215, "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830133/DOD_111830133.mp4"],
 ]);
 
 function seededRandom(seed: number) {
@@ -170,9 +171,10 @@ function makeEvidenceTexture(kind: "document" | "video" | "image", variant: numb
   return texture;
 }
 
-export default function SkyScene({ active, selected, onHover, onSelect }: SkySceneProps) {
+export default function SkyScene({ active, stage, recordKinds, featuredIndexes, selected, onHover, onSelect }: SkySceneProps) {
   const mountRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(active);
+  const stageRef = useRef(stage);
   const selectedRef = useRef(selected);
   const selectRef = useRef(onSelect);
   const hoverRef = useRef(onHover);
@@ -180,6 +182,10 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
   useEffect(() => {
     activeRef.current = active;
   }, [active]);
+
+  useEffect(() => {
+    stageRef.current = stage;
+  }, [stage]);
 
   useEffect(() => {
     selectedRef.current = selected;
@@ -208,14 +214,14 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.94;
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
     renderer.domElement.setAttribute("aria-label", "Interactive three-dimensional UAP evidence archive");
     renderer.domElement.setAttribute("role", "img");
     mount.appendChild(renderer.domElement);
 
     const pmrem = new THREE.PMREMGenerator(renderer);
     const roomEnvironment = new RoomEnvironment();
-    const environmentTarget = pmrem.fromScene(roomEnvironment, 0.055);
+    const environmentTarget = pmrem.fromScene(roomEnvironment, 0.04);
     scene.environment = environmentTarget.texture;
 
     const field = new THREE.Group();
@@ -358,63 +364,97 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     }
     registerMorphology(ticTac, new THREE.Vector3(11.5, -4.2, 3), new THREE.Vector3(7.1, 4.1, -1.8), 1.4, 0.34, 0.82);
 
+    // Hero reconstruction: a broad, asymmetric black-manta form. It is intentionally
+    // unlike a conventional saucer and reads as one massive continuous hull.
     const disk = new THREE.Group();
-    const diskMaterial = makeSkin(0x5a5046);
-    const diskProfile = [
-      new THREE.Vector2(0.02, -0.48),
-      new THREE.Vector2(0.82, -0.45),
-      new THREE.Vector2(1.55, -0.3),
-      new THREE.Vector2(2.28, -0.11),
-      new THREE.Vector2(2.62, 0),
-      new THREE.Vector2(2.3, 0.1),
-      new THREE.Vector2(1.45, 0.3),
-      new THREE.Vector2(0.58, 0.49),
-      new THREE.Vector2(0.02, 0.52),
-    ];
-    const diskBody = new THREE.Mesh(new THREE.LatheGeometry(diskProfile, 96), diskMaterial);
-    diskBody.rotation.x = Math.PI / 2;
-    disk.add(diskBody);
-    const crownMaterial = makeSkin(0x403b36);
-    const diskDome = new THREE.Mesh(new THREE.SphereGeometry(0.92, 64, 36), crownMaterial);
-    diskDome.scale.z = 0.24;
-    diskDome.position.set(0.14, -0.08, 0.48);
-    disk.add(diskDome);
-    const apertureMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0x080a09,
-      metalness: 0.52,
-      roughness: 0.72,
-      emissive: 0x1d1308,
-      emissiveIntensity: 0.16,
+    const mantaShape = new THREE.Shape();
+    mantaShape.moveTo(0.15, 2.7);
+    mantaShape.bezierCurveTo(-0.8, 1.8, -3.25, 0.65, -4.15, -1.28);
+    mantaShape.bezierCurveTo(-2.2, -0.85, -1.1, -1.35, 0, -2.15);
+    mantaShape.bezierCurveTo(1.18, -1.32, 2.5, -0.72, 4.35, -1.08);
+    mantaShape.bezierCurveTo(3.15, 0.72, 0.92, 1.75, 0.15, 2.7);
+    mantaShape.closePath();
+
+    const mantaMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x111817,
+      map: hullColorTexture,
+      roughnessMap: hullRoughnessTexture,
+      bumpMap: hullRoughnessTexture,
+      bumpScale: 0.016,
+      metalness: 0.87,
+      roughness: 0.31,
+      clearcoat: 0.28,
+      clearcoatRoughness: 0.42,
+      iridescence: 0.07,
+      iridescenceIOR: 1.4,
     });
-    morphologyMaterials.push(apertureMaterial);
-    const aperture = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.76, 0.18, 64), apertureMaterial);
-    aperture.rotation.x = Math.PI / 2;
-    aperture.position.z = -0.46;
-    disk.add(aperture);
-    const seamMaterial = new THREE.MeshPhysicalMaterial({ color: 0x171817, metalness: 0.8, roughness: 0.48 });
-    morphologyMaterials.push(seamMaterial);
-    const hullSeam = new THREE.Mesh(new THREE.TorusGeometry(2.37, 0.018, 8, 192), seamMaterial);
-    hullSeam.position.z = -0.015;
-    disk.add(hullSeam);
-    [[-0.92, -0.28, -0.08], [0.15, -0.66, 0.12], [1.05, -0.16, -0.16]].forEach(([x, y, rotation]) => {
-      const recess = new THREE.Mesh(new THREE.SphereGeometry(0.25, 36, 20), apertureMaterial);
-      recess.scale.set(1.72, 0.62, 0.14);
-      recess.position.set(x, y, -0.52);
-      recess.rotation.z = rotation;
-      disk.add(recess);
+    morphologyMaterials.push(mantaMaterial);
+    const mantaBody = new THREE.Mesh(new THREE.ExtrudeGeometry(mantaShape, {
+      depth: 0.38,
+      bevelEnabled: true,
+      bevelSize: 0.18,
+      bevelThickness: 0.16,
+      bevelSegments: 7,
+      curveSegments: 32,
+    }), mantaMaterial);
+    mantaBody.geometry.center();
+    disk.add(mantaBody);
+
+    const undersideMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x050706,
+      metalness: 0.72,
+      roughness: 0.54,
+      emissive: 0x060b0a,
+      emissiveIntensity: 0.14,
     });
-    const asymmetry = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.19, 0.08), seamMaterial);
-    asymmetry.position.set(-2.35, 0.34, -0.08);
-    asymmetry.rotation.z = -0.2;
-    disk.add(asymmetry);
-    const heatMark = new THREE.Mesh(
-      new THREE.TorusGeometry(1.64, 0.028, 8, 72, Math.PI * 0.42),
-      new THREE.MeshPhysicalMaterial({ color: 0x725b42, metalness: 0.62, roughness: 0.58 }),
+    morphologyMaterials.push(undersideMaterial);
+    const centralLens = new THREE.Mesh(new THREE.SphereGeometry(1.05, 64, 32), undersideMaterial);
+    centralLens.scale.set(1.42, 0.48, 0.22);
+    centralLens.position.set(0.08, -0.15, 0.42);
+    disk.add(centralLens);
+
+    const spine = new THREE.Mesh(new THREE.CapsuleGeometry(0.16, 3.05, 12, 32), undersideMaterial);
+    spine.rotation.z = -0.08;
+    spine.position.set(0.06, 0.28, 0.47);
+    spine.scale.x = 0.52;
+    disk.add(spine);
+
+    const panelMaterial = new THREE.LineBasicMaterial({
+      color: 0x6c8883,
+      transparent: true,
+      opacity: 0.32,
+      blending: THREE.AdditiveBlending,
+    });
+    edgeMaterials.push(panelMaterial);
+    [-1, 1].forEach((direction) => {
+      for (let i = 0; i < 4; i += 1) {
+        const points = [
+          new THREE.Vector3(direction * (0.62 + i * 0.52), 0.8 - i * 0.2, 0.48),
+          new THREE.Vector3(direction * (1.3 + i * 0.55), -0.65 - i * 0.07, 0.48),
+        ];
+        disk.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), panelMaterial));
+      }
+    });
+
+    [[0.05, 1.36, 0xc7a56e], [-2.58, -0.72, 0x91fff3], [2.7, -0.58, 0x91fff3]].forEach(([x, y, color]) => {
+      const well = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.27, 0.1, 40), undersideMaterial);
+      well.rotation.x = Math.PI / 2;
+      well.position.set(x, y, 0.54);
+      disk.add(well);
+      const light = new THREE.Mesh(new THREE.CircleGeometry(0.145, 40), makeGlow(color, color === 0xc7a56e ? 0.58 : 0.4));
+      light.position.set(x, y, 0.6);
+      disk.add(light);
+    });
+
+    const scar = new THREE.Mesh(
+      new THREE.TorusGeometry(1.95, 0.018, 6, 90, Math.PI * 0.7),
+      new THREE.MeshPhysicalMaterial({ color: 0x6a5540, metalness: 0.64, roughness: 0.62 }),
     );
-    heatMark.position.z = 0.34;
-    heatMark.rotation.z = 2.3;
-    disk.add(heatMark);
-    registerMorphology(disk, new THREE.Vector3(6.8, 0.1, 9.3), new THREE.Vector3(7.2, -3.2, 0.5), 2.2, 1.94, 0.86, 1.14);
+    scar.scale.y = 0.54;
+    scar.position.set(-0.36, -0.08, 0.51);
+    scar.rotation.z = 2.72;
+    disk.add(scar);
+    registerMorphology(disk, new THREE.Vector3(7.7, 0.05, 9.6), new THREE.Vector3(-12, 6.5, -10), 2.2, 1.72, 0.42, 1.12);
 
     const triangle = new THREE.Group();
     const triangleShape = new THREE.Shape();
@@ -553,9 +593,9 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     const hitTargets: THREE.Mesh[] = [];
     const artifacts: Artifact[] = [];
     const positions: THREE.Vector3[] = [];
-    const important = new Set(featuredVideoTargets.keys());
+    const important = new Set(featuredIndexes);
 
-    for (let i = 0; i < 161; i += 1) {
+    for (let i = 0; i < recordKinds.length; i += 1) {
       const radius = 4.7 + Math.pow(random(), 0.62) * 15.8;
       const theta = random() * Math.PI * 2;
       const phi = Math.acos(2 * random() - 1);
@@ -577,14 +617,8 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
         home: position.clone(),
       };
 
-      const forcedVideo = important.has(i);
-      const kind = forcedVideo
-        ? "video"
-        : i < 119
-            ? "document"
-            : i < 147
-              ? "video"
-              : "image";
+      const sourceKind = recordKinds[i];
+      const kind = sourceKind === "video" ? "video" : sourceKind === "image" ? "image" : "document";
       const geometry = kind === "document" ? documentGeometry : kind === "video" ? videoGeometry : imageGeometry;
       const materialSet = kind === "document" ? documentMaterials : kind === "video" ? videoMaterials : imageMaterials;
       const mesh = new THREE.Mesh(geometry, liveMaterials.get(i) ?? materialSet[i % materialSet.length]);
@@ -627,9 +661,9 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
     }
 
     const networkPositions: number[] = [];
-    for (let i = 0; i < 161; i += 1) {
+    for (let i = 0; i < recordKinds.length; i += 1) {
       if (i % 3 !== 0) continue;
-      const next = (i * 29 + 11) % 161;
+      const next = (i * 29 + 11) % recordKinds.length;
       const a = positions[i];
       const b = positions[next];
       networkPositions.push(a.x, a.y, a.z, b.x, b.y, b.z);
@@ -787,8 +821,10 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
       frameId = requestAnimationFrame(animate);
       const elapsed = (performance.now() - startedAt) / 1000;
       const activity = activeRef.current ? 1 : 0;
+      const stageNow = stageRef.current;
       const selectedNow = selectedRef.current !== null;
       pointer.lerp(pointerTarget, reduceMotion ? 0.025 : 0.055);
+      field.visible = activeRef.current;
 
       if (activeRef.current && !videosStarted) {
         videosStarted = true;
@@ -797,16 +833,17 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
         });
       }
 
-      const targetZ = selectedNow ? 21 : activity ? 18.2 : 31;
+      const targetZ = selectedNow ? 21 : activity ? 18.2 : stageNow === 1 ? 29 : 31;
       camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, selectedNow ? 0.055 : 0.022);
-      camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.x * (activeRef.current ? 3.1 : 0.55), 0.022);
-      camera.position.y = THREE.MathUtils.lerp(camera.position.y, pointer.y * (activeRef.current ? 1.8 : 0.38) + 0.25, 0.022);
+      camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.x * (activeRef.current ? 3.1 : stageNow === 1 ? 0.9 : 0.55), 0.022);
+      camera.position.y = THREE.MathUtils.lerp(camera.position.y, pointer.y * (activeRef.current ? 1.8 : stageNow === 1 ? 0.7 : 0.38) + 0.25, 0.022);
       camera.lookAt(pointer.x * (activeRef.current ? 0.75 : 0.18), pointer.y * (activeRef.current ? 0.42 : 0.12), -2.4);
 
       if (!reduceMotion) {
         field.rotation.y += activeRef.current ? 0.00034 : 0.0001;
         field.rotation.x = -0.04 + Math.sin(elapsed * 0.06) * 0.022;
-        dust.rotation.y -= 0.000025;
+        dust.rotation.y -= stageNow === 1 ? 0.00032 : 0.000025;
+        dust.rotation.x += stageNow === 1 ? 0.00009 : 0.000006;
         observatory.rotation.z = elapsed * 0.017;
         scanner.rotation.y = elapsed * 0.085;
         scanner.rotation.z = Math.sin(elapsed * 0.11) * 0.08;
@@ -831,20 +868,32 @@ export default function SkyScene({ active, selected, onHover, onSelect }: SkySce
 
       morphologies.forEach((morphology) => {
         const home = morphology.userData.home;
-        const destination = (activeRef.current ? morphology.userData.exit : home).clone();
-        destination.y += Math.sin(elapsed * 0.45 + morphology.userData.phase) * (activeRef.current ? 0.24 : 0.16);
-        morphology.position.lerp(destination, activeRef.current ? 0.045 : 0.028);
-        const targetScale = activeRef.current ? morphology.userData.fieldScale : morphology.userData.introScale;
+        let destination = home.clone();
+        let targetScale = morphology.userData.introScale;
+        if (morphology === disk) {
+          if (activeRef.current || stageNow >= 2) {
+            destination = new THREE.Vector3(-12, 6.5, -10);
+            targetScale = 0.32;
+          } else if (stageNow === 1) {
+            destination = new THREE.Vector3(-1.35, -0.75, 18.2);
+            targetScale = 1.34;
+          }
+        } else if (activeRef.current || stageNow >= 1) {
+          destination = morphology.userData.exit.clone();
+          targetScale = morphology.userData.fieldScale;
+        }
+        destination.y += Math.sin(elapsed * 0.45 + morphology.userData.phase) * (stageNow === 1 ? 0.3 : 0.16);
+        morphology.position.lerp(destination, stageNow === 1 ? 0.032 : activeRef.current ? 0.045 : 0.028);
         const currentScale = morphology.scale.y;
-        const nextScale = THREE.MathUtils.lerp(currentScale, targetScale, activeRef.current ? 0.035 : 0.028);
+        const nextScale = THREE.MathUtils.lerp(currentScale, targetScale, stageNow === 1 ? 0.03 : activeRef.current ? 0.035 : 0.028);
         morphology.scale.set(nextScale * morphology.userData.aspectX, nextScale, nextScale);
       });
 
       edgeMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.2 : 0.08, 0.035);
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.2 : stageNow === 0 ? 0.18 : 0.05, 0.035);
       });
       glowMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.28 : 0.14, 0.03);
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activeRef.current ? 0.28 : stageNow === 0 ? 0.24 : 0.08, 0.03);
       });
 
       artifacts.forEach((artifact) => {

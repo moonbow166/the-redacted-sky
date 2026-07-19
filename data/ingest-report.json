@@ -1,0 +1,3440 @@
+{
+  "generatedAt": "2026-07-18T02:04:10Z",
+  "parserVersion": "1.0.0",
+  "status": "complete-with-access-restrictions",
+  "totals": {
+    "records": 334,
+    "cases": 279,
+    "featuredCases": 15
+  },
+  "counts": {
+    "byRelease": {
+      "release-01": 158,
+      "release-02": 64,
+      "release-03": 72,
+      "release-04": 40
+    },
+    "byAgency": {
+      "CIA": 21,
+      "Department of Energy": 5,
+      "Department of State": 7,
+      "Department of War": 171,
+      "FBI": 87,
+      "Intelligence Community Agency": 1,
+      "NASA": 40,
+      "Office of the Director of National Intelligence": 1,
+      "U.S. Government": 1
+    },
+    "byFileType": {
+      "audio": 15,
+      "image": 27,
+      "pdf": 189,
+      "video": 103
+    },
+    "casesByRelease": {
+      "release-01": 131,
+      "release-02": 63,
+      "release-03": 49,
+      "release-04": 37
+    }
+  },
+  "featuredCases": [
+    {
+      "rank": 1,
+      "caseId": "case-sts-80-1996",
+      "title": "STS-80 unidentified-object imagery, 1996",
+      "recordIds": [
+        "NASA-UAP-D030",
+        "NASA-UAP-D031",
+        "NASA-UAP-D032"
+      ]
+    },
+    {
+      "rank": 2,
+      "caseId": "case-dow-uap-pr104",
+      "title": "DOW-UAP-PR104, Unresolved UAP Report, Yellow Sea, 2025",
+      "recordIds": [
+        "DOW-UAP-PR104"
+      ]
+    },
+    {
+      "rank": 3,
+      "caseId": "case-dow-uap-pr105",
+      "title": "DOW-UAP-PR105, Unresolved UAP Report, East China Sea, 2025",
+      "recordIds": [
+        "DOW-UAP-PR105"
+      ]
+    },
+    {
+      "rank": 4,
+      "caseId": "case-dow-uap-pr113",
+      "title": "DOW-UAP-PR113, Unresolved UAP Report, Western United States, 1996",
+      "recordIds": [
+        "DOW-UAP-PR113"
+      ]
+    },
+    {
+      "rank": 5,
+      "caseId": "case-doe-uap-d004",
+      "title": "DOE-UAP-D004, Los Alamos Conference on Aerial Phenomena, 1949",
+      "recordIds": [
+        "DOE-UAP-D004"
+      ]
+    },
+    {
+      "rank": 6,
+      "caseId": "case-dow-uap-d094",
+      "title": "DOW-UAP-D094, Analysis of Flying Object Incidents in the United States, 1949",
+      "recordIds": [
+        "DOW-UAP-D094"
+      ]
+    },
+    {
+      "rank": 7,
+      "caseId": "case-dvids-1006056",
+      "title": "DOW-UAP-PR019, Unresolved UAP Report, Middle East, May 2022",
+      "recordIds": [
+        "DOW-UAP-D010",
+        "DOW-UAP-PR019"
+      ]
+    },
+    {
+      "rank": 8,
+      "caseId": "case-nasa-uap-d003a",
+      "title": "NASA-UAP-D003A, Gemini 7 Audio Excerpt, 1965",
+      "recordIds": [
+        "NASA-UAP-D003A"
+      ]
+    },
+    {
+      "rank": 9,
+      "caseId": "case-fbi-62-hq-83894",
+      "title": "FBI 62-HQ-83894 case-file package",
+      "recordIds": [
+        "65_HS1-834228961_62-HQ-83894_Section_001",
+        "65_HS1-834228961_62-HQ-83894_Section_002",
+        "65_HS1-834228961_62-HQ-83894_Section_003",
+        "65_HS1-834228961_62-HQ-83894_Section_004",
+        "65_HS1-834228961_62-HQ-83894_Section_005",
+        "65_HS1-834228961_62-HQ-83894_Section_006",
+        "65_HS1-834228961_62-HQ-83894_Section_007",
+        "65_HS1-834228961_62-HQ-83894_Section_008",
+        "65_HS1-834228961_62-HQ-83894_Section_009",
+        "65_HS1-834228961_62-HQ-83894_Section_010",
+        "65_HS1-834228961_62-HQ-83894_Serial_130",
+        "65_HS1-834228961_62-HQ-83894_Serial_153",
+        "65_HS1-834228961_62-HQ-83894_Serial_164",
+        "65_HS1-834228961_62-HQ-83894_Serial_220",
+        "65_HS1-834228961_62-HQ-83894_Serial_403",
+        "65_HS1-834228961_62-HQ-83894_Serial_438",
+        "65_HS1-834228961_62-HQ-83894_Serial_449",
+        "65_HS1-834228961_62-HQ-83894_SUB_A"
+      ]
+    },
+    {
+      "rank": 10,
+      "caseId": "case-dow-uap-pr050",
+      "title": "DOW-UAP-PR050, \"4 UAP Formation Iran 26 Aug 2022 over water [CALLSIGN]\"",
+      "recordIds": [
+        "DOW-UAP-PR050"
+      ]
+    },
+    {
+      "rank": 11,
+      "caseId": "case-dvids-1007720",
+      "title": "DOW-UAP-PR057a, \"Spherical UAP in clouds\"",
+      "recordIds": [
+        "DOW-UAP-PR057a",
+        "DOW-UAP-PR057b"
+      ]
+    },
+    {
+      "rank": 12,
+      "caseId": "case-odni-uap-d001",
+      "title": "ODNI-UAP-D001, USPER Narrative, Senior USIC Official",
+      "recordIds": [
+        "ODNI-UAP-D001"
+      ]
+    },
+    {
+      "rank": 13,
+      "caseId": "case-western-us-event-2023",
+      "title": "Western United States Event, 2023",
+      "recordIds": [
+        "DOW-UAP-D077",
+        "DOW-UAP-D078",
+        "DOW-UAP-D079",
+        "DOW-UAP-D080",
+        "DOW-UAP-D081",
+        "DOW-UAP-D082",
+        "DOW-UAP-D083",
+        "FBI-UAP-D014@release-03",
+        "FBI-UAP-D015",
+        "FBI-UAP-D016",
+        "FBI-UAP-D017",
+        "FBI-UAP-D018",
+        "FBI-UAP-D019",
+        "FBI-UAP-D020",
+        "FBI-UAP-D021",
+        "FBI-UAP-D022",
+        "FBI-UAP-D023",
+        "FBI-UAP-PR005",
+        "FBI-UAP-PR006",
+        "Western US Event"
+      ]
+    },
+    {
+      "rank": 14,
+      "caseId": "case-colorado-springs-2022",
+      "title": "Colorado Springs UAP incident, 2022",
+      "recordIds": [
+        "FBI-UAP-D001",
+        "FBI-UAP-D002",
+        "FBI-UAP-D003",
+        "ICA-UAP-D001"
+      ]
+    },
+    {
+      "rank": 15,
+      "caseId": "case-apollo-16-scientific-debriefing",
+      "title": "Apollo 16 scientific debriefing excerpts",
+      "recordIds": [
+        "NASA-UAP-D024",
+        "NASA-UAP-D025"
+      ]
+    }
+  ],
+  "validation": {
+    "releaseCount": 4,
+    "duplicateRecordIds": 0,
+    "missingCaseReferences": [],
+    "invalidAssetUrls": [],
+    "invalidRegionalCoordinates": [],
+    "consecutiveRunDeterminism": "Run this script twice and compare the listed output hashes; fetchedAt is pinned to the source snapshot.",
+    "outputHashes": {
+      "releases.json": "b03bfee431beea33343694899a2709ca832fbab23e6ab28fc5603e3021a01ac0",
+      "records.json": "08646ece788b5da977c3ccc41fa480043ce4992bde1e2f1b1bed504004d9bc10",
+      "cases.json": "ea8e3433d00f474adeef81d19b2a3c653c74575756b91300bf423310429eb94d",
+      "provenance.json": "dab6b5010c0c0ba9f874007e7bb7c9c5d0eda746716db4223e1c60c0de3f80cd"
+    }
+  },
+  "parseFailures": [],
+  "dateNormalizationWarnings": [
+    {
+      "recordId": "FBI Photo A001",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo A002",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo A003",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo A004",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo A005",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo A006",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo A007",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo A008",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B001",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B002",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B003",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B004",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B005",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B006",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B007",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B008",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B009",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B010",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B011",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B012",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B013",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B014",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B015",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B016",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B017",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B018",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B019",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B020",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B021",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B022",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B023",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI Photo B024",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "FBI-UAP-D012",
+      "sourceValue": "August 1952-1967",
+      "warning": "Range retained verbatim because the source omits an exact endpoint."
+    },
+    {
+      "recordId": "FBI-UAP-D013",
+      "sourceValue": "July 1952-1960",
+      "warning": "Range retained verbatim because the source omits an exact endpoint."
+    },
+    {
+      "recordId": "USPER Statement about UAP Sighting",
+      "sourceValue": "Late 2025",
+      "warning": "Source gives only a relative part of the year (Late)."
+    }
+  ],
+  "ambiguousGroupings": [
+    {
+      "records": [
+        "Western US Event",
+        "DOW-UAP-D077–D083",
+        "FBI-UAP-D014–D023",
+        "FBI-UAP-PR005–PR006"
+      ],
+      "decision": "Grouped",
+      "reason": "The event name, 2023 date, region, narrative numbering, and update language align across Releases 01 and 03.",
+      "reviewRequested": "Confirm that Bubble wants the Release 01 summary and Release 03 package presented as one evolving case."
+    },
+    {
+      "records": [
+        "DOW-UAP-PR049",
+        "FBI Photo A001"
+      ],
+      "decision": "Grouped",
+      "reason": "Both rows share official DVIDS video ID 1006111, but their agencies and identifier styles differ.",
+      "reviewRequested": "Confirm the cross-agency presentation and preferred public-facing case title."
+    },
+    {
+      "records": [
+        "CIA-UAP-D020",
+        "CIA-UAP-D021"
+      ],
+      "decision": "Grouped",
+      "reason": "D020 explicitly names D021 as the contemporary analysis of the same incident.",
+      "reviewRequested": "Confirm whether to present these as one case or as linked historical documents."
+    },
+    {
+      "records": [
+        "Broad Middle East / Arabian Gulf series"
+      ],
+      "decision": "Kept separate",
+      "reason": "Shared region and repeated description language do not establish a single event.",
+      "reviewRequested": "No action required unless an official package-level relationship is found later."
+    }
+  ],
+  "deadLinks": [],
+  "accessRestrictedAssets": [
+    {
+      "recordId": "FBI-UAP-D014@release-03",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D014_Digital-Rendering_Incident-1-1_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D015",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D015_Digital-Rendering_Incident-1-2_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D016",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D016_Digital-Rendering_Incident-2-1_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D017",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D017_Digital-Rendering_Incident-2-2_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D018",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D018_Digital-Rendering_Incident-2-3_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D019",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D019_Digital-Rendering_Incident-2-4_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D020",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D020_Digital-Rendering_Incident-2-5_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D021",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D021_Digital-Rendering_Incident-1-3_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D022",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D022_Digital-Rendering_Incident-2-6_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D023",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D023_Digital-Rendering_Incident-2-7_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D030",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D030_STS-80-Unidentified-Object-Image1_1996.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D031",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D031_STS-80-Unidentified-Object-Image2_1996.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D032",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D032_STS-80-Unidentified-Object-Image3_1996.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI Photo A006",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-a6.png",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "CIA-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/052226/release_02/documents/CIA-UAP-D001_Intelligence_Information_Report_USSR_1973.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "ODNI-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/052226/release_02/documents/ODNI-UAP-D001_USPER_Narrative_Senior_USIC.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "CIA-UAP-005",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/CIA-UAP-005-GERMAN_SCIENTISTS_%20ARTICLE_ON_FLYING_DISCS.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "CIA-UAP-015",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/CIA-UAP-015-Project_Blue_Book_Special_Report_No_14.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D077",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D078",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DOW-UAP-D078_Notional-Map_Western-United-States-Event.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D079",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D079_Narrative-1_Western-US-Event.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D080",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D080_Narrative-2_Western-US-Event.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D081",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D081_Narrative-3_Western-US-Event.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D082",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D082_Narrative-4_Western-US-Event.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D083",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D083_Narrative-5_Western-US-Event.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D002",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D002_FD-1057_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D003",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D003_Digital-Rendering_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D012",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D012_Newark-Field-Office_1952-1967.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "ICA-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D022",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/NASA-UAP-D022_Gemini-9-Debriefing_1966.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOE-UAP-D004",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D093",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOW-UAP-D093_Analysis-of-Flying-Object-Incidents-in-the-US_1948.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D094",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOW-UAP-D094_Analysis-of-Flying-Object-Incidents-in-the-US_1949.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "18_100754_ General 1946-7_Vol_2",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/18_100754_%20general%201946-7_vol_2.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "38_143685_box_Incident_Summaries_101-172",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/38_143685_box7_incident_summaries_101-172.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_1.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_010",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_10.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_002",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_2.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_003",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_3.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_004",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_4.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_005",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_5.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_006",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_6.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_007",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_7.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_008",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_8.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_009",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_9.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_130",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_130.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_153",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_153.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_164",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_164.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_220",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_220.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_403",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_403.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_438",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_438.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_449",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_449.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_SUB_A",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_sub_a.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-PR019",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d10-mission-report-middle-east-may-2022.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D012",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d12-mission-report-iraq-may-2022.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-PR026",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d23-mission-report-united-arab-emirates-october-2023.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D033",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d33-mission-report-greece-october-2023.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D048",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d48-report-september-1996.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D058",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d58-range-fouler-debrief-na-october-2020.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D074",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d74-mission-report-syria-november-2023.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI Photo B015",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-b15.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI Photo B023",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-b23.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D002",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/nasa-uap-d2-apollo-17-transcript-1972.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "Western US Event",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/western_us_event_slides_5.08.2026.pdf",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "ODNI-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/052226/release_02/thumbnails/ODNI-UAP-D001_USPER_Narrative_Senior_USIC.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "CIA-UAP-005",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/CIA-UAP-005-GERMAN_SCIENTISTS_%20ARTICLE_ON_FLYING_DISCS.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "CIA-UAP-015",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/CIA-UAP-015-Project_Blue_Book_Special_Report_No_14.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D077",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D078",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DOW-UAP-D078_Notional-Map_Western-United-States-Event.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D079",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D079_Narrative-1_Western-US-Event.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D080",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D080_Narrative-2_Western-US-Event.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D081",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D081_Narrative-3_Western-US-Event.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D082",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D082_Narrative-4_Western-US-Event.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D083",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D083_Narrative-5_Western-US-Event.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D002_FD-1057_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D003",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D003_Digital-Rendering_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D004",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D004_FD-1057-02_Northeastern-US_2024.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D014@release-03",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D014_Digital-Rendering_Incident-1-1_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D015",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D015_Digital-Rendering_Incident-1-2_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D016",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D016_Digital-Rendering_Incident-2-1_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D017",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D017_Digital-Rendering_Incident-2-2_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D018",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D018_Digital-Rendering_Incident-2-3_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D019",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D019_Digital-Rendering_Incident-2-4_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D020",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D020_Digital-Rendering_Incident-2-5_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D021",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D021_Digital-Rendering_Incident-1-3_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D022",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D022_Digital-Rendering_Incident-2-6_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI-UAP-D023",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D023_Digital-Rendering_Incident-2-7_Western-US-Event_2023.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "ICA-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "USG-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/USG-UAP-D001_Congress-WhiteHouse-UFO-Correspondence_1998.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOE-UAP-D004",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D094",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/DOW-UAP-D094_Analysis-of-Flying-Object-Incidents-in-the-US_1949.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D030",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D030_STS-80-Unidentified-Object-Image1_1996.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D031",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D031_STS-80-Unidentified-Object-Image2_1996.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-D032",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D032_STS-80-Unidentified-Object-Image3_1996.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "State Department UAP Cable 005, Mexico, September 16, 2003",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/059uap00013.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "38_143685_box7_Incident_Summaries_1-100",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/38_143685_box7_incident_summaries_1-100.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_1.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_010",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_10.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_2.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_003",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_3.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_004",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_4.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_005",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_5.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_006",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_6.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_007",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_7.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_008",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_8.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_009",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_9.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_130",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_130.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_153",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_153.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_164",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_164.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_220",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_220.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_403",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_403.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_438",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_438.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_449",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_449.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_SUB_A",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_sub_a.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D010",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d10-mission-report-middle-east-may-2022.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D014",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d14-mission-report-iraq-may-2022.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D032",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d32-mission-report,-syria-october-2024.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D050",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d50-email-correspondence-indopacom-april-2025.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-D061",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d61-mission-report-persian-gulf-august-2020.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "DOW-UAP-PR020",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-pr20.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI Photo B010",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b10.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI Photo B002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b2.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "FBI Photo B007",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b7.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "NASA-UAP-VM002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/nasa-uap-vm2-apollo-12-1969.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    },
+    {
+      "recordId": "Western US Event",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/western_us_event_slides_5.08.2026.jpg",
+      "httpStatus": 403,
+      "note": "Command-line HEAD request was denied; the official site is browser-accessible, so this is classified as access-restricted rather than dead."
+    }
+  ],
+  "assetChecks": [
+    {
+      "recordId": "NASA-UAP-D003A",
+      "kind": "audio",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689232/DOD_111689232.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689232/DOD_111689232.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "NASA-UAP-D013",
+      "kind": "audio",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111721758/DOD_111721758.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111721758/DOD_111721758.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "NASA-UAP-D024",
+      "kind": "audio",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764796/DOD_111764796.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764796/DOD_111764796.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "NASA-UAP-D025",
+      "kind": "audio",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764902/DOD_111764902.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764902/DOD_111764902.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "FBI-UAP-D014@release-03",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D014_Digital-Rendering_Incident-1-1_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D014_Digital-Rendering_Incident-1-1_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D015",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D015_Digital-Rendering_Incident-1-2_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D015_Digital-Rendering_Incident-1-2_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D016",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D016_Digital-Rendering_Incident-2-1_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D016_Digital-Rendering_Incident-2-1_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D017",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D017_Digital-Rendering_Incident-2-2_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D017_Digital-Rendering_Incident-2-2_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D018",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D018_Digital-Rendering_Incident-2-3_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D018_Digital-Rendering_Incident-2-3_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D019",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D019_Digital-Rendering_Incident-2-4_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D019_Digital-Rendering_Incident-2-4_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D020",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D020_Digital-Rendering_Incident-2-5_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D020_Digital-Rendering_Incident-2-5_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D021",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D021_Digital-Rendering_Incident-1-3_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D021_Digital-Rendering_Incident-1-3_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D022",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D022_Digital-Rendering_Incident-2-6_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D022_Digital-Rendering_Incident-2-6_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D023",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D023_Digital-Rendering_Incident-2-7_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D023_Digital-Rendering_Incident-2-7_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D030",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D030_STS-80-Unidentified-Object-Image1_1996.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D030_STS-80-Unidentified-Object-Image1_1996.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D031",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D031_STS-80-Unidentified-Object-Image2_1996.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D031_STS-80-Unidentified-Object-Image2_1996.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D032",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D032_STS-80-Unidentified-Object-Image3_1996.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/documents/NASA-UAP-D032_STS-80-Unidentified-Object-Image3_1996.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI Photo A006",
+      "kind": "image",
+      "url": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-a6.png",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-a6.png",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "CIA-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/052226/release_02/documents/CIA-UAP-D001_Intelligence_Information_Report_USSR_1973.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/052226/release_02/documents/CIA-UAP-D001_Intelligence_Information_Report_USSR_1973.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "ODNI-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/052226/release_02/documents/ODNI-UAP-D001_USPER_Narrative_Senior_USIC.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/052226/release_02/documents/ODNI-UAP-D001_USPER_Narrative_Senior_USIC.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "CIA-UAP-005",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/CIA-UAP-005-GERMAN_SCIENTISTS_%20ARTICLE_ON_FLYING_DISCS.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/CIA-UAP-005-GERMAN_SCIENTISTS_%20ARTICLE_ON_FLYING_DISCS.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "CIA-UAP-015",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/CIA-UAP-015-Project_Blue_Book_Special_Report_No_14.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/CIA-UAP-015-Project_Blue_Book_Special_Report_No_14.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D077",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D078",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DOW-UAP-D078_Notional-Map_Western-United-States-Event.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DOW-UAP-D078_Notional-Map_Western-United-States-Event.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D079",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D079_Narrative-1_Western-US-Event.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D079_Narrative-1_Western-US-Event.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D080",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D080_Narrative-2_Western-US-Event.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D080_Narrative-2_Western-US-Event.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D081",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D081_Narrative-3_Western-US-Event.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D081_Narrative-3_Western-US-Event.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D082",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D082_Narrative-4_Western-US-Event.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D082_Narrative-4_Western-US-Event.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D083",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D083_Narrative-5_Western-US-Event.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/DoW-UAP-D083_Narrative-5_Western-US-Event.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D002",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D002_FD-1057_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D002_FD-1057_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D003",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D003_Digital-Rendering_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D003_Digital-Rendering_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D012",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D012_Newark-Field-Office_1952-1967.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/FBI-UAP-D012_Newark-Field-Office_1952-1967.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "ICA-UAP-D001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D022",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/documents/NASA-UAP-D022_Gemini-9-Debriefing_1966.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/documents/NASA-UAP-D022_Gemini-9-Debriefing_1966.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOE-UAP-D004",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D093",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOW-UAP-D093_Analysis-of-Flying-Object-Incidents-in-the-US_1948.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOW-UAP-D093_Analysis-of-Flying-Object-Incidents-in-the-US_1948.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D094",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOW-UAP-D094_Analysis-of-Flying-Object-Incidents-in-the-US_1949.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/documents/DOW-UAP-D094_Analysis-of-Flying-Object-Incidents-in-the-US_1949.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "18_100754_ General 1946-7_Vol_2",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/18_100754_%20general%201946-7_vol_2.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/18_100754_%20general%201946-7_vol_2.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "38_143685_box_Incident_Summaries_101-172",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/38_143685_box7_incident_summaries_101-172.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/38_143685_box7_incident_summaries_101-172.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_001",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_1.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_1.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_010",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_10.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_10.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_002",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_2.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_2.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_003",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_3.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_3.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_004",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_4.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_4.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_005",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_5.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_5.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_006",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_6.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_6.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_007",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_7.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_7.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_008",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_8.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_8.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_009",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_9.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_section_9.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_130",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_130.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_130.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_153",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_153.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_153.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_164",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_164.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_164.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_220",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_220.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_220.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_403",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_403.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_403.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_438",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_438.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_438.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_449",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_449.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_serial_449.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_SUB_A",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_sub_a.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/65_hs1-834228961_62-hq-83894_sub_a.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-PR019",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d10-mission-report-middle-east-may-2022.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d10-mission-report-middle-east-may-2022.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D012",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d12-mission-report-iraq-may-2022.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d12-mission-report-iraq-may-2022.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-PR026",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d23-mission-report-united-arab-emirates-october-2023.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d23-mission-report-united-arab-emirates-october-2023.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D033",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d33-mission-report-greece-october-2023.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d33-mission-report-greece-october-2023.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D048",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d48-report-september-1996.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d48-report-september-1996.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D058",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d58-range-fouler-debrief-na-october-2020.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d58-range-fouler-debrief-na-october-2020.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D074",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d74-mission-report-syria-november-2023.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/dow-uap-d74-mission-report-syria-november-2023.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI Photo B015",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-b15.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-b15.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI Photo B023",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-b23.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/fbi-photo-b23.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D002",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/nasa-uap-d2-apollo-17-transcript-1972.pdf",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/nasa-uap-d2-apollo-17-transcript-1972.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "Western US Event",
+      "kind": "pdf",
+      "url": "https://www.war.gov/medialink/ufo/release_1/western_us_event_slides_5.08.2026.pdf",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/western_us_event_slides_5.08.2026.pdf",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-PR019",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006056/DOD_111688723.0000001/720w_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006056/DOD_111688723.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR032",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006078/DOD_111688997.0000001/720w_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006078/DOD_111688997.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR042",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006097/DOD_111689090.0000001/720w_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006097/DOD_111689090.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "NASA-UAP-D003A",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006119/DOD_111689232.0000001/720w_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1006119/DOD_111689232.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR050",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007706/DOD_111719709.0000001/720w_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007706/DOD_111719709.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR051",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007707/DOD_111719715.0000001/720w_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007707/DOD_111719715.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR057a",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007720/DOD_111719752.0000001/720w_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007720/DOD_111719752.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR061",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007735/DOD_111719828.0000001/720w_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007735/DOD_111719828.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR068",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007780/DOD_111720698.0000001/720w_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007780/DOD_111720698.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR087",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007799/DOD_111720830.0000001/720w_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007799/DOD_111720830.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR079",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007816/DOD_111720899.0000001/720w_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2605/1007816/DOD_111720899.0000001/720w_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "FBI-UAP-PR003",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010267/DOD_111764159.0000001/122x92_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010267/DOD_111764159.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "FBI-UAP-PR005",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010272/DOD_111764189.0000001/122x92_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010272/DOD_111764189.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "FBI-UAP-PR006",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010276/DOD_111764213.0000001/122x92_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010276/DOD_111764213.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "NASA-UAP-D024",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010319/DOD_111764796.0000001/122x92_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010319/DOD_111764796.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "NASA-UAP-D025",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010336/DOD_111764902.0000001/122x92_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2606/1010336/DOD_111764902.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR103",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014099/DOD_111830015.0000001/122x92_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014099/DOD_111830015.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR104",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014101/DOD_111830027.0000001/122x92_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014101/DOD_111830027.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR105",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014103/DOD_111830030.0000001/122x92_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014103/DOD_111830030.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "NASA-UAP-D027",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014110/DOD_111830069.0000001/122x92_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014110/DOD_111830069.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR113",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014119/DOD_111830133.0000001/122x92_q95.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014119/DOD_111830133.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "DOW-UAP-PR112",
+      "kind": "thumbnail",
+      "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014128/DOD_111830201.0000001/122x92_q95.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2607/1014128/DOD_111830201.0000001/122x92_q95.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "recordId": "ODNI-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/052226/release_02/thumbnails/ODNI-UAP-D001_USPER_Narrative_Senior_USIC.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/052226/release_02/thumbnails/ODNI-UAP-D001_USPER_Narrative_Senior_USIC.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "CIA-UAP-005",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/CIA-UAP-005-GERMAN_SCIENTISTS_%20ARTICLE_ON_FLYING_DISCS.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/CIA-UAP-005-GERMAN_SCIENTISTS_%20ARTICLE_ON_FLYING_DISCS.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "CIA-UAP-015",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/CIA-UAP-015-Project_Blue_Book_Special_Report_No_14.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/CIA-UAP-015-Project_Blue_Book_Special_Report_No_14.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D077",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D078",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DOW-UAP-D078_Notional-Map_Western-United-States-Event.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DOW-UAP-D078_Notional-Map_Western-United-States-Event.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D079",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D079_Narrative-1_Western-US-Event.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D079_Narrative-1_Western-US-Event.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D080",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D080_Narrative-2_Western-US-Event.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D080_Narrative-2_Western-US-Event.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D081",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D081_Narrative-3_Western-US-Event.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D081_Narrative-3_Western-US-Event.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D082",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D082_Narrative-4_Western-US-Event.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D082_Narrative-4_Western-US-Event.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D083",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D083_Narrative-5_Western-US-Event.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/DoW-UAP-D083_Narrative-5_Western-US-Event.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D002_FD-1057_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D002_FD-1057_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D003",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D003_Digital-Rendering_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D003_Digital-Rendering_Unresolved-UAP-Report_ColoradoSprings_2022.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D004",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D004_FD-1057-02_Northeastern-US_2024.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D004_FD-1057-02_Northeastern-US_2024.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D014@release-03",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D014_Digital-Rendering_Incident-1-1_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D014_Digital-Rendering_Incident-1-1_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D015",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D015_Digital-Rendering_Incident-1-2_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D015_Digital-Rendering_Incident-1-2_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D016",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D016_Digital-Rendering_Incident-2-1_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D016_Digital-Rendering_Incident-2-1_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D017",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D017_Digital-Rendering_Incident-2-2_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D017_Digital-Rendering_Incident-2-2_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D018",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D018_Digital-Rendering_Incident-2-3_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D018_Digital-Rendering_Incident-2-3_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D019",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D019_Digital-Rendering_Incident-2-4_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D019_Digital-Rendering_Incident-2-4_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D020",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D020_Digital-Rendering_Incident-2-5_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D020_Digital-Rendering_Incident-2-5_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D021",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D021_Digital-Rendering_Incident-1-3_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D021_Digital-Rendering_Incident-1-3_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D022",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D022_Digital-Rendering_Incident-2-6_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D022_Digital-Rendering_Incident-2-6_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI-UAP-D023",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D023_Digital-Rendering_Incident-2-7_Western-US-Event_2023.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/FBI-UAP-D023_Digital-Rendering_Incident-2-7_Western-US-Event_2023.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "ICA-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "USG-UAP-D001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/USG-UAP-D001_Congress-WhiteHouse-UFO-Correspondence_1998.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/061226/release_03/thumbnails/USG-UAP-D001_Congress-WhiteHouse-UFO-Correspondence_1998.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOE-UAP-D004",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D094",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/DOW-UAP-D094_Analysis-of-Flying-Object-Incidents-in-the-US_1949.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/DOW-UAP-D094_Analysis-of-Flying-Object-Incidents-in-the-US_1949.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D030",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D030_STS-80-Unidentified-Object-Image1_1996.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D030_STS-80-Unidentified-Object-Image1_1996.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D031",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D031_STS-80-Unidentified-Object-Image2_1996.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D031_STS-80-Unidentified-Object-Image2_1996.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-D032",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D032_STS-80-Unidentified-Object-Image3_1996.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/071026/release_04/thumbnails/NASA-UAP-D032_STS-80-Unidentified-Object-Image3_1996.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "State Department UAP Cable 005, Mexico, September 16, 2003",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/059uap00013.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/059uap00013.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "38_143685_box7_Incident_Summaries_1-100",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/38_143685_box7_incident_summaries_1-100.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/38_143685_box7_incident_summaries_1-100.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_001",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_1.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_1.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_010",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_10.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_10.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_2.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_2.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_003",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_3.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_3.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_004",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_4.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_4.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_005",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_5.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_5.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_006",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_6.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_6.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_007",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_7.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_7.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_008",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_8.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_8.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Section_009",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_9.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_section_9.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_130",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_130.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_130.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_153",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_153.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_153.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_164",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_164.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_164.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_220",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_220.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_220.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_403",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_403.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_403.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_438",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_438.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_438.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_Serial_449",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_449.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_serial_449.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "65_HS1-834228961_62-HQ-83894_SUB_A",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_sub_a.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/65_hs1-834228961_62-hq-83894_sub_a.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D010",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d10-mission-report-middle-east-may-2022.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d10-mission-report-middle-east-may-2022.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D014",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d14-mission-report-iraq-may-2022.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d14-mission-report-iraq-may-2022.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D032",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d32-mission-report,-syria-october-2024.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d32-mission-report,-syria-october-2024.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D050",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d50-email-correspondence-indopacom-april-2025.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d50-email-correspondence-indopacom-april-2025.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D061",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d61-mission-report-persian-gulf-august-2020.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-d61-mission-report-persian-gulf-august-2020.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-PR020",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-pr20.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/dow-uap-pr20.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI Photo B010",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b10.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b10.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI Photo B002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b2.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b2.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "FBI Photo B007",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b7.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/fbi-photo-b7.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "NASA-UAP-VM002",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/nasa-uap-vm2-apollo-12-1969.jpg",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/nasa-uap-vm2-apollo-12-1969.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "Western US Event",
+      "kind": "thumbnail",
+      "url": "https://www.war.gov/medialink/ufo/release_1/thumbnail/western_us_event_slides_5.08.2026.jpg",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 403,
+      "finalUrl": "https://www.war.gov/medialink/ufo/release_1/thumbnail/western_us_event_slides_5.08.2026.jpg",
+      "contentType": "text/html"
+    },
+    {
+      "recordId": "DOW-UAP-D010",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688723/DOD_111688723.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688723/DOD_111688723.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR026",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688816/DOD_111688816.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111688816/DOD_111688816.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR034",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689011/DOD_111689011.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689011/DOD_111689011.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR042",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689090/DOD_111689090.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111689090/DOD_111689090.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR050",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719709/DOD_111719709.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719709/DOD_111719709.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR090",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719746/DOD_111719746.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719746/DOD_111719746.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR057b",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719752/DOD_111719752.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719752/DOD_111719752.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR097",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719813/DOD_111719813.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111719813/DOD_111719813.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR066",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111720693/DOD_111720693.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111720693/DOD_111720693.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR085",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111720822/DOD_111720822.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111720822/DOD_111720822.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR077",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111720884/DOD_111720884.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2605/DOD_111720884/DOD_111720884.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "FBI-UAP-PR005",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764189/DOD_111764189.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764189/DOD_111764189.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "FBI-UAP-PR006",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764213/DOD_111764213.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2606/DOD_111764213/DOD_111764213.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR100",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830004/DOD_111830004.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830004/DOD_111830004.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR104",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830027/DOD_111830027.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830027/DOD_111830027.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR105",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830030/DOD_111830030.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830030/DOD_111830030.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR107",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830041/DOD_111830041.mp4",
+      "featured": false,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830041/DOD_111830041.mp4",
+      "contentType": "binary/octet-stream"
+    },
+    {
+      "recordId": "DOW-UAP-PR113",
+      "kind": "video",
+      "url": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830133/DOD_111830133.mp4",
+      "featured": true,
+      "checkedAt": "2026-07-18T02:04:10Z",
+      "method": "HEAD",
+      "httpStatus": 200,
+      "finalUrl": "https://d34w7g4gy10iej.cloudfront.net/video/2607/DOD_111830133/DOD_111830133.mp4",
+      "contentType": "binary/octet-stream"
+    }
+  ],
+  "assetCheckCoverage": {
+    "strategy": "All unique asset URLs referenced by featured cases, plus a deterministic evenly spaced sample sufficient to cover at least 10% of every asset kind.",
+    "totalAssetReferencesByKind": {
+      "audio": 15,
+      "image": 27,
+      "pdf": 201,
+      "thumbnail": 334,
+      "video": 113
+    },
+    "checkedUniqueUrlsByKind": {
+      "audio": 4,
+      "image": 14,
+      "pdf": 51,
+      "thumbnail": 84,
+      "video": 18
+    },
+    "percentOfReferencesByKind": {
+      "audio": 26.7,
+      "image": 51.9,
+      "pdf": 25.4,
+      "thumbnail": 25.1,
+      "video": 15.9
+    },
+    "featuredCaseCount": 15,
+    "featuredRecordCount": 59,
+    "featuredUniqueAssetUrlCount": 116,
+    "allFeaturedAssetUrlsChecked": true
+  },
+  "manualDecisions": [
+    {
+      "field": "source enrichment",
+      "reason": "The official CSV rejected non-browser retrieval with HTTP 403. Official browser-rendered rows were used to verify all 334 index entries; descriptions and asset URLs were enriched from the public pursue.report mirror and kept separately attributed."
+    },
+    {
+      "field": "descriptionZh",
+      "reason": "Release 01 translations were matched by official asset URL, thumbnail URL, DVIDS ID, or unique raw identifier; translation origin is recorded per source snapshot."
+    },
+    {
+      "field": "record id",
+      "reason": "Collision suffixes were added only for reused identifiers: FBI-UAP-D014 (2)."
+    },
+    {
+      "field": "coordinates",
+      "reason": "All coordinates remain null because the official index supplies place labels but no authoritative coordinates."
+    },
+    {
+      "field": "case grouping sts-80-1996",
+      "recordIds": [
+        "NASA-UAP-D030",
+        "NASA-UAP-D031",
+        "NASA-UAP-D032"
+      ],
+      "reason": "The official titles identify three consecutively numbered images from the same STS-80 mission incident and source package."
+    },
+    {
+      "field": "case grouping colorado-springs-2022",
+      "recordIds": [
+        "FBI-UAP-D001",
+        "FBI-UAP-D002",
+        "FBI-UAP-D003",
+        "ICA-UAP-D001"
+      ],
+      "reason": "All four official titles name the Colorado Springs 2022 incident; the ICA record is explicitly an analysis of that incident."
+    },
+    {
+      "field": "case grouping western-us-event-2023",
+      "recordIds": [
+        "DOW-UAP-D077",
+        "DOW-UAP-D078",
+        "DOW-UAP-D079",
+        "DOW-UAP-D080",
+        "DOW-UAP-D081",
+        "DOW-UAP-D082",
+        "DOW-UAP-D083",
+        "FBI-UAP-D014@release-03",
+        "FBI-UAP-D015",
+        "FBI-UAP-D016",
+        "FBI-UAP-D017",
+        "FBI-UAP-D018",
+        "FBI-UAP-D019",
+        "FBI-UAP-D020",
+        "FBI-UAP-D021",
+        "FBI-UAP-D022",
+        "FBI-UAP-D023",
+        "FBI-UAP-PR005",
+        "FBI-UAP-PR006",
+        "Western US Event"
+      ],
+      "reason": "The records share the official event name, 2023 date, region, narrative numbering, and update/source-package language across Releases 01 and 03."
+    },
+    {
+      "field": "case grouping apollo-16-scientific-debriefing",
+      "recordIds": [
+        "NASA-UAP-D024",
+        "NASA-UAP-D025"
+      ],
+      "reason": "Both official records use the identical Apollo 16 Scientific Debriefing source-package title and adjacent identifiers."
+    },
+    {
+      "field": "case grouping fbi-62-hq-83894",
+      "recordIds": [
+        "65_HS1-834228961_62-HQ-83894_SUB_A",
+        "65_HS1-834228961_62-HQ-83894_Section_001",
+        "65_HS1-834228961_62-HQ-83894_Section_002",
+        "65_HS1-834228961_62-HQ-83894_Section_003",
+        "65_HS1-834228961_62-HQ-83894_Section_004",
+        "65_HS1-834228961_62-HQ-83894_Section_005",
+        "65_HS1-834228961_62-HQ-83894_Section_006",
+        "65_HS1-834228961_62-HQ-83894_Section_007",
+        "65_HS1-834228961_62-HQ-83894_Section_008",
+        "65_HS1-834228961_62-HQ-83894_Section_009",
+        "65_HS1-834228961_62-HQ-83894_Section_010",
+        "65_HS1-834228961_62-HQ-83894_Serial_130",
+        "65_HS1-834228961_62-HQ-83894_Serial_153",
+        "65_HS1-834228961_62-HQ-83894_Serial_164",
+        "65_HS1-834228961_62-HQ-83894_Serial_220",
+        "65_HS1-834228961_62-HQ-83894_Serial_403",
+        "65_HS1-834228961_62-HQ-83894_Serial_438",
+        "65_HS1-834228961_62-HQ-83894_Serial_449"
+      ],
+      "reason": "The official filenames identify sections, serials, and a subfile of the same FBI 62-HQ-83894 source package."
+    },
+    {
+      "field": "case grouping usaf-flying-objects-analysis-1-172",
+      "recordIds": [
+        "DOW-UAP-D087",
+        "DOW-UAP-D088"
+      ],
+      "reason": "The official titles label the records as consecutive 1–100 and 101–172 parts of one U.S. Air Force analysis package."
+    },
+    {
+      "field": "case grouping cia-unconventional-aircraft-1955",
+      "recordIds": [
+        "CIA-UAP-D020",
+        "CIA-UAP-D021"
+      ],
+      "reason": "The D020 description explicitly points to D021 as the contemporary analysis of the same 1955 sightings package."
+    },
+    {
+      "field": "case grouping dvids-1006056",
+      "recordIds": [
+        "DOW-UAP-D010",
+        "DOW-UAP-PR019"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006056, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006059",
+      "recordIds": [
+        "DOW-UAP-D014",
+        "DOW-UAP-PR021"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006059, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006060",
+      "recordIds": [
+        "DOW-UAP-D016",
+        "DOW-UAP-PR022"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006060, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006062",
+      "recordIds": [
+        "DOW-UAP-D018",
+        "DOW-UAP-PR023"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006062, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006063",
+      "recordIds": [
+        "DOW-UAP-D023",
+        "DOW-UAP-PR026"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006063, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006076",
+      "recordIds": [
+        "DOW-UAP-D032",
+        "DOW-UAP-PR031"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006076, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006080",
+      "recordIds": [
+        "DOW-UAP-D033",
+        "DOW-UAP-PR034"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006080, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006082",
+      "recordIds": [
+        "DOW-UAP-D035",
+        "DOW-UAP-PR035"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006082, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006083",
+      "recordIds": [
+        "DOW-UAP-D038",
+        "DOW-UAP-PR036"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006083, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1006111",
+      "recordIds": [
+        "DOW-UAP-PR049",
+        "FBI Photo A001"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1006111, an explicit media/source-package pairing."
+    },
+    {
+      "field": "case grouping dvids-1007720",
+      "recordIds": [
+        "DOW-UAP-PR057a",
+        "DOW-UAP-PR057b"
+      ],
+      "reason": "The official source rows share DVIDS video ID 1007720, an explicit media/source-package pairing."
+    }
+  ]
+}

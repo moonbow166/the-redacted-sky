@@ -1,0 +1,121 @@
+[
+  {
+    "id": "release-01",
+    "label": "Release 01",
+    "clearedDate": "2026-05-08",
+    "documents": {
+      "url": "https://www.war.gov/medialink/ufo/bundle/Release_1.zip",
+      "displayedSize": "1.2 GB"
+    },
+    "videos": {
+      "url": "https://d34w7g4gy10iej.cloudfront.net/uapvideos.zip",
+      "displayedSize": "1.3 GB"
+    },
+    "officialSourcePageUrl": "https://www.war.gov/UFO/",
+    "fetchedAt": "2026-07-18T02:04:10Z",
+    "isLatestAsOfFetch": false,
+    "recordCount": 158,
+    "agencyCounts": {
+      "Department of State": 7,
+      "Department of War": 79,
+      "FBI": 57,
+      "NASA": 15
+    },
+    "fileTypeCounts": {
+      "audio": 1,
+      "image": 14,
+      "pdf": 116,
+      "video": 27
+    }
+  },
+  {
+    "id": "release-02",
+    "label": "Release 02",
+    "clearedDate": "2026-05-22",
+    "documents": {
+      "url": "https://www.war.gov/medialink/ufo/052226/release_02/release_02_document_bundle.zip",
+      "displayedSize": "70.1 MB"
+    },
+    "videos": {
+      "url": "https://d34w7g4gy10iej.cloudfront.net/uap052226.zip",
+      "displayedSize": "5.6 GB"
+    },
+    "officialSourcePageUrl": "https://www.war.gov/UFO/",
+    "fetchedAt": "2026-07-18T02:04:10Z",
+    "isLatestAsOfFetch": false,
+    "recordCount": 64,
+    "agencyCounts": {
+      "CIA": 1,
+      "Department of Energy": 3,
+      "Department of War": 52,
+      "NASA": 7,
+      "Office of the Director of National Intelligence": 1
+    },
+    "fileTypeCounts": {
+      "audio": 7,
+      "pdf": 6,
+      "video": 51
+    }
+  },
+  {
+    "id": "release-03",
+    "label": "Release 03",
+    "clearedDate": "2026-06-12",
+    "documents": {
+      "url": "https://www.war.gov/medialink/ufo/061226/release_03/release_03_documents.zip",
+      "displayedSize": "826 MB"
+    },
+    "videos": {
+      "url": "https://d34w7g4gy10iej.cloudfront.net/release_03/uap_videos_061226.zip",
+      "displayedSize": "4.6 GB"
+    },
+    "officialSourcePageUrl": "https://www.war.gov/UFO/",
+    "fetchedAt": "2026-07-18T02:04:10Z",
+    "isLatestAsOfFetch": false,
+    "recordCount": 72,
+    "agencyCounts": {
+      "CIA": 18,
+      "Department of War": 12,
+      "FBI": 29,
+      "Intelligence Community Agency": 1,
+      "NASA": 11,
+      "U.S. Government": 1
+    },
+    "fileTypeCounts": {
+      "audio": 3,
+      "image": 10,
+      "pdf": 53,
+      "video": 6
+    }
+  },
+  {
+    "id": "release-04",
+    "label": "Release 04",
+    "clearedDate": "2026-07-10",
+    "documents": {
+      "url": "https://www.war.gov/medialink/ufo/071026/release_04/release_04_documents_071026.zip",
+      "displayedSize": "227 MB"
+    },
+    "videos": {
+      "url": "https://d34w7g4gy10iej.cloudfront.net/release_04/uap_release04_videos_071026.zip",
+      "displayedSize": "1.4 GB"
+    },
+    "officialSourcePageUrl": "https://www.war.gov/UFO/",
+    "fetchedAt": "2026-07-18T02:04:10Z",
+    "isLatestAsOfFetch": true,
+    "recordCount": 40,
+    "agencyCounts": {
+      "CIA": 2,
+      "Department of Energy": 2,
+      "Department of War": 28,
+      "FBI": 1,
+      "NASA": 7
+    },
+    "fileTypeCounts": {
+      "audio": 4,
+      "image": 3,
+      "pdf": 14,
+      "video": 19
+    }
+  }
+]
