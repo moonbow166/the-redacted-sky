@@ -29,12 +29,13 @@ test("server-renders the finished UAP experience", async () => {
   assert.match(html, /SENSORS SPOKE/);
   assert.match(html, /MOVE BEFORE/);
   assert.match(html, /YOU DECIDE/);
+  assert.match(html, /THREE SIGNALS/);
   assert.match(html, /RETURN TO THE FIELD/);
   assert.match(html, /og-v8\.png/);
   assert.doesNotMatch(html, /codex-preview|Codex is working|Your site is taking shape/i);
 
   const fieldIndex = html.indexOf("01 / THE FIELD");
-  const demosIndex = html.indexOf("02 / THREE DEMOS");
+  const demosIndex = html.indexOf("02 / THREE SIGNALS");
   const overviewIndex = html.indexOf("04 / NOW, THE SCALE");
   assert.ok(fieldIndex > 0 && demosIndex > fieldIndex && overviewIndex > demosIndex);
 });
@@ -58,6 +59,9 @@ test("ships the complete deterministic archive dataset", async () => {
   assert.equal(new Set(records.map((item) => item.id)).size, records.length);
   assert.match(page, /archiveRecords\.length/);
   assert.match(page, /featuredSignals/);
+  assert.match(page, /TARGET LOCK/);
+  assert.match(page, /WHAT DO YOU THINK YOU SAW/);
+  assert.match(page, /CONTINUE TO SIGNAL/);
   assert.match(scene, /recordKinds\.length/);
   assert.match(scene, /Hero reconstruction/);
 });

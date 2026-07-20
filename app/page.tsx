@@ -35,6 +35,7 @@ export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [soundOn, setSoundOn] = useState(true);
   const [verdict, setVerdict] = useState<string | null>(null);
+  const [caseRevealed, setCaseRevealed] = useState(false);
 
   const selectedEntry = useMemo(
     () => (selectedIndex === null ? null : getArchiveEntry(selectedIndex)),
@@ -76,6 +77,16 @@ export default function Home() {
   }, [selectedIndex]);
 
   useEffect(() => {
+    if (selectedIndex === null) {
+      setCaseRevealed(false);
+      return;
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const timer = window.setTimeout(() => setCaseRevealed(true), reduceMotion ? 80 : 980);
+    return () => window.clearTimeout(timer);
+  }, [selectedIndex]);
+
+  useEffect(() => {
     if (!soundOn || scrollStage === 0) return;
     const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!AudioContextClass) return;
@@ -109,18 +120,34 @@ export default function Home() {
 
   const openRecord = (index: number) => {
     setSelectedIndex(index);
-    setVerdict(null);
+    setCaseRevealed(false);
+    const stored = window.localStorage.getItem(`redacted-sky-verdict-${archiveRecords[index]?.id ?? index}`);
+    setVerdict(stored && verdicts.includes(stored) ? stored : null);
   };
 
   const closeCase = () => {
     setSelectedIndex(null);
     setVerdict(null);
+    setCaseRevealed(false);
   };
 
   const hoveredKind = hoveredIndex === null ? "" : archiveRecords[hoveredIndex]?.fileType.toUpperCase() ?? "RECORD";
   const selectedCase = selectedEntry?.caseFile;
   const selectedRecord = selectedEntry?.record;
   const selectedVisual = selectedEntry?.visualAsset;
+  const selectedFeatureIndex = selectedIndex === null ? -1 : featuredSignals.findIndex((item) => item.recordIndex === selectedIndex);
+  const selectedFeature = selectedFeatureIndex >= 0 ? featuredSignals[selectedFeatureIndex] : null;
+
+  const recordVerdict = (value: string) => {
+    setVerdict(value);
+    if (selectedRecord) window.localStorage.setItem(`redacted-sky-verdict-${selectedRecord.id}`, value);
+  };
+
+  const openNextSignal = () => {
+    if (selectedFeatureIndex < 0) return;
+    const next = featuredSignals[(selectedFeatureIndex + 1) % featuredSignals.length];
+    openRecord(next.recordIndex);
+  };
 
   return (
     <main className={`experience stage-${scrollStage}`}>
@@ -206,7 +233,7 @@ export default function Home() {
 
         <section className="story-chapter signals-chapter" id="signals">
           <div className="signal-heading">
-            <div className="chapter-index">02 / THREE DEMOS</div>
+            <div className="chapter-index">02 / THREE SIGNALS</div>
             <h2>THEN THE<br /><span>SENSORS SPOKE.</span></h2>
             <p>Three newly released records. No reconstruction inside the frames. No verdict added.</p>
           </div>
@@ -292,11 +319,21 @@ export default function Home() {
       <div className={`scan-instruction ${scrollStage === 1 && selectedIndex === null ? "is-visible" : ""}`}><span className="mouse-icon" aria-hidden="true" />MOVE TO SCAN · CLICK A SIGNAL</div>
       <div className={`coordinates ${scrollStage === 1 ? "is-visible" : ""}`} aria-hidden="true"><span>LIVE FIELD / SCALE INDETERMINATE</span><span>DO NOT ASSUME FORM</span></div>
 
-      <section className={`case-file ${selectedEntry ? "is-open" : ""}`} aria-hidden={!selectedEntry}>
+      <section className={`case-file ${selectedEntry ? "is-open" : ""} ${caseRevealed ? "is-revealed" : ""} ${selectedFeature ? "is-featured" : ""}`} aria-hidden={!selectedEntry}>
         {selectedEntry && selectedRecord && (
           <>
+            <div className="case-capture-sequence" aria-hidden="true">
+              <div className="capture-orbit orbit-one" /><div className="capture-orbit orbit-two" /><div className="capture-orbit orbit-three" />
+              <div className="capture-crosshair"><i /><i /></div>
+              <div className="capture-readout">
+                <span>TARGET LOCK / {selectedFeature ? `0${selectedFeatureIndex + 1}` : "UNINDEXED"}</span>
+                <strong>{selectedFeature?.signal ?? selectedRecord.fileType.toUpperCase()}</strong>
+                <small>ISOLATING SOURCE · VERIFYING CHAIN OF CUSTODY</small>
+              </div>
+            </div>
+            <div className="case-reveal-flash" aria-hidden="true" />
             <div className="case-topline">
-              <span>{selectedCase?.id.toUpperCase() ?? selectedRecord.id}</span>
+              <span>{selectedFeature ? `EVIDENCE 0${selectedFeatureIndex + 1} / 03` : selectedCase?.id.toUpperCase() ?? selectedRecord.id}</span>
               <span className="classification">{selectedRecord.officialStatus.toUpperCase()} / {releaseLabel(selectedRecord.releaseId)}</span>
               <button type="button" onClick={closeCase} aria-label="Close evidence file">CLOSE [ESC]</button>
             </div>
@@ -313,12 +350,15 @@ export default function Home() {
                   )}
                   <span className="frame-corner corner-a" /><span className="frame-corner corner-b" /><span className="frame-corner corner-c" /><span className="frame-corner corner-d" />
                   <div className="video-overlay"><span>{selectedEntry.visualRecord.fileType.toUpperCase()} / OFFICIAL RELEASE</span><span>REC ●</span><span>{selectedCase?.recordIds.length ?? 1} RECORD{(selectedCase?.recordIds.length ?? 1) > 1 ? "S" : ""}</span></div>
+                  {selectedFeature && <div className="signal-chapter-tag"><span>{selectedFeature.signal}</span><strong>{selectedFeature.location.label} / {displayDate(selectedFeature.eventDate)}</strong></div>}
                 </div>
                 <p className="source-note">OFFICIAL SOURCE RECORD · DESCRIPTION IS NOT AN ANALYTICAL JUDGMENT</p>
               </div>
               <article className="case-copy">
-                <div className="case-eyebrow">OPEN EVIDENCE FILE</div>
-                <h2>{selectedCase?.title ?? selectedRecord.title}</h2>
+                <div className="declassification-wipe" aria-hidden="true"><i /><i /><i /><i /></div>
+                <div className="case-eyebrow">{selectedFeature ? `DECLASSIFIED SIGNAL 0${selectedFeatureIndex + 1}` : "OPEN EVIDENCE FILE"}</div>
+                <h2>{selectedFeature?.title ?? selectedCase?.title ?? selectedRecord.title}</h2>
+                {selectedFeature && <p className="official-case-title">OFFICIAL FILE / {selectedCase?.title ?? selectedRecord.title}</p>}
                 <div className="case-meta">
                   <div><span>LOCATION</span><strong>{selectedCase?.location.label ?? selectedRecord.location.label ?? "WITHHELD / UNKNOWN"}</strong></div>
                   <div><span>INCIDENT</span><strong>{displayDate(selectedCase?.eventDate ?? selectedRecord.incidentDate)}</strong></div>
@@ -331,9 +371,14 @@ export default function Home() {
                 <div className="assessment">
                   <div className="assessment-title"><span>WHAT DO YOU THINK YOU SAW?</span><small>YOUR RESPONSE REMAINS ON THIS DEVICE</small></div>
                   <div className="verdicts">
-                    {verdicts.map((item) => <button key={item} type="button" className={verdict === item ? "is-selected" : ""} onClick={() => setVerdict(item)}><span className="verdict-dot" />{item}</button>)}
+                    {verdicts.map((item) => <button key={item} type="button" className={verdict === item ? "is-selected" : ""} onClick={() => recordVerdict(item)}><span className="verdict-dot" />{item}</button>)}
                   </div>
-                  {verdict && <div className="verdict-response">ASSESSMENT LOGGED: <strong>{verdict}</strong></div>}
+                  {verdict && (
+                    <div className="verdict-response">
+                      <span>ASSESSMENT LOGGED: <strong>{verdict}</strong></span>
+                      {selectedFeature && <button type="button" onClick={openNextSignal}>{selectedFeatureIndex === featuredSignals.length - 1 ? "RETURN TO SIGNAL 01" : `CONTINUE TO SIGNAL 0${selectedFeatureIndex + 2}`} <b>→</b></button>}
+                    </div>
+                  )}
                 </div>
               </article>
             </div>
@@ -341,7 +386,7 @@ export default function Home() {
         )}
       </section>
 
-      <footer className="credit-line">VISUAL EXPERIENCE V0.8 · PURSUE RELEASES 01–04 · CHINLEEZ / CC BY 4.0</footer>
+      <footer className="credit-line">BUILD WEEK CUT · PURSUE RELEASES 01–04 · CHINLEEZ / CC BY 4.0</footer>
       <p className="sr-only">An immersive three-dimensional field containing 334 official UAP record rows grouped into 279 cases.</p>
     </main>
   );
