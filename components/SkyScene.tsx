@@ -21,6 +21,8 @@ type Artifact = THREE.Group & {
     speed: number;
     index: number;
     home: THREE.Vector3;
+    baseScale: number;
+    kind: "video" | "image" | "document";
   };
 };
 
@@ -615,10 +617,13 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
         speed: 0.28 + random() * 0.38,
         index: i,
         home: position.clone(),
+        baseScale: 1,
+        kind: "document",
       };
 
       const sourceKind = recordKinds[i];
       const kind = sourceKind === "video" ? "video" : sourceKind === "image" ? "image" : "document";
+      artifact.userData.kind = kind;
       const geometry = kind === "document" ? documentGeometry : kind === "video" ? videoGeometry : imageGeometry;
       const materialSet = kind === "document" ? documentMaterials : kind === "video" ? videoMaterials : imageMaterials;
       const mesh = new THREE.Mesh(geometry, liveMaterials.get(i) ?? materialSet[i % materialSet.length]);
@@ -635,25 +640,33 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
           blending: THREE.AdditiveBlending,
         }),
       );
+      edge.userData.role = "artifact-edge";
+      edge.userData.baseOpacity = important.has(i) ? 0.72 : 0.17;
       edge.scale.setScalar(1.03);
       artifact.add(edge);
 
       if (important.has(i)) {
-        artifact.scale.setScalar(1.12);
+        artifact.userData.baseScale = 1.12;
+        artifact.scale.setScalar(artifact.userData.baseScale);
         const beacon = new THREE.Mesh(
           new THREE.TorusGeometry(0.72, 0.008, 5, 72),
           new THREE.MeshBasicMaterial({ color: 0xa9fff2, transparent: true, opacity: 0.55 }),
         );
+        beacon.userData.role = "beacon";
+        beacon.userData.baseOpacity = 0.55;
         beacon.position.z = 0.02;
         artifact.add(beacon);
         const outerBeacon = new THREE.Mesh(
           new THREE.TorusGeometry(0.94, 0.006, 4, 84),
           new THREE.MeshBasicMaterial({ color: 0xc7a56e, transparent: true, opacity: 0.32 }),
         );
+        outerBeacon.userData.role = "beacon";
+        outerBeacon.userData.baseOpacity = 0.32;
         outerBeacon.position.z = -0.01;
         artifact.add(outerBeacon);
       } else {
-        artifact.scale.setScalar(0.68 + random() * 0.7);
+        artifact.userData.baseScale = 0.68 + random() * 0.7;
+        artifact.scale.setScalar(artifact.userData.baseScale);
       }
 
       artifacts.push(artifact);
@@ -777,9 +790,30 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
 
     const focusFrame = new THREE.Mesh(
       new THREE.PlaneGeometry(1.8, 1.8),
-      new THREE.MeshBasicMaterial({ color: 0xa9fff2, wireframe: true, transparent: true, opacity: 0 }),
+      new THREE.MeshBasicMaterial({
+        color: 0xa9fff2,
+        wireframe: true,
+        transparent: true,
+        opacity: 0,
+        blending: THREE.AdditiveBlending,
+        depthTest: false,
+      }),
     );
+    focusFrame.renderOrder = 20;
     scene.add(focusFrame);
+
+    const focusHalo = new THREE.Mesh(
+      new THREE.RingGeometry(0.92, 0.945, 72),
+      new THREE.MeshBasicMaterial({
+        color: 0xc7a56e,
+        transparent: true,
+        opacity: 0,
+        blending: THREE.AdditiveBlending,
+        depthTest: false,
+      }),
+    );
+    focusHalo.renderOrder = 21;
+    scene.add(focusHalo);
 
     const pointer = new THREE.Vector2(4, 4);
     const pointerTarget = new THREE.Vector2(0, 0);
@@ -810,6 +844,7 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       hovered = null;
       hoverRef.current(null);
       (focusFrame.material as THREE.MeshBasicMaterial).opacity = 0;
+      (focusHalo.material as THREE.MeshBasicMaterial).opacity = 0;
       renderer.domElement.style.cursor = "default";
     };
 
@@ -887,8 +922,8 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
             destination = new THREE.Vector3(-12, 6.5, -10);
             targetScale = 0.32;
           } else if (stageNow === 1) {
-            destination = new THREE.Vector3(0.2, -1.1, 6.8);
-            targetScale = 0.98;
+            destination = new THREE.Vector3(2.6, -1.35, -7.4);
+            targetScale = 0.58;
           }
         } else if (activeRef.current || stageNow >= 1) {
           destination = morphology.userData.exit.clone();
@@ -910,16 +945,33 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
 
       artifacts.forEach((artifact) => {
         const target = featuredVideoTargets.get(artifact.userData.index);
+        const isHovered = hovered === artifact.userData.index && activeRef.current && !selectedNow;
+        const hoverLift = isHovered && artifact.userData.kind === "video" ? 1.45 : isHovered ? 0.55 : 0;
         if (target) {
-          const destination = activeRef.current ? target : artifact.userData.home;
+          const destination = (activeRef.current ? target : artifact.userData.home).clone();
+          destination.z += hoverLift;
           artifact.position.lerp(destination, activeRef.current ? 0.036 : 0.018);
           artifact.position.y += Math.sin(elapsed * artifact.userData.speed + artifact.userData.phase) * 0.0025;
-          const targetScale = activeRef.current ? 2.1 : 1.12;
+          const targetScale = activeRef.current ? (isHovered ? 2.82 : 2.1) : artifact.userData.baseScale;
           const nextScale = THREE.MathUtils.lerp(artifact.scale.x, targetScale, 0.035);
           artifact.scale.setScalar(nextScale);
         } else {
           artifact.position.y = artifact.userData.baseY + Math.sin(elapsed * artifact.userData.speed + artifact.userData.phase) * 0.085;
+          const targetZ = artifact.userData.home.z + hoverLift;
+          artifact.position.z = THREE.MathUtils.lerp(artifact.position.z, targetZ, 0.075);
+          const hoverScale = artifact.userData.kind === "video" ? 1.52 : 1.24;
+          const targetScale = artifact.userData.baseScale * (isHovered ? hoverScale : 1);
+          const nextScale = THREE.MathUtils.lerp(artifact.scale.x, targetScale, isHovered ? 0.12 : 0.06);
+          artifact.scale.setScalar(nextScale);
         }
+
+        artifact.children.forEach((child) => {
+          if (child.userData.role !== "artifact-edge" && child.userData.role !== "beacon") return;
+          const material = (child as THREE.Mesh).material as THREE.Material & { opacity: number };
+          const baseOpacity = child.userData.baseOpacity as number;
+          const hoverOpacity = artifact.userData.kind === "video" ? 1 : 0.82;
+          material.opacity = THREE.MathUtils.lerp(material.opacity, isHovered ? hoverOpacity : baseOpacity, 0.16);
+        });
       });
 
       if (activeRef.current && !selectedNow) {
@@ -936,16 +988,29 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
           const worldPosition = target.getWorldPosition(new THREE.Vector3());
           focusFrame.position.copy(worldPosition);
           focusFrame.quaternion.copy(camera.quaternion);
+          focusHalo.position.copy(worldPosition);
+          focusHalo.quaternion.copy(camera.quaternion);
           const material = focusFrame.material as THREE.MeshBasicMaterial;
-          material.opacity = THREE.MathUtils.lerp(material.opacity, 0.45, 0.18);
-          focusFrame.rotation.z += 0.004;
+          const isVideo = target.userData.kind === "video";
+          material.opacity = THREE.MathUtils.lerp(material.opacity, isVideo ? 0.9 : 0.62, 0.18);
+          const pulse = 1 + Math.sin(elapsed * 5.8) * 0.065;
+          focusFrame.scale.setScalar((isVideo ? 1.24 : 1) * pulse);
+          focusFrame.rotation.z += isVideo ? 0.012 : 0.005;
+          const haloMaterial = focusHalo.material as THREE.MeshBasicMaterial;
+          haloMaterial.opacity = THREE.MathUtils.lerp(haloMaterial.opacity, isVideo ? 0.72 : 0.32, 0.18);
+          focusHalo.scale.setScalar((isVideo ? 1.48 : 1.12) * (2 - pulse));
+          focusHalo.rotation.z -= 0.009;
         } else {
           const material = focusFrame.material as THREE.MeshBasicMaterial;
           material.opacity = THREE.MathUtils.lerp(material.opacity, 0, 0.18);
+          const haloMaterial = focusHalo.material as THREE.MeshBasicMaterial;
+          haloMaterial.opacity = THREE.MathUtils.lerp(haloMaterial.opacity, 0, 0.18);
         }
       } else {
         const material = focusFrame.material as THREE.MeshBasicMaterial;
         material.opacity = THREE.MathUtils.lerp(material.opacity, 0, 0.18);
+        const haloMaterial = focusHalo.material as THREE.MeshBasicMaterial;
+        haloMaterial.opacity = THREE.MathUtils.lerp(haloMaterial.opacity, 0, 0.18);
         if (hovered !== null) {
           hovered = null;
           hoverRef.current(null);
@@ -956,8 +1021,9 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       documentMaterials.forEach((material) => { material.opacity = fade; });
       videoMaterials.forEach((material) => { material.opacity = Math.min(0.78, fade + 0.16); });
       imageMaterials.forEach((material) => { material.opacity = Math.min(0.7, fade + 0.08); });
-      liveMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activity ? 0.84 : 0.06, 0.045);
+      liveMaterials.forEach((material, index) => {
+        const isHovered = hovered === index && activeRef.current && !selectedNow;
+        material.opacity = THREE.MathUtils.lerp(material.opacity, isHovered ? 1 : activity ? 0.84 : 0.06, 0.065);
       });
       renderer.render(scene, camera);
     };

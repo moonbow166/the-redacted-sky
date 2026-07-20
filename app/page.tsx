@@ -283,9 +283,9 @@ export default function Home() {
         </dl>
       </aside>
 
-      <div className={`target-readout ${scrollStage === 1 && hoveredIndex !== null && selectedIndex === null ? "is-visible" : ""}`} aria-live="polite">
+      <div className={`target-readout ${hoveredKind === "VIDEO" ? "is-video" : ""} ${scrollStage === 1 && hoveredIndex !== null && selectedIndex === null ? "is-visible" : ""}`} aria-live="polite">
         <span className="target-bracket">[</span>
-        <div><small>SIGNAL ACQUIRED</small><strong>RECORD {String((hoveredIndex ?? 0) + 1).padStart(3, "0")}</strong><small>{hoveredKind} · CLICK TO INSPECT</small></div>
+        <div><small>SIGNAL ACQUIRED</small><strong>RECORD {String((hoveredIndex ?? 0) + 1).padStart(3, "0")}</strong><small>{hoveredKind === "VIDEO" ? "VIDEO READY · CLICK TO OPEN EVIDENCE" : `${hoveredKind} · CLICK TO OPEN RECORD`}</small></div>
         <span className="target-bracket">]</span>
       </div>
 
