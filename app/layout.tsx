@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const origin = `${protocol}://${host}`;
   const title = "The Redacted Sky — 天空被涂黑的部分";
   const description =
-    "Descend through official footage into 334 declassified UAP records, grouped into 279 explorable cases.";
+    "Enter a live field of UAP morphologies, inspect official footage, then uncover 334 declassified records grouped into 279 cases.";
 
   return {
     metadataBase: new URL(origin),
@@ -34,13 +34,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       type: "website",
-      images: [{ url: `${origin}/og-v7.png`, width: 1736, height: 909, alt: title }],
+      images: [{ url: `${origin}/og-v8.png`, width: 1736, height: 909, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [`${origin}/og-v7.png`],
+      images: [`${origin}/og-v8.png`],
     },
   };
 }

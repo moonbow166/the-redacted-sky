@@ -339,7 +339,7 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       meridian.rotation.y = rotation;
       orb.add(meridian);
     });
-    registerMorphology(orb, new THREE.Vector3(12.8, 4.8, 1), new THREE.Vector3(-7.2, 3.5, -1.5), 0.2, 0.28, 0.86);
+    registerMorphology(orb, new THREE.Vector3(12.8, 4.8, 1), new THREE.Vector3(-6.7, 3.25, 5.5), 0.2, 0.28, 1.12);
 
     const ticTac = new THREE.Group();
     const ticMaterial = makeSkin(0x89918e);
@@ -362,7 +362,7 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       port.position.set(-0.3 + i * 0.2, -0.49, 0.08);
       ticTac.add(port);
     }
-    registerMorphology(ticTac, new THREE.Vector3(11.5, -4.2, 3), new THREE.Vector3(7.1, 4.1, -1.8), 1.4, 0.34, 0.82);
+    registerMorphology(ticTac, new THREE.Vector3(11.5, -4.2, 3), new THREE.Vector3(6.4, 3.45, 4.2), 1.4, 0.34, 1.18);
 
     // Hero reconstruction: a broad, asymmetric black-manta form. It is intentionally
     // unlike a conventional saucer and reads as one massive continuous hull.
@@ -479,7 +479,7 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       light.position.set(x, y, 0.17);
       triangle.add(light);
     });
-    registerMorphology(triangle, new THREE.Vector3(13, -2, 0), new THREE.Vector3(-7.2, -3.25, -2), 3.1, 0.32, 0.82);
+    registerMorphology(triangle, new THREE.Vector3(13, -2, 0), new THREE.Vector3(-5.9, -3.1, 3.1), 3.1, 0.32, 1.2);
 
     const cylinder = new THREE.Group();
     const cylinderAssembly = new THREE.Group();
@@ -501,7 +501,7 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
     capA.position.y = -1.17;
     capB.position.y = 1.17;
     cylinderAssembly.add(capA, capB);
-    registerMorphology(cylinder, new THREE.Vector3(5.5, -5.5, 0), new THREE.Vector3(-2.4, 5.2, -4.5), 4.2, 0.3, 0.78);
+    registerMorphology(cylinder, new THREE.Vector3(5.5, -5.5, 0), new THREE.Vector3(-1.8, 4.4, 0.3), 4.2, 0.3, 1.02);
 
     const boomerang = new THREE.Group();
     const boomShape = new THREE.Shape();
@@ -528,7 +528,7 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       node.position.set(x, 0.05 + Math.abs(x) * 0.25, 0.18);
       boomerang.add(node);
     }
-    registerMorphology(boomerang, new THREE.Vector3(10, 5, -2), new THREE.Vector3(2.8, -5.2, -4.5), 5.1, 0.26, 0.74);
+    registerMorphology(boomerang, new THREE.Vector3(10, 5, -2), new THREE.Vector3(4.2, -4.15, 2.2), 5.1, 0.26, 1.08);
 
     fleet.traverse((object) => {
       if (object instanceof THREE.Mesh) {
@@ -813,8 +813,19 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       renderer.domElement.style.cursor = "default";
     };
 
-    const onClick = () => {
-      if (activeRef.current && hovered !== null) selectRef.current(hovered);
+    const onClick = (event: PointerEvent) => {
+      if (!activeRef.current) return;
+      if (event.pointerType === "touch") return;
+      const eventTarget = event.target;
+      if (eventTarget instanceof Element && eventTarget.closest("button, a, video, input")) return;
+      const rect = renderer.domElement.getBoundingClientRect();
+      const clickPointer = new THREE.Vector2(
+        ((event.clientX - rect.left) / rect.width) * 2 - 1,
+        -((event.clientY - rect.top) / rect.height) * 2 + 1,
+      );
+      raycaster.setFromCamera(clickPointer, camera);
+      const intersections = raycaster.intersectObjects(hitTargets, false);
+      if (intersections.length) selectRef.current(intersections[0].object.userData.index as number);
     };
 
     const animate = () => {
@@ -824,7 +835,8 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       const stageNow = stageRef.current;
       const selectedNow = selectedRef.current !== null;
       pointer.lerp(pointerTarget, reduceMotion ? 0.025 : 0.055);
-      field.visible = activeRef.current;
+      field.visible = stageNow === 1;
+      fleet.visible = stageNow <= 1;
 
       if (activeRef.current && !videosStarted) {
         videosStarted = true;
@@ -871,12 +883,12 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
         let destination = home.clone();
         let targetScale = morphology.userData.introScale;
         if (morphology === disk) {
-          if (activeRef.current || stageNow >= 2) {
+          if (stageNow >= 2) {
             destination = new THREE.Vector3(-12, 6.5, -10);
             targetScale = 0.32;
           } else if (stageNow === 1) {
-            destination = new THREE.Vector3(-1.35, -0.75, 18.2);
-            targetScale = 1.34;
+            destination = new THREE.Vector3(0.2, -1.1, 6.8);
+            targetScale = 0.98;
           }
         } else if (activeRef.current || stageNow >= 1) {
           destination = morphology.userData.exit.clone();
@@ -940,12 +952,12 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
         }
       }
 
-      const fade = THREE.MathUtils.lerp(materials[0].opacity, activity ? 0.58 : 0.22, 0.018);
+      const fade = THREE.MathUtils.lerp(materials[0].opacity, activity ? 0.42 : 0.16, 0.018);
       documentMaterials.forEach((material) => { material.opacity = fade; });
       videoMaterials.forEach((material) => { material.opacity = Math.min(0.78, fade + 0.16); });
       imageMaterials.forEach((material) => { material.opacity = Math.min(0.7, fade + 0.08); });
       liveMaterials.forEach((material) => {
-        material.opacity = THREE.MathUtils.lerp(material.opacity, activity ? 0.92 : 0.08, 0.045);
+        material.opacity = THREE.MathUtils.lerp(material.opacity, activity ? 0.84 : 0.06, 0.045);
       });
       renderer.render(scene, camera);
     };
@@ -955,14 +967,14 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
     window.addEventListener("resize", resize);
     renderer.domElement.addEventListener("pointermove", onPointerMove);
     renderer.domElement.addEventListener("pointerleave", onPointerLeave);
-    renderer.domElement.addEventListener("click", onClick);
+    window.addEventListener("pointerdown", onClick);
 
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", resize);
       renderer.domElement.removeEventListener("pointermove", onPointerMove);
       renderer.domElement.removeEventListener("pointerleave", onPointerLeave);
-      renderer.domElement.removeEventListener("click", onClick);
+      window.removeEventListener("pointerdown", onClick);
       documentGeometry.dispose();
       videoGeometry.dispose();
       imageGeometry.dispose();

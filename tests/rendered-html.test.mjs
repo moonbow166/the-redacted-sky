@@ -21,14 +21,22 @@ test("server-renders the finished UAP experience", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>The Redacted Sky — 天空被涂黑的部分<\/title>/i);
-  assert.match(html, /334 RECORDS \/ 279 CASES \/ 04 RELEASES/);
+  assert.match(html, /334 OFFICIAL RECORD ROWS/);
+  assert.match(html, /279 EDITORIALLY GROUPED CASES/);
   assert.match(html, /APPROACH/);
   assert.match(html, /THE UNKNOWN/);
   assert.match(html, /THEN THE/);
   assert.match(html, /SENSORS SPOKE/);
-  assert.match(html, /ENTER THE EVIDENCE FIELD/);
-  assert.match(html, /og-v7\.png/);
+  assert.match(html, /MOVE BEFORE/);
+  assert.match(html, /YOU DECIDE/);
+  assert.match(html, /RETURN TO THE FIELD/);
+  assert.match(html, /og-v8\.png/);
   assert.doesNotMatch(html, /codex-preview|Codex is working|Your site is taking shape/i);
+
+  const fieldIndex = html.indexOf("01 / THE FIELD");
+  const demosIndex = html.indexOf("02 / THREE DEMOS");
+  const overviewIndex = html.indexOf("04 / NOW, THE SCALE");
+  assert.ok(fieldIndex > 0 && demosIndex > fieldIndex && overviewIndex > demosIndex);
 });
 
 test("ships the complete deterministic archive dataset", async () => {

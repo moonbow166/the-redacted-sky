@@ -1894,7 +1894,7 @@ button {
 
 /* V0.7 — experience first, evidence second */
 .experience {
-  min-height: 600svh;
+  min-height: 500svh;
 }
 
 .experience.is-archive {
@@ -2318,6 +2318,200 @@ button {
   .descent-trigger i {
     animation: none;
     transition: none;
+  }
+}
+
+/* V0.8 — the field is the experience, not a gate after it */
+.stage-1 .story-rail {
+  pointer-events: none;
+}
+
+.stage-1 .vignette {
+  background:
+    radial-gradient(circle at 50% 48%, transparent 0 22%, rgba(1, 3, 4, 0.12) 60%, rgba(0, 0, 0, 0.76) 120%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.24));
+}
+
+.field-chapter {
+  display: block;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(169, 255, 242, 0.025), transparent 38%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.24), transparent 22% 74%, rgba(0, 0, 0, 0.48));
+}
+
+.field-chapter-copy {
+  position: absolute;
+  right: clamp(28px, 7vw, 112px);
+  bottom: clamp(82px, 12vh, 140px);
+  z-index: 3;
+  text-align: right;
+}
+
+.field-chapter-copy .chapter-index {
+  margin-bottom: 12px;
+}
+
+.field-chapter-copy > p {
+  margin: 0 0 12px;
+  color: rgba(220, 228, 222, 0.4);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 7px;
+  letter-spacing: 0.2em;
+}
+
+.field-chapter-copy h2 {
+  margin: 0;
+  font-size: clamp(46px, 6.4vw, 104px);
+  font-weight: 320;
+  line-height: 0.86;
+  letter-spacing: -0.07em;
+}
+
+.field-chapter-copy h2 span {
+  color: rgba(220, 228, 222, 0.2);
+}
+
+.field-morphology-legend {
+  position: absolute;
+  top: 86px;
+  right: clamp(28px, 7vw, 112px);
+  display: flex;
+  gap: 18px;
+  color: rgba(220, 228, 222, 0.24);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 5px;
+  letter-spacing: 0.13em;
+}
+
+.field-morphology-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: 7px;
+  border: 1px solid rgba(169, 255, 242, 0.55);
+  border-radius: 50%;
+}
+
+.field-depth-cue {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52vw;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+
+.field-depth-cue i {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(169, 255, 242, 0.035);
+  border-radius: 50%;
+  animation: field-breathe 8s ease-in-out infinite;
+}
+
+.field-depth-cue i:nth-child(2) {
+  inset: 18%;
+  animation-delay: -2.7s;
+}
+
+.field-depth-cue i:nth-child(3) {
+  inset: 36%;
+  animation-delay: -5.4s;
+}
+
+.field-index:not([aria-hidden="true"]) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+
+.morphology-readout {
+  width: 174px;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.28s ease;
+}
+
+.scan-instruction {
+  transition: opacity 0.22s ease;
+}
+
+.scan-instruction.is-visible {
+  transition-delay: 0.65s;
+}
+
+.morphology-readout .index-number {
+  color: rgba(220, 228, 222, 0.84);
+}
+
+.morphology-readout dl {
+  gap: 7px;
+}
+
+.overview-return {
+  align-self: center;
+  margin-top: 22px;
+  padding: 11px 16px;
+  border: 1px solid rgba(169, 255, 242, 0.25);
+  background: rgba(169, 255, 242, 0.025);
+  color: rgba(169, 255, 242, 0.72);
+  cursor: pointer;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 6px;
+  letter-spacing: 0.15em;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.overview-return:hover,
+.overview-return:focus-visible {
+  border-color: var(--signal);
+  background: var(--signal);
+  color: var(--ink);
+  outline: none;
+}
+
+.release-chapter > .archive-source-line {
+  align-self: center;
+  margin-top: 15px;
+}
+
+@keyframes field-breathe {
+  0%, 100% { transform: scale(0.94); opacity: 0.16; }
+  50% { transform: scale(1.08); opacity: 0.65; }
+}
+
+@media (max-width: 860px) {
+  .field-chapter-copy {
+    right: 20px;
+    bottom: 90px;
+    left: 20px;
+  }
+
+  .field-chapter-copy h2 {
+    font-size: clamp(46px, 13vw, 72px);
+  }
+
+  .field-morphology-legend {
+    top: 76px;
+    right: 16px;
+    left: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px 12px;
+  }
+
+  .field-depth-cue {
+    width: 112vw;
+  }
+
+  .morphology-readout {
+    top: 82px;
+    width: 142px;
+  }
+
+  .morphology-readout dl div:nth-child(n + 5) {
+    display: none;
   }
 }
 

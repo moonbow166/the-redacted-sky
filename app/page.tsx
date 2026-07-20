@@ -14,7 +14,7 @@ import {
 } from "../lib/archive";
 
 const verdicts = ["ORDINARY", "SENSOR AMBIGUITY", "INSUFFICIENT", "ANOMALOUS"];
-const chapterLabels = ["ENCOUNTER", "DESCENT", "SIGNALS", "DISCLOSURE", "RELEASES", "ARCHIVE"];
+const chapterLabels = ["ENCOUNTER", "FIELD", "SIGNALS", "DISCLOSURE", "OVERVIEW"];
 
 function displayDate(value: string | null) {
   if (!value) return "DATE WITHHELD";
@@ -30,7 +30,6 @@ function releaseLabel(id: string) {
 }
 
 export default function Home() {
-  const [entered, setEntered] = useState(false);
   const [scrollStage, setScrollStage] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -48,23 +47,20 @@ export default function Home() {
         if (selectedIndex !== null) {
           setSelectedIndex(null);
           setVerdict(null);
-        } else if (entered) {
-          setEntered(false);
-          window.setTimeout(() => window.scrollTo({ top: window.innerHeight * 5, behavior: "smooth" }), 60);
         }
       }
-      if (event.key === "Enter" && scrollStage === 0 && !entered) {
+      if (event.key === "Enter" && scrollStage === 0) {
         window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [entered, scrollStage, selectedIndex]);
+  }, [scrollStage, selectedIndex]);
 
   useEffect(() => {
     const onScroll = () => {
       const unit = Math.max(window.innerHeight, 1);
-      const nextStage = Math.max(0, Math.min(5, Math.floor((window.scrollY + unit * 0.28) / unit)));
+      const nextStage = Math.max(0, Math.min(4, Math.floor((window.scrollY + unit * 0.28) / unit)));
       setScrollStage((current) => (current === nextStage ? current : nextStage));
     };
     onScroll();
@@ -73,14 +69,14 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = entered || selectedIndex !== null ? "hidden" : "";
+    document.body.style.overflow = selectedIndex !== null ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [entered, selectedIndex]);
+  }, [selectedIndex]);
 
   useEffect(() => {
-    if (!soundOn || (!entered && scrollStage === 0)) return;
+    if (!soundOn || scrollStage === 0) return;
     const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!AudioContextClass) return;
     const context = new AudioContextClass();
@@ -109,7 +105,7 @@ export default function Home() {
       master.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.12);
       window.setTimeout(() => context.close(), 150);
     };
-  }, [entered, scrollStage, soundOn]);
+  }, [scrollStage, soundOn]);
 
   const openRecord = (index: number) => {
     setSelectedIndex(index);
@@ -121,26 +117,15 @@ export default function Home() {
     setVerdict(null);
   };
 
-  const enterArchive = () => {
-    setEntered(true);
-    window.scrollTo({ top: 0, behavior: "auto" });
-  };
-
-  const leaveArchive = () => {
-    closeCase();
-    setEntered(false);
-    window.setTimeout(() => window.scrollTo({ top: window.innerHeight * 5, behavior: "smooth" }), 60);
-  };
-
   const hoveredKind = hoveredIndex === null ? "" : archiveRecords[hoveredIndex]?.fileType.toUpperCase() ?? "RECORD";
   const selectedCase = selectedEntry?.caseFile;
   const selectedRecord = selectedEntry?.record;
   const selectedVisual = selectedEntry?.visualAsset;
 
   return (
-    <main className={`experience stage-${scrollStage} ${entered ? "is-archive" : "is-story"}`}>
+    <main className={`experience stage-${scrollStage}`}>
       <SkyScene
-        active={entered}
+        active={scrollStage === 1}
         stage={scrollStage}
         recordKinds={recordKinds}
         featuredIndexes={connectedVideoIndexes}
@@ -161,18 +146,15 @@ export default function Home() {
         </div>
         <div className="system-status">
           <span className="status-light" />
-          <span>{entered ? "FIELD ACTIVE" : scrollStage < 2 ? "UNKNOWN CONTACT" : "PURSUE ARCHIVE"}</span>
-          <span className="dim hide-mobile">334 RECORDS / 279 CASES / 04 RELEASES</span>
-          {entered && (
-            <button className="archive-exit" type="button" onClick={leaveArchive}>EXIT FIELD [ESC]</button>
-          )}
+          <span>{scrollStage === 1 ? "FIELD ACTIVE" : scrollStage === 0 ? "UNKNOWN CONTACT" : scrollStage < 4 ? "EVIDENCE STREAM" : "PURSUE ARCHIVE"}</span>
+          {scrollStage >= 4 && <span className="dim hide-mobile">334 RECORDS / 279 CASES / 04 RELEASES</span>}
           <button className="sound-toggle" type="button" aria-label={soundOn ? "Mute ambient signal" : "Enable ambient signal"} onClick={() => setSoundOn((value) => !value)}>
             SOUND {soundOn ? "ON" : "OFF"}
           </button>
         </div>
       </header>
 
-      <section className="intro-copy" aria-hidden={entered || scrollStage !== 0}>
+      <section className="intro-copy" aria-hidden={scrollStage !== 0}>
         <div className="eyebrow">VISUAL RECONSTRUCTION / ORIGIN UNCONFIRMED</div>
         <h1>
           <span>THE</span>
@@ -192,7 +174,7 @@ export default function Home() {
         <div className="entry-note">SCROLL TO DESCEND · HEADPHONES RECOMMENDED</div>
       </section>
 
-      <div className="craft-callout" aria-hidden={entered || scrollStage !== 0}>
+      <div className="craft-callout" aria-hidden={scrollStage !== 0}>
         <span>CONTACT / FORM UNRESOLVED</span>
         <strong>THE BLACK MANTA</strong>
         <small>ARTIST RECONSTRUCTION · NOT EVIDENCE</small>
@@ -207,24 +189,24 @@ export default function Home() {
         ))}
       </nav>
 
-      <div className="story-rail" aria-hidden={entered}>
+      <div className="story-rail">
         <div className="story-spacer" aria-hidden="true" />
 
-        <section className="story-chapter deep-space-chapter" id="descent">
-          <div className="depth-copy">
-            <div className="chapter-index">01 / DESCENT</div>
-            <p>FIRST, THERE WAS ONLY<br />A SHAPE AGAINST THE DARK.</p>
-            <h2>NO SOUND.<br /><span>NO VISIBLE PROPULSION.</span></h2>
-            <div className="depth-telemetry">
-              <span>RANGE / UNKNOWN</span><span>VELOCITY / INDETERMINATE</span><span>ORIGIN / WITHHELD</span>
-            </div>
+        <section className="story-chapter field-chapter" id="field">
+          <div className="field-chapter-copy">
+            <div className="chapter-index">01 / THE FIELD</div>
+            <p>DO NOT NAME IT YET.</p>
+            <h2>MOVE BEFORE<br /><span>YOU DECIDE.</span></h2>
           </div>
-          <div className="fall-line" aria-hidden="true"><i /></div>
+          <div className="field-morphology-legend" aria-hidden="true">
+            <span>ORB</span><span>TIC-TAC</span><span>MANTA</span><span>TRIANGLE</span><span>CYLINDER</span><span>BOOMERANG</span>
+          </div>
+          <div className="field-depth-cue" aria-hidden="true"><i /><i /><i /></div>
         </section>
 
         <section className="story-chapter signals-chapter" id="signals">
           <div className="signal-heading">
-            <div className="chapter-index">02 / OFFICIAL FOOTAGE</div>
+            <div className="chapter-index">02 / THREE DEMOS</div>
             <h2>THEN THE<br /><span>SENSORS SPOKE.</span></h2>
             <p>Three newly released records. No reconstruction inside the frames. No verdict added.</p>
           </div>
@@ -263,7 +245,7 @@ export default function Home() {
         </section>
 
         <section className="story-chapter release-chapter" id="releases">
-          <div className="chapter-index">04 / THE SCALE OF DISCLOSURE</div>
+          <div className="chapter-index">04 / NOW, THE SCALE</div>
           <div className="release-headline">
             <span>OFFICIAL ROWS RELEASED</span><strong>{archiveRecords.length}</strong><span>GROUPED INTO {archiveCases.length} CASES</span>
           </div>
@@ -281,42 +263,34 @@ export default function Home() {
             ))}
           </div>
           <p className="release-disclaimer">334 OFFICIAL RECORD ROWS · 279 EDITORIALLY GROUPED CASES · LOCATION PRECISION PRESERVED</p>
-        </section>
-
-        <section className="story-chapter archive-chapter" id="archive">
-          <div className="archive-gate">
-            <div className="chapter-index">05 / THE EVIDENCE FIELD</div>
-            <p className="archive-count">334 RECORDS / 279 CASES / 15 FEATURED DOSSIERS</p>
-            <h2>NOW ENTER<br /><span>THE RECORD.</span></h2>
-            <p>Move through the released documents, footage, images and audio. Each point is an official record; linked records open as one evolving case.</p>
-            <button className="archive-enter" type="button" onClick={enterArchive}><span>ENTER THE EVIDENCE FIELD</span><i aria-hidden="true" /></button>
-            <div className="archive-source-line">PRIMARY SOURCE / U.S. GOVERNMENT PURSUE · CHINESE INDEX / CHINLEEZ CC BY 4.0</div>
-          </div>
+          <button className="overview-return" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>RETURN TO THE FIELD ↑</button>
+          <div className="archive-source-line">PRIMARY SOURCE / U.S. GOVERNMENT PURSUE · CHINESE INDEX / CHINLEEZ CC BY 4.0</div>
         </section>
       </div>
 
-      <aside className="field-index" aria-hidden={!entered || selectedIndex !== null}>
-        <div className="index-kicker">CURRENT FIELD</div>
-        <div className="index-number">{archiveRecords.length}</div>
-        <div className="index-label">OFFICIAL RECORD ROWS</div>
+      <aside className="field-index morphology-readout" aria-hidden={scrollStage !== 1 || selectedIndex !== null}>
+        <div className="index-kicker">FORMS IN VIEW</div>
+        <div className="index-number">06</div>
+        <div className="index-label">RECONSTRUCTED MORPHOLOGIES</div>
         <div className="index-rule" />
         <dl>
-          <div><dt>CASES</dt><dd>{archiveCases.length}</dd></div>
-          <div><dt>DOCUMENTS</dt><dd>{archiveTotals.pdf}</dd></div>
-          <div><dt>VIDEO</dt><dd>{archiveTotals.video}</dd></div>
-          <div><dt>IMAGERY</dt><dd>{archiveTotals.image}</dd></div>
-          <div><dt>AUDIO</dt><dd>{archiveTotals.audio}</dd></div>
+          <div><dt>ORB</dt><dd>01</dd></div>
+          <div><dt>TIC-TAC</dt><dd>02</dd></div>
+          <div><dt>BLACK MANTA</dt><dd>03</dd></div>
+          <div><dt>TRIANGLE</dt><dd>04</dd></div>
+          <div><dt>CYLINDER</dt><dd>05</dd></div>
+          <div><dt>BOOMERANG</dt><dd>06</dd></div>
         </dl>
       </aside>
 
-      <div className={`target-readout ${entered && hoveredIndex !== null && selectedIndex === null ? "is-visible" : ""}`} aria-live="polite">
+      <div className={`target-readout ${scrollStage === 1 && hoveredIndex !== null && selectedIndex === null ? "is-visible" : ""}`} aria-live="polite">
         <span className="target-bracket">[</span>
         <div><small>SIGNAL ACQUIRED</small><strong>RECORD {String((hoveredIndex ?? 0) + 1).padStart(3, "0")}</strong><small>{hoveredKind} · CLICK TO INSPECT</small></div>
         <span className="target-bracket">]</span>
       </div>
 
-      <div className={`scan-instruction ${entered && selectedIndex === null ? "is-visible" : ""}`}><span className="mouse-icon" aria-hidden="true" />MOVE TO SCAN THE FIELD</div>
-      <div className={`coordinates ${entered ? "is-visible" : ""}`} aria-hidden="true"><span>OBSERVATION MODE / COORDINATE PRECISION PRESERVED</span><span>FIELD / 334</span></div>
+      <div className={`scan-instruction ${scrollStage === 1 && selectedIndex === null ? "is-visible" : ""}`}><span className="mouse-icon" aria-hidden="true" />MOVE TO SCAN · CLICK A SIGNAL</div>
+      <div className={`coordinates ${scrollStage === 1 ? "is-visible" : ""}`} aria-hidden="true"><span>LIVE FIELD / SCALE INDETERMINATE</span><span>DO NOT ASSUME FORM</span></div>
 
       <section className={`case-file ${selectedEntry ? "is-open" : ""}`} aria-hidden={!selectedEntry}>
         {selectedEntry && selectedRecord && (
@@ -367,7 +341,7 @@ export default function Home() {
         )}
       </section>
 
-      <footer className="credit-line">VISUAL EXPERIENCE V0.7 · PURSUE RELEASES 01–04 · CHINLEEZ / CC BY 4.0</footer>
+      <footer className="credit-line">VISUAL EXPERIENCE V0.8 · PURSUE RELEASES 01–04 · CHINLEEZ / CC BY 4.0</footer>
       <p className="sr-only">An immersive three-dimensional field containing 334 official UAP record rows grouped into 279 cases.</p>
     </main>
   );
