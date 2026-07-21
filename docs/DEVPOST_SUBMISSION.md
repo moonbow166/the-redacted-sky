@@ -16,7 +16,7 @@ The project teaches public-data literacy and critical interpretation through an 
 
 ## Short description
 
-The Redacted Sky turns 334 recently released UAP records into an immersive 3D evidence field. Visitors capture official video signals, enter cinematic declassification chapters, inspect source context, and record their own assessment, without the interface deciding for them.
+The Redacted Sky turns **334 recently released UAP records** into an immersive 3D evidence field. Visitors capture official video signals, enter cinematic declassification chapters, inspect source context, and record their own assessment, without the interface deciding for them.
 
 ## Inspiration
 
@@ -30,7 +30,7 @@ The experience begins with a realistic 3D UAP form explicitly labeled as an arti
 
 Hovering a live video signal produces a visible target lock. Clicking freezes the field and begins a cinematic capture sequence: scanning rings collapse, the file declassifies, and official footage fills the evidence view. Source metadata and original links remain visible. The visitor can classify what they saw as Ordinary, Sensor Ambiguity, Insufficient, or Anomalous, with the response stored only on their device.
 
-Three featured signals form a complete demo journey, while the underlying archive contains 279 grouped cases across four releases.
+Three featured signals form a complete demo journey, while the underlying archive contains **279 grouped cases across four releases**.
 
 ## How we built it
 
@@ -76,12 +76,18 @@ The central lesson was that disclosure is an interface problem as much as a data
 
 Future phases can add an interactive globe, a 1947–2026 time slider, linked case relationships, a historical timeline, and opt-in aggregate assessments. The editorial model will remain selective: the full archive provides depth, while carefully chosen cases receive richer storytelling.
 
-## Links to paste into Devpost
+## Explore the project
+
+- [Launch the live experience](https://the-redacted-sky.moonbow166.chatgpt.site/)
+- [Watch the final demo](https://youtu.be/hUT4EDqdMww)
+- [View the source code](https://github.com/moonbow166/the-redacted-sky)
+
+## Final submission links
 
 - Live demo: https://the-redacted-sky.moonbow166.chatgpt.site/
 - Devpost project: https://devpost.com/software/the-redacted-sky
 - Code repository: https://github.com/moonbow166/the-redacted-sky
-- Public YouTube demo: **ADD VIDEO URL**
+- Public YouTube demo: https://youtu.be/hUT4EDqdMww
 - Primary Codex Session ID: `019f6951-7262-7600-a63a-4faeeca4458f`
 
 ## Judge-only testing instructions
