@@ -37,8 +37,8 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Include how Codex was used, with concrete examples
 - [x] Include verified GPT-5.6 Sol High usage in the prepared script
 - [x] Keep final edit under 3:00 (final runtime: 2:01)
-- [ ] Upload to YouTube as **Public**
-- [ ] Paste the YouTube URL into Devpost
+- [x] Upload to YouTube as **Public**: https://youtu.be/m3Cucv4wP2c
+- [x] Paste the YouTube URL into Devpost
 
 ## Devpost
 
@@ -47,10 +47,10 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Submitter Type: **Individual**
 - [x] Country of Residence: **United States (California)**
 - [x] Choose **Education** track
-- [ ] Paste and adapt `docs/DEVPOST_SUBMISSION.md`
-- [ ] Add live demo URL
+- [x] Paste and adapt `docs/DEVPOST_SUBMISSION.md`
+- [x] Add live demo URL
 - [x] Add repository URL
-- [ ] Add public YouTube URL
+- [x] Add public YouTube URL
 - [x] Add primary Codex Session ID
 - [ ] Check all required acknowledgements
 - [ ] Submit before 5:00 PM PDT
