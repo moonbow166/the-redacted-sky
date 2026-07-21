@@ -37,7 +37,7 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Include how Codex was used, with concrete examples
 - [x] Include verified GPT-5.6 Sol High usage in the prepared script
 - [x] Keep final edit under 3:00 (final runtime: 2:01)
-- [x] Upload to YouTube as **Public**: https://youtu.be/m3Cucv4wP2c
+- [x] Upload the final English cut to YouTube as **Public**: https://youtu.be/hUT4EDqdMww
 - [x] Paste the YouTube URL into Devpost
 
 ## Devpost
