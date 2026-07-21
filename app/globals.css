@@ -3569,6 +3569,113 @@ button {
   transition: color 0.2s ease;
 }
 
+/* Readability pass: interface copy stays compact without dropping below a useful reading size. */
+.system-bar,
+.archive-system-bar {
+  font-size: 10px;
+}
+
+.entry-note,
+.chapter-index,
+.index-label,
+.field-index dl div,
+.scan-instruction,
+.assessment-title {
+  font-size: 10px;
+}
+
+.morphology-heading,
+.morphology-index li,
+.craft-callout span,
+.craft-callout small,
+.story-progress button,
+.chapter-overline,
+.sheet-topline,
+.sheet-footer,
+.sheet-coordinates,
+.release-stats span,
+.release-tape small,
+.release-disclaimer,
+.dossier-meta,
+.dossier-open,
+.archive-count,
+.archive-source-line,
+.target-readout small,
+.coordinates,
+.credit-line,
+.capture-readout span,
+.capture-readout small,
+.video-overlay,
+.signal-chapter-tag span,
+.signal-chapter-tag strong,
+.source-note,
+.official-case-title,
+.case-meta span,
+.assessment-title small,
+.verdicts button,
+.verdict-response,
+.verdict-response button {
+  font-size: 8px;
+}
+
+.chapter-copy > p:last-child,
+.case-description {
+  font-size: 14px;
+}
+
+.case-meta strong {
+  font-size: 10px;
+}
+
+.archive-kicker,
+.archive-hero-actions a,
+.archive-hero-metrics span,
+.archive-load-more,
+.archive-empty button,
+.archive-detail-topbar {
+  font-size: 9px;
+}
+
+.archive-index-heading > p {
+  font-size: 10px;
+}
+
+.archive-controls label > span,
+.archive-case-number,
+.archive-featured-mark,
+.archive-card-meta,
+.archive-card-footer,
+.archive-open-label,
+.archive-load-more span,
+.archive-footer,
+.archive-detail-topbar button,
+.archive-detail-evidence > p,
+.archive-detail-facts span,
+.archive-detail-facts strong,
+.archive-record-heading,
+.archive-record-list > a span,
+.archive-record-list > a small {
+  font-size: 8px;
+}
+
+.archive-controls input,
+.archive-controls select {
+  font-size: 11px;
+}
+
+.archive-case-card > p {
+  color: rgba(220, 228, 222, 0.62);
+  font-size: 12px;
+}
+
+.archive-document-placeholder small {
+  font-size: 9px;
+}
+
+.archive-detail-summary {
+  font-size: 14px;
+}
+
 @media (max-width: 980px) {
   .archive-hero {
     grid-template-columns: 1fr;
