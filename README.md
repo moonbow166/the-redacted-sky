@@ -4,6 +4,8 @@
 
 [Launch the experience](https://the-redacted-sky.moonbow166.chatgpt.site/)
 
+[View the Build Week project draft](https://devpost.com/software/the-redacted-sky)
+
 The Redacted Sky transforms a dense government disclosure archive into a cinematic, evidence-first experience. Visitors begin with an unidentified form, descend into a spatial field of records, capture three featured video signals, inspect the source context, and make their own assessment.
 
 The experience never labels a reconstruction as evidence and never presents release as resolution.

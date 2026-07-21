@@ -17,7 +17,7 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Complete 334-record / 279-case data foundation
 - [x] Evidence and reconstruction clearly distinguished
 - [x] Build and archive tests passing
-- [ ] Change the Sites access policy from owner-only to **Public**
+- [x] Change the Sites access policy from owner-only to **Public**
 - [ ] Final smoke test in a signed-out/private browser window
 
 ## Repository
@@ -42,10 +42,11 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 
 ## Devpost
 
-- [ ] Join/register for OpenAI Build Week
-- [ ] Submitter Type: confirm **Individual** or **Team of Individuals**
-- [ ] Country of Residence: choose the entrant's actual legal residence
-- [ ] Choose **Education** track
+- [x] Join/register for OpenAI Build Week
+- [x] Create The Redacted Sky Devpost project draft
+- [x] Submitter Type: **Individual**
+- [x] Country of Residence: **United States (California)**
+- [x] Choose **Education** track
 - [ ] Paste and adapt `docs/DEVPOST_SUBMISSION.md`
 - [ ] Add live demo URL
 - [ ] Add repository URL
