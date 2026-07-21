@@ -76,10 +76,10 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 
 ## Capture checklist
 
-- [ ] Voiceover is audible and in English.
-- [ ] Final duration is under three minutes.
-- [ ] Working product is clearly demonstrated.
-- [ ] Codex contribution is specific, not generic.
+- [x] Voiceover is audible and in English.
+- [x] Final duration is under three minutes (2:01).
+- [x] Working product is clearly demonstrated.
+- [x] Codex contribution is specific, not generic.
 - [x] GPT-5.6 Sol High usage is accurate and explicitly stated.
-- [ ] No private information, tokens, or unrelated tabs appear.
+- [x] No private information, tokens, or unrelated tabs appear.
 - [ ] Video is uploaded to YouTube as **Public**, not Unlisted.

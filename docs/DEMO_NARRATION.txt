@@ -1,0 +1,13 @@
+Three hundred and thirty-four UAP files were released to the public. But public does not always mean understandable. The Redacted Sky turns that archive into an experience you can enter—without telling you what to believe.
+
+The opening object is clearly labeled as an artistic reconstruction. Scroll once, and it gives way to a live field containing all three hundred and thirty-four official record rows—videos, images, documents, and audio represented by their real media types.
+
+Hovering a video brings the evidence forward. Click, and the field freezes. The target is isolated, the file declassifies, and official footage becomes the focus.
+
+Source context stays beside the footage, and reconstruction never masquerades as evidence. Instead of giving the visitor a conclusion, the interface asks: what do you think you saw? The response remains on their device, and the next signal is waiting.
+
+Behind three polished evidence chapters is a deterministic archive: three hundred and thirty-four records, grouped into two hundred and seventy-nine cases across four releases. Missing coordinates remain missing, provenance is explicit, and no third-party scores or conclusions were imported.
+
+I built The Redacted Sky with GPT-5.6 Sol High inside Codex as a design-engineering collaborator. Codex helped translate subjective feedback into Three.js forms and interaction changes, build and validate the ingestion pipeline, test the evidence flow, and deploy each working cut. The key decision was to stop superficially polishing two hundred and seventy-nine cases, and perfect the three encounters a judge would actually experience.
+
+The files are open. The answer is not. Enter the field, inspect the evidence, and decide for yourself.

@@ -31,12 +31,12 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 ## Demo video
 
 - [x] Script and shot list prepared
-- [ ] Record product footage
-- [ ] Record or generate English voiceover
-- [ ] Include what the project does
-- [ ] Include how Codex was used, with concrete examples
+- [x] Record product footage
+- [x] Record or generate English voiceover
+- [x] Include what the project does
+- [x] Include how Codex was used, with concrete examples
 - [x] Include verified GPT-5.6 Sol High usage in the prepared script
-- [ ] Keep final edit under 3:00
+- [x] Keep final edit under 3:00 (final runtime: 2:01)
 - [ ] Upload to YouTube as **Public**
 - [ ] Paste the YouTube URL into Devpost
 
