@@ -48,6 +48,8 @@ Three featured signals form the polished demo path:
 - The cinematic case flow is stateful but privacy-preserving: assessments remain in local browser storage.
 - A separate case archive makes all 279 grouped cases searchable by title, location, year, agency, media type, and keyword.
 - Every case opens into a shareable deep link with its source records and official release assets.
+- The persistent header switches directly between the cinematic Experience and searchable Archive.
+- User-activated Web Audio provides a stage-responsive ambient signal without misleading autoplay state.
 - The deployment is a Cloudflare-compatible React server build hosted with OpenAI Codex Sites.
 
 ## Data integrity
@@ -117,7 +119,7 @@ npm run ingest:pursue
 
 ## How to test the golden path
 
-1. Open the deployed experience on desktop with sound enabled.
+1. Open the deployed experience on desktop and click **SOUND START** to unlock the ambient signal.
 2. Scroll once from the hero into **Field**.
 3. Hover a large video object until `VIDEO READY · CLICK TO OPEN EVIDENCE` appears.
 4. Click to trigger target capture and declassification.

@@ -31,6 +31,9 @@ test("server-renders the finished UAP experience", async () => {
   assert.match(html, /YOU DECIDE/);
   assert.match(html, /THREE SIGNALS/);
   assert.match(html, /RETURN TO THE FIELD/);
+  assert.match(html, /Choose site mode/);
+  assert.match(html, /DECLASSIFIED UAP ARCHIVE/);
+  assert.match(html, /SOUND\s*(?:<!-- -->)?\s*START/);
   assert.match(html, /og-v8\.png/);
   assert.doesNotMatch(html, /codex-preview|Codex is working|Your site is taking shape/i);
 
@@ -57,6 +60,8 @@ test("server-renders the searchable case archive", async () => {
   assert.match(html, /OPEN CASE FILE/);
   assert.match(html, /LOAD[\s\S]*24[\s\S]*MORE CASES/);
   assert.match(html, /PRIMARY SOURCE \/ U\.S\. GOVERNMENT PURSUE/);
+  assert.match(html, /Choose site mode/);
+  assert.match(html, /aria-current="page"[^>]*>[\s\S]*DECLASSIFIED UAP ARCHIVE/);
 });
 
 test("ships the complete deterministic archive dataset", async () => {

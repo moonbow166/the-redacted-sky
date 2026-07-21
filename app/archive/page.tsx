@@ -165,10 +165,14 @@ export default function ArchivePage() {
   return (
     <main className="archive-page">
       <header className="archive-system-bar">
-        <a className="archive-brand" href="/">
+        <div className="archive-brand">
           <span className="brand-mark" aria-hidden="true" />
-          <span>THE REDACTED SKY</span>
-        </a>
+          <nav className="mode-switch" aria-label="Choose site mode">
+            <a href="/"><span className="mode-label-long">THE REDACTED SKY</span><span className="mode-label-short">EXPERIENCE</span></a>
+            <span className="mode-separator">/</span>
+            <a className="is-active" href="/archive" aria-current="page"><span className="mode-label-long">DECLASSIFIED UAP ARCHIVE</span><span className="mode-label-short">ARCHIVE</span></a>
+          </nav>
+        </div>
         <div className="archive-system-status">
           <span className="status-light" />
           <span>ARCHIVE ONLINE</span>

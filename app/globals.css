@@ -107,6 +107,61 @@ button {
   gap: 11px;
 }
 
+.mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.mode-switch a {
+  position: relative;
+  padding: 7px 0;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.22s ease, text-shadow 0.22s ease;
+}
+
+.mode-switch a::after {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+  height: 1px;
+  background: var(--signal);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.mode-switch a:hover,
+.mode-switch a:focus-visible,
+.mode-switch a.is-active {
+  color: var(--paper);
+  outline: none;
+  text-shadow: 0 0 16px rgba(169, 255, 242, 0.2);
+}
+
+.mode-switch a:hover::after,
+.mode-switch a:focus-visible::after,
+.mode-switch a.is-active::after {
+  opacity: 0.72;
+  transform: scaleX(1);
+}
+
+.mode-switch a.is-active::after {
+  background: var(--paper);
+  opacity: 0.28;
+}
+
+.mode-separator {
+  color: var(--muted);
+}
+
+.mode-label-short {
+  display: none;
+}
+
 .brand-mark {
   width: 8px;
   height: 8px;
@@ -142,6 +197,11 @@ button {
 .sound-toggle:hover,
 .sound-toggle:focus-visible {
   color: var(--signal);
+}
+
+.sound-toggle.is-on {
+  color: var(--signal);
+  text-shadow: 0 0 14px rgba(169, 255, 242, 0.35);
 }
 
 .archive-exit {
@@ -1925,9 +1985,21 @@ button {
   }
 
   .hide-mobile,
-  .brand-lockup .dim,
   .credit-line {
     display: none;
+  }
+
+  .mode-label-long {
+    display: none;
+  }
+
+  .mode-label-short {
+    display: inline;
+  }
+
+  .mode-switch,
+  .brand-lockup {
+    gap: 8px;
   }
 
   .intro-copy {
@@ -2904,7 +2976,6 @@ button {
 
 .archive-brand {
   color: var(--paper);
-  text-decoration: none;
 }
 
 .archive-system-status {
@@ -3535,8 +3606,18 @@ button {
     flex-direction: column;
   }
 
+  .system-status .status-light,
+  .system-status > span {
+    display: none;
+  }
+
   .archive-system-bar {
     padding: 0 14px;
+  }
+
+  .archive-system-status .status-light,
+  .archive-system-status > span:not(.archive-hide-mobile) {
+    display: none;
   }
 
   .archive-hide-mobile {
