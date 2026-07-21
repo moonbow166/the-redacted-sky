@@ -86,3 +86,7 @@ Future phases can add an interactive globe, a 1947–2026 time slider, linked ca
 - Code repository: **ADD PUBLIC REPOSITORY URL**
 - Public YouTube demo: **ADD VIDEO URL**
 - Primary Codex `/feedback` Session ID: **ADD SESSION ID**
+
+## Judge-only testing instructions
+
+> Open the live demo on desktop with sound enabled. Scroll once to enter FIELD, hover one of the three large live-video objects until the target lock appears, then click to open the cinematic evidence chapter. Choose an assessment to reveal the CONTINUE TO SIGNAL control. No test account or sample input is required after public access is enabled.

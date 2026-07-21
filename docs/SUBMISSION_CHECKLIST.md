@@ -43,6 +43,8 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 ## Devpost
 
 - [ ] Join/register for OpenAI Build Week
+- [ ] Submitter Type: confirm **Individual** or **Team of Individuals**
+- [ ] Country of Residence: choose the entrant's actual legal residence
 - [ ] Choose **Education** track
 - [ ] Paste and adapt `docs/DEVPOST_SUBMISSION.md`
 - [ ] Add live demo URL
