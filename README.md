@@ -22,18 +22,18 @@ The result is part interactive documentary, part public-data interface, and part
 
 ## The experience
 
-1. **Encounter** — approach a realistic 3D UAP reconstruction clearly labeled as non-evidence.
-2. **Field** — enter a deep-space visualization containing all 334 official record rows.
-3. **Capture** — hover and lock onto live video signals embedded in the field.
-4. **Declassify** — open a cinematic evidence chapter with official footage and source context.
-5. **Judge** — record a device-local assessment: Ordinary, Sensor Ambiguity, Insufficient, or Anomalous.
-6. **Scale** — reveal the full archive: 334 records grouped into 279 editorial cases across four releases.
+1. **Encounter:** approach a realistic 3D UAP reconstruction clearly labeled as non-evidence.
+2. **Field:** enter a deep-space visualization containing all 334 official record rows.
+3. **Capture:** hover and lock onto live video signals embedded in the field.
+4. **Declassify:** open a cinematic evidence chapter with official footage and source context.
+5. **Judge:** record a device-local assessment: Ordinary, Sensor Ambiguity, Insufficient, or Anomalous.
+6. **Scale:** reveal the full archive: 334 records grouped into 279 editorial cases across four releases.
 
 Three featured signals form the polished demo path:
 
-- Yellow Sea, 2025 — “The Six-Point Signal”
-- East China Sea, 2025 — “The Centered Object”
-- Western United States, 1996 — “The Lost Sensor Record”
+- Yellow Sea, 2025: “The Six-Point Signal”
+- East China Sea, 2025: “The Centered Object”
+- Western United States, 1996: “The Lost Sensor Record”
 
 ## What is technically distinctive
 

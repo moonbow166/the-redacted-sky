@@ -1,4 +1,4 @@
-# The Redacted Sky — PURSUE data ingestion work order
+# The Redacted Sky: PURSUE data ingestion work order
 
 ## Objective
 
@@ -23,14 +23,14 @@ Release 01 bilingual community index and translations: <https://github.com/chinl
 
 Release 04 high-priority records visible in the official index include:
 
-- `DOW-UAP-PR104` — unresolved video, Yellow Sea, 2025
-- `DOW-UAP-PR105` — unresolved video, East China Sea, 2025
-- `DOW-UAP-PR113` — unresolved video, Western United States, 1996
-- `DOW-UAP-PR115` — unresolved video, Gulf of America, 2019
-- `NASA-UAP-D030` through `D032` — STS-80 imagery, low-Earth orbit, 1996
-- `DOE-UAP-D004` — Los Alamos conference on aerial phenomena, 1949
-- `DOW-UAP-D094` — analysis of U.S. flying-object incidents, 1949
-- `DOW-UAP-D097` — Project Sign progress report, 1948
+- `DOW-UAP-PR104`: unresolved video, Yellow Sea, 2025
+- `DOW-UAP-PR105`: unresolved video, East China Sea, 2025
+- `DOW-UAP-PR113`: unresolved video, Western United States, 1996
+- `DOW-UAP-PR115`: unresolved video, Gulf of America, 2019
+- `NASA-UAP-D030` through `D032`: STS-80 imagery, low-Earth orbit, 1996
+- `DOE-UAP-D004`: Los Alamos conference on aerial phenomena, 1949
+- `DOW-UAP-D094`: analysis of U.S. flying-object incidents, 1949
+- `DOW-UAP-D097`: Project Sign progress report, 1948
 
 Treat these as ingest priorities, not as claims about extraterrestrial origin.
 

@@ -20,7 +20,7 @@ test("server-renders the finished UAP experience", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>The Redacted Sky — 天空被涂黑的部分<\/title>/i);
+  assert.match(html, /<title>The Redacted Sky \| Declassified UAP Archive<\/title>/i);
   assert.match(html, /334 OFFICIAL RECORD ROWS/);
   assert.match(html, /279 EDITORIALLY GROUPED CASES/);
   assert.match(html, /APPROACH/);

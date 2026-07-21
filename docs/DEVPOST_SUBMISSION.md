@@ -16,7 +16,7 @@ The project teaches public-data literacy and critical interpretation through an 
 
 ## Short description
 
-The Redacted Sky turns 334 recently released UAP records into an immersive 3D evidence field. Visitors capture official video signals, enter cinematic declassification chapters, inspect source context, and record their own assessment—without the interface deciding for them.
+The Redacted Sky turns 334 recently released UAP records into an immersive 3D evidence field. Visitors capture official video signals, enter cinematic declassification chapters, inspect source context, and record their own assessment, without the interface deciding for them.
 
 ## Inspiration
 
@@ -38,7 +38,7 @@ The Redacted Sky uses React, Next.js, TypeScript, and Three.js. A deterministic 
 
 The browser experience renders the 334 records as spatial artifacts, six reconstructed UAP morphologies as contextual forms, and three official videos as live featured signals. The final build is Cloudflare Workers-compatible and deployed through OpenAI Codex Sites.
 
-Codex supported the project end to end: product framing, interaction design, Three.js modeling, data-pipeline implementation, provenance review, UI iteration, testing, and deployment. The strongest decisions emerged through the conversation—for example, moving the full data overview behind the experiential field, pushing decorative craft into the background, and concentrating editorial effort on a three-case golden path instead of superficially polishing 279 cases.
+Codex supported the project end to end: product framing, interaction design, Three.js modeling, data-pipeline implementation, provenance review, UI iteration, testing, and deployment. The strongest decisions emerged through the conversation. For example, we moved the full data overview behind the experiential field, pushed decorative craft into the background, and concentrated editorial effort on a three-case golden path instead of superficially polishing 279 cases.
 
 ## How Codex accelerated the work
 

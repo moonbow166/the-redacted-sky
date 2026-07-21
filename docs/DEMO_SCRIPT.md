@@ -13,23 +13,23 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 
 ## Shot list and narration
 
-### 0:00–0:09 — The problem
+### 0:00 to 0:09: The problem
 
 **Picture:** Black screen into the hero title and rotating Black Manta reconstruction.
 
 **Voiceover:**
 
-> Hundreds of UAP files were released to the public. But public does not always mean understandable. The Redacted Sky turns that archive into an experience you can enter—without telling you what to believe.
+> Hundreds of UAP files were released to the public. But public does not always mean understandable. The Redacted Sky turns that archive into an experience you can enter, without telling you what to believe.
 
-### 0:09–0:25 — Enter the field
+### 0:09 to 0:25: Enter the field
 
 **Picture:** Click `APPROACH THE UNKNOWN`, scroll into Field, move the cursor across the 3D objects.
 
 **Voiceover:**
 
-> The opening object is clearly labeled as an artistic reconstruction. Scroll once, and it gives way to a live field containing all 334 official record rows—videos, images, documents, and audio represented by their real media types.
+> The opening object is clearly labeled as an artistic reconstruction. Scroll once, and it gives way to a live field containing all 334 official record rows. Videos, images, documents, and audio are represented by their real media types.
 
-### 0:25–0:45 — Capture a signal
+### 0:25 to 0:45: Capture a signal
 
 **Picture:** Hover a featured video until the lock appears. Click. Let the full capture and declassification animation play.
 
@@ -37,7 +37,7 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 
 > Hovering a video brings the evidence forward. Click, and the field freezes. The target is isolated, the file declassifies, and official footage becomes the focus.
 
-### 0:45–1:02 — Evidence, uncertainty, judgment
+### 0:45 to 1:02: Evidence, uncertainty, judgment
 
 **Picture:** Let the official footage play. Briefly show location/status, scroll just enough to the four verdict buttons, choose `INSUFFICIENT`, then click `CONTINUE TO SIGNAL 02`.
 
@@ -45,7 +45,7 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 
 > Source context stays beside the footage, and reconstruction never masquerades as evidence. Instead of giving the visitor a conclusion, the interface asks: what do you think you saw? The response remains on their device.
 
-### 1:02–1:17 — Scale and integrity
+### 1:02 to 1:17: Scale and integrity
 
 **Picture:** Close the case, jump to Overview. Hold on 334 / 279 and the release counts.
 
@@ -53,7 +53,7 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 
 > Behind three polished signal chapters is a deterministic archive: 334 records, grouped into 279 cases across four releases. Missing coordinates remain missing, provenance is explicit, and no third-party scores or conclusions were imported.
 
-### 1:17–1:43 — Codex and GPT-5.6 Sol High
+### 1:17 to 1:43: Codex and GPT-5.6 Sol High
 
 **Picture:** Brief insert of this primary Codex task, then show the commit history or ingestion report and return to the live site.
 
@@ -61,7 +61,7 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 
 > I built The Redacted Sky with GPT-5.6 Sol High inside Codex as a design-engineering collaborator. Codex helped translate subjective feedback into Three.js forms and interaction changes, build and validate the ingestion pipeline, test the evidence flow, and deploy each working cut. The key decision was to stop superficially polishing 279 cases and perfect the three encounters a judge would actually experience.
 
-### 1:43–1:55 — Closing image
+### 1:43 to 1:55: Closing image
 
 **Picture:** Return to the Field. Hover a video signal so the target-lock label is visible.
 

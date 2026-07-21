@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = incomingHeaders.get("host") ?? "localhost:3000";
   const protocol = host.includes("localhost") ? "http" : "https";
   const origin = `${protocol}://${host}`;
-  const title = "The Redacted Sky — 天空被涂黑的部分";
+  const title = "The Redacted Sky | Declassified UAP Archive";
   const description =
     "Enter a live field of UAP morphologies, inspect official footage, then uncover 334 declassified records grouped into 279 cases.";
 

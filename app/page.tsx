@@ -169,7 +169,7 @@ export default function Home() {
         <div className="brand-lockup">
           <span className="brand-mark" aria-hidden="true" />
           <span>THE REDACTED SKY</span>
-          <span className="dim">/ 天空被涂黑的部分</span>
+          <span className="dim">/ DECLASSIFIED UAP ARCHIVE</span>
         </div>
         <div className="system-status">
           <span className="status-light" />
@@ -365,7 +365,9 @@ export default function Home() {
                   <div><span>REPORTING BODY</span><strong>{selectedCase?.agencies.join(" / ") ?? selectedRecord.agency}</strong></div>
                   <div><span>OFFICIAL STATUS</span><strong>{selectedCase?.officialAssessment ?? selectedRecord.officialAssessment ?? selectedRecord.officialStatus}</strong></div>
                 </div>
-                <p className="case-description">{selectedCase?.summary ?? selectedRecord.descriptionOriginal}</p>
+                <p className="case-description">
+                  {(selectedCase?.summary ?? selectedRecord.descriptionOriginal).replaceAll("\u2014", ",")}
+                </p>
                 {(selectedCase?.summary.endsWith("…") || selectedCase?.summary.endsWith("...")) && <p className="excerpt-warning">OFFICIAL DESCRIPTION EXCERPT · CONTINUE AT SOURCE</p>}
                 <a className="official-source-link" href={selectedRecord.sourcePageUrl} target="_blank" rel="noreferrer">OPEN OFFICIAL SOURCE ↗</a>
                 <div className="assessment">

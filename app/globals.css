@@ -2148,7 +2148,7 @@ button {
   }
 }
 
-/* V0.7 — experience first, evidence second */
+/* V0.7: experience first, evidence second */
 .experience {
   min-height: 500svh;
 }
@@ -2577,7 +2577,7 @@ button {
   }
 }
 
-/* V0.8 — the field is the experience, not a gate after it */
+/* V0.8: the field is the experience, not a gate after it */
 .stage-1 .story-rail {
   pointer-events: none;
 }
