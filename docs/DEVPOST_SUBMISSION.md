@@ -48,11 +48,7 @@ It also handled the less visible work: deterministic ingest scripts, record grou
 
 ## GPT-5.6 usage
 
-**Before submitting, replace this paragraph with the verified model detail from the primary Codex task.** State exactly which product/design/engineering work was completed with GPT-5.6, and show or mention that evidence in the demo voiceover. Do not submit an unverified model claim.
-
-Suggested wording after verification:
-
-> We used GPT-5.6 inside Codex as the primary design-engineering collaborator. It translated subjective visual feedback into concrete Three.js and interaction changes, reasoned across the full 334-record dataset, and helped compress a broad product vision into a polished three-signal submission path under deadline.
+We used GPT-5.6 Sol High inside Codex as the primary design-engineering collaborator. It translated subjective visual feedback into concrete Three.js and interaction changes, reasoned across the full 334-record dataset, and helped compress a broad product vision into a polished three-signal submission path under deadline.
 
 ## Challenges
 

@@ -4,8 +4,8 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 
 ## Eligibility and evidence
 
-- [ ] Confirm the primary build task used GPT-5.6 meaningfully.
-- [ ] If it did not, complete a meaningful final code/review pass in GPT-5.6 and document exactly what changed.
+- [x] Confirm the primary build task used **GPT-5.6 Sol High** meaningfully.
+- [x] Document the model's design, engineering, data, testing, and deployment contributions.
 - [ ] Run `/feedback` in the primary Codex task and copy the Session ID.
 - [ ] Preserve the Build Week commit history.
 - [ ] Disclose pre-existing or third-party material and its license.
@@ -35,7 +35,7 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [ ] Record or generate English voiceover
 - [ ] Include what the project does
 - [ ] Include how Codex was used, with concrete examples
-- [ ] Include verified GPT-5.6 usage
+- [x] Include verified GPT-5.6 Sol High usage in the prepared script
 - [ ] Keep final edit under 3:00
 - [ ] Upload to YouTube as **Public**
 - [ ] Paste the YouTube URL into Devpost

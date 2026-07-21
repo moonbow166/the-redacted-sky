@@ -9,7 +9,7 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 - Turn sound on, hide unrelated browser UI, and move the pointer slowly.
 - Record one clean product pass, then add a short Codex/process insert.
 - Do not linger on long descriptions; the video should feel intentional, not exhaustive.
-- Verify GPT-5.6 usage before recording the model-specific sentence below.
+- The verified model used in the primary build task was GPT-5.6 Sol High.
 
 ## Shot list and narration
 
@@ -53,13 +53,13 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 
 > Behind three polished signal chapters is a deterministic archive: 334 records, grouped into 279 cases across four releases. Missing coordinates remain missing, provenance is explicit, and no third-party scores or conclusions were imported.
 
-### 1:17–1:43 — Codex and GPT-5.6
+### 1:17–1:43 — Codex and GPT-5.6 Sol High
 
 **Picture:** Brief insert of this primary Codex task, then show the commit history or ingestion report and return to the live site.
 
-**Voiceover after model verification:**
+**Voiceover:**
 
-> I built The Redacted Sky with Codex and GPT-5.6 as a design-engineering collaborator. Codex helped translate subjective feedback into Three.js forms and interaction changes, build and validate the ingestion pipeline, test the evidence flow, and deploy each working cut. The key decision was to stop superficially polishing 279 cases and perfect the three encounters a judge would actually experience.
+> I built The Redacted Sky with GPT-5.6 Sol High inside Codex as a design-engineering collaborator. Codex helped translate subjective feedback into Three.js forms and interaction changes, build and validate the ingestion pipeline, test the evidence flow, and deploy each working cut. The key decision was to stop superficially polishing 279 cases and perfect the three encounters a judge would actually experience.
 
 ### 1:43–1:55 — Closing image
 
@@ -80,6 +80,6 @@ Target length: **1:45–2:10**. Hard limit: **3:00**. The final video must be pu
 - [ ] Final duration is under three minutes.
 - [ ] Working product is clearly demonstrated.
 - [ ] Codex contribution is specific, not generic.
-- [ ] GPT-5.6 usage is accurate and explicitly stated.
+- [x] GPT-5.6 Sol High usage is accurate and explicitly stated.
 - [ ] No private information, tokens, or unrelated tabs appear.
 - [ ] Video is uploaded to YouTube as **Public**, not Unlisted.

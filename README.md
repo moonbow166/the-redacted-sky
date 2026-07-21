@@ -59,9 +59,9 @@ The official browser-rendered rows were verified against the release index. Desc
 
 Full provenance, normalization policies, hashes, and manual grouping decisions live in [`data/provenance.json`](data/provenance.json) and [`data/ingest-report.json`](data/ingest-report.json).
 
-## Built with Codex
+## Built with Codex and GPT-5.6
 
-Codex was the design-engineering collaborator across the project, not a final code generator. The workflow included:
+GPT-5.6 Sol High inside Codex was the design-engineering collaborator across the project, not a final code generator. The workflow included:
 
 - turning an emotional visual direction into a staged interaction system;
 - iterating on six 3D UAP morphologies and the deep-space evidence field;
@@ -71,7 +71,7 @@ Codex was the design-engineering collaborator across the project, not a final co
 - shaping the final three-signal golden path under the Build Week deadline;
 - running build, render, dataset, and deployment checks after each major cut.
 
-The commit history preserves the evolution from prototype to the cinematic Build Week cut. The Build Week submission also includes the `/feedback` Session ID from the primary Codex task.
+The model translated subjective visual feedback into concrete Three.js and interaction changes, reasoned across the complete 334-record dataset, and helped compress a broad product vision into a polished three-signal path under deadline. The commit history preserves the evolution from prototype to the cinematic Build Week cut. The Build Week submission also includes the Session ID from the primary Codex task.
 
 ## Architecture
 
