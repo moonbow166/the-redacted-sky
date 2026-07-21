@@ -1,98 +1,129 @@
-# vinext-starter
+# The Redacted Sky
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+**An immersive interface for exploring newly released UAP records without turning uncertainty into certainty.**
 
-## Prerequisites
+[Launch the experience](https://the-redacted-sky.moonbow166.chatgpt.site/)
 
-- Node.js `>=22.13.0`
+The Redacted Sky transforms a dense government disclosure archive into a cinematic, evidence-first experience. Visitors begin with an unidentified form, descend into a spatial field of records, capture three featured video signals, inspect the source context, and make their own assessment.
 
-## Quick Start
+The experience never labels a reconstruction as evidence and never presents release as resolution.
+
+## Why this exists
+
+Recently released UAP material is technically public but difficult to explore. It is distributed across hundreds of videos, images, PDFs, audio files, terse descriptions, missing coordinates, and uneven metadata.
+
+The Redacted Sky asks a simple design question:
+
+> What if public disclosure felt explorable without becoming sensationalized?
+
+The result is part interactive documentary, part public-data interface, and part media-literacy exercise. Its goal is not to decide what a user saw. Its goal is to make the boundary between observation, source material, reconstruction, and interpretation visible.
+
+## The experience
+
+1. **Encounter** — approach a realistic 3D UAP reconstruction clearly labeled as non-evidence.
+2. **Field** — enter a deep-space visualization containing all 334 official record rows.
+3. **Capture** — hover and lock onto live video signals embedded in the field.
+4. **Declassify** — open a cinematic evidence chapter with official footage and source context.
+5. **Judge** — record a device-local assessment: Ordinary, Sensor Ambiguity, Insufficient, or Anomalous.
+6. **Scale** — reveal the full archive: 334 records grouped into 279 editorial cases across four releases.
+
+Three featured signals form the polished demo path:
+
+- Yellow Sea, 2025 — “The Six-Point Signal”
+- East China Sea, 2025 — “The Centered Object”
+- Western United States, 1996 — “The Lost Sensor Record”
+
+## What is technically distinctive
+
+- A deterministic ingestion pipeline normalizes four official releases into reproducible JSON.
+- 334 official rows are represented as interactive Three.js artifacts rather than decorative particles.
+- 103 videos, 27 images, 189 PDFs, and 15 audio records retain their source types.
+- Missing coordinates remain missing; no locations are invented to make a map look complete.
+- Featured evidence uses live official media URLs while reconstructed craft remain explicitly labeled.
+- The cinematic case flow is stateful but privacy-preserving: assessments remain in local browser storage.
+- The deployment is a Cloudflare-compatible React server build hosted with OpenAI Codex Sites.
+
+## Data integrity
+
+The primary index is the U.S. government PURSUE release page. The dataset includes:
+
+- **334 records**
+- **279 grouped cases**
+- **4 releases**
+- **15 featured cases**
+- **0 confirmed 404/410 media links** during ingestion validation
+
+The official browser-rendered rows were verified against the release index. Descriptions and asset URLs were enriched from a public mirror when direct non-browser retrieval was restricted. Release 01 Chinese translations are attributed to [`chinleez/uap-disclosure-2026`](https://github.com/chinleez/uap-disclosure-2026) under CC BY 4.0. No third-party scoring or conclusions were imported.
+
+Full provenance, normalization policies, hashes, and manual grouping decisions live in [`data/provenance.json`](data/provenance.json) and [`data/ingest-report.json`](data/ingest-report.json).
+
+## Built with Codex
+
+Codex was the design-engineering collaborator across the project, not a final code generator. The workflow included:
+
+- turning an emotional visual direction into a staged interaction system;
+- iterating on six 3D UAP morphologies and the deep-space evidence field;
+- building and validating the deterministic ingestion pipeline;
+- making evidence/reconstruction boundaries explicit in product language;
+- diagnosing interaction hierarchy through repeated hover and click tests;
+- shaping the final three-signal golden path under the Build Week deadline;
+- running build, render, dataset, and deployment checks after each major cut.
+
+The commit history preserves the evolution from prototype to the cinematic Build Week cut. The Build Week submission also includes the `/feedback` Session ID from the primary Codex task.
+
+## Architecture
+
+- Next.js 16 / React 19
+- Three.js
+- TypeScript
+- vinext / Vite
+- Static, deterministic JSON archive
+- OpenAI Codex Sites
+- Cloudflare Workers-compatible output
+
+No backend is required for the current phase. The complete archive ships with the application, and personal assessments use browser-local storage.
+
+## Run locally
+
+Prerequisites: Node.js `>=22.13.0`
 
 ```bash
 npm install
 npm run dev
-npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+Open the local URL printed in the terminal.
 
-## Included Shape
+To run the production build and archive checks:
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+```bash
+npm test
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+To regenerate the normalized archive from its pinned source snapshot:
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+```bash
+npm run ingest:pursue
+```
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+## How to test the golden path
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+1. Open the deployed experience on desktop with sound enabled.
+2. Scroll once from the hero into **Field**.
+3. Hover a large video object until `VIDEO READY · CLICK TO OPEN EVIDENCE` appears.
+4. Click to trigger target capture and declassification.
+5. Watch the official video, inspect its metadata, and choose an assessment.
+6. Use `CONTINUE TO SIGNAL` to move through the three featured cases.
+7. Close the file and continue scrolling to see the full archive scale.
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+## Scope and next steps
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+The Build Week cut deliberately perfects three cases instead of pretending all 279 deserve identical editorial treatment. The complete archive is the foundation; future work can add an interactive globe, timeline, richer linked-case navigation, and opt-in aggregate voting.
 
-## Useful Commands
+## Sources and attribution
 
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+- Primary official source: [U.S. government PURSUE](https://www.war.gov/UFO/)
+- Auxiliary public mirror: [pursue.report](https://pursue.report/)
+- Chinese index and Release 01 translations: [chinleez/uap-disclosure-2026](https://github.com/chinleez/uap-disclosure-2026), CC BY 4.0
 
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+Official records remain subject to their per-asset markings. The Redacted Sky adds no extraterrestrial conclusion or official analytical judgment.
