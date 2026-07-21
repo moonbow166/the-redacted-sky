@@ -6,7 +6,7 @@ The Redacted Sky
 
 ## Tagline
 
-Enter the files. Watch the evidence. Decide what you saw.
+334 declassified UAP records. One immersive 3D evidence field. Enter the archive, inspect the footage, and decide what you saw.
 
 ## Recommended track
 
