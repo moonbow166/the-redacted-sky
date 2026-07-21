@@ -4,6 +4,8 @@
 
 [Launch the experience](https://the-redacted-sky.moonbow166.chatgpt.site/)
 
+[Browse the 279-case archive](https://the-redacted-sky.moonbow166.chatgpt.site/archive)
+
 [View the Build Week project draft](https://devpost.com/software/the-redacted-sky)
 
 The Redacted Sky transforms a dense government disclosure archive into a cinematic, evidence-first experience. Visitors begin with an unidentified form, descend into a spatial field of records, capture three featured video signals, inspect the source context, and make their own assessment.
@@ -28,6 +30,7 @@ The result is part interactive documentary, part public-data interface, and part
 4. **Declassify:** open a cinematic evidence chapter with official footage and source context.
 5. **Judge:** record a device-local assessment: Ordinary, Sensor Ambiguity, Insufficient, or Anomalous.
 6. **Scale:** reveal the full archive: 334 records grouped into 279 editorial cases across four releases.
+7. **Investigate:** search and filter every grouped case, inspect its official records, and share a direct case link.
 
 Three featured signals form the polished demo path:
 
@@ -43,6 +46,8 @@ Three featured signals form the polished demo path:
 - Missing coordinates remain missing; no locations are invented to make a map look complete.
 - Featured evidence uses live official media URLs while reconstructed craft remain explicitly labeled.
 - The cinematic case flow is stateful but privacy-preserving: assessments remain in local browser storage.
+- A separate case archive makes all 279 grouped cases searchable by title, location, year, agency, media type, and keyword.
+- Every case opens into a shareable deep link with its source records and official release assets.
 - The deployment is a Cloudflare-compatible React server build hosted with OpenAI Codex Sites.
 
 ## Data integrity
@@ -119,10 +124,11 @@ npm run ingest:pursue
 5. Watch the official video, inspect its metadata, and choose an assessment.
 6. Use `CONTINUE TO SIGNAL` to move through the three featured cases.
 7. Close the file and continue scrolling to see the full archive scale.
+8. Open the **279-case archive**, search or filter the index, and copy a direct case link.
 
 ## Scope and next steps
 
-The Build Week cut deliberately perfects three cases instead of pretending all 279 deserve identical editorial treatment. The complete archive is the foundation; future work can add an interactive globe, timeline, richer linked-case navigation, and opt-in aggregate voting.
+The cinematic path deliberately perfects three cases instead of pretending all 279 deserve identical editorial treatment. The searchable index provides access to the complete archive without crowding the 3D Field. Future work can add an interactive globe, timeline, cross-case relationships, and opt-in aggregate voting.
 
 ## Sources and attribution
 

@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", { headers: { accept: "text/html" } }),
+    new Request(`http://localhost${pathname}`, { headers: { accept: "text/html" } }),
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
     { waitUntil() {}, passThroughOnException() {} },
   );
@@ -38,6 +38,25 @@ test("server-renders the finished UAP experience", async () => {
   const demosIndex = html.indexOf("02 / THREE SIGNALS");
   const overviewIndex = html.indexOf("04 / NOW, THE SCALE");
   assert.ok(fieldIndex > 0 && demosIndex > fieldIndex && overviewIndex > demosIndex);
+});
+
+test("server-renders the searchable case archive", async () => {
+  const response = await render("/archive");
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+
+  const html = await response.text();
+  assert.match(html, /<title>UAP Case Archive \| The Redacted Sky<\/title>/i);
+  assert.match(html, /rel="canonical" href="http:\/\/localhost(?::3000)?\/archive"/i);
+  assert.match(html, /THE FIELD/);
+  assert.match(html, /BECOMES/);
+  assert.match(html, /SEARCHABLE/);
+  assert.match(html, /279 CASE FILES/);
+  assert.match(html, /SEARCH THE ARCHIVE/);
+  assert.match(html, /FEATURED FIRST/);
+  assert.match(html, /OPEN CASE FILE/);
+  assert.match(html, /LOAD[\s\S]*24[\s\S]*MORE CASES/);
+  assert.match(html, /PRIMARY SOURCE \/ U\.S\. GOVERNMENT PURSUE/);
 });
 
 test("ships the complete deterministic archive dataset", async () => {

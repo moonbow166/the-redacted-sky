@@ -1067,7 +1067,7 @@ export default function SkyScene({ active, stage, recordKinds, featuredIndexes, 
       renderer.dispose();
       mount.removeChild(renderer.domElement);
     };
-  }, []);
+  }, [featuredIndexes, recordKinds]);
 
   return <div ref={mountRef} className="sky-scene" aria-hidden="true" />;
 }

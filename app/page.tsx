@@ -77,10 +77,7 @@ export default function Home() {
   }, [selectedIndex]);
 
   useEffect(() => {
-    if (selectedIndex === null) {
-      setCaseRevealed(false);
-      return;
-    }
+    if (selectedIndex === null) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const timer = window.setTimeout(() => setCaseRevealed(true), reduceMotion ? 80 : 980);
     return () => window.clearTimeout(timer);
@@ -290,7 +287,10 @@ export default function Home() {
             ))}
           </div>
           <p className="release-disclaimer">334 OFFICIAL RECORD ROWS · 279 EDITORIALLY GROUPED CASES · LOCATION PRECISION PRESERVED</p>
-          <button className="overview-return" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>RETURN TO THE FIELD ↑</button>
+          <div className="overview-actions">
+            <a className="overview-open-archive" href="/archive">OPEN THE 279-CASE ARCHIVE ↗</a>
+            <button className="overview-return" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>RETURN TO THE FIELD ↑</button>
+          </div>
           <div className="archive-source-line">PRIMARY SOURCE / U.S. GOVERNMENT PURSUE · CHINESE INDEX / CHINLEEZ CC BY 4.0</div>
         </section>
       </div>
