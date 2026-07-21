@@ -6,7 +6,7 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 
 - [x] Confirm the primary build task used **GPT-5.6 Sol High** meaningfully.
 - [x] Document the model's design, engineering, data, testing, and deployment contributions.
-- [ ] Run `/feedback` in the primary Codex task and copy the Session ID.
+- [x] Save primary Codex Session ID: `019f6951-7262-7600-a63a-4faeeca4458f`
 - [ ] Preserve the Build Week commit history.
 - [ ] Disclose pre-existing or third-party material and its license.
 
@@ -51,7 +51,7 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [ ] Add live demo URL
 - [ ] Add repository URL
 - [ ] Add public YouTube URL
-- [ ] Add primary `/feedback` Session ID
+- [x] Add primary Codex Session ID
 - [ ] Check all required acknowledgements
 - [ ] Submit before 5:00 PM PDT
 - [ ] Reopen the final submission once and verify every link

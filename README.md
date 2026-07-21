@@ -71,7 +71,9 @@ GPT-5.6 Sol High inside Codex was the design-engineering collaborator across the
 - shaping the final three-signal golden path under the Build Week deadline;
 - running build, render, dataset, and deployment checks after each major cut.
 
-The model translated subjective visual feedback into concrete Three.js and interaction changes, reasoned across the complete 334-record dataset, and helped compress a broad product vision into a polished three-signal path under deadline. The commit history preserves the evolution from prototype to the cinematic Build Week cut. The Build Week submission also includes the Session ID from the primary Codex task.
+The model translated subjective visual feedback into concrete Three.js and interaction changes, reasoned across the complete 334-record dataset, and helped compress a broad product vision into a polished three-signal path under deadline. The commit history preserves the evolution from prototype to the cinematic Build Week cut.
+
+Primary Codex task Session ID: `019f6951-7262-7600-a63a-4faeeca4458f`
 
 ## Architecture
 

@@ -82,7 +82,7 @@ Future phases can add an interactive globe, a 1947–2026 time slider, linked ca
 - Devpost project: https://devpost.com/software/the-redacted-sky
 - Code repository: **ADD PUBLIC REPOSITORY URL**
 - Public YouTube demo: **ADD VIDEO URL**
-- Primary Codex `/feedback` Session ID: **ADD SESSION ID**
+- Primary Codex Session ID: `019f6951-7262-7600-a63a-4faeeca4458f`
 
 ## Judge-only testing instructions
 
