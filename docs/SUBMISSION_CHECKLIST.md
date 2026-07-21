@@ -25,8 +25,8 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Project-specific README with setup and test instructions
 - [x] Data provenance and attribution included
 - [x] Codex workflow documented
-- [ ] Publish a public repository with an explicit license, **or** share a private repository with `testing@devpost.com` and `build-week-event@openai.com`
-- [ ] Paste the repository URL into Devpost
+- [x] Publish public repository with MIT code license: https://github.com/moonbow166/the-redacted-sky
+- [x] Add the repository URL to the Devpost project
 
 ## Demo video
 
@@ -49,7 +49,7 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Choose **Education** track
 - [ ] Paste and adapt `docs/DEVPOST_SUBMISSION.md`
 - [ ] Add live demo URL
-- [ ] Add repository URL
+- [x] Add repository URL
 - [ ] Add public YouTube URL
 - [x] Add primary Codex Session ID
 - [ ] Check all required acknowledgements
