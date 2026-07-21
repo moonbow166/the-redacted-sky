@@ -127,3 +127,7 @@ The Build Week cut deliberately perfects three cases instead of pretending all 2
 - Chinese index and Release 01 translations: [chinleez/uap-disclosure-2026](https://github.com/chinleez/uap-disclosure-2026), CC BY 4.0
 
 Official records remain subject to their per-asset markings. The Redacted Sky adds no extraterrestrial conclusion or official analytical judgment.
+
+## License
+
+The application code is available under the [MIT License](LICENSE). Government records, third-party media, translations, and source data retain their original terms and per-asset markings as described above.
