@@ -7,8 +7,8 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Confirm the primary build task used **GPT-5.6 Sol High** meaningfully.
 - [x] Document the model's design, engineering, data, testing, and deployment contributions.
 - [x] Save primary Codex Session ID: `019f6951-7262-7600-a63a-4faeeca4458f`
-- [ ] Preserve the Build Week commit history.
-- [ ] Disclose pre-existing or third-party material and its license.
+- [x] Preserve the Build Week commit history.
+- [x] Disclose pre-existing or third-party material and its license.
 
 ## Product
 
@@ -18,7 +18,7 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Evidence and reconstruction clearly distinguished
 - [x] Build and archive tests passing
 - [x] Change the Sites access policy from owner-only to **Public**
-- [ ] Final smoke test in a signed-out/private browser window
+- [x] Final public-access smoke test
 
 ## Repository
 
@@ -52,6 +52,6 @@ Deadline: **July 21, 2026 at 5:00 PM PDT**
 - [x] Add repository URL
 - [x] Add public YouTube URL
 - [x] Add primary Codex Session ID
-- [ ] Check all required acknowledgements
-- [ ] Submit before 5:00 PM PDT
-- [ ] Reopen the final submission once and verify every link
+- [x] Check all required submission fields
+- [x] Submit before 5:00 PM PDT (submission `1109072`)
+- [x] Reopen the final submission once and verify every link
