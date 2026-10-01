@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
+import { archiveCases, archiveRecords } from "../lib/archive";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const origin = `${protocol}://${host}`;
   const title = "The Redacted Sky | Declassified UAP Archive";
   const description =
-    "Enter a live field of UAP morphologies, inspect official footage, then uncover 334 declassified records grouped into 279 cases.";
+    `Enter a field of UAP morphologies, inspect source footage, then explore ${archiveRecords.length} public-release records grouped into ${archiveCases.length} case files.`;
 
   return {
     metadataBase: new URL(origin),

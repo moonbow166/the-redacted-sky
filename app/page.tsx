@@ -69,7 +69,7 @@ function createAmbientAudio(): AmbientAudio | null {
 }
 
 function displayDate(value: string | null) {
-  if (!value) return "DATE WITHHELD";
+  if (!value) return "DATE NOT PROVIDED";
   if (/^\d{4}$/.test(value)) return value;
   const date = new Date(`${value}T00:00:00Z`);
   return Number.isNaN(date.getTime())
@@ -250,14 +250,14 @@ export default function Home() {
         <div className="system-status">
           <span className="status-light" />
           <span>{scrollStage === 1 ? "FIELD ACTIVE" : scrollStage === 0 ? "UNKNOWN CONTACT" : scrollStage < 4 ? "EVIDENCE STREAM" : "PURSUE ARCHIVE"}</span>
-          {scrollStage >= 4 && <span className="dim hide-mobile">334 RECORDS / 279 CASES / 04 RELEASES</span>}
+          {scrollStage >= 4 && <span className="dim hide-mobile">{archiveRecords.length} RECORDS / {archiveCases.length} CASE FILES / {archiveReleases.length} RELEASES</span>}
           <button className={`sound-toggle ${soundOn ? "is-on" : ""}`} type="button" aria-pressed={soundOn} aria-label={soundOn ? "Mute ambient signal" : "Start ambient signal"} onClick={toggleSound}>
             SOUND {soundOn ? "ON" : soundError ? "RETRY" : soundStarted ? "OFF" : "START"}
           </button>
         </div>
       </header>
 
-      <section className="intro-copy" aria-hidden={scrollStage !== 0}>
+      <section className="intro-copy" aria-hidden={scrollStage !== 0} inert={scrollStage !== 0}>
         <div className="eyebrow">VISUAL RECONSTRUCTION / ORIGIN UNCONFIRMED</div>
         <h1>
           <span>THE</span>
@@ -285,7 +285,7 @@ export default function Home() {
 
       <nav className="story-progress" aria-label="Experience chapters">
         {chapterLabels.map((label, index) => (
-          <button key={label} type="button" className={scrollStage === index ? "is-current" : ""} onClick={() => window.scrollTo({ top: window.innerHeight * index, behavior: "smooth" })}>
+          <button key={label} type="button" aria-label={label} aria-current={scrollStage === index ? "step" : undefined} className={scrollStage === index ? "is-current" : ""} onClick={() => window.scrollTo({ top: window.innerHeight * index, behavior: "smooth" })}>
             <i />
             <span>{label}</span>
           </button>
@@ -311,7 +311,7 @@ export default function Home() {
           <div className="signal-heading">
             <div className="chapter-index">02 / THREE SIGNALS</div>
             <h2>THEN THE<br /><span>SENSORS SPOKE.</span></h2>
-            <p>Three newly released records. No reconstruction inside the frames. No verdict added.</p>
+            <p>Three selected source records. No reconstruction inside the frames. No verdict added.</p>
           </div>
           <div className="cinema-signals">
             {featuredSignals.map((item, index) => (
@@ -365,9 +365,9 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="release-disclaimer">334 OFFICIAL RECORD ROWS · 279 EDITORIALLY GROUPED CASES · LOCATION PRECISION PRESERVED</p>
+          <p className="release-disclaimer">{archiveRecords.length} OFFICIAL RECORD ROWS · {archiveCases.length} EDITORIALLY GROUPED CASE FILES · LOCATION PRECISION PRESERVED</p>
           <div className="overview-actions">
-            <a className="overview-open-archive" href="/archive">OPEN THE 279-CASE ARCHIVE ↗</a>
+            <a className="overview-open-archive" href="/archive">OPEN THE {archiveCases.length}-FILE ARCHIVE</a>
             <button className="overview-return" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>RETURN TO THE FIELD ↑</button>
           </div>
           <div className="archive-source-line">PRIMARY SOURCE / U.S. GOVERNMENT PURSUE · CHINESE INDEX / CHINLEEZ CC BY 4.0</div>
@@ -439,7 +439,7 @@ export default function Home() {
                 <h2>{selectedFeature?.title ?? selectedCase?.title ?? selectedRecord.title}</h2>
                 {selectedFeature && <p className="official-case-title">OFFICIAL FILE / {selectedCase?.title ?? selectedRecord.title}</p>}
                 <div className="case-meta">
-                  <div><span>LOCATION</span><strong>{selectedCase?.location.label ?? selectedRecord.location.label ?? "WITHHELD / UNKNOWN"}</strong></div>
+                  <div><span>LOCATION</span><strong>{selectedCase?.location.label ?? selectedRecord.location.label ?? "NOT PROVIDED"}</strong></div>
                   <div><span>INCIDENT</span><strong>{displayDate(selectedCase?.eventDate ?? selectedRecord.incidentDate)}</strong></div>
                   <div><span>REPORTING BODY</span><strong>{selectedCase?.agencies.join(" / ") ?? selectedRecord.agency}</strong></div>
                   <div><span>OFFICIAL STATUS</span><strong>{selectedCase?.officialAssessment ?? selectedRecord.officialAssessment ?? selectedRecord.officialStatus}</strong></div>
@@ -449,6 +449,7 @@ export default function Home() {
                 </p>
                 {(selectedCase?.summary.endsWith("…") || selectedCase?.summary.endsWith("...")) && <p className="excerpt-warning">OFFICIAL DESCRIPTION EXCERPT · CONTINUE AT SOURCE</p>}
                 <a className="official-source-link" href={selectedRecord.sourcePageUrl} target="_blank" rel="noreferrer">OPEN OFFICIAL SOURCE ↗</a>
+                {selectedCase && <a className="official-source-link full-case-link" href={`/archive?case=${encodeURIComponent(selectedCase.slug)}&record=${encodeURIComponent(selectedRecord.id)}`}>EXPLORE ALL {selectedCase.recordIds.length} MATERIAL{selectedCase.recordIds.length === 1 ? "" : "S"}</a>}
                 <div className="assessment">
                   <div className="assessment-title"><span>WHAT DO YOU THINK YOU SAW?</span><small>YOUR RESPONSE REMAINS ON THIS DEVICE</small></div>
                   <div className="verdicts">
@@ -467,8 +468,8 @@ export default function Home() {
         )}
       </section>
 
-      <footer className="credit-line">BUILD WEEK CUT · PURSUE RELEASES 01–04 · CHINLEEZ / CC BY 4.0</footer>
-      <p className="sr-only">An immersive three-dimensional field containing 334 official UAP record rows grouped into 279 cases.</p>
+      <footer className="credit-line">PURSUE RELEASES 01–{String(archiveReleases.length).padStart(2,"0")} · CHINLEEZ / CC BY 4.0</footer>
+      <p className="sr-only">An immersive three-dimensional field containing {archiveRecords.length} official UAP record rows grouped into {archiveCases.length} case files.</p>
     </main>
   );
 }

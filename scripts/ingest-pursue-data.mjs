@@ -5,7 +5,7 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const PARSER_VERSION = "1.0.0";
+const PARSER_VERSION = "1.1.0";
 const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = path.join(PROJECT_ROOT, "data");
 const SOURCE_PATH = path.join(DATA_DIR, "source", "pursue.snapshot.json");
@@ -65,6 +65,11 @@ const RELEASE_METADATA = [
   },
 ];
 
+RELEASE_METADATA.push(
+  { id: "release-05", label: "Release 05", clearedDate: "2026-08-07", documents: { url: "https://www.war.gov/medialink/ufo/release_05/Aug_07/release_05_Aug_07_documents.zip", displayedSize: "130 MB" }, videos: { url: "https://d34w7g4gy10iej.cloudfront.net/release_05/uap_videos_080726.zip", displayedSize: "513 MB" } },
+  { id: "release-06", label: "Release 06", clearedDate: "2026-09-18", documents: { url: "https://www.war.gov/medialink/ufo/sept-18/release-06/documents_release_06_sept_18_2026.zip", displayedSize: "2.25 GB" }, videos: { url: "https://d34w7g4gy10iej.cloudfront.net/release_06/pursue_vids_091826.zip", displayedSize: "1.4 GB" } },
+);
+
 const FEATURED_TARGETS = [
   "sts-80-1996",
   "DOW-UAP-PR104",
@@ -84,6 +89,23 @@ const FEATURED_TARGETS = [
 ];
 
 const MANUAL_GROUPS = [
+  {
+    key: "tremonton-film-1952", title: "Tremonton film and investigation, 1952",
+    rawIds: ["DOW-UAP-D098", "DOW-UAP-D102", "DOW-UAP-D103", "DOW-UAP-PR159"],
+    eventDate: "1952-07-02", eventDatePrecision: "day", locationLabel: "Tremonton, Utah", locationPrecision: "approximate",
+    groupingBasis: "The official PR159 description explicitly identifies D102 as the accompanying film records. The official related-media list connects the film, its photo file D103 and film analysis D098 across Releases 05 and 06. Broader D104 and D105 references are not merged.",
+  },
+  {
+    key: "ruppelt-briefing-1952", title: "Edward J. Ruppelt briefing and transcript, 1952",
+    rawIds: ["DOW-UAP-D154", "DOW-UAP-PR160"],
+    eventDate: "1952-03-26", eventDatePrecision: "day", locationLabel: "Boston, Massachusetts", locationPrecision: "approximate",
+    groupingBasis: "Both official records identify the same March 26, 1952 presentation by Captain Edward J. Ruppelt, one as audio and one as a transcript.",
+  },
+  ...["001", "002", "003", "004"].map((number) => ({
+    key: `colorado-officer-${number}`, title: `Colorado officer recording ${number} and transcript`,
+    rawIds: [`LLE-UAP-PR${number}`, `LLE-UAP-D${number}`],
+    groupingBasis: `The official transcript description explicitly names LLE-UAP-PR${number} as its source video. Descriptions are subjective witness reports, not AARO findings. Date differences in the official index are retained in individual records.`,
+  })),
   {
     key: "sts-80-1996",
     title: "STS-80 unidentified-object imagery, 1996",
@@ -517,6 +539,8 @@ async function main() {
       officialAssessment: status.assessment,
       descriptionOriginal,
       descriptionZh: cleanText(source.descriptionZh),
+      sourceAttribution: source.sourceAttribution ?? "pursue-report-mirror",
+      metadataNote: source.metadataNote ?? null,
       sourcePageUrl: `https://www.war.gov/UFO/#${titleHash(source.title)}`,
       assetUrls: buildAssets(source, fileType),
       sourceHash: sha256(JSON.stringify(source)),
@@ -632,7 +656,7 @@ async function main() {
     manualOverrides: [
       {
         field: "source enrichment",
-        reason: "The official CSV rejected non-browser retrieval with HTTP 403. Official browser-rendered rows were used to verify all 334 index entries; descriptions and asset URLs were enriched from the public pursue.report mirror and kept separately attributed.",
+        reason: "The official CSV rejected non-browser retrieval with HTTP 403. Release 01-04 index rows were verified July 18, 2026; all 116 Release 05-06 rows were verified October 1, 2026 in the official browser UI. Earlier enrichment uses pursue.report; new enrichment uses uap.silv.app. Mirror descriptions and media hosting are separately attributed; no mirror ratings were imported. Three later LLE transcripts were captured directly from official detail panels and have no asserted direct PDF URL.",
       },
       {
         field: "descriptionZh",
@@ -707,6 +731,7 @@ async function main() {
     accessRestrictedAssets: snapshot.assetChecks?.accessRestricted ?? [],
     assetChecks: snapshot.assetChecks?.checks ?? [],
     assetCheckCoverage: snapshot.assetChecks?.coverage ?? null,
+    officialVerification: snapshot.officialVerification,
     manualDecisions: provenance.manualOverrides,
   };
   await atomicWrite(path.join(DATA_DIR, "ingest-report.json"), report);

@@ -32,6 +32,8 @@ export type ArchiveRecord = {
   descriptionZh: string | null;
   sourcePageUrl: string;
   assetUrls: Asset[];
+  sourceAttribution?: string;
+  metadataNote?: string | null;
 };
 
 export type ArchiveCase = {
@@ -63,6 +65,25 @@ export type Release = {
 export const archiveRecords = recordsSource as ArchiveRecord[];
 export const archiveCases = casesSource as ArchiveCase[];
 export const archiveReleases = releasesSource as Release[];
+export const archiveCheckedAt = releasesSource[0].fetchedAt;
+export const latestRelease = archiveReleases[archiveReleases.length - 1];
+
+export function primaryAsset(record: ArchiveRecord) {
+  return record.assetUrls.find((asset) => asset.kind === record.fileType) ?? null;
+}
+
+export function previewAsset(record: ArchiveRecord) {
+  return record.assetUrls.find((asset) => asset.kind === "thumbnail")
+    ?? record.assetUrls.find((asset) => asset.kind === "image") ?? null;
+}
+
+export function recordCategory(record: ArchiveRecord) {
+  if (/AAWSAP|DIRD|Solicitation|Contract Modification/i.test(record.title)) return "Research & program records";
+  if (/rendering|recreation|reconstruction/i.test(record.title)) return "Witness reconstruction";
+  if (record.fileType === "video") return "Released footage";
+  if (record.fileType === "audio") return "Historical audio";
+  return record.fileType === "image" ? "Released imagery" : "Source document";
+}
 
 const caseByRecordId = new Map<string, ArchiveCase>();
 archiveCases.forEach((caseFile) => {

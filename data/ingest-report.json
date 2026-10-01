@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-18T02:04:10Z",
-  "parserVersion": "1.0.0",
+  "generatedAt": "2026-10-01T21:00:00Z",
+  "parserVersion": "1.1.0",
   "status": "complete-with-access-restrictions",
   "totals": {
-    "records": 334,
-    "cases": 279,
+    "records": 450,
+    "cases": 387,
     "featuredCases": 15
   },
   "counts": {
@@ -12,30 +12,36 @@
       "release-01": 158,
       "release-02": 64,
       "release-03": 72,
-      "release-04": 40
+      "release-04": 40,
+      "release-05": 41,
+      "release-06": 75
     },
     "byAgency": {
-      "CIA": 21,
+      "CIA": 23,
       "Department of Energy": 5,
-      "Department of State": 7,
-      "Department of War": 171,
-      "FBI": 87,
+      "Department of State": 9,
+      "Department of War": 257,
+      "Executive Office of the President": 1,
+      "FBI": 104,
       "Intelligence Community Agency": 1,
+      "Local Law Enforcement": 8,
       "NASA": 40,
       "Office of the Director of National Intelligence": 1,
       "U.S. Government": 1
     },
     "byFileType": {
-      "audio": 15,
-      "image": 27,
-      "pdf": 189,
-      "video": 103
+      "audio": 16,
+      "image": 30,
+      "pdf": 270,
+      "video": 134
     },
     "casesByRelease": {
       "release-01": 131,
       "release-02": 63,
       "release-03": 49,
-      "release-04": 37
+      "release-04": 37,
+      "release-05": 41,
+      "release-06": 68
     }
   },
   "featuredCases": [
@@ -205,17 +211,17 @@
     }
   ],
   "validation": {
-    "releaseCount": 4,
+    "releaseCount": 6,
     "duplicateRecordIds": 0,
     "missingCaseReferences": [],
     "invalidAssetUrls": [],
     "invalidRegionalCoordinates": [],
     "consecutiveRunDeterminism": "Run this script twice and compare the listed output hashes; fetchedAt is pinned to the source snapshot.",
     "outputHashes": {
-      "releases.json": "b03bfee431beea33343694899a2709ca832fbab23e6ab28fc5603e3021a01ac0",
-      "records.json": "08646ece788b5da977c3ccc41fa480043ce4992bde1e2f1b1bed504004d9bc10",
-      "cases.json": "ea8e3433d00f474adeef81d19b2a3c653c74575756b91300bf423310429eb94d",
-      "provenance.json": "dab6b5010c0c0ba9f874007e7bb7c9c5d0eda746716db4223e1c60c0de3f80cd"
+      "releases.json": "35650c5ea1888e798eb8ca92ebec4ac3b3eb24d9acbc9cbd71236f59e89fe521",
+      "records.json": "df53087db625cac91cab9c32226fdfab83cd8a8340f1b6a7a3e52d78f7303045",
+      "cases.json": "0c67936d98442e35106def79c9a2833d9ebe503cdab581bfb9591079074b3a5e",
+      "provenance.json": "eea6fc691cef18b996fd02d2ec6910c8c29d8329ed481a0925b12c80f355b8f7"
     }
   },
   "parseFailures": [],
@@ -394,6 +400,26 @@
       "recordId": "USPER Statement about UAP Sighting",
       "sourceValue": "Late 2025",
       "warning": "Source gives only a relative part of the year (Late)."
+    },
+    {
+      "recordId": "DOW-UAP-D098",
+      "sourceValue": "1950, 1952",
+      "warning": "Date retained verbatim because it could not be normalized without inference."
+    },
+    {
+      "recordId": "CIA-UAP-D023",
+      "sourceValue": "Undated",
+      "warning": "Date retained verbatim because it could not be normalized without inference."
+    },
+    {
+      "recordId": "FBI-UAP-D024",
+      "sourceValue": "2002, 2023-2024",
+      "warning": "Range retained verbatim because the source omits an exact endpoint."
+    },
+    {
+      "recordId": "DOW-UAP-D105",
+      "sourceValue": "September - December 1952",
+      "warning": "Range retained verbatim because the source omits an exact endpoint."
     }
   ],
   "ambiguousGroupings": [
@@ -3238,10 +3264,27 @@
     "featuredUniqueAssetUrlCount": 116,
     "allFeaturedAssetUrlsChecked": true
   },
+  "officialVerification": {
+    "renderedRecordCount": 450,
+    "uniqueRenderedTitles": 450,
+    "featuredRowCount": 10,
+    "previousVerifiedRecordCount": 334,
+    "newVerifiedRecordCount": 116,
+    "checkedAt": "2026-10-01T21:00:00Z",
+    "releaseCounts": {
+      "release-01": 158,
+      "release-02": 64,
+      "release-03": 72,
+      "release-04": 40,
+      "release-05": 41,
+      "release-06": 75
+    },
+    "note": "Release 01-04 verification retained from July 18; Release 05-06 index verified October 1. Mirror descriptions attributed separately. Three new transcript direct PDF URLs are not asserted; official record links remain available."
+  },
   "manualDecisions": [
     {
       "field": "source enrichment",
-      "reason": "The official CSV rejected non-browser retrieval with HTTP 403. Official browser-rendered rows were used to verify all 334 index entries; descriptions and asset URLs were enriched from the public pursue.report mirror and kept separately attributed."
+      "reason": "The official CSV rejected non-browser retrieval with HTTP 403. Release 01-04 index rows were verified July 18, 2026; all 116 Release 05-06 rows were verified October 1, 2026 in the official browser UI. Earlier enrichment uses pursue.report; new enrichment uses uap.silv.app. Mirror descriptions and media hosting are separately attributed; no mirror ratings were imported. Three later LLE transcripts were captured directly from official detail panels and have no asserted direct PDF URL."
     },
     {
       "field": "descriptionZh",
@@ -3254,6 +3297,56 @@
     {
       "field": "coordinates",
       "reason": "All coordinates remain null because the official index supplies place labels but no authoritative coordinates."
+    },
+    {
+      "field": "case grouping tremonton-film-1952",
+      "recordIds": [
+        "DOW-UAP-D098",
+        "DOW-UAP-D102",
+        "DOW-UAP-D103",
+        "DOW-UAP-PR159"
+      ],
+      "reason": "The official PR159 description explicitly identifies D102 as the accompanying film records. The official related-media list connects the film, its photo file D103 and film analysis D098 across Releases 05 and 06. Broader D104 and D105 references are not merged."
+    },
+    {
+      "field": "case grouping ruppelt-briefing-1952",
+      "recordIds": [
+        "DOW-UAP-D154",
+        "DOW-UAP-PR160"
+      ],
+      "reason": "Both official records identify the same March 26, 1952 presentation by Captain Edward J. Ruppelt, one as audio and one as a transcript."
+    },
+    {
+      "field": "case grouping colorado-officer-001",
+      "recordIds": [
+        "LLE-UAP-D001",
+        "LLE-UAP-PR001"
+      ],
+      "reason": "The official transcript description explicitly names LLE-UAP-PR001 as its source video. Descriptions are subjective witness reports, not AARO findings. Date differences in the official index are retained in individual records."
+    },
+    {
+      "field": "case grouping colorado-officer-002",
+      "recordIds": [
+        "LLE-UAP-D002",
+        "LLE-UAP-PR002"
+      ],
+      "reason": "The official transcript description explicitly names LLE-UAP-PR002 as its source video. Descriptions are subjective witness reports, not AARO findings. Date differences in the official index are retained in individual records."
+    },
+    {
+      "field": "case grouping colorado-officer-003",
+      "recordIds": [
+        "LLE-UAP-D003",
+        "LLE-UAP-PR003"
+      ],
+      "reason": "The official transcript description explicitly names LLE-UAP-PR003 as its source video. Descriptions are subjective witness reports, not AARO findings. Date differences in the official index are retained in individual records."
+    },
+    {
+      "field": "case grouping colorado-officer-004",
+      "recordIds": [
+        "LLE-UAP-D004",
+        "LLE-UAP-PR004"
+      ],
+      "reason": "The official transcript description explicitly names LLE-UAP-PR004 as its source video. Descriptions are subjective witness reports, not AARO findings. Date differences in the official index are retained in individual records."
     },
     {
       "field": "case grouping sts-80-1996",
