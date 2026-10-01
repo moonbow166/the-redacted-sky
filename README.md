@@ -30,7 +30,7 @@ The result is part interactive documentary, part public-data interface, and part
 4. **Declassify:** open a cinematic evidence chapter with official footage and source context.
 5. **Judge:** record a device-local assessment: Ordinary, Sensor Ambiguity, Insufficient, or Anomalous.
 6. **Scale:** reveal the full archive: 450 records grouped into 387 editorial cases across six releases.
-7. **Investigate:** search and filter every grouped case, inspect its official records, and share a direct case link.
+7. **Explore:** follow ten editorial starting points through footage, voices and connected documents, or search every grouped case and share a direct case link.
 
 Three featured signals form the polished demo path:
 
@@ -50,6 +50,8 @@ Three featured signals form the polished demo path:
 - Every case opens into a shareable deep link with a switcher for all its source materials, not just its first record.
 - Video and image previews, an audio player, optional PDF embedding, release filters, and a random-case entry make the material easier to explore.
 - The persistent header switches directly between the cinematic Experience and searchable Archive.
+- Four curiosity paths offer ten source-backed editorial stories, each with a reason to look closer, an open question and a next-story suggestion.
+- Shared media icons and real archive previews turn the numerical overview into four direct entrances: video, images, audio and documents.
 - User-activated Web Audio provides a stage-responsive ambient signal without misleading autoplay state.
 - The deployment is a Cloudflare-compatible React server build hosted with OpenAI Codex Sites.
 
@@ -72,7 +74,9 @@ Full provenance, normalization policies, hashes, and manual grouping decisions l
 
 ## October 2026 reading update
 
-The original cinematic identity is preserved. Main reading text is now at least 16px, regular control labels use 14px, and smaller 12–13px text is reserved for secondary metadata. The mobile archive exposes search and media cards first, with additional filters behind an expandable control. Material viewers support keyboard dismissal and return focus to the opened card. Missing media has a source-link fallback.
+The original cinematic identity is preserved. Main reading text is now at least 16px, regular control labels use 14px, and smaller 12–13px text is reserved for secondary metadata. Primary titles and controls use normal capitalization, while source IDs and agency acronyms remain intact. Material viewers support keyboard dismissal and return focus to the opened card. Missing media has a source-link fallback.
+
+The default archive now opens with curated journeys instead of the full search index. Visitors can choose footage, recordings or a document trail without knowing a case name. Every editorial pick links to an existing source record, explains why it is worth exploring, and distinguishes our invitation from the official description. The selection is not a credibility score or a measured popularity ranking; no audience analytics or community votes are fabricated. Search remains one click away, with mobile filters behind an expandable control. Home-page media entrances deep-link to the relevant archive filter.
 
 ## Built with Codex and GPT-5.6
 
@@ -127,14 +131,15 @@ npm run ingest:pursue
 
 ## How to test the golden path
 
-1. Open the deployed experience on desktop and click **SOUND START** to unlock the ambient signal.
+1. Open the deployed experience on desktop and click **Sound off** to unlock the ambient signal.
 2. Scroll once from the hero into **Field**.
-3. Hover a large video object until `VIDEO READY · CLICK TO OPEN EVIDENCE` appears.
+3. Hover a large video object until the click-to-open prompt appears.
 4. Click to trigger target capture and declassification.
 5. Watch the official video, inspect its metadata, and choose an assessment.
-6. Use `CONTINUE TO SIGNAL` to move through the three featured cases.
+6. Use **Explore the next signal** to move through the three featured cases.
 7. Close the file and continue scrolling to see the full archive scale.
-8. Open the **387-case archive**, search or filter the index, switch between connected materials, and copy a direct case link.
+8. Open **Explore archive**, try each curiosity path, and open a story to inspect its reason, question and linked source material.
+9. Follow a next-story suggestion, close the viewer, and choose **Search all records** to filter the complete archive or copy a direct case link.
 
 ## Scope and next steps
 

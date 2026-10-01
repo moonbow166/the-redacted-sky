@@ -1,0 +1,33 @@
+import { archiveCases, archiveRecords, previewAsset } from "./archive";
+
+// Editorial invitations, not official findings or a popularity/credibility score.
+// Every claim is grounded in the linked source descriptions in the pinned archive.
+export const curiosityPicks = [
+  { caseId: "case-dow-uap-pr104", title: "Eighteen seconds. One strange shape.", invitation: "Start with a tiny infrared puzzle above the Yellow Sea.", why: "The source describes a six-pointed area of contrast. A short clip lets you watch the same moment more than once, without mistaking a sensor image for an object's true shape.", question: "What do you see in the frame, and what are you filling in?", cue: "An 18-second first look", recordId: "DOW-UAP-PR104", trails: ["watch"] },
+  { caseId: "case-tremonton-film-1952", title: "A 1952 film with an unexpected ending.", invitation: "Bright objects, a handheld camera, and a very strange second half.", why: "After 55 seconds, this film changes to unrelated sewing-equipment footage. The accompanying investigation gives you a way to question the surviving film's history, not just the objects in it.", question: "How does a film's history change what you can conclude from it?", cue: "Watch, then follow the documents", recordId: "DOW-UAP-PR159", trails: ["watch", "paper"] },
+  { caseId: "case-nasa-uap-d003a", title: "An astronaut says “bogey.”", invitation: "Listen in on Gemini 7's air-to-ground conversation.", why: "You can hear the report in the crew's own words, with NASA commentary and the surrounding exchange, instead of relying on a dramatic retelling.", question: "What does the conversation establish, and what does it leave open?", cue: "Voices from orbit, 1965", recordId: "NASA-UAP-D003A", trails: ["listen"] },
+  { caseId: "case-sts-80-1996", title: "Three photographs. One small detail.", invitation: "Look beyond the curve of Earth in these shuttle images.", why: "Three released STS-80 photographs let you compare the object with the frame around it. The full view matters as much as the little point that catches your eye.", question: "Does the surrounding scene change your first impression?", cue: "Compare all three frames", recordId: "NASA-UAP-D030", trails: ["watch"] },
+  { caseId: "case-dvids-1007720", title: "The same video. Two different titles.", invitation: "A little detective work before you trust the caption.", why: "AARO identifies these two records as duplicate media with different uploader titles. The naming discrepancy is a concrete example of how a story can change while its images do not.", question: "Would you interpret the footage differently under the other title?", cue: "A pair worth comparing", recordId: "DOW-UAP-PR057a", trails: ["watch", "paper"] },
+  { caseId: "case-colorado-officer-001", title: "A phone, a light, a witness.", invitation: "A Colorado officer's report meets a camera's limitations.", why: "The released video and transcript offer two ways into the report. AARO also warns that autofocus and digital processing can distort distant subjects, especially when zoomed in.", question: "Which details come from the witness, and which come from the camera?", cue: "Video plus a witness transcript", recordId: "LLE-UAP-PR001", trails: ["watch", "paper"] },
+  { caseId: "case-dow-uap-pr113", title: "A few seconds, replayed three ways.", invitation: "Watch how repetition can change your impression of motion.", why: "The 1996 material repeats a short passage frame by frame, at slower speed, and as a held frame. The source says it was digitally altered before AARO received it.", question: "What changes when the same moment is slowed down?", cue: "Read the editing note", recordId: "DOW-UAP-PR113", trails: ["watch"] },
+  { caseId: "case-doe-uap-d004", title: "When Los Alamos started asking questions.", invitation: "Step into a room of scientists discussing aerial phenomena in 1949.", why: "This conference transcript preserves hypotheses being discussed, not a settled answer. It is a chance to explore the questions scientists were asking at the time.", question: "Which questions would you still ask today?", cue: "A historical conversation on paper", recordId: "DOE-UAP-D004", trails: ["paper"] },
+  { caseId: "case-western-us-event-2023", title: "One reported event. Many pieces to follow.", invitation: "Trace a case across agency records, images and footage.", why: "This editorial grouping brings together 20 records associated with a reported 2023 event. Read the overview, then compare what each source contributes; a bigger file is not automatically a stronger conclusion.", question: "Do the different records answer the same question?", cue: "A deeper, multi-record trail", recordId: "FBI-UAP-PR005", trails: ["paper", "watch"] },
+  { caseId: "case-ruppelt-briefing-1952", title: "Hear an investigator think out loud.", invitation: "Captain Edward J. Ruppelt explains the Air Force's approach in 1952.", why: "The audio and transcript describe a plan for collecting better physical data. Hearing the historical briefing makes the investigation itself part of the story.", question: "What kind of evidence was he hoping to collect?", cue: "A recording with its transcript", recordId: "DOW-UAP-PR160", trails: ["listen", "paper"] },
+] as const;
+
+export const curiosityTrails = [
+  { id: "first-look", title: "10 curious starting points", label: "Surprise my curiosity", icon: "spark", description: "An editor's selection, not a credibility ranking. Start wherever curiosity takes you." },
+  { id: "watch", title: "Let the images pull you in.", label: "Show me something", icon: "video", description: "Short footage, frame comparisons and the context that changes what you see." },
+  { id: "listen", title: "There are voices in this archive.", label: "Let me listen", icon: "audio", description: "Hear the people in the record, then follow the conversation in their own words." },
+  { id: "paper", title: "Follow a thread a little further.", label: "Give me a rabbit hole", icon: "pdf", description: "Connected documents, conflicting captions and investigations that reward a closer look." },
+] as const;
+export type CuriosityTrailId = typeof curiosityTrails[number]["id"];
+export type CuriosityPick = typeof curiosityPicks[number];
+export function picksForTrail(id: CuriosityTrailId) {
+  return curiosityPicks.filter(pick => id === "first-look" || (pick.trails as readonly string[]).includes(id));
+}
+export function materialForPick(pick: CuriosityPick) {
+  const record = archiveRecords.find(r => r.id === pick.recordId)!;
+  const caseFile = archiveCases.find(c => c.id === pick.caseId)!;
+  return { record, caseFile, preview: previewAsset(record) };
+}

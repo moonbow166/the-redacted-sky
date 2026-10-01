@@ -107,9 +107,9 @@ export const connectedVideoIndexes = ["DOW-UAP-PR104", "DOW-UAP-PR105", "DOW-UAP
   .filter((index) => index >= 0);
 
 const editorialTitles: Record<string, { signal: string; title: string }> = {
-  "case-dow-uap-pr104": { signal: "SIGNAL 01 / 18 SECONDS", title: "THE SIX-POINT SIGNAL" },
-  "case-dow-uap-pr105": { signal: "SIGNAL 02 / 05 MINUTES", title: "THE CENTERED OBJECT" },
-  "case-dow-uap-pr113": { signal: "SIGNAL 03 / 1996 TAPE", title: "THE LOST SENSOR RECORD" },
+  "case-dow-uap-pr104": { signal: "Signal 1 / 18 seconds", title: "The six-point signal" },
+  "case-dow-uap-pr105": { signal: "Signal 2 / 5 minutes", title: "The centered object" },
+  "case-dow-uap-pr113": { signal: "Signal 3 / 1996 tape", title: "The lost sensor record" },
 };
 
 export const featuredSignals = archiveCases

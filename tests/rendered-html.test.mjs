@@ -21,29 +21,32 @@ test("server-renders the finished UAP experience", async () => {
 
   const html = (await response.text()).replace(/<!--[\s\S]*?-->/g, "");
   assert.match(html, /<title>The Redacted Sky \| Declassified UAP Archive<\/title>/i);
-  assert.match(html, /450 OFFICIAL RECORD ROWS/);
-  assert.match(html, /387 EDITORIALLY GROUPED CASE FILES/);
-  assert.match(html, /APPROACH/);
-  assert.match(html, /THE UNKNOWN/);
-  assert.match(html, /THEN THE/);
-  assert.match(html, /SENSORS SPOKE/);
-  assert.match(html, /MOVE BEFORE/);
-  assert.match(html, /YOU DECIDE/);
-  assert.match(html, /THREE SIGNALS/);
-  assert.match(html, /RETURN TO THE FIELD/);
+  assert.match(html, /450 source records, grouped into 387 case files/);
+  assert.match(html, /A sky full/);
+  assert.match(html, /Look closer/);
+  assert.match(html, /What do you see/);
+  assert.match(html, /Enter the field/);
+  assert.match(html, /Find a story/);
+  assert.match(html, /Return to the field/);
   assert.match(html, /Choose site mode/);
-  assert.match(html, /DECLASSIFIED UAP ARCHIVE/);
-  assert.match(html, /SOUND\s*(?:<!-- -->)?\s*START/);
+  assert.match(html, /Explore archive/);
+  assert.match(html, /Sound off/);
+  for (const kind of ["video", "image", "audio", "pdf"]) {
+    assert.match(html, new RegExp(`href="/archive\\?media=${kind}"`));
+  }
+  assert.match(html, /Watch the footage/);
+  assert.match(html, /Hear the voices/);
+  assert.match(html, /Follow the paper trail/);
   assert.match(html, /og-v8\.png/);
   assert.doesNotMatch(html, /codex-preview|Codex is working|Your site is taking shape/i);
 
-  const fieldIndex = html.indexOf("01 / THE FIELD");
-  const demosIndex = html.indexOf("02 / THREE SIGNALS");
-  const overviewIndex = html.indexOf("04 / NOW, THE SCALE");
+  const fieldIndex = html.indexOf('id="field"');
+  const demosIndex = html.indexOf('id="signals"');
+  const overviewIndex = html.indexOf('id="releases"');
   assert.ok(fieldIndex > 0 && demosIndex > fieldIndex && overviewIndex > demosIndex);
 });
 
-test("server-renders the searchable case archive", async () => {
+test("server-renders curated journeys with access to the full case archive", async () => {
   const response = await render("/archive");
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -51,20 +54,27 @@ test("server-renders the searchable case archive", async () => {
   const html = (await response.text()).replace(/<!--[\s\S]*?-->/g, "");
   assert.match(html, /<title>UAP Case Archive \| The Redacted Sky<\/title>/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost(?::3000)?\/archive"/i);
-  assert.match(html, /OPEN THE/);
-  assert.match(html, /EVIDENCE/);
+  assert.match(html, /Follow your curiosity/);
+  assert.match(html, /Curated journeys/);
+  assert.match(html, /Search all records/);
+  assert.match(html, /10 curious starting points/);
+  assert.match(html, /Let me listen/);
+  assert.match(html, /Give me a rabbit hole/);
+  assert.match(html, /Why start here/);
+  assert.match(html, /not a credibility ranking/);
+  assert.equal((html.match(/aria-label="Explore /g) ?? []).length, 10);
+  assert.match(html, /class="library-index"[^>]*hidden/);
   assert.match(html, /387 case files/);
   assert.match(html, /Search the archive/);
   assert.match(html, /Featured first/);
   assert.match(html, /Inspect footage/);
   assert.match(html, /Load[\s\S]*24[\s\S]*more case files/);
   assert.match(html, /Release 06/);
-  assert.match(html, /116 records added since July/);
   assert.match(html, /<dialog/);
   assert.match(html, /Surprise me/);
-  assert.match(html, /PRIMARY SOURCE \/ U\.S\. GOVERNMENT PURSUE/);
+  assert.match(html, /Primary source: U\.S\. government PURSUE/);
   assert.match(html, /Choose site mode/);
-  assert.match(html, /aria-current="page"[^>]*>[\s\S]*DECLASSIFIED UAP ARCHIVE/);
+  assert.match(html, /aria-current="page"[^>]*>[\s\S]*Explore archive/);
 });
 
 test("ships the complete deterministic archive dataset", async () => {
@@ -94,8 +104,27 @@ test("ships the complete deterministic archive dataset", async () => {
   assert.match(page, /archiveRecords\.length/);
   assert.match(page, /featuredSignals/);
   assert.match(page, /TARGET LOCK/);
-  assert.match(page, /WHAT DO YOU THINK YOU SAW/);
-  assert.match(page, /CONTINUE TO SIGNAL/);
+  assert.match(page, /What do you think you saw/);
+  assert.match(page, /Explore the next signal/);
   assert.match(scene, /recordKinds\.length/);
   assert.match(scene, /Hero reconstruction/);
+});
+
+test("every editorial story points to a material in its real source case", async () => {
+  const [picksText, recordsText, casesText] = await Promise.all([
+    readFile(new URL("../lib/explore.ts", import.meta.url), "utf8"),
+    readFile(new URL("../data/records.json", import.meta.url), "utf8"),
+    readFile(new URL("../data/cases.json", import.meta.url), "utf8"),
+  ]);
+  const records = JSON.parse(recordsText);
+  const cases = JSON.parse(casesText);
+  const picks = [...picksText.matchAll(/caseId: "([^"]+)"[^\n]+recordId: "([^"]+)"/g)];
+  assert.equal(picks.length, 10);
+  assert.equal(new Set(picks.map(match => match[1])).size, 10);
+  for (const [, caseId, recordId] of picks) {
+    const caseFile = cases.find(item => item.id === caseId);
+    assert.ok(caseFile, `Missing editorial case: ${caseId}`);
+    assert.ok(caseFile.recordIds.includes(recordId), `${recordId} does not belong to ${caseId}`);
+    assert.ok(records.some(item => item.id === recordId), `Missing material: ${recordId}`);
+  }
 });

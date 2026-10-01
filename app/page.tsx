@@ -4,11 +4,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import SkyScene from "../components/SkyScene";
+import SiteNavigation from "../components/SiteNavigation";
+import ArchiveIcon from "../components/ArchiveIcon";
+import ArchiveOverview from "../components/ArchiveOverview";
 import {
   archiveCases,
   archiveRecords,
   archiveReleases,
-  archiveTotals,
   connectedVideoIndexes,
   featuredSignals,
   getArchiveEntry,
@@ -16,7 +18,8 @@ import {
 } from "../lib/archive";
 
 const verdicts = ["ORDINARY", "SENSOR AMBIGUITY", "INSUFFICIENT", "ANOMALOUS"];
-const chapterLabels = ["ENCOUNTER", "FIELD", "SIGNALS", "DISCLOSURE", "OVERVIEW"];
+const chapterLabels = ["Encounter", "Field", "Signals", "Disclosure", "Explore"];
+const verdictLabels: Record<string,string> = { ORDINARY: "Ordinary", "SENSOR AMBIGUITY": "Sensor ambiguity", INSUFFICIENT: "Not enough to tell", ANOMALOUS: "Anomalous" };
 
 type AmbientAudio = {
   context: AudioContext;
@@ -69,16 +72,16 @@ function createAmbientAudio(): AmbientAudio | null {
 }
 
 function displayDate(value: string | null) {
-  if (!value) return "DATE NOT PROVIDED";
+  if (!value) return "Date not provided";
   if (/^\d{4}$/.test(value)) return value;
   const date = new Date(`${value}T00:00:00Z`);
   return Number.isNaN(date.getTime())
     ? value
-    : new Intl.DateTimeFormat("en", { month: "short", day: "2-digit", year: "numeric", timeZone: "UTC" }).format(date).toUpperCase();
+    : new Intl.DateTimeFormat("en", { month: "short", day: "2-digit", year: "numeric", timeZone: "UTC" }).format(date);
 }
 
 function releaseLabel(id: string) {
-  return archiveReleases.find((release) => release.id === id)?.label.toUpperCase() ?? id.toUpperCase();
+  return archiveReleases.find((release) => release.id === id)?.label ?? id;
 }
 
 export default function Home() {
@@ -86,7 +89,6 @@ export default function Home() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [soundOn, setSoundOn] = useState(false);
-  const [soundStarted, setSoundStarted] = useState(false);
   const [soundError, setSoundError] = useState(false);
   const [verdict, setVerdict] = useState<string | null>(null);
   const [caseRevealed, setCaseRevealed] = useState(false);
@@ -104,9 +106,6 @@ export default function Home() {
           setSelectedIndex(null);
           setVerdict(null);
         }
-      }
-      if (event.key === "Enter" && scrollStage === 0) {
-        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
       }
     };
     window.addEventListener("keydown", onKey);
@@ -182,7 +181,6 @@ export default function Home() {
 
     try {
       await audio.context.resume();
-      setSoundStarted(true);
       setSoundError(false);
       setSoundOn(true);
     } catch {
@@ -239,48 +237,31 @@ export default function Home() {
       <div className="event-horizon" aria-hidden="true" />
 
       <header className="system-bar">
-        <div className="brand-lockup">
-          <span className="brand-mark" aria-hidden="true" />
-          <nav className="mode-switch" aria-label="Choose site mode">
-            <a className="is-active" href="/" aria-current="page"><span className="mode-label-long">THE REDACTED SKY</span><span className="mode-label-short">EXPERIENCE</span></a>
-            <span className="mode-separator">/</span>
-            <a href="/archive"><span className="mode-label-long">DECLASSIFIED UAP ARCHIVE</span><span className="mode-label-short">ARCHIVE</span></a>
-          </nav>
-        </div>
+        <SiteNavigation current="experience" />
         <div className="system-status">
-          <span className="status-light" />
-          <span>{scrollStage === 1 ? "FIELD ACTIVE" : scrollStage === 0 ? "UNKNOWN CONTACT" : scrollStage < 4 ? "EVIDENCE STREAM" : "PURSUE ARCHIVE"}</span>
-          {scrollStage >= 4 && <span className="dim hide-mobile">{archiveRecords.length} RECORDS / {archiveCases.length} CASE FILES / {archiveReleases.length} RELEASES</span>}
           <button className={`sound-toggle ${soundOn ? "is-on" : ""}`} type="button" aria-pressed={soundOn} aria-label={soundOn ? "Mute ambient signal" : "Start ambient signal"} onClick={toggleSound}>
-            SOUND {soundOn ? "ON" : soundError ? "RETRY" : soundStarted ? "OFF" : "START"}
+            <ArchiveIcon kind="audio" />Sound {soundOn ? "on" : soundError ? "retry" : "off"}
           </button>
         </div>
       </header>
 
       <section className="intro-copy" aria-hidden={scrollStage !== 0} inert={scrollStage !== 0}>
-        <div className="eyebrow">VISUAL RECONSTRUCTION / ORIGIN UNCONFIRMED</div>
         <h1>
-          <span>THE</span>
-          <span className="redacted-word">REDACTED</span>
-          <span>SKY</span>
+          <span>The</span>
+          <span className="redacted-word">Redacted</span>
+          <span>Sky</span>
         </h1>
         <p className="intro-statement">
-          Something entered the frame.
-          <br />
-          The files arrived later.
+          Real UAP records. Unfinished questions.
+          <br />Start with a little curiosity.
         </p>
-        <button className="descent-trigger" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>
-          <span className="descent-ring" aria-hidden="true" />
-          <span>APPROACH<br />THE UNKNOWN</span>
-          <i aria-hidden="true" />
-        </button>
-        <div className="entry-note">SCROLL TO DESCEND · HEADPHONES RECOMMENDED</div>
+        <div className="entry-choices"><button className="entry-choice" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}><ArchiveIcon kind="field"/><span><strong>Enter the field</strong><small>Move through the signals</small></span></button><a className="entry-choice" href="/archive"><ArchiveIcon kind="compass"/><span><strong>Find a story</strong><small>Let curiosity choose the way</small></span></a></div>
+        <div className="entry-note">Scroll to explore the field. No expertise needed.</div>
       </section>
 
       <div className="craft-callout" aria-hidden={scrollStage !== 0}>
-        <span>CONTACT / FORM UNRESOLVED</span>
-        <strong>THE BLACK MANTA</strong>
-        <small>ARTIST RECONSTRUCTION · NOT EVIDENCE</small>
+        <strong>The Black Manta</strong>
+        <small>Artist reconstruction, not evidence</small>
       </div>
 
       <nav className="story-progress" aria-label="Experience chapters">
@@ -297,21 +278,19 @@ export default function Home() {
 
         <section className="story-chapter field-chapter" id="field">
           <div className="field-chapter-copy">
-            <div className="chapter-index">01 / THE FIELD</div>
-            <p>DO NOT NAME IT YET.</p>
-            <h2>MOVE BEFORE<br /><span>YOU DECIDE.</span></h2>
+            <h2>A sky full<br /><span>of questions.</span></h2>
+            <p>Move over a signal. Select it to see what was recorded.</p>
           </div>
           <div className="field-morphology-legend" aria-hidden="true">
-            <span>ORB</span><span>TIC-TAC</span><span>MANTA</span><span>TRIANGLE</span><span>CYLINDER</span><span>BOOMERANG</span>
+            <span>Orb</span><span>Tic-tac</span><span>Manta</span><span>Triangle</span><span>Cylinder</span><span>Boomerang</span>
           </div>
           <div className="field-depth-cue" aria-hidden="true"><i /><i /><i /></div>
         </section>
 
         <section className="story-chapter signals-chapter" id="signals">
           <div className="signal-heading">
-            <div className="chapter-index">02 / THREE SIGNALS</div>
-            <h2>THEN THE<br /><span>SENSORS SPOKE.</span></h2>
-            <p>Three selected source records. No reconstruction inside the frames. No verdict added.</p>
+            <h2>Look closer.<br /><span>What do you see?</span></h2>
+            <p>Three places to begin. Open a video, read the context, and make up your own mind.</p>
           </div>
           <div className="cinema-signals">
             {featuredSignals.map((item, index) => (
@@ -321,7 +300,7 @@ export default function Home() {
                 <span className="signal-code">{item.signal}</span>
                 <span className="signal-place">{item.location.label} / {displayDate(item.eventDate)}</span>
                 <strong>{item.title}</strong>
-                <span className="signal-action">INSPECT ORIGINAL RECORD ↗</span>
+                <span className="signal-action"><ArchiveIcon kind="video"/>Watch and explore</span>
               </button>
             ))}
           </div>
@@ -329,74 +308,46 @@ export default function Home() {
 
         <section className="story-chapter declassification-chapter" id="disclosure">
           <div className="chapter-copy chapter-copy-left">
-            <div className="chapter-index">03 / DISCLOSURE</div>
-            <p className="chapter-overline">CLEARED FOR PUBLIC RELEASE</p>
-            <h2>THE FILES<br />ARE OPEN.<br /><span>THE ANSWER IS NOT.</span></h2>
-            <p>Release is not resolution. Every missing coordinate, clipped frame and black bar changes what remains possible.</p>
+            <h2>The files are open.<br /><span>The questions remain.</span></h2>
+            <p>UAP means unidentified anomalous phenomena. It is a description of uncertainty, not an answer about what something is.</p>
           </div>
           <div className="declassified-sheet" aria-label="Animated declassified document">
-            <div className="sheet-topline"><span>UNCLASSIFIED // RELEASE AUTHORIZED</span><span>PURSUE / 2026</span></div>
-            <div className="release-stamp">DECLASSIFIED</div>
-            <div className="sheet-heading">OBSERVATION OF ANOMALOUS AERIAL PHENOMENA</div>
+            <div className="sheet-topline"><span>Public release</span><span>PURSUE / 2026</span></div>
+            <div className="release-stamp">Declassified</div>
+            <div className="sheet-heading">Observation of anomalous aerial phenomena</div>
             <div className="sheet-line long" /><div className="sheet-line medium" /><div className="sheet-line long" /><div className="sheet-line short" />
-            <div className="redaction-strip strip-a">SOURCE IDENTITY</div>
-            <div className="redaction-strip strip-b">SENSOR PLATFORM</div>
-            <div className="redaction-strip strip-c">EXACT LOCATION</div>
+            <div className="redaction-strip strip-a">Source identity</div>
+            <div className="redaction-strip strip-b">Sensor platform</div>
+            <div className="redaction-strip strip-c">Exact location</div>
             <div className="sheet-coordinates">██°██′██″ N &nbsp; / &nbsp; ███°██′██″ W</div>
-            <div className="sheet-footer">PUBLIC RELEASE DOES NOT CONSTITUTE ANALYTICAL JUDGMENT</div>
+            <div className="sheet-footer">Public release is not a conclusion</div>
           </div>
         </section>
 
         <section className="story-chapter release-chapter" id="releases">
-          <div className="chapter-index">04 / NOW, THE SCALE</div>
-          <div className="release-headline">
-            <span>OFFICIAL ROWS RELEASED</span><strong>{archiveRecords.length}</strong><span>GROUPED INTO {archiveCases.length} CASES</span>
-          </div>
-          <div className="release-stats">
-            <div><strong>{String(archiveTotals.pdf).padStart(3, "0")}</strong><span>PDF DOCUMENTS</span></div>
-            <div><strong>{String(archiveTotals.video).padStart(3, "0")}</strong><span>VIDEOS</span></div>
-            <div><strong>{String(archiveTotals.image).padStart(3, "0")}</strong><span>IMAGES</span></div>
-            <div><strong>{String(archiveTotals.audio).padStart(3, "0")}</strong><span>AUDIO</span></div>
-          </div>
-          <div className="release-tape">
-            {archiveReleases.map((release, index) => (
-              <div className={release.isLatestAsOfFetch ? "is-latest" : ""} key={release.id}>
-                <span>0{index + 1}</span><strong>{displayDate(release.clearedDate)}</strong><small>{release.recordCount} RECORDS{release.isLatestAsOfFetch ? " / LATEST" : " / VERIFIED"}</small>
-              </div>
-            ))}
-          </div>
-          <p className="release-disclaimer">{archiveRecords.length} OFFICIAL RECORD ROWS · {archiveCases.length} EDITORIALLY GROUPED CASE FILES · LOCATION PRECISION PRESERVED</p>
+          <div className="media-overview-heading"><h2>More than one<br /><span>way into the unknown.</span></h2><p>Follow a voice. Inspect a frame. See where a document leads.</p></div>
+          <ArchiveOverview />
+          <p className="release-disclaimer">{archiveRecords.length} source records, grouped into {archiveCases.length} case files across {archiveReleases.length} releases. A record is a starting point, not a verdict.</p>
           <div className="overview-actions">
-            <a className="overview-open-archive" href="/archive">OPEN THE {archiveCases.length}-FILE ARCHIVE</a>
-            <button className="overview-return" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>RETURN TO THE FIELD ↑</button>
+            <a className="overview-open-archive" href="/archive"><ArchiveIcon kind="compass"/>Find your next story</a>
+            <button className="overview-return" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>Return to the field</button>
           </div>
-          <div className="archive-source-line">PRIMARY SOURCE / U.S. GOVERNMENT PURSUE · CHINESE INDEX / CHINLEEZ CC BY 4.0</div>
+          <div className="archive-source-line">Primary source: U.S. government PURSUE · Chinese index: chinleez, CC BY 4.0</div>
         </section>
       </div>
 
-      <aside className="field-index morphology-readout" aria-hidden={scrollStage !== 1 || selectedIndex !== null}>
-        <div className="index-kicker">FORMS IN VIEW</div>
-        <div className="index-number">06</div>
-        <div className="index-label">RECONSTRUCTED MORPHOLOGIES</div>
-        <div className="index-rule" />
-        <dl>
-          <div><dt>ORB</dt><dd>01</dd></div>
-          <div><dt>TIC-TAC</dt><dd>02</dd></div>
-          <div><dt>BLACK MANTA</dt><dd>03</dd></div>
-          <div><dt>TRIANGLE</dt><dd>04</dd></div>
-          <div><dt>CYLINDER</dt><dd>05</dd></div>
-          <div><dt>BOOMERANG</dt><dd>06</dd></div>
-        </dl>
+      <aside className="field-index field-guide" aria-hidden={scrollStage !== 1 || selectedIndex !== null} inert={scrollStage !== 1 || selectedIndex !== null}>
+        <ArchiveIcon kind="video"/><h3>Follow a signal.</h3><p>The shapes are reconstructions. Select a signal to open its source material.</p><a href="/archive">Prefer a guided story?</a>
       </aside>
 
       <div className={`target-readout ${hoveredKind === "VIDEO" ? "is-video" : ""} ${scrollStage === 1 && hoveredIndex !== null && selectedIndex === null ? "is-visible" : ""}`} aria-live="polite">
         <span className="target-bracket">[</span>
-        <div><small>SIGNAL ACQUIRED</small><strong>RECORD {String((hoveredIndex ?? 0) + 1).padStart(3, "0")}</strong><small>{hoveredKind === "VIDEO" ? "VIDEO READY · CLICK TO OPEN EVIDENCE" : `${hoveredKind} · CLICK TO OPEN RECORD`}</small></div>
+        <div><small>Signal found</small><strong>Record {String((hoveredIndex ?? 0) + 1).padStart(3, "0")}</strong><small>{hoveredKind === "VIDEO" ? "Video ready. Select to watch." : "Select to open the source record."}</small></div>
         <span className="target-bracket">]</span>
       </div>
 
-      <div className={`scan-instruction ${scrollStage === 1 && selectedIndex === null ? "is-visible" : ""}`}><span className="mouse-icon" aria-hidden="true" />MOVE TO SCAN · CLICK A SIGNAL</div>
-      <div className={`coordinates ${scrollStage === 1 ? "is-visible" : ""}`} aria-hidden="true"><span>LIVE FIELD / SCALE INDETERMINATE</span><span>DO NOT ASSUME FORM</span></div>
+      <div className={`scan-instruction ${scrollStage === 1 && selectedIndex === null ? "is-visible" : ""}`}><span className="mouse-icon" aria-hidden="true" />Move to explore. Tap or click a signal.</div>
+      <div className={`coordinates ${scrollStage === 1 ? "is-visible" : ""}`} aria-hidden="true"><span>Spatial field, not a map</span><span>Reconstructed forms</span></div>
 
       <section className={`case-file ${selectedEntry ? "is-open" : ""} ${caseRevealed ? "is-revealed" : ""} ${selectedFeature ? "is-featured" : ""}`} aria-hidden={!selectedEntry}>
         {selectedEntry && selectedRecord && (
@@ -407,14 +358,14 @@ export default function Home() {
               <div className="capture-readout">
                 <span>TARGET LOCK / {selectedFeature ? `0${selectedFeatureIndex + 1}` : "UNINDEXED"}</span>
                 <strong>{selectedFeature?.signal ?? selectedRecord.fileType.toUpperCase()}</strong>
-                <small>ISOLATING SOURCE · VERIFYING CHAIN OF CUSTODY</small>
+                <small>Opening the source record</small>
               </div>
             </div>
             <div className="case-reveal-flash" aria-hidden="true" />
             <div className="case-topline">
               <span>{selectedFeature ? `EVIDENCE 0${selectedFeatureIndex + 1} / 03` : selectedCase?.id.toUpperCase() ?? selectedRecord.id}</span>
               <span className="classification">{selectedRecord.officialStatus.toUpperCase()} / {releaseLabel(selectedRecord.releaseId)}</span>
-              <button type="button" onClick={closeCase} aria-label="Close evidence file">CLOSE [ESC]</button>
+              <button type="button" onClick={closeCase} aria-label="Close evidence file">Close [Esc]</button>
             </div>
             <div className="case-layout">
               <div className="evidence-visual">
@@ -431,34 +382,34 @@ export default function Home() {
                   <div className="video-overlay"><span>{selectedEntry.visualRecord.fileType.toUpperCase()} / OFFICIAL RELEASE</span><span>REC ●</span><span>{selectedCase?.recordIds.length ?? 1} RECORD{(selectedCase?.recordIds.length ?? 1) > 1 ? "S" : ""}</span></div>
                   {selectedFeature && <div className="signal-chapter-tag"><span>{selectedFeature.signal}</span><strong>{selectedFeature.location.label} / {displayDate(selectedFeature.eventDate)}</strong></div>}
                 </div>
-                <p className="source-note">OFFICIAL SOURCE RECORD · DESCRIPTION IS NOT AN ANALYTICAL JUDGMENT</p>
+                <p className="source-note">Source record. The description is not an analytical judgment.</p>
               </div>
               <article className="case-copy">
                 <div className="declassification-wipe" aria-hidden="true"><i /><i /><i /><i /></div>
-                <div className="case-eyebrow">{selectedFeature ? `DECLASSIFIED SIGNAL 0${selectedFeatureIndex + 1}` : "OPEN EVIDENCE FILE"}</div>
+                <div className="case-eyebrow">{selectedFeature ? `Selected signal ${selectedFeatureIndex + 1}` : "Source material"}</div>
                 <h2>{selectedFeature?.title ?? selectedCase?.title ?? selectedRecord.title}</h2>
-                {selectedFeature && <p className="official-case-title">OFFICIAL FILE / {selectedCase?.title ?? selectedRecord.title}</p>}
+                {selectedFeature && <p className="official-case-title">Official file: {selectedCase?.title ?? selectedRecord.title}</p>}
                 <div className="case-meta">
-                  <div><span>LOCATION</span><strong>{selectedCase?.location.label ?? selectedRecord.location.label ?? "NOT PROVIDED"}</strong></div>
-                  <div><span>INCIDENT</span><strong>{displayDate(selectedCase?.eventDate ?? selectedRecord.incidentDate)}</strong></div>
-                  <div><span>REPORTING BODY</span><strong>{selectedCase?.agencies.join(" / ") ?? selectedRecord.agency}</strong></div>
-                  <div><span>OFFICIAL STATUS</span><strong>{selectedCase?.officialAssessment ?? selectedRecord.officialAssessment ?? selectedRecord.officialStatus}</strong></div>
+                  <div><span>Location</span><strong>{selectedCase?.location.label ?? selectedRecord.location.label ?? "Not provided"}</strong></div>
+                  <div><span>Source date</span><strong>{displayDate(selectedCase?.eventDate ?? selectedRecord.incidentDate)}</strong></div>
+                  <div><span>Reporting body</span><strong>{selectedCase?.agencies.join(" / ") ?? selectedRecord.agency}</strong></div>
+                  <div><span>Official status</span><strong>{selectedCase?.officialAssessment ?? selectedRecord.officialAssessment ?? selectedRecord.officialStatus}</strong></div>
                 </div>
                 <p className="case-description">
                   {(selectedCase?.summary ?? selectedRecord.descriptionOriginal).replaceAll("\u2014", ",")}
                 </p>
-                {(selectedCase?.summary.endsWith("…") || selectedCase?.summary.endsWith("...")) && <p className="excerpt-warning">OFFICIAL DESCRIPTION EXCERPT · CONTINUE AT SOURCE</p>}
-                <a className="official-source-link" href={selectedRecord.sourcePageUrl} target="_blank" rel="noreferrer">OPEN OFFICIAL SOURCE ↗</a>
-                {selectedCase && <a className="official-source-link full-case-link" href={`/archive?case=${encodeURIComponent(selectedCase.slug)}&record=${encodeURIComponent(selectedRecord.id)}`}>EXPLORE ALL {selectedCase.recordIds.length} MATERIAL{selectedCase.recordIds.length === 1 ? "" : "S"}</a>}
+                {(selectedCase?.summary.endsWith("…") || selectedCase?.summary.endsWith("...")) && <p className="excerpt-warning">Description excerpt. Continue at the source.</p>}
+                <a className="official-source-link" href={selectedRecord.sourcePageUrl} target="_blank" rel="noreferrer">Open official source</a>
+                {selectedCase && <a className="official-source-link full-case-link" href={`/archive?case=${encodeURIComponent(selectedCase.slug)}&record=${encodeURIComponent(selectedRecord.id)}`}>Explore {selectedCase.recordIds.length===1?"this record":`all ${selectedCase.recordIds.length} materials`}</a>}
                 <div className="assessment">
-                  <div className="assessment-title"><span>WHAT DO YOU THINK YOU SAW?</span><small>YOUR RESPONSE REMAINS ON THIS DEVICE</small></div>
+                  <div className="assessment-title"><span>What do you think you saw?</span><small>Your response stays on this device</small></div>
                   <div className="verdicts">
-                    {verdicts.map((item) => <button key={item} type="button" className={verdict === item ? "is-selected" : ""} onClick={() => recordVerdict(item)}><span className="verdict-dot" />{item}</button>)}
+                    {verdicts.map((item) => <button key={item} type="button" className={verdict === item ? "is-selected" : ""} onClick={() => recordVerdict(item)}><span className="verdict-dot" />{verdictLabels[item]}</button>)}
                   </div>
                   {verdict && (
                     <div className="verdict-response">
-                      <span>ASSESSMENT LOGGED: <strong>{verdict}</strong></span>
-                      {selectedFeature && <button type="button" onClick={openNextSignal}>{selectedFeatureIndex === featuredSignals.length - 1 ? "RETURN TO SIGNAL 01" : `CONTINUE TO SIGNAL 0${selectedFeatureIndex + 2}`} <b>→</b></button>}
+                      <span>Your assessment: <strong>{verdictLabels[verdict]}</strong></span>
+                      {selectedFeature && <button type="button" onClick={openNextSignal}>{selectedFeatureIndex === featuredSignals.length - 1 ? "Return to the first signal" : "Explore the next signal"}</button>}
                     </div>
                   )}
                 </div>
@@ -468,7 +419,7 @@ export default function Home() {
         )}
       </section>
 
-      <footer className="credit-line">PURSUE RELEASES 01–{String(archiveReleases.length).padStart(2,"0")} · CHINLEEZ / CC BY 4.0</footer>
+      <footer className="credit-line">PURSUE releases 01–{String(archiveReleases.length).padStart(2,"0")} · chinleez / CC BY 4.0</footer>
       <p className="sr-only">An immersive three-dimensional field containing {archiveRecords.length} official UAP record rows grouped into {archiveCases.length} case files.</p>
     </main>
   );
