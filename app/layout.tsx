@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 import { archiveCases, archiveRecords } from "../lib/archive";
+import { SITE_URL, SITE_NAME } from "../lib/site";
+import StructuredData from "../components/StructuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,16 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const incomingHeaders = await headers();
-  const host = incomingHeaders.get("host") ?? "localhost:3000";
-  const protocol = host.includes("localhost") ? "http" : "https";
-  const origin = `${protocol}://${host}`;
+  const origin = SITE_URL;
   const title = "The Redacted Sky | Declassified UAP Archive";
   const description =
     `Enter a field of UAP morphologies, inspect source footage, then explore ${archiveRecords.length} public-release records grouped into ${archiveCases.length} case files.`;
 
   return {
     metadataBase: new URL(origin),
+    alternates: { canonical: "/" },
+    robots: { index: true, follow: true },
     title,
     description,
     icons: {
@@ -35,6 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       type: "website",
+      url: origin,
       images: [{ url: `${origin}/og-v8.png`, width: 1736, height: 909, alt: title }],
     },
     twitter: {
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <StructuredData value={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: SITE_NAME, url: SITE_URL, inLanguage: "en", description: "An independent, source-linked guide to released UAP records." }} />
         {children}
       </body>
     </html>

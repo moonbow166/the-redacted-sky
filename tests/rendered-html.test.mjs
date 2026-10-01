@@ -30,7 +30,10 @@ test("server-renders the finished UAP experience", async () => {
   assert.match(html, /Return to the field/);
   assert.match(html, /Choose site mode/);
   assert.match(html, /Explore archive/);
-  assert.match(html, /Sound off/);
+  assert.doesNotMatch(html, /Sound off|Sound on|Start ambient signal|chinleez/);
+  assert.match(html, /href="\/sources"/);
+  assert.match(html, /href="\/guide"/);
+  assert.match(html, /rel="canonical" href="https:\/\/the-redacted-sky\.moonbow166\.chatgpt\.site\/"/);
   for (const kind of ["video", "image", "audio", "pdf"]) {
     assert.match(html, new RegExp(`href="/archive\\?media=${kind}"`));
   }
@@ -53,7 +56,7 @@ test("server-renders curated journeys with access to the full case archive", asy
 
   const html = (await response.text()).replace(/<!--[\s\S]*?-->/g, "");
   assert.match(html, /<title>UAP Case Archive \| The Redacted Sky<\/title>/i);
-  assert.match(html, /rel="canonical" href="http:\/\/localhost(?::3000)?\/archive"/i);
+  assert.match(html, /rel="canonical" href="https:\/\/the-redacted-sky\.moonbow166\.chatgpt\.site\/archive"/i);
   assert.match(html, /Follow your curiosity/);
   assert.match(html, /Curated journeys/);
   assert.match(html, /Search all records/);
@@ -63,6 +66,7 @@ test("server-renders curated journeys with access to the full case archive", asy
   assert.match(html, /Why start here/);
   assert.match(html, /not a credibility ranking/);
   assert.equal((html.match(/aria-label="Explore /g) ?? []).length, 10);
+  assert.equal((html.match(/<a href="\/cases\/[^\"]+"[^>]*class="curiosity-(?:lead|card)"/g) ?? []).length, 10);
   assert.match(html, /class="library-index"[^>]*hidden/);
   assert.match(html, /387 case files/);
   assert.match(html, /Search the archive/);
@@ -106,8 +110,74 @@ test("ships the complete deterministic archive dataset", async () => {
   assert.match(page, /TARGET LOCK/);
   assert.match(page, /What do you think you saw/);
   assert.match(page, /Explore the next signal/);
+  assert.doesNotMatch(page, /AudioContext|createAmbientAudio|soundOn|sound-toggle/);
   assert.match(scene, /recordKinds\.length/);
   assert.match(scene, /Hero reconstruction/);
+});
+
+function structuredData(html) {
+  return [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+}
+
+test("serves crawlable case pages with matching canonical, source text and structured data", async () => {
+  const cases = JSON.parse(await readFile(new URL("../data/cases.json", import.meta.url), "utf8"));
+  const records = JSON.parse(await readFile(new URL("../data/records.json", import.meta.url), "utf8"));
+  const wanted = ["DOW-UAP-PR104", "NASA-UAP-D003A", "NASA-UAP-D030", "DOE-UAP-D004", "DOW-UAP-PR159", "LLE-UAP-PR004", "LLE-UAP-D002"];
+  for (const recordId of wanted) {
+    const entry = cases.find(item => item.recordIds.includes(recordId));
+    assert.ok(entry, recordId);
+    const response = await render(`/cases/${entry.slug}`);
+    assert.equal(response.status, 200, entry.slug);
+    const html = await response.text();
+    assert.match(html, /What the source says/);
+    assert.match(html, /How this case is grouped/);
+    assert.ok(html.includes(`rel="canonical" href="https://the-redacted-sky.moonbow166.chatgpt.site/cases/${entry.slug}"`));
+    const schema = structuredData(html).find(item => item["@type"] === "CollectionPage");
+    assert.equal(schema.mainEntity.numberOfItems, entry.recordIds.length);
+    assert.deepEqual(schema.mainEntity.itemListElement.map(item => item.item.identifier), entry.recordIds);
+    const record = records.find(item => item.id === recordId);
+    assert.ok(schema.citation.includes(record.sourcePageUrl));
+    assert.equal(schema.mainEntity.itemListElement.find(item => item.item.identifier === recordId).item.description, record.descriptionOriginal.replaceAll("\u2014", ","));
+    if (recordId === "LLE-UAP-PR004") assert.match(html, /Source discrepancy:/);
+    if (recordId === "LLE-UAP-D002") assert.match(html, /A direct file link has not been verified/);
+  }
+  assert.equal((await render("/cases/not-a-real-case")).status, 404);
+});
+
+test("sitemap and directory expose every unique case without requiring JavaScript", async () => {
+  const cases = JSON.parse(await readFile(new URL("../data/cases.json", import.meta.url), "utf8"));
+  assert.equal(new Set(cases.map(item=>item.slug)).size, cases.length);
+  const sitemap = await render("/sitemap.xml");
+  assert.equal(sitemap.status, 200);
+  assert.match(sitemap.headers.get("content-type"), /application\/xml/);
+  const xml = await sitemap.text();
+  assert.equal((xml.match(/<loc>/g) ?? []).length, cases.length + 5);
+  const directory = await render("/cases");
+  assert.equal(directory.status, 200);
+  const html = await directory.text();
+  for (const entry of cases) {
+    assert.ok(xml.includes(`/cases/${entry.slug}</loc>`), entry.slug);
+    assert.ok(html.includes(`href="/cases/${entry.slug}"`), entry.slug);
+  }
+  const robots = await render("/robots.txt");
+  assert.equal(robots.status, 200);
+  assert.match(await robots.text(), /User-agent: \*\nAllow: \/[\s\S]*Sitemap: https:\/\/the-redacted-sky\.moonbow166\.chatgpt\.site\/sitemap.xml/);
+});
+
+test("keeps attribution discoverable and newcomer answers server-readable", async () => {
+  const sources = await render("/sources");
+  assert.equal(sources.status, 200);
+  const sourceHtml = await sources.text();
+  assert.match(sourceHtml, /chinleez\/uap-disclosure-2026/);
+  assert.match(sourceHtml, /href="https:\/\/creativecommons.org\/licenses\/by\/4.0\/"/);
+  assert.match(sourceHtml, /July 18, 2026/);
+  assert.match(sourceHtml, /October 1, 2026/);
+  const guide = await render("/guide");
+  assert.equal(guide.status, 200);
+  const guideHtml = await guide.text();
+  assert.match(guideHtml, /What does UAP mean/);
+  assert.match(guideHtml, /Are the 3D objects real evidence/);
+  assert.match(guideHtml, /https:\/\/science.nasa.gov\/uap\/faqs\//);
 });
 
 test("every editorial story points to a material in its real source case", async () => {

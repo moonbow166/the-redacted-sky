@@ -52,7 +52,7 @@ Three featured signals form the polished demo path:
 - The persistent header switches directly between the cinematic Experience and searchable Archive.
 - Four curiosity paths offer ten source-backed editorial stories, each with a reason to look closer, an open question and a next-story suggestion.
 - Shared media icons and real archive previews turn the numerical overview into four direct entrances: video, images, audio and documents.
-- User-activated Web Audio provides a stage-responsive ambient signal without misleading autoplay state.
+- The site has no ambient soundtrack or sound toggle; original media retains its own playback controls.
 - The deployment is a Cloudflare-compatible React server build hosted with OpenAI Codex Sites.
 
 ## Data integrity
@@ -77,6 +77,20 @@ Full provenance, normalization policies, hashes, and manual grouping decisions l
 The original cinematic identity is preserved. Main reading text is now at least 16px, regular control labels use 14px, and smaller 12–13px text is reserved for secondary metadata. Primary titles and controls use normal capitalization, while source IDs and agency acronyms remain intact. Material viewers support keyboard dismissal and return focus to the opened card. Missing media has a source-link fallback.
 
 The default archive now opens with curated journeys instead of the full search index. Visitors can choose footage, recordings or a document trail without knowing a case name. Every editorial pick links to an existing source record, explains why it is worth exploring, and distinguishes our invitation from the official description. The selection is not a credibility score or a measured popularity ranking; no audience analytics or community votes are fabricated. Search remains one click away, with mobile filters behind an expandable control. Home-page media entrances deep-link to the relevant archive filter.
+
+## Search and answer-engine accessibility
+
+- Every case has a server-rendered `/cases/[slug]` reading page with source descriptions, record IDs, official links, grouping notes and known limitations. The interactive viewer is still available from each page.
+- Curated story links progressively enhance into the viewer for normal clicks. Without JavaScript, or when opened in a new tab, they lead to the readable case page.
+- `/cases` is a complete linked directory; `/sitemap.xml` lists all 387 cases and five core pages. `/robots.txt` permits crawling and identifies the sitemap.
+- Canonical URLs use the verified public origin rather than a request's Host header. Titles, descriptions and JSON-LD identify the site, case collections, sources and breadcrumbs without inventing official authorship, ratings or missing dates.
+- `/guide` answers newcomer questions. `/sources` consolidates methods, verification history, limitations and the chinleez CC BY 4.0 attribution, linked from the main experience and archive.
+
+This improves access to useful content; it does not guarantee indexing, AI citations or traffic. It does not add audience analytics, perform a site-owner verification or submit the sitemap to a search provider.
+
+To measure outcomes, verify the public URL-prefix property in Google Search Console and Bing Webmaster Tools, submit `/sitemap.xml`, and record a dated baseline of indexed pages, search impressions and clicks. Bing's AI Performance report can also show citations. Citation counts are not visitor counts or evidence that a visitor benefited. A separate, consent-aware analytics decision would be needed to measure exploration actions such as opening a case or following a source link.
+
+Implementation references: [Google's AI search guidance](https://developers.google.com/search/docs/appearance/ai-features), [Bing AI Performance](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/), and [CC BY 4.0 attribution terms](https://creativecommons.org/licenses/by/4.0/).
 
 ## Built with Codex and GPT-5.6
 
@@ -131,7 +145,7 @@ npm run ingest:pursue
 
 ## How to test the golden path
 
-1. Open the deployed experience on desktop and click **Sound off** to unlock the ambient signal.
+1. Open the deployed experience on desktop. No background soundtrack is added.
 2. Scroll once from the hero into **Field**.
 3. Hover a large video object until the click-to-open prompt appears.
 4. Click to trigger target capture and declassification.
@@ -140,6 +154,7 @@ npm run ingest:pursue
 7. Close the file and continue scrolling to see the full archive scale.
 8. Open **Explore archive**, try each curiosity path, and open a story to inspect its reason, question and linked source material.
 9. Follow a next-story suggestion, close the viewer, and choose **Search all records** to filter the complete archive or copy a direct case link.
+10. Use **Case page** to read the case outside the viewer. Check **Sources & credits** and **New to UAP?** from the footer.
 
 ## Scope and next steps
 

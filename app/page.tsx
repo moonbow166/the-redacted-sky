@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-html-link-for-pages -- Native links avoid a vinext hydration conflict. */
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SkyScene from "../components/SkyScene";
 import SiteNavigation from "../components/SiteNavigation";
 import ArchiveIcon from "../components/ArchiveIcon";
@@ -21,56 +21,6 @@ const verdicts = ["ORDINARY", "SENSOR AMBIGUITY", "INSUFFICIENT", "ANOMALOUS"];
 const chapterLabels = ["Encounter", "Field", "Signals", "Disclosure", "Explore"];
 const verdictLabels: Record<string,string> = { ORDINARY: "Ordinary", "SENSOR AMBIGUITY": "Sensor ambiguity", INSUFFICIENT: "Not enough to tell", ANOMALOUS: "Anomalous" };
 
-type AmbientAudio = {
-  context: AudioContext;
-  master: GainNode;
-  low: OscillatorNode;
-  carrier: OscillatorNode;
-  air: OscillatorNode;
-  oscillators: OscillatorNode[];
-};
-
-function createAmbientAudio(): AmbientAudio | null {
-  const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-  if (!AudioContextClass) return null;
-
-  const context = new AudioContextClass();
-  const master = context.createGain();
-  const lowGain = context.createGain();
-  const carrierGain = context.createGain();
-  const airGain = context.createGain();
-  const lfoDepth = context.createGain();
-  const low = context.createOscillator();
-  const carrier = context.createOscillator();
-  const air = context.createOscillator();
-  const lfo = context.createOscillator();
-
-  master.gain.value = 0.0001;
-  lowGain.gain.value = 0.14;
-  carrierGain.gain.value = 0.045;
-  airGain.gain.value = 0.018;
-  lfoDepth.gain.value = 4;
-
-  low.type = "sine";
-  low.frequency.value = 55;
-  carrier.type = "triangle";
-  carrier.frequency.value = 164;
-  air.type = "sine";
-  air.frequency.value = 328;
-  lfo.type = "sine";
-  lfo.frequency.value = 0.09;
-
-  low.connect(lowGain).connect(master);
-  carrier.connect(carrierGain).connect(master);
-  air.connect(airGain).connect(master);
-  lfo.connect(lfoDepth).connect(carrier.frequency);
-  master.connect(context.destination);
-
-  const oscillators = [low, carrier, air, lfo];
-  oscillators.forEach((oscillator) => oscillator.start());
-  return { context, master, low, carrier, air, oscillators };
-}
-
 function displayDate(value: string | null) {
   if (!value) return "Date not provided";
   if (/^\d{4}$/.test(value)) return value;
@@ -88,11 +38,8 @@ export default function Home() {
   const [scrollStage, setScrollStage] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [soundOn, setSoundOn] = useState(false);
-  const [soundError, setSoundError] = useState(false);
   const [verdict, setVerdict] = useState<string | null>(null);
   const [caseRevealed, setCaseRevealed] = useState(false);
-  const ambientAudio = useRef<AmbientAudio | null>(null);
 
   const selectedEntry = useMemo(
     () => (selectedIndex === null ? null : getArchiveEntry(selectedIndex)),
@@ -136,58 +83,6 @@ export default function Home() {
     const timer = window.setTimeout(() => setCaseRevealed(true), reduceMotion ? 80 : 980);
     return () => window.clearTimeout(timer);
   }, [selectedIndex]);
-
-  useEffect(() => {
-    const audio = ambientAudio.current;
-    if (!audio) return;
-    const profiles = [
-      { low: 55, carrier: 164, air: 328, master: 0.11 },
-      { low: 43, carrier: 172, air: 344, master: 0.14 },
-      { low: 52, carrier: 196, air: 392, master: 0.12 },
-      { low: 47, carrier: 146, air: 293, master: 0.11 },
-      { low: 60, carrier: 180, air: 360, master: 0.09 },
-    ][scrollStage];
-    const now = audio.context.currentTime;
-    audio.low.frequency.setTargetAtTime(profiles.low, now, 0.55);
-    audio.carrier.frequency.setTargetAtTime(profiles.carrier, now, 0.55);
-    audio.air.frequency.setTargetAtTime(profiles.air, now, 0.55);
-    audio.master.gain.cancelScheduledValues(now);
-    audio.master.gain.setValueAtTime(Math.max(audio.master.gain.value, 0.0001), now);
-    audio.master.gain.exponentialRampToValueAtTime(soundOn ? profiles.master : 0.0001, now + 0.55);
-  }, [scrollStage, soundOn]);
-
-  useEffect(() => () => {
-    const audio = ambientAudio.current;
-    if (!audio) return;
-    audio.oscillators.forEach((oscillator) => oscillator.stop());
-    void audio.context.close();
-  }, []);
-
-  const toggleSound = async () => {
-    if (soundOn) {
-      setSoundOn(false);
-      return;
-    }
-
-    let audio = ambientAudio.current;
-    if (!audio) {
-      audio = createAmbientAudio();
-      ambientAudio.current = audio;
-    }
-    if (!audio) {
-      setSoundError(true);
-      return;
-    }
-
-    try {
-      await audio.context.resume();
-      setSoundError(false);
-      setSoundOn(true);
-    } catch {
-      setSoundError(true);
-      setSoundOn(false);
-    }
-  };
 
   const openRecord = (index: number) => {
     setSelectedIndex(index);
@@ -238,11 +133,6 @@ export default function Home() {
 
       <header className="system-bar">
         <SiteNavigation current="experience" />
-        <div className="system-status">
-          <button className={`sound-toggle ${soundOn ? "is-on" : ""}`} type="button" aria-pressed={soundOn} aria-label={soundOn ? "Mute ambient signal" : "Start ambient signal"} onClick={toggleSound}>
-            <ArchiveIcon kind="audio" />Sound {soundOn ? "on" : soundError ? "retry" : "off"}
-          </button>
-        </div>
       </header>
 
       <section className="intro-copy" aria-hidden={scrollStage !== 0} inert={scrollStage !== 0}>
@@ -332,7 +222,7 @@ export default function Home() {
             <a className="overview-open-archive" href="/archive"><ArchiveIcon kind="compass"/>Find your next story</a>
             <button className="overview-return" type="button" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}>Return to the field</button>
           </div>
-          <div className="archive-source-line">Primary source: U.S. government PURSUE · Chinese index: chinleez, CC BY 4.0</div>
+          <div className="archive-source-line"><a href="/guide">New to UAP?</a><a href="/sources">Sources &amp; credits</a><a href="/cases">Case directory</a></div>
         </section>
       </div>
 
@@ -419,7 +309,7 @@ export default function Home() {
         )}
       </section>
 
-      <footer className="credit-line">PURSUE releases 01–{String(archiveReleases.length).padStart(2,"0")} · chinleez / CC BY 4.0</footer>
+      <footer className="credit-line"><a href="/sources">Sources &amp; credits</a></footer>
       <p className="sr-only">An immersive three-dimensional field containing {archiveRecords.length} official UAP record rows grouped into {archiveCases.length} case files.</p>
     </main>
   );

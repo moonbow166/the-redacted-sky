@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     title: "UAP Case Archive | The Redacted Sky",
     description,
     type: "website",
+    url: "/archive",
     images: [{ url: "/og-v8.png", width: 1736, height: 909, alt: "The Redacted Sky UAP Case Archive" }],
   },
   twitter: {

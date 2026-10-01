@@ -69,7 +69,8 @@
 .library-detail-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.5rem;border-bottom:1px solid var(--line);flex-shrink:0;font-size:.875rem}
 .library-detail-bar>span{color:var(--library-dim)}
 .library-detail-bar>div{display:flex;gap:.75rem;align-items:center}
-.library-detail-bar button,.library-source-actions>a,.library-source-actions>button,.library-media-unavailable button{min-height:44px;border:1px solid #526a59;background:transparent;padding:.5rem .875rem;font:inherit;font-size:.875rem;line-height:1.5;cursor:pointer;color:#dce8df;border-radius:2px;text-decoration:none}
+.library-detail-bar button,.library-detail-bar a,.library-source-actions>a,.library-source-actions>button,.library-media-unavailable button{min-height:44px;border:1px solid #526a59;background:transparent;padding:.5rem .875rem;font:inherit;font-size:.875rem;line-height:1.5;cursor:pointer;color:#dce8df;border-radius:2px;text-decoration:none}
+.library-detail-bar a{display:inline-flex;align-items:center}
 .library-detail-bar .library-close{background:#b8ead8;color:#07100b;border-color:#b8ead8}
 .library-close kbd{font-size:.75rem;margin-left:.5rem;opacity:.75}
 .library-detail-content{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(330px,1fr);gap:2.5rem;padding:1.75rem 2rem;overflow-y:auto;min-height:0;scrollbar-color:#4f6b59 #07100b}
@@ -194,6 +195,7 @@
 .curiosity-field-note strong { display:block;font-size:1rem;font-weight:500;line-height:1.6;color:var(--signal); }
 .curiosity-field-note small { display:block;font-size:.8125rem;line-height:1.6;color:#a4b4a9;margin-top:.75rem; }
 .curiosity-next { grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;padding-top:1.5rem;border-top:1px solid var(--line); }
+.curiosity-lead,.curiosity-card { text-decoration:none; }
 .curiosity-next h3 { grid-column:1/-1;font-size:1.125rem;font-weight:450;margin:0 0 1rem; }
 .curiosity-next>button { display:flex;width:100%;align-items:center;gap:1rem;padding:.75rem 0;border:0;border-bottom:1px solid #2a4134;background:none;color:var(--paper);text-align:left;cursor:pointer; }
 .curiosity-next .story-image { width:104px;flex-shrink:0;aspect-ratio:4/3;border-radius:3px; }

@@ -1,0 +1,18 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- Native reference links. */
+import ReadingLayout from "../../components/ReadingLayout";
+import StructuredData from "../../components/StructuredData";
+import { archiveCases, archiveRecords } from "../../lib/archive";
+import { absoluteUrl, pageMetadata } from "../../lib/site";
+
+export const metadata = pageMetadata("What is UAP? A beginner's guide", "Understand what UAP means, what released records can establish, and how to explore original footage, recordings and documents without confusing evidence with interpretation.", "/guide");
+
+export default function GuidePage() {
+  return <ReadingLayout><StructuredData value={{ "@context": "https://schema.org", "@type": "WebPage", name: "What is UAP? A beginner's guide", url: absoluteUrl("/guide"), isPartOf: { "@id": absoluteUrl("/#website") }, citation: ["https://science.nasa.gov/uap/faqs/", "https://www.war.gov/UFO/"] }} /><h1>Curiosity is a good place to start.</h1><p className="reading-intro">You do not need an explanation before you look. Start with what the record actually contains, then notice which questions it can and cannot answer.</p>
+    <section><h2>What does UAP mean?</h2><p>UAP stands for unidentified anomalous phenomena. You may also see the earlier term, unidentified aerial phenomena. The name describes something not identified; it does not establish an extraterrestrial origin. <a href="https://science.nasa.gov/uap/faqs/" target="_blank" rel="noreferrer">NASA explains the terminology and the limits of available data.</a></p></section>
+    <section><h2>Does a public release prove a claim?</h2><p>No. Release makes a record available for examination. It does not, by itself, validate a witness account, identify an object or resolve uncertainty. Read the agency's description and any stated assessment alongside the material.</p></section>
+    <section><h2>Are all these files UFO sightings?</h2><p>No. This collection includes footage, photographs, recordings, historical correspondence, research papers and program documents. Its {archiveRecords.length} records are grouped into {archiveCases.length} case files. Several records can belong to the same case, and a research paper is not a sighting.</p></section>
+    <section><h2>Are the 3D objects real evidence?</h2><p>No. The forms in Experience are artist reconstructions used to navigate the collection. They do not show a verified physical shape from the footage. Original material is identified separately in the viewer and on each case page.</p></section>
+    <section><h2>How can I read a record carefully?</h2><ul><li>Separate what you can observe in the material from what its title suggests.</li><li>Check the reported date, release date, agency and location. Missing information is a limit, not a fact to fill in.</li><li>Read notes about editing, duplicate media, sensor effects and source discrepancies.</li><li>Compare connected materials before treating repetition as independent corroboration.</li><li>Keep an unresolved question open when the source does not answer it.</li></ul></section>
+    <section><h2>Where should I begin?</h2><p>Try a short video, an astronaut's recorded conversation, or a historical document. Our <a href="/archive">curated journeys</a> give you a reason to look and a question to carry into the next record. They are editorial selections, not a list of proven mysteries.</p><div className="reading-actions"><a className="reading-primary" href="/archive">Find your first story</a><a href="/sources">Check our sources and methods</a></div></section>
+  </ReadingLayout>;
+}
