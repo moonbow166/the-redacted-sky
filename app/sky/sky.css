@@ -1,0 +1,215 @@
+.sky-page { --sky-ground:#07100d;--sky-text:#e1e9e3;--sky-dim:#afc2b8;--sky-mint:#b9ead8;--sky-warm:#e3ba85;--sky-line:#2c4539;background:#040909;color:var(--sky-text);min-height:100vh; }
+.sky-main { max-width:1440px;margin:auto;padding:22px 40px 0;font-size:16px;line-height:1.6; }
+.sky-main * { box-sizing:border-box; }
+.sky-main ::selection { background:#b9ead8;color:#07100d; }
+.sky-main :focus-visible { outline:2px solid var(--sky-mint);outline-offset:5px; }
+.sky-main a { text-underline-offset:4px; }
+.sky-main button,.sky-main select { font:inherit; }
+.sky-main button { cursor:pointer; }
+.sky-main button:disabled,.sky-main fieldset:disabled label { cursor:default;opacity:.55; }
+.sky-main svg { width:22px;height:22px;flex-shrink:0; }
+.sky-main h1,.sky-main h2,.sky-main p { margin:0; }
+.sky-main h1,.sky-main h2 { font-weight:450;letter-spacing:-.025em;text-wrap:balance; }
+.sky-main h2 { font-size:23px;line-height:1.25; }
+.sky-intro { display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:16px; }
+.sky-intro h1 { display:flex;align-items:center;gap:15px;font-size:42px;line-height:1.2; }
+.sky-title-mark svg { width:37px;height:37px;color:var(--sky-mint); }
+.sky-intro p { color:var(--sky-dim);margin-top:6px; }
+.sky-intro-actions { display:flex;gap:20px; }
+.sky-text-action { display:inline-flex;align-items:center;gap:8px;min-height:44px;background:none;border:0;padding:6px 0;color:var(--sky-mint);font-size:14px;text-decoration:none; }
+.sky-text-action:hover { text-decoration:underline; }
+.sky-help { background:#0d1b14;padding:24px;margin:0 0 24px;max-width:76ch;border-block:1px solid var(--sky-line); }
+.sky-help p { margin-top:12px; }
+.sky-help a { color:var(--sky-mint); }
+.sky-steps { display:flex;align-items:center;list-style:none;padding:0 0 12px;margin:0;gap:32px;border-bottom:1px solid var(--sky-line);font-size:14px;color:var(--sky-dim); }
+.sky-steps li { display:flex;align-items:center;gap:8px; }
+.sky-steps li>span { border:1px solid var(--sky-line);width:25px;height:25px;display:grid;place-items:center;border-radius:50%;font-variant-numeric:tabular-nums; }
+.sky-steps svg { width:17px;height:17px; }
+.sky-steps .is-current { color:var(--sky-mint); }
+.sky-steps .is-current>span { border-color:#6c9b85;background:#10271d; }
+.sky-bench { position:relative;display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:20px;scroll-margin-top:100px;outline:none; }
+.sky-clue { min-width:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;align-content:start; }
+.sky-clue-heading { grid-column:1/-1;min-height:76px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px; }
+.sky-clue-heading>div { min-width:0; }
+.sky-clue-heading>div>span { display:block;font-size:14px;color:var(--sky-dim);margin-top:4px; }
+.sky-choose { display:flex;flex-direction:column;max-width:180px;gap:3px;font-size:14px;color:var(--sky-dim);flex-shrink:0; }
+.sky-choose select { width:100%;min-height:38px;background:#101d16;border:1px solid var(--sky-line);color:var(--sky-text);padding:6px 24px 6px 8px;border-radius:4px;cursor:pointer;font-size:14px; }
+.sky-pair-seam { position:absolute;left:50%;top:170px;transform:translateX(-50%);color:var(--sky-warm); }
+.sky-pair-seam svg { width:28px;height:28px; }
+.sky-media { position:relative;aspect-ratio:16/9;background:#07100d;overflow:hidden;border-radius:6px; }
+.sky-clue>.sky-media { aspect-ratio:auto;height:180px; }
+.sky-media video,.sky-media>img { display:block;width:100%;height:100%;object-fit:contain;background:#010302; }
+.sky-media audio { position:absolute;bottom:12px;left:12px;width:calc(100% - 24px);height:44px; }
+.sky-media-fallback { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--sky-dim);background:#0c1912; }
+.sky-media-fallback>svg { width:48px;height:48px; }
+.sky-media-recovery { position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-size:14px;color:var(--sky-mint);white-space:nowrap; }
+.sky-clue-context { padding:0 0 8px; }
+.sky-clue-context>p { max-width:65ch;line-height:1.5; }
+.sky-clue-context>.sky-clue-limit { color:var(--sky-dim);font-size:14px;margin-top:8px; }
+.sky-clue-actions { grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px; }
+.sky-clue-actions>a { color:var(--sky-dim);font-size:14px;padding:10px 0; }
+.sky-button { display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 17px;border:1px solid var(--sky-line);border-radius:6px;font-size:15px!important;font-weight:450;background:transparent;color:var(--sky-text);transition:background-color 160ms ease-out,border-color 160ms ease-out; }
+.sky-button svg { width:20px;height:20px; }
+.sky-primary { background:var(--sky-mint);color:#07100d;border-color:transparent; }
+.sky-primary:hover:not(:disabled) { background:#d4f7e7; }
+.sky-kept { color:var(--sky-mint);background:#0e2117;border-color:#49715b; }
+.sky-kept:hover { background:#192e23;border-color:#b9ead8; }
+.sky-source-detail { grid-column:1/-1;margin-top:2px;font-size:14px;color:var(--sky-dim); }
+.sky-source-detail summary { min-height:40px;cursor:pointer;padding:8px 0; }
+.sky-source-detail p { font-size:16px;line-height:1.7;max-height:260px;overflow:auto;scrollbar-color:#49715b #08120e;scrollbar-width:thin;padding-right:16px;white-space:pre-line; }
+.sky-source-detail a { display:inline-block;margin:14px 18px 12px 0;color:var(--sky-mint); }
+.sky-play-space { display:grid;grid-template-columns:minmax(0,2fr) minmax(270px,1fr);grid-template-areas:"map maker" "map source";gap:0 30px;margin-top:16px;border-top:1px solid var(--sky-line); }
+.sky-link-maker { grid-area:maker;display:flex;flex-direction:column;align-items:stretch;gap:16px;padding:26px 0 12px; }
+.sky-link-maker h2 { font-size:22px; }
+.sky-link-maker p { margin-top:6px;font-size:14px;color:var(--sky-dim);max-width:38ch; }
+.sky-link-controls { display:flex;flex-direction:column;align-items:stretch;gap:12px; }
+.sky-link-controls fieldset { border:0;padding:0;display:flex;flex-direction:column;gap:8px;margin:0; }
+.sky-link-controls label { position:relative;display:flex;align-items:center;gap:8px;border:1px solid var(--sky-line);padding:9px 12px;border-radius:5px;min-height:44px;cursor:pointer;color:var(--sky-dim);font-size:14px; }
+.sky-link-controls label.is-selected { color:var(--sky-warm);border-color:#846643;background:#201b13; }
+.sky-link-controls label svg { width:18px;height:18px; }
+.sky-link-controls input { accent-color:var(--sky-warm);width:15px;height:15px;margin:0; }
+.sky-link-controls .sky-text-action { font-size:14px;min-height:32px;padding:0;color:var(--sky-dim); }
+.sky-source-pair { grid-area:source;display:flex;align-items:flex-start;gap:8px;color:var(--sky-dim);font-size:14px;max-width:75ch;padding:0 0 24px; }
+.sky-source-pair svg { margin-top:1px;width:18px;height:18px; }
+.sky-source-pair a { color:var(--sky-mint); }
+.sky-constellation { grid-area:map;background:#07110e;padding:22px 24px 18px;scroll-margin-top:100px;outline:none; }
+.sky-map-heading { display:flex;justify-content:space-between;align-items:center;gap:18px; }
+.sky-map-heading h2 { font-size:26px; }
+.sky-map-heading p { color:var(--sky-dim);font-size:14px;margin-top:6px; }
+.sky-map { height:300px;position:relative;margin:12px -12px 6px;background-image:radial-gradient(circle,#325345 .7px,transparent .9px);background-size:37px 37px;isolation:isolate; }
+.sky-map-lines { position:absolute;inset:0;width:100%!important;height:100%!important;pointer-events:none;overflow:visible; }
+.sky-mobile-lines { display:none; }
+.sky-source-line { stroke:#80b19a;stroke-width:1.5;opacity:.75;vector-effect:non-scaling-stroke; }
+.sky-own-line { stroke:var(--sky-warm);stroke-width:2;stroke-dasharray:5 6;fill:none;vector-effect:non-scaling-stroke;animation:sky-connection-arrives 420ms cubic-bezier(.16,1,.3,1) both; }
+@keyframes sky-connection-arrives { from { opacity:.35;stroke-dashoffset:22; } to { opacity:1;stroke-dashoffset:0; } }
+.sky-star { position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-19px);display:flex;flex-direction:column;align-items:center;justify-content:center;width:128px;min-height:64px;padding:0;border:0;background:none;color:var(--sky-text);text-align:center;gap:5px;z-index:1; }
+.sky-star-point { display:grid;place-items:center;background:#0c1c14;border:1px solid #82b79d;border-radius:50%;width:38px;height:38px;transition:background-color 180ms ease-out,border-color 180ms ease-out; }
+.sky-star-point svg { width:20px;height:20px;color:var(--sky-mint); }
+.sky-star-name { font-size:14px;line-height:1.3;background:#07110e;padding:1px 4px;text-wrap:balance; }
+.sky-star:hover .sky-star-point,.sky-star:focus-visible .sky-star-point { background:#234d37;border-color:var(--sky-mint); }
+.sky-star.is-inspected .sky-star-point { outline:1px solid #426c56;outline-offset:5px; }
+.sky-map-empty { position:absolute;inset:0;display:flex;justify-content:center;align-items:center;gap:32px;background:radial-gradient(ellipse,#07110e 0,transparent 65%);color:var(--sky-dim); }
+.sky-map-empty>svg { width:110px;height:110px;stroke-width:.7;color:#688d7a; }
+.sky-map-empty p { font-size:22px;line-height:1.5; }
+.sky-map-empty p span { color:var(--sky-text); }
+.sky-map-legend { display:flex;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid #263c30;padding-top:15px;font-size:14px;color:var(--sky-dim); }
+.sky-map-legend>span { display:flex;align-items:center;gap:8px; }
+.sky-map-legend i { display:block;width:26px; }
+.sky-legend-source { border-top:2px solid #80b19a; }
+.sky-legend-own { border-top:2px dashed var(--sky-warm); }
+.sky-map-legend .sky-save-state { flex-basis:100%; }
+.sky-save-state svg { width:16px;height:16px; }
+.sky-map-note { font-size:14px;color:var(--sky-dim);margin-top:10px!important; }
+.sky-connection-list { display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:16px;border-top:1px solid var(--sky-line);padding-top:8px; }
+.sky-connection-list button { display:flex;align-items:center;gap:10px;color:var(--sky-text);font-size:14px;background:none;border:0;text-align:left;min-height:48px;padding:8px 0; }
+.sky-connection-list button>svg { color:var(--sky-warm);width:18px;height:18px; }
+.sky-connection-list button:hover { text-decoration:underline;text-underline-offset:4px; }
+.sky-connection-relation { color:var(--sky-warm);display:inline-block;margin:0 10px; }
+.sky-source-list { margin-top:12px;color:var(--sky-dim);font-size:14px; }
+.sky-source-list summary { cursor:pointer;padding:8px 0;min-height:40px; }
+.sky-source-list ul { padding-left:18px; }
+.sky-source-list li { padding:8px 0; }
+.sky-source-list a { color:var(--sky-mint); }
+.sky-source-list li>span { display:block; }
+.sky-status { min-height:60px;padding:14px 0 12px;display:flex;align-items:center;gap:10px;color:var(--sky-mint);font-size:15px; }
+.sky-status>svg { width:20px;height:20px; }
+.sky-discover { padding:26px 0 36px; }
+.sky-discover-heading { display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:20px; }
+.sky-discover-heading h2 { font-size:28px; }
+.sky-discover-heading p { color:var(--sky-dim);font-size:14px;margin-top:8px; }
+.sky-discover-heading>a { color:var(--sky-mint);font-size:14px;flex-shrink:0;padding:10px 0; }
+.sky-shelf { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px 18px; }
+.sky-shelf>button { padding:0 0 8px;text-align:left;border:0;border-bottom:1px solid var(--sky-line);background:none;color:var(--sky-text);min-width:0; }
+.sky-shelf>button:hover,.sky-shelf>button.is-selected { border-color:var(--sky-mint); }
+.sky-media-small { aspect-ratio:16/10;border-radius:3px;margin-bottom:9px; }
+.sky-media-small>img { object-fit:cover; }
+.sky-media-small.sky-media-pdf>img { object-fit:contain; }
+.sky-media-small .sky-media-fallback>svg { width:32px;height:32px; }
+.sky-tiny-kind { position:absolute;bottom:6px;right:6px;display:grid;place-items:center;border-radius:50%;background:#07100dea;width:29px;height:29px;color:var(--sky-text); }
+.sky-tiny-kind>svg { width:17px;height:17px; }
+.sky-shelf-title { display:block;font-size:16px;line-height:1.4; }
+.sky-shelf-meta { display:flex;align-items:center;justify-content:space-between;font-size:14px;color:var(--sky-dim);margin-top:5px; }
+.sky-shelf-meta>span { display:flex;align-items:center;gap:4px;color:var(--sky-mint); }
+.sky-shelf-meta svg { width:16px;height:16px; }
+.sky-footer { display:flex;align-items:center;gap:24px;border-top:1px solid var(--sky-line);padding:24px 0 32px;color:var(--sky-dim);font-size:14px; }
+.sky-footer p { margin-right:auto; }
+.sky-footer a { color:var(--sky-dim); }
+.sky-pocket { display:none; }
+.sky-sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+.sky-main[data-input="keyboard"] * { animation:none!important;transition:none!important; }
+@media(max-width:1050px) {
+  .sky-main { padding:24px 28px 0; }
+  .sky-bench { gap:40px; }
+  .sky-clue { display:block; }
+  .sky-clue-heading { min-height:114px;flex-direction:column;gap:8px;justify-content:flex-start; }
+  .sky-clue>.sky-media { aspect-ratio:16/9;height:auto; }
+  .sky-clue-context { padding-top:14px;min-height:115px; }
+  .sky-choose { flex-direction:row;align-items:center;max-width:none;width:100%;gap:8px; }
+  .sky-choose>span { white-space:nowrap; }
+  .sky-choose select { max-width:220px; }
+  .sky-pair-seam { top:215px; }
+  .sky-play-space { grid-template-columns:minmax(0,1fr) 250px;gap:0 20px; }
+  .sky-link-maker { gap:12px; }
+  .sky-map { height:380px; }
+  .sky-shelf { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@media(max-width:760px) {
+  .sky-main { padding:22px 20px 108px; }
+  .sky-main a,.sky-main button,.sky-main input,.sky-main select { scroll-margin-block:24px 120px; }
+  .sky-intro { display:block; }
+  .sky-intro h1 { font-size:36px; }
+  .sky-intro p { font-size:16px;max-width:none; }
+  .sky-intro-actions { flex-direction:row;gap:24px;align-items:center;margin-top:6px; }
+  .sky-intro-actions .sky-text-action { font-size:14px; }
+  .sky-intro-actions svg { width:18px;height:18px; }
+  .sky-steps { gap:16px;align-items:flex-start;justify-content:space-between;font-size:14px; }
+  .sky-steps li { flex-direction:column;gap:6px;align-items:flex-start;max-width:14ch; }
+  .sky-bench { grid-template-columns:1fr;gap:30px;scroll-margin-top:136px; }
+  .sky-clue { display:flex;flex-direction:column; }
+  .sky-clue-heading { min-height:0;display:block;margin-bottom:14px; }
+  .sky-clue-heading h2 { font-size:24px; }
+  .sky-choose { margin-top:12px; }
+  .sky-choose select { min-height:44px;max-width:none; }
+  .sky-clue-context { order:3;min-height:0;padding-top:14px; }
+  .sky-clue-actions { order:2; }
+  .sky-source-detail { order:4; }
+  .sky-pair-seam { display:none; }
+  .sky-clue+.sky-pair-seam+.sky-clue { border-top:1px solid var(--sky-line);padding-top:24px; }
+  .sky-play-space { display:flex;flex-direction:column;margin-top:18px;gap:0; }
+  .sky-link-maker { margin-top:0;padding-top:24px; }
+  .sky-link-controls { gap:16px; }
+  .sky-link-controls fieldset { flex-direction:row;flex-wrap:wrap; }
+  .sky-link-controls label { padding:9px 10px; }
+  .sky-link-controls>.sky-primary { width:100%; }
+  .sky-constellation { margin-inline:-20px;padding:22px 20px 18px;scroll-margin-top:20px; }
+  .sky-map-heading h2 { font-size:24px; }
+  .sky-map-heading p { max-width:25ch; }
+  .sky-map-heading .sky-undo { padding:9px 12px; }
+  .sky-map { height:var(--sky-mobile-height);margin:10px 0 24px; }
+  .sky-mobile-lines { display:block; }
+  .sky-desktop-lines { display:none; }
+  .sky-star { left:var(--mobile-x);top:var(--mobile-y);width:116px;gap:6px;transform:translate(-50%,-22px);min-height:76px; }
+  .sky-star-name { font-size:14px;max-width:112px; }
+  .sky-star-point { width:44px;height:44px; }
+  .sky-star-point svg { width:18px;height:18px; }
+  .sky-map-empty { flex-direction:column;gap:20px; }
+  .sky-map-empty>svg { width:95px;height:95px; }
+  .sky-map-empty p { font-size:20px;text-align:center; }
+  .sky-map-legend { gap:8px 16px; }
+  .sky-map-legend .sky-save-state { margin-left:0;flex-basis:100%; }
+  .sky-connection-list button>span { display:flex;flex-direction:column; }
+  .sky-connection-relation { margin:0; }
+  .sky-source-pair { margin-top:2px; }
+  .sky-discover-heading { display:block; }
+  .sky-discover-heading>a { display:inline-flex;margin-top:8px;min-height:44px; }
+  .sky-shelf { grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px; }
+  .sky-footer { flex-wrap:wrap;gap:16px 24px; }
+  .sky-footer p { flex-basis:100%; }
+  .sky-pocket { position:fixed;z-index:30;bottom:0;left:0;right:0;display:flex;align-items:center;gap:10px;min-height:82px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1912;border-top:1px solid #496454; }
+  .sky-pocket>.sky-pocket-preview { width:68px;height:58px;flex-shrink:0; }
+  .sky-pocket>div { flex:1;min-width:0; }
+  .sky-pocket strong { display:block;color:var(--sky-text);font-size:15px;font-weight:500;line-height:1.4; }
+  .sky-pocket span { display:block;font-size:14px;line-height:1.4;color:var(--sky-dim);margin-top:3px; }
+  .sky-pocket>a { display:flex;align-items:center;min-height:44px;color:var(--sky-mint);font-size:14px;white-space:nowrap;text-underline-offset:4px; }
+}
+@media(prefers-reduced-motion:reduce) { .sky-main *, .sky-main *::before, .sky-main *::after { animation:none!important;transition:none!important;scroll-behavior:auto!important; } }

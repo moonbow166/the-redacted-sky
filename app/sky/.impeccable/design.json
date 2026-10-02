@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T03:31:52Z",
+  "title": "Design System: The Redacted Sky / My sky",
+  "extensions": {
+    "colorMeta": {
+      "archive-bg": {
+        "role": "neutral",
+        "displayName": "Archive ground"
+      },
+      "sky-ground": {
+        "role": "neutral",
+        "displayName": "Clue ground"
+      },
+      "sky-text": {
+        "role": "neutral",
+        "displayName": "Archive text"
+      },
+      "sky-dim": {
+        "role": "neutral",
+        "displayName": "Quiet text"
+      },
+      "sky-mint": {
+        "role": "primary",
+        "displayName": "Soft mint"
+      },
+      "sky-warm": {
+        "role": "secondary",
+        "displayName": "Personal warm"
+      },
+      "sky-line": {
+        "role": "neutral",
+        "displayName": "Fine boundary"
+      },
+      "sky-map": {
+        "role": "neutral",
+        "displayName": "Sky ground"
+      },
+      "source-line": {
+        "role": "primary",
+        "displayName": "Source green"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "My sky title",
+        "purpose": "Observed route title; 36px on phones."
+      },
+      "headline": {
+        "displayName": "Section heading",
+        "purpose": "Default route section role; local variants stay local."
+      },
+      "body": {
+        "displayName": "Reading voice",
+        "purpose": "Readable inherited Geist body text."
+      },
+      "label": {
+        "displayName": "Readable secondary text",
+        "purpose": "Node names, metadata, source keys, relation choices."
+      },
+      "action": {
+        "displayName": "Route action",
+        "purpose": "Effective 15px normal-weight button text after the inherited shorthand cascade."
+      }
+    },
+    "motion": [
+      {
+        "name": "connection-arrival",
+        "value": "420ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "One brief personal-edge opacity and dash-offset arrival, never an ambient loop."
+      },
+      {
+        "name": "action-feedback",
+        "value": "160ms ease-out",
+        "purpose": "Background and border colors on route action buttons."
+      },
+      {
+        "name": "node-feedback",
+        "value": "180ms ease-out",
+        "purpose": "Background and border colors on a clue point."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation:none;transition:none;scroll-behavior:auto",
+        "purpose": "Applied on prefers-reduced-motion; keyboard input also removes route animation and transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "intermediate",
+        "value": "1050px"
+      },
+      {
+        "name": "phone",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Keep this clue",
+      "kind": "button",
+      "refersTo": "keep-primary",
+      "description": "Built primary keep action. This static specimen shows the real default/hover/focus/disabled styling; application state is not simulated.",
+      "html": "<div class=\"ds-sky-specimen\"><button class=\"ds-sky-button ds-sky-primary\" type=\"button\" aria-pressed=\"false\" aria-label=\"Keep Lights over Utah in my sky\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 6v20M6 16h20\"/></svg><span>Keep this clue</span></button></div>",
+      "css": ".ds-sky-specimen{background:#040909;color:#e1e9e3;padding:24px;font-family:var(--font-geist-sans, Geist),Arial,sans-serif;font-size:16px;line-height:1.6}.ds-sky-specimen :focus-visible{outline:2px solid #b9ead8;outline-offset:5px}.ds-sky-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 17px;border:1px solid #2c4539;border-radius:6px;font:400 15px/1.6 var(--font-geist-sans,Geist),Arial,sans-serif;background:transparent;color:#e1e9e3;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out}.ds-sky-button svg{width:20px;height:20px;flex-shrink:0}.ds-sky-button:disabled{cursor:default;opacity:.55}.ds-sky-primary{background:#b9ead8;color:#07100d;border-color:transparent}.ds-sky-primary:hover:not(:disabled){background:#d4f7e7}@media(prefers-reduced-motion:reduce){.ds-sky-specimen *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}.ds-sky-specimen[data-input=\"keyboard\"] *{animation:none!important;transition:none!important}"
+    },
+    {
+      "name": "Companion picker",
+      "kind": "input",
+      "refersTo": "companion-select",
+      "description": "A labeled native select using real material titles. Phone target height grows to 44px.",
+      "html": "<div class=\"ds-sky-specimen\"><label class=\"ds-sky-choose\"><span>Compare with</span><select aria-label=\"Choose a companion clue\"><option>A balloon comparison</option><option>The investigation changes</option><option>Another analysis</option></select></label></div>",
+      "css": ".ds-sky-specimen{background:#040909;color:#e1e9e3;padding:24px;font-family:var(--font-geist-sans, Geist),Arial,sans-serif;font-size:16px;line-height:1.6}.ds-sky-specimen :focus-visible{outline:2px solid #b9ead8;outline-offset:5px}.ds-sky-choose{display:flex;flex-direction:column;max-width:180px;gap:3px;font-size:14px;color:#afc2b8}.ds-sky-choose select{width:100%;min-height:38px;background:#101d16;border:1px solid #2c4539;color:#e1e9e3;padding:6px 24px 6px 8px;border-radius:4px;cursor:pointer;font-family:var(--font-geist-sans, Geist),Arial,sans-serif;font-size:14px;line-height:1.6}@media(max-width:760px){.ds-sky-choose{flex-direction:row;align-items:center;max-width:none;gap:8px}.ds-sky-choose>span{white-space:nowrap}.ds-sky-choose select{min-height:44px}}"
+    },
+    {
+      "name": "Personal connection choices",
+      "kind": "input",
+      "refersTo": "relation-option",
+      "description": "Native fieldset and radios with the route's three options. :has(input:checked) reproduces the app's selected class without a framework runtime.",
+      "html": "<div class=\"ds-sky-specimen\"><fieldset class=\"ds-sky-relations\"><legend class=\"ds-sky-sr-only\">Your personal connection</legend><label><input type=\"radio\" name=\"ds-sky-kind\" value=\"wonder\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m13 10 4-4a7 7 0 0 1 10 10l-4 4M19 22l-4 4A7 7 0 0 1 5 16l4-4M11 21l10-10\"/></svg>Might connect</label><label><input type=\"radio\" name=\"ds-sky-kind\" value=\"contrast\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"16\" r=\"8\"/><path d=\"M21 8a8 8 0 0 1 0 16M21 8v16\"/></svg>Looks different</label><label><input type=\"radio\" name=\"ds-sky-kind\" value=\"unsure\" checked><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"16\" cy=\"16\" r=\"12\"/><path d=\"M12 12a4 4 0 0 1 8 0c0 4-4 3-4 7m0 4v.01\"/></svg>Not sure yet</label></fieldset></div>",
+      "css": ".ds-sky-specimen{background:#040909;color:#e1e9e3;padding:24px;font-family:var(--font-geist-sans, Geist),Arial,sans-serif;font-size:16px;line-height:1.6}.ds-sky-specimen :focus-visible{outline:2px solid #b9ead8;outline-offset:5px}.ds-sky-relations{border:0;padding:0;display:flex;flex-direction:column;gap:8px;margin:0}.ds-sky-relations label{position:relative;display:flex;align-items:center;gap:8px;border:1px solid #2c4539;padding:9px 12px;border-radius:5px;min-height:44px;cursor:pointer;color:#afc2b8;font-size:14px}.ds-sky-relations label:has(input:checked){color:#e3ba85;border-color:#846643;background:#201b13}.ds-sky-relations input{accent-color:#e3ba85;width:15px;height:15px;margin:0}.ds-sky-relations svg{width:18px;height:18px;flex-shrink:0}.ds-sky-relations:disabled label{cursor:default;opacity:.55}.ds-sky-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:760px){.ds-sky-relations{flex-direction:row;flex-wrap:wrap}.ds-sky-relations label{padding:9px 10px}}"
+    },
+    {
+      "name": "Readable clue node and line key",
+      "kind": "custom",
+      "refersTo": "clue-node",
+      "description": "The real star button and non-color-only legend. Specimen centering is for this isolated preview, not a new map topology.",
+      "html": "<div class=\"ds-sky-specimen\"><div class=\"ds-sky-node-stage\"><button class=\"ds-sky-star ds-sky-inspected\" type=\"button\" aria-label=\"Inspect Lights over Utah\"><span class=\"ds-sky-star-point\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"6\" width=\"26\" height=\"20\" rx=\"3\"/><path d=\"m13 11 8 5-8 5Z\"/></svg></span><span class=\"ds-sky-star-name\">Lights over Utah</span></button></div><div class=\"ds-sky-legend\"><span><i class=\"ds-sky-source-key\"></i>Source-listed link</span><span><i class=\"ds-sky-own-key\"></i>Your question</span></div><p class=\"ds-sky-map-note\">An idea map, not sky coordinates. A line is not proof of a shared cause.</p></div>",
+      "css": ".ds-sky-specimen{background:#040909;color:#e1e9e3;padding:24px;font-family:var(--font-geist-sans, Geist),Arial,sans-serif;font-size:16px;line-height:1.6}.ds-sky-specimen :focus-visible{outline:2px solid #b9ead8;outline-offset:5px}.ds-sky-node-stage{position:relative;height:150px;background:#07110e}.ds-sky-star{position:absolute;left:50%;top:35%;transform:translate(-50%,-19px);display:flex;flex-direction:column;align-items:center;justify-content:center;width:128px;min-height:64px;padding:0;border:0;background:none;color:#e1e9e3;text-align:center;gap:5px;cursor:pointer;font-family:var(--font-geist-sans, Geist),Arial,sans-serif;}.ds-sky-star-point{display:grid;place-items:center;background:#0c1c14;border:1px solid #82b79d;border-radius:50%;width:38px;height:38px;transition:background-color 180ms ease-out,border-color 180ms ease-out}.ds-sky-star-point svg{width:20px;height:20px;color:#b9ead8}.ds-sky-star-name{font-size:14px;line-height:1.3;background:#07110e;padding:1px 4px;text-wrap:balance}.ds-sky-star:hover .ds-sky-star-point,.ds-sky-star:focus-visible .ds-sky-star-point{background:#234d37;border-color:#b9ead8}.ds-sky-inspected .ds-sky-star-point{outline:1px solid #426c56;outline-offset:5px}.ds-sky-legend{display:flex;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid #263c30;padding-top:15px;font-size:14px;color:#afc2b8}.ds-sky-legend>span{display:flex;align-items:center;gap:8px}.ds-sky-legend i{display:block;width:26px}.ds-sky-source-key{border-top:2px solid #80b19a}.ds-sky-own-key{border-top:2px dashed #e3ba85}.ds-sky-map-note{font-size:14px;color:#afc2b8;margin:10px 0 0}@media(max-width:760px){.ds-sky-star{width:116px;min-height:76px;gap:6px;transform:translate(-50%,-22px)}.ds-sky-star-point{width:44px;height:44px}.ds-sky-star-point svg{width:18px;height:18px}.ds-sky-star-name{max-width:112px}.ds-sky-legend{gap:8px 16px}}@media(prefers-reduced-motion:reduce){.ds-sky-specimen *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}.ds-sky-specimen[data-input=\"keyboard\"] *{animation:none!important;transition:none!important}"
+    },
+    {
+      "name": "Phone pocket sky",
+      "kind": "custom",
+      "description": "The built one-kept-material phone cue. Displayed in flow for this specimen; the actual phone surface fixes it to the bottom at z-index 30 and includes safe-area padding. No saved-state behavior is simulated.",
+      "html": "<aside class=\"ds-sky-pocket\" aria-label=\"Your pocket sky\"><svg class=\"ds-sky-pocket-preview\" viewBox=\"0 0 84 62\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"14\" cy=\"38\" r=\"6\" stroke=\"#b9ead8\" fill=\"#b9ead8\"/><circle cx=\"47\" cy=\"15\" r=\"4\" stroke=\"#496454\" fill=\"#0b1912\"/><circle cx=\"71\" cy=\"44\" r=\"4\" stroke=\"#496454\" fill=\"#0b1912\"/></svg><div><strong>1 clue kept</strong><span>Keep one more clue.</span></div><a href=\"/sky#my-constellation\">View sky</a></aside>",
+      "css": ".ds-sky-pocket{display:flex;align-items:center;gap:10px;min-height:82px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1912;border-top:1px solid #496454;font-family:var(--font-geist-sans, Geist),Arial,sans-serif;}.ds-sky-pocket-preview{width:68px;height:58px;flex-shrink:0}.ds-sky-pocket>div{flex:1;min-width:0}.ds-sky-pocket strong{display:block;color:#e1e9e3;font-size:15px;font-weight:500;line-height:1.4}.ds-sky-pocket span{display:block;font-size:14px;line-height:1.4;color:#afc2b8;margin-top:3px}.ds-sky-pocket>a{display:flex;align-items:center;min-height:44px;color:#b9ead8;font-size:14px;white-space:nowrap;text-underline-offset:4px}.ds-sky-pocket>a:focus-visible{outline:2px solid #b9ead8;outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Redacted Sky",
+    "overview": "This is a bounded extension of the [root design system](../../DESIGN.md), not a replacement. My sky keeps the established deep-green environment, Geist reading voice, pale text, restrained mint actions, real archive material, and shared line icons. The global identity remains authoritative; these extracted values and components apply to the My sky surface and its contextual Archive invitation only.\n\nThe built interface makes personal curiosity tangible without claiming an answer. Real materials remain inspectable, personal questions remain reversible, and source-listed relationships remain visually distinct. The route uses tonal separation and small controls rather than introducing a new palette, component family, or branding metaphor.",
+    "keyCharacteristics": [
+      "Inherited dark-green materials and Geist typography.",
+      "Mint actions, solid source links, and warm dashed personal questions.",
+      "Native controls, readable labels, and explicit source recovery.",
+      "Immediate phone feedback through a small pocket sky."
+    ],
+    "rules": [
+      {
+        "name": "The Two Kinds of Line Rule",
+        "body": "Source-listed relationships are solid green; a person's own questions are dashed warm lines. Keep the text legend and source disclosure with them. Neither line establishes a shared cause.",
+        "section": "colors"
+      },
+      {
+        "name": "The Readable Node Rule",
+        "body": "Keep complete node names visible at the observed label size. On phones, allocate space to the nodes instead of shrinking the text or requiring hover to read it.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** inherit the root visual world and keep this extension scoped to My sky and its Archive invitation.",
+      "**Do** retain readable node labels, the phone pocket cue, and keep actions immediately below phone media.",
+      "**Do** preserve native media, select, radio, button, and disclosure behavior, visible focus, and official-source fallback.",
+      "**Do** keep source-listed relationships separate from personal questions in line style, labels, and disclosure.",
+      "**Do** retain device-local wording, storage-failure feedback, and reversible keep/connect actions."
+    ],
+    "donts": [
+      "**Don't** add a drag requirement, timer, score, correct-answer gate, autoplay, or hover-only information to this surface.",
+      "**Don't** imply that a line proves a shared cause or that node positions are sky coordinates.",
+      "**Don't** imply accounts, shared boards, cloud saving, or cross-device persistence; the current sky is browser-local only.",
+      "**Don't** promote the paired bench, node topology, pocket dock, local warm tint, or route dimensions into site-wide rules.",
+      "**Don't** overwrite the root design system or invent new canonical primitives from these route specimens."
+    ]
+  }
+}

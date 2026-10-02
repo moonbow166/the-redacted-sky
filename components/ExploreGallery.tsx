@@ -32,6 +32,7 @@ export default function ExploreGallery({ trail, onTrailChange, onOpen }: {
     onOpen(pick);
   };
   return <section className="curiosity-gallery" aria-label="Curated paths through the archive">
+    <a className="curiosity-sky-invitation" href="/sky"><ArchiveIcon kind="constellation" /><span><strong>Make a sky of your own.</strong><span>Keep real clues. Connect your questions. No right answers needed.</span></span><b>Play with the clues</b></a>
     <nav className="curiosity-trails" aria-label="What would you like to explore?">
       {curiosityTrails.map(item => <button key={item.id} type="button" aria-pressed={trail === item.id} onClick={() => onTrailChange(item.id)}><ArchiveIcon kind={item.icon} /><span>{item.label}</span></button>)}
     </nav>

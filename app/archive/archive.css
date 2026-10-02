@@ -134,6 +134,15 @@
 
 .evidence-library .archive-system-bar { height:var(--site-header-height);padding:10px 3rem;font-family:var(--font-geist-sans),sans-serif; }
 .curiosity-heading { padding:2.5rem 0 1.75rem;align-items:center; }
+.curiosity-sky-invitation { display:flex;align-items:center;gap:24px;border-block:1px solid #385848;background:#0b1912;padding:24px 28px;margin:0 0 28px;color:#e1e9e3;text-decoration:none; }
+.curiosity-sky-invitation>svg { width:64px;height:64px;color:#b9ead8;flex-shrink:0; }
+.curiosity-sky-invitation>span { display:flex;flex-direction:column;gap:4px; }
+.curiosity-sky-invitation strong { font-size:1.5rem;font-weight:450;line-height:1.3; }
+.curiosity-sky-invitation>span>span { color:#afc2b8;font-size:1rem; }
+.curiosity-sky-invitation>b { margin-left:auto;background:#b9ead8;color:#07100d;padding:12px 18px;border-radius:6px;font-weight:500;white-space:nowrap; }
+.curiosity-sky-invitation:hover { background:#11251a;border-color:#b9ead8; }
+.curiosity-sky-invitation:focus-visible { outline:2px solid #b9ead8;outline-offset:5px; }
+@media(max-width:760px) { .curiosity-sky-invitation { flex-wrap:wrap;gap:16px;padding:20px; }.curiosity-sky-invitation>svg { width:42px;height:42px; }.curiosity-sky-invitation>span { flex:1;min-width:190px; }.curiosity-sky-invitation>b { margin-left:0; }.curiosity-sky-invitation strong { font-size:1.375rem; } }
 .curiosity-heading h1 { font-size:clamp(2.25rem,4.2vw,4rem);line-height:1.08;letter-spacing:-.035em; }
 .curiosity-heading>div:first-child { max-width:47rem; }
 .curiosity-heading p { max-width:63ch;font-size:1rem;margin-top:.75rem; }

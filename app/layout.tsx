@@ -57,6 +57,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <template id="my-sky-design-contract" dangerouslySetInnerHTML={{ __html: `<!--
+THESIS: Two real materials grow a personal constellation, not a quiz or reading-card sequence.
+OWN-WORLD: Inherited deep green, Geist, mint controls, warm personal links, real source media, shared line icons.
+STORY: Keep two clues, name a tentative connection, revisit or undo. Source listings and personal guesses stay distinct.
+FIRST VIEWPORT: Paired source observation bench above a visible constellation, with keep actions and one state-aware invitation.
+FORM: Candidate 4 of 5, paired observation bench above a growing constellation. Seed 1c4bd728. Sites direct-preview workflow; no comp-selection gate.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->` }} />
         <StructuredData value={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: SITE_NAME, url: SITE_URL, inLanguage: "en", description: "An independent, source-linked guide to released UAP records." }} />
         {children}
       </body>

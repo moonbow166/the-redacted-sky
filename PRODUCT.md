@@ -28,7 +28,8 @@ Visitors can enter the immersive Experience or Explore Archive. Archive supports
 - Rebuild data from official sources with field-level provenance and honest missing-data handling. Remove third-party dependencies only when genuinely replaced; historical distributed versions retain their credits.
 - Build the first complete path around the 1952 Tremonton film. Astronaut accounts and camera interpretation are subsequent paths, not required simultaneous launches.
 - Preserve stable case URLs and search access.
-- Custom research boards, donations, domain purchase, social posting, and further 3D asset production are deferred.
+- My sky is a gentle, device-local exploration prototype: keep selected official materials, compare them, and make explicitly personal connections. No timer, score, correct-answer gate, or dragging is required. Shared boards and cross-device accounts remain deferred.
+- Donations, domain purchase, social posting, and further 3D asset production are deferred.
 
 ## Brand Commitments
 

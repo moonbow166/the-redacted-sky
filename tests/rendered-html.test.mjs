@@ -65,6 +65,8 @@ test("server-renders curated journeys with access to the full case archive", asy
   assert.match(html, /What did people report/);
   assert.match(html, /How was it investigated/);
   assert.match(html, /Follow the film/);
+  assert.match(html, /href="\/sky"/);
+  assert.match(html, /Play with the clues/);
   assert.match(html, /href="\/explore\/tremonton-1952"/);
   assert.match(html, /not a credibility ranking/);
   assert.equal((html.match(/aria-label="Explore /g) ?? []).length, 10);
@@ -81,6 +83,29 @@ test("server-renders curated journeys with access to the full case archive", asy
   assert.match(html, /Primary source: U\.S\. government PURSUE/);
   assert.match(html, /Choose site mode/);
   assert.match(html, /aria-current="page"[^>]*>[\s\S]*Explore archive/);
+});
+
+test("My sky renders a real paired observation bench with source boundaries and safe initial state", async () => {
+  const response = await render('/sky');
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>My sky \| The Redacted Sky<\/title>/);
+  assert.match(html, /rel="canonical" href="https:\/\/the-redacted-sky\.moonbow166\.chatgpt\.site\/sky"/);
+  assert.match(html, /<!--\s*THESIS:[\s\S]*Seed 1c4bd728\.[\s\S]*FINISH:[\s\S]*-->/);
+  assert.match(html, /No right answers\. Just a little curiosity\./);
+  assert.match(html, /Choose a companion clue/);
+  assert.match(html, /DOD_111985807\.mp4/);
+  assert.match(html, /Comparison material, not a photograph of the reported objects/);
+  assert.match(html, /Keep Lights over Utah in my sky/);
+  assert.match(html, /Source-listed link/);
+  assert.match(html, /Your question/);
+  assert.match(html, /An idea map, not sky coordinates/);
+  assert.match(html, /<fieldset disabled=""/);
+  assert.doesNotMatch(html, /<video[^>]*autoplay|\u2014/);
+  const css = await readFile(new URL('../app/sky/sky.css', import.meta.url), 'utf8');
+  assert.match(css, /prefers-reduced-motion:reduce/);
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /data-input="keyboard"/);
 });
 
 test("ships the complete deterministic archive dataset", async () => {
@@ -153,8 +178,9 @@ test("sitemap and directory expose every unique case without requiring JavaScrip
   assert.equal(sitemap.status, 200);
   assert.match(sitemap.headers.get("content-type"), /application\/xml/);
   const xml = await sitemap.text();
-  assert.equal((xml.match(/<loc>/g) ?? []).length, cases.length + 6);
+  assert.equal((xml.match(/<loc>/g) ?? []).length, cases.length + 7);
   assert.ok(xml.includes('/explore/tremonton-1952</loc>'));
+  assert.ok(xml.includes('/sky</loc>'));
   const directory = await render("/cases");
   assert.equal(directory.status, 200);
   const html = await directory.text();
