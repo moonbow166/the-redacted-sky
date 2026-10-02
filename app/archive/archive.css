@@ -204,6 +204,12 @@
 .curiosity-next strong { font-size:1rem;line-height:1.4;font-weight:450; }
 .curiosity-next small { font-size:.8125rem;color:var(--library-dim); }
 .library-evidence-column { position:static; }
+.guided-route{display:flex;gap:1.25rem;flex-wrap:wrap;padding:1rem 0;border-top:1px solid #385749}
+.guided-route>span{display:flex;align-items:center;gap:.5rem;font-size:.9375rem;color:#d9c9ab}
+.guided-route svg{width:22px;height:22px}
+.curiosity-guided .story-cue{color:#dbc7a5;font-size:.875rem}
+.curiosity-guided .story-open{display:flex;min-height:48px;padding:.65rem 1rem;border:1px solid #9bc9b0;align-self:flex-start;color:#e5fff0;background:#163528}
+.curiosity-guided .story-image img{object-fit:contain;background:#080c0b}
 @media(max-width:1100px) {
   .evidence-library .archive-system-bar { padding:10px 1.5rem; }
   .curiosity-collection-heading { display:block; }
@@ -214,20 +220,22 @@
   .curiosity-browse button { margin-left:0; }
 }
 @media(max-width:760px) {
-  .curiosity-heading { gap:1rem;padding:1.5rem 0; }
+  .curiosity-heading { gap:1rem;padding:1rem 0; }
   .curiosity-heading>div:first-child>p { display:block; }
   .curiosity-heading .library-update { display:flex;align-items:center;flex-wrap:wrap;gap:.5rem 1rem;border:0;padding:0;min-width:0; }
   .curiosity-heading .library-update>span,.curiosity-heading .library-update>p { display:none; }
   .curiosity-heading .library-update button { padding:0;min-height:32px;font-size:.875rem; }
   .library-view-switch { gap:1.25rem; }
   .library-view-switch button { font-size:.9375rem;padding:.85rem 0; }
-  .curiosity-gallery { padding-top:1.25rem; }
+  .curiosity-gallery { padding-top:1rem; }
   .curiosity-trails { display:grid;grid-template-columns:1fr 1fr;gap:.5rem; }
   .curiosity-trails button { font-size:.875rem;padding:.65rem;gap:.5rem;line-height:1.4;text-align:left; }
   .curiosity-trails svg { width:22px;height:22px; }
-  .curiosity-collection-heading { margin:1.25rem 0; }
+  .curiosity-collection-heading { margin:1rem 0; }
   .curiosity-collection-heading h2 { font-size:1.375rem; }
   .curiosity-lead { display:flex;flex-direction:column; }
+  .curiosity-guided .curiosity-lead-copy { order:-1; }
+  .curiosity-guided .guided-route { display:none; }
   .curiosity-lead>.story-image { aspect-ratio:16/10;min-height:0;width:100%; }
   .curiosity-lead-copy { padding:22px;gap:12px; }
   .curiosity-lead-copy>strong { font-size:1.875rem; }

@@ -34,6 +34,12 @@ export type ArchiveRecord = {
   assetUrls: Asset[];
   sourceAttribution?: string;
   metadataNote?: string | null;
+  capturedAt?: string;
+  captureHash?: string;
+  assetProvenance?: string;
+  mediaSourcePageUrl?: string | null;
+  relatedOfficialTitles?: string[];
+  previewOnly?: boolean;
 };
 
 export type ArchiveCase = {
@@ -67,6 +73,11 @@ export const archiveCases = casesSource as ArchiveCase[];
 export const archiveReleases = releasesSource as Release[];
 export const archiveCheckedAt = releasesSource[0].fetchedAt;
 export const latestRelease = archiveReleases[archiveReleases.length - 1];
+
+export function sourceDescriptionNote(record: ArchiveRecord) {
+  const date = record.capturedAt ? new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric", timeZone: "America/Los_Angeles" }).format(new Date(record.capturedAt)) : "the recorded capture date";
+  return `Description independently captured from the official PURSUE page on ${date} (Pacific time).`;
+}
 
 export function primaryAsset(record: ArchiveRecord) {
   return record.assetUrls.find((asset) => asset.kind === record.fileType) ?? null;

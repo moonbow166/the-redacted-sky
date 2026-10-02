@@ -1,0 +1,358 @@
+{
+  "capturedAt": "2026-10-02T01:15:30.355Z",
+  "method": "Record identifiers matched on PURSUE, then title, source elements and poster read from the official DVIDS player DOM.",
+  "records": [
+    {
+      "id": "DOW-UAP-PR117",
+      "videoId": "1017793",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017793/DOD_111887401.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017793.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887401/DOD_111887401.mp4"
+      ],
+      "title": "DOW-UAP-PR117, Unresolved UAP Report, Gulf of Oman, 2021",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017793/dow-uap-pr117-unresolved-uap-report-gulf-oman-2021"
+    },
+    {
+      "id": "DOW-UAP-PR118",
+      "videoId": "1017795",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017795/DOD_111887407.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017795.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887407/DOD_111887407.mp4"
+      ],
+      "title": "DOW-UAP-PR118, Unresolved UAP Report, Gulf of Oman, 2021",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017795/dow-uap-pr118-unresolved-uap-report-gulf-oman-2021"
+    },
+    {
+      "id": "DOW-UAP-PR119",
+      "videoId": "1017798",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017798/DOD_111887421.0000000/604x340_q95.jpg",
+      "sources": [
+        "/video/1017798.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887421/DOD_111887421.mp4"
+      ],
+      "title": "DOW-UAP-PR119, Unresolved UAP Report, Gulf of Oman, 2021",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017798/dow-uap-pr119-unresolved-uap-report-gulf-oman-2021"
+    },
+    {
+      "id": "DOW-UAP-PR120",
+      "videoId": "1017800",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017800/DOD_111887427.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017800.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887427/DOD_111887427.mp4"
+      ],
+      "title": "DOW-UAP-PR120, Unresolved UAP Report, Gulf of Oman, 2021",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017800/dow-uap-pr120-unresolved-uap-report-gulf-oman-2021"
+    },
+    {
+      "id": "DOW-UAP-PR121",
+      "videoId": "1017802",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017802/DOD_111887439.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017802.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887439/DOD_111887439.mp4"
+      ],
+      "title": "DOW-UAP-PR121, Unresolved UAP Report, Gulf of Oman, 2021",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017802/dow-uap-pr121-unresolved-uap-report-gulf-oman-2021"
+    },
+    {
+      "id": "DOW-UAP-PR122",
+      "videoId": "1017803",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017803/DOD_111887446.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017803.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887446/DOD_111887446.mp4"
+      ],
+      "title": "DOW-UAP-PR122, Unresolved UAP Report, Gulf of Oman, 2021",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017803/dow-uap-pr122-unresolved-uap-report-gulf-oman-2021"
+    },
+    {
+      "id": "DOW-UAP-PR123",
+      "videoId": "1017805",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017805/DOD_111887456.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017805.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887456/DOD_111887456.mp4"
+      ],
+      "title": "DOW-UAP-PR123, Unresolved UAP Report, Pacific Ocean, 2019",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017805/dow-uap-pr123-unresolved-uap-report-pacific-ocean-2019"
+    },
+    {
+      "id": "DOW-UAP-PR124",
+      "videoId": "1017806",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017806/DOD_111887460.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017806.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887460/DOD_111887460.mp4"
+      ],
+      "title": "DOW-UAP-PR124, Unresolved UAP Report, Pacific Ocean, 2019",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017806/dow-uap-pr124-unresolved-uap-report-pacific-ocean-2019"
+    },
+    {
+      "id": "DOW-UAP-PR125",
+      "videoId": "1017788",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017788/DOD_111887376.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017788.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887376/DOD_111887376.mp4"
+      ],
+      "title": "DOW-UAP-PR125, Unresolved UAP Report, Pacific Ocean, 2019",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017788/dow-uap-pr125-unresolved-uap-report-pacific-ocean-2019"
+    },
+    {
+      "id": "DOW-UAP-PR126",
+      "videoId": "1017790",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017790/DOD_111887380.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017790.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887380/DOD_111887380.mp4"
+      ],
+      "title": "DOW-UAP-PR126, Unresolved UAP Report, Pacific Ocean, 2019",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017790/dow-uap-pr126-unresolved-uap-report-pacific-ocean-2019"
+    },
+    {
+      "id": "DOW-UAP-PR127",
+      "videoId": "1017791",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017791/DOD_111887384.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017791.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887384/DOD_111887384.mp4"
+      ],
+      "title": "DOW-UAP-PR127, Unresolved UAP Report, Pacific Ocean, 2019",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017791/dow-uap-pr127-unresolved-uap-report-pacific-ocean-2019"
+    },
+    {
+      "id": "DOW-UAP-PR133",
+      "videoId": "1023396",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023396/DOD_111985772.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023396.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985772/DOD_111985772.mp4"
+      ],
+      "title": "DOW-UAP-PR133, Unresolved UAP Report, Middle East, 2025",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023396/dow-uap-pr133-unresolved-uap-report-middle-east-2025"
+    },
+    {
+      "id": "DOW-UAP-PR134",
+      "videoId": "1017792",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017792/DOD_111887390.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017792.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887390/DOD_111887390.mp4"
+      ],
+      "title": "DOW-UAP-PR134, Unresolved UAP Report, Middle East, 2025",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017792/dow-uap-pr134-unresolved-uap-report-middle-east-2025"
+    },
+    {
+      "id": "DOW-UAP-PR135",
+      "videoId": "1023397",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023397/DOD_111985782.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023397.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985782/DOD_111985782.mp4"
+      ],
+      "title": "DOW-UAP-PR135, Unresolved UAP Report, Middle East, 2025",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023397/dow-uap-pr135-unresolved-uap-report-middle-east-2025"
+    },
+    {
+      "id": "DOW-UAP-PR136",
+      "videoId": "1017796",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017796/DOD_111887413.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017796.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887413/DOD_111887413.mp4"
+      ],
+      "title": "DOW-UAP-PR136, Unresolved UAP Report, Middle East, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017796/dow-uap-pr136-unresolved-uap-report-middle-east-2023"
+    },
+    {
+      "id": "DOW-UAP-PR140",
+      "videoId": "1023398",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023398/DOD_111985790.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023398.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985790/DOD_111985790.mp4"
+      ],
+      "title": "DOW-UAP-PR140, Unresolved UAP Report, Middle East, 2022",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023398/dow-uap-pr140-unresolved-uap-report-middle-east-2022"
+    },
+    {
+      "id": "DOW-UAP-PR141",
+      "videoId": "1023400",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023400/DOD_111985798.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023400.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985798/DOD_111985798.mp4"
+      ],
+      "title": "DOW-UAP-PR141, Unresolved UAP Report, Middle East, 2022",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023400/dow-uap-pr141-unresolved-uap-report-middle-east-2022"
+    },
+    {
+      "id": "DOW-UAP-PR142",
+      "videoId": "1017797",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017797/DOD_111887419.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017797.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887419/DOD_111887419.mp4"
+      ],
+      "title": "DOW-UAP-PR142, Unresolved UAP Report, Middle East, 2025",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017797/dow-uap-pr142-unresolved-uap-report-middle-east-2025"
+    },
+    {
+      "id": "DOW-UAP-PR143",
+      "videoId": "1023403",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023403/DOD_111985818.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023403.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985818/DOD_111985818.mp4"
+      ],
+      "title": "DOW-UAP-PR143, Unresolved UAP Report, Yellow Sea, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023403/dow-uap-pr143-unresolved-uap-report-yellow-sea-2023"
+    },
+    {
+      "id": "DOW-UAP-PR144",
+      "videoId": "1023404",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023404/DOD_111985820.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023404.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985820/DOD_111985820.mp4"
+      ],
+      "title": "DOW-UAP-PR144, Unresolved UAP Report, Yellow Sea, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023404/dow-uap-pr144-unresolved-uap-report-yellow-sea-2023"
+    },
+    {
+      "id": "DOW-UAP-PR148",
+      "videoId": "1023405",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023405/DOD_111985821.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023405.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985821/DOD_111985821.mp4"
+      ],
+      "title": "DOW-UAP-PR148, Unresolved UAP Report, East China Sea, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023405/dow-uap-pr148-unresolved-uap-report-east-china-sea-2023"
+    },
+    {
+      "id": "DOW-UAP-PR149",
+      "videoId": "1017799",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017799/DOD_111887426.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017799.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887426/DOD_111887426.mp4"
+      ],
+      "title": "DOW-UAP-PR149, Unresolved UAP Report, Middle East, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017799/dow-uap-pr149-unresolved-uap-report-middle-east-2023"
+    },
+    {
+      "id": "DOW-UAP-PR150",
+      "videoId": "1023406",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023406/DOD_111985822.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023406.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985822/DOD_111985822.mp4"
+      ],
+      "title": "DOW-UAP-PR150, Unresolved UAP Report, Yellow Sea, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023406/dow-uap-pr150-unresolved-uap-report-yellow-sea-2023"
+    },
+    {
+      "id": "DOW-UAP-PR151",
+      "videoId": "1023408",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023408/DOD_111985832.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023408.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985832/DOD_111985832.mp4"
+      ],
+      "title": "DOW-UAP-PR151, Unresolved UAP Report, Yellow Sea, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023408/dow-uap-pr151-unresolved-uap-report-yellow-sea-2023"
+    },
+    {
+      "id": "DOW-UAP-PR152",
+      "videoId": "1023410",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023410/DOD_111985835.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023410.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985835/DOD_111985835.mp4"
+      ],
+      "title": "DOW-UAP-PR152, Unresolved UAP Report, Yellow Sea, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023410/dow-uap-pr152-unresolved-uap-report-yellow-sea-2023"
+    },
+    {
+      "id": "DOW-UAP-PR159",
+      "videoId": "1023402",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023402/DOD_111985807.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023402.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985807/DOD_111985807.mp4"
+      ],
+      "title": "DOW-UAP-PR159, Historical Film of Reported UFOs, Utah, 1952",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023402/dow-uap-pr159-historical-film-reported-ufos-utah-1952"
+    },
+    {
+      "id": "DOW-UAP-PR160",
+      "videoId": "1023407",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023407/DOD_111985823.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023407.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985823/DOD_111985823.mp4"
+      ],
+      "title": "DOW-UAP-PR160, Presentation by Captain Edward J. Ruppelt, 1952",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023407/dow-uap-pr160-presentation-captain-edward-j-ruppelt-1952"
+    },
+    {
+      "id": "FBI-UAP-PR007",
+      "videoId": "1017801",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2608/1017801/DOD_111887430.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1017801.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2608/DOD_111887430/DOD_111887430.mp4"
+      ],
+      "title": "FBI-UAP-PR007, “Slow-moving Objects,” 2026",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1017801/fbi-uap-pr007-slow-moving-objects-2026"
+    },
+    {
+      "id": "LLE-UAP-PR001",
+      "videoId": "1023409",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023409/DOD_111985834.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023409.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985834/DOD_111985834.mp4"
+      ],
+      "title": "LLE-UAP-PR001, Unresolved UAP Report, Colorado, 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023409/lle-uap-pr001-unresolved-uap-report-colorado-2023"
+    },
+    {
+      "id": "LLE-UAP-PR002",
+      "videoId": "1023412",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023412/DOD_111985844.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023412.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985844/DOD_111985844.mp4"
+      ],
+      "title": "LLE-UAP-PR002, Unresolved UAP Report, Colorado, October 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023412/lle-uap-pr002-unresolved-uap-report-colorado-october-2023"
+    },
+    {
+      "id": "LLE-UAP-PR003",
+      "videoId": "1023414",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023414/DOD_111985850.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023414.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985850/DOD_111985850.mp4"
+      ],
+      "title": "LLE-UAP-PR003, Unresolved UAP Report, Colorado, October 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023414/lle-uap-pr003-unresolved-uap-report-colorado-october-2023"
+    },
+    {
+      "id": "LLE-UAP-PR004",
+      "videoId": "1023416",
+      "poster": "https://d1ldvf68ux039x.cloudfront.net/thumbs/frames/video/2609/1023416/DOD_111985855.0000001/604x340_q95.jpg",
+      "sources": [
+        "/video/1023416.m3u8",
+        "https://d34w7g4gy10iej.cloudfront.net/video/2609/DOD_111985855/DOD_111985855.mp4"
+      ],
+      "title": "LLE-UAP-PR004, Unresolved UAP Report, Colorado, October 2023",
+      "sourcePageUrl": "https://www.dvidshub.net/video/1023416/lle-uap-pr004-unresolved-uap-report-colorado-october-2023"
+    }
+  ]
+}

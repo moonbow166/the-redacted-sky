@@ -6,6 +6,8 @@
 
 [Browse the 387-case archive](https://the-redacted-sky.moonbow166.chatgpt.site/archive)
 
+[Follow the 1952 film with a missing piece](https://the-redacted-sky.moonbow166.chatgpt.site/explore/tremonton-1952)
+
 [View the Build Week project draft](https://devpost.com/software/the-redacted-sky)
 
 The Redacted Sky transforms a dense government disclosure archive into a cinematic, evidence-first experience. Visitors begin with an unidentified form, descend into a spatial field of records, capture three featured video signals, inspect the source context, and make their own assessment.
@@ -50,7 +52,8 @@ Three featured signals form the polished demo path:
 - Every case opens into a shareable deep link with a switcher for all its source materials, not just its first record.
 - Video and image previews, an audio player, optional PDF embedding, release filters, and a random-case entry make the material easier to explore.
 - The persistent header switches directly between the cinematic Experience and searchable Archive.
-- Four curiosity paths offer ten source-backed editorial stories, each with a reason to look closer, an open question and a next-story suggestion.
+- A complete Tremonton film path connects a playable official reel, its unexpected cut, changing assessments, and the limits of measurement.
+- Ten editorial starting points can be explored through questions about cameras, witness accounts, and investigation methods. These collections are not all complete guided paths.
 - Shared media icons and real archive previews turn the numerical overview into four direct entrances: video, images, audio and documents.
 - The site has no ambient soundtrack or sound toggle; original media retains its own playback controls.
 - The deployment is a Cloudflare-compatible React server build hosted with OpenAI Codex Sites.
@@ -64,27 +67,29 @@ The primary index is the U.S. government PURSUE release page. The dataset includ
 - **6 releases**, with 158 / 64 / 72 / 40 / 41 / 75 records
 - **15 featured cases**
 
-On October 1, 2026, all 116 Release 05 and 06 index rows were checked in the official browser-rendered archive. Release 05 was announced August 7; Release 06 was announced September 18. The older 334 rows retain their July 18 verification history rather than being represented as newly rechecked. Descriptions and asset URLs were enriched from pursue.report for Releases 01–04 and uap.silv.app for Releases 05–06 when direct retrieval was restricted. Mirror-hosted media is labeled in the viewer; its bytes have not been verified against official originals. Release 01 Chinese translations are attributed to [`chinleez/uap-disclosure-2026`](https://github.com/chinleez/uap-disclosure-2026) under CC BY 4.0. No third-party scoring or conclusions were imported.
+On October 1, 2026 Pacific time (October 2 UTC), all 450 index rows and public descriptions were independently captured from 38 browser-rendered pages of the official PURSUE archive. The active build no longer reads third-party descriptions or Chinese translations. It does not import third-party scores or conclusions.
 
-Three new Colorado transcripts (LLE-UAP-D002, D003, and D004) have verified official record links and descriptions but no verified direct PDF link. The viewer states that limitation. LLE-UAP-PR004 has a conflict between its January 2024 title and October 2023 index date; both are preserved and flagged. Research reports and witness reconstructions are not presented as confirmed sightings.
+The 32 previously mirror-hosted media entries now use official DVIDS-linked media, matched by the record ID visible on each DVIDS page. All 32 official MP4 URLs returned HTTP 200 during this update. Other first-party asset URLs remain in a separate compatibility catalogue that preserves their older discovery history. They are not represented as newly downloaded or cryptographically authenticated. The underlying PDFs have not all been read in full.
+
+Three Colorado transcripts (LLE-UAP-D002, D003, and D004) have official record links and descriptions but no verified direct PDF link. Three FBI digital renderings expose official previews, not verified full-resolution originals. The viewer states these limitations. LLE-UAP-PR004 has a conflict between its January 2024 title and October 2023 index date; both are preserved and flagged. Research reports and witness reconstructions are not presented as confirmed sightings.
 
 The previous July sample checked 171 resource URLs and found no confirmed 404/410 responses. That is a historical sample, not a claim that all 450 records or newly added media links have been tested.
 
-Full provenance, normalization policies, hashes, and manual grouping decisions live in [`data/provenance.json`](data/provenance.json) and [`data/ingest-report.json`](data/ingest-report.json). The non-cryptographic row checks in [`data/source/official-row-checks-20261001.json`](data/source/official-row-checks-20261001.json) detect metadata mismatches with the browser-captured new index rows; they are not content authenticity checks.
+Full provenance, normalization policies, hashes, and manual grouping decisions live in [`data/provenance.json`](data/provenance.json) and [`data/ingest-report.json`](data/ingest-report.json). The independent inputs are [`pursue.official-capture.json`](data/source/pursue.official-capture.json), [`pursue.official-media.json`](data/source/pursue.official-media.json), and [`official-link-catalog.json`](data/source/official-link-catalog.json). Capture hashes detect local changes, not source authenticity. Two consecutive ingests produced identical hashes for all five generated files, and all 387 case slugs remain unchanged. Earlier snapshots and their credits are retained in history; see [`HISTORICAL-CREDITS.md`](data/source/HISTORICAL-CREDITS.md).
 
 ## October 2026 reading update
 
 The original cinematic identity is preserved. Main reading text is now at least 16px, regular control labels use 14px, and smaller 12–13px text is reserved for secondary metadata. Primary titles and controls use normal capitalization, while source IDs and agency acronyms remain intact. Material viewers support keyboard dismissal and return focus to the opened card. Missing media has a source-link fallback.
 
-The default archive now opens with curated journeys instead of the full search index. Visitors can choose footage, recordings or a document trail without knowing a case name. Every editorial pick links to an existing source record, explains why it is worth exploring, and distinguishes our invitation from the official description. The selection is not a credibility score or a measured popularity ranking; no audience analytics or community votes are fabricated. Search remains one click away, with mobile filters behind an expandable control. Home-page media entrances deep-link to the relevant archive filter.
+The default archive now opens with question-led starting points instead of the full search index. Visitors can ask what cameras change, what witnesses reported, or how an investigation developed without knowing a case name. The first complete path follows the Tremonton film through Watch, Notice, Compare, and Question. Short authored passages and optional official summaries support layered reading. The selection is not a credibility score or a measured popularity ranking; no audience analytics or community votes are fabricated. Search remains one click away, with mobile filters behind an expandable control. Home-page media entrances deep-link to the relevant archive filter.
 
 ## Search and answer-engine accessibility
 
 - Every case has a server-rendered `/cases/[slug]` reading page with source descriptions, record IDs, official links, grouping notes and known limitations. The interactive viewer is still available from each page.
 - Curated story links progressively enhance into the viewer for normal clicks. Without JavaScript, or when opened in a new tab, they lead to the readable case page.
-- `/cases` is a complete linked directory; `/sitemap.xml` lists all 387 cases and five core pages. `/robots.txt` permits crawling and identifies the sitemap.
+- `/cases` is a complete linked directory; `/sitemap.xml` lists all 387 cases, five core pages, and the Tremonton path. `/robots.txt` permits crawling and identifies the sitemap.
 - Canonical URLs use the verified public origin rather than a request's Host header. Titles, descriptions and JSON-LD identify the site, case collections, sources and breadcrumbs without inventing official authorship, ratings or missing dates.
-- `/guide` answers newcomer questions. `/sources` consolidates methods, verification history, limitations and the chinleez CC BY 4.0 attribution, linked from the main experience and archive.
+- `/guide` answers newcomer questions. `/sources` consolidates methods, verification history, limitations, and access to historical third-party credits, linked from the main experience and archive.
 
 This improves access to useful content; it does not guarantee indexing, AI citations or traffic. It does not add audience analytics, perform a site-owner verification or submit the sitemap to a search provider.
 
@@ -137,7 +142,7 @@ To run the production build and archive checks:
 npm test
 ```
 
-To regenerate the normalized archive from its pinned source snapshot:
+To regenerate the normalized archive from its pinned official captures and first-party link catalogue:
 
 ```bash
 npm run ingest:pursue
@@ -152,7 +157,7 @@ npm run ingest:pursue
 5. Watch the official video, inspect its metadata, and choose an assessment.
 6. Use **Explore the next signal** to move through the three featured cases.
 7. Close the file and continue scrolling to see the full archive scale.
-8. Open **Explore archive**, try each curiosity path, and open a story to inspect its reason, question and linked source material.
+8. Open **Explore archive**, choose **Follow the film**, play the official reel, jump to 0:52, and compare the source-linked assessments. Return to try the question collections.
 9. Follow a next-story suggestion, close the viewer, and choose **Search all records** to filter the complete archive or copy a direct case link.
 10. Use **Case page** to read the case outside the viewer. Check **Sources & credits** and **New to UAP?** from the footer.
 
@@ -163,9 +168,8 @@ The cinematic path deliberately perfects three cases instead of pretending all 3
 ## Sources and attribution
 
 - Primary official source: [U.S. government PURSUE](https://www.war.gov/UFO/)
-- Auxiliary public mirror: [pursue.report](https://pursue.report/)
-- Release 05–06 enrichment and some media hosting: [UAP gallery mirror](https://uap.silv.app/)
-- Chinese index and Release 01 translations: [chinleez/uap-disclosure-2026](https://github.com/chinleez/uap-disclosure-2026), CC BY 4.0
+- Official media pages: [DVIDS](https://www.dvidshub.net/)
+- Previous third-party dependencies and retained license notices: [Historical credits](data/source/HISTORICAL-CREDITS.md). The old source snapshot remains unchanged for auditability.
 
 Official records remain subject to their per-asset markings. The Redacted Sky adds no extraterrestrial conclusion or official analytical judgment.
 

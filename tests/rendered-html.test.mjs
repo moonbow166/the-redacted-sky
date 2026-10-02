@@ -60,13 +60,15 @@ test("server-renders curated journeys with access to the full case archive", asy
   assert.match(html, /Follow your curiosity/);
   assert.match(html, /Curated journeys/);
   assert.match(html, /Search all records/);
-  assert.match(html, /10 curious starting points/);
-  assert.match(html, /Let me listen/);
-  assert.match(html, /Give me a rabbit hole/);
-  assert.match(html, /Why start here/);
+  assert.match(html, /Start with a question/);
+  assert.match(html, /Can cameras fool us/);
+  assert.match(html, /What did people report/);
+  assert.match(html, /How was it investigated/);
+  assert.match(html, /Follow the film/);
+  assert.match(html, /href="\/explore\/tremonton-1952"/);
   assert.match(html, /not a credibility ranking/);
   assert.equal((html.match(/aria-label="Explore /g) ?? []).length, 10);
-  assert.equal((html.match(/<a href="\/cases\/[^\"]+"[^>]*class="curiosity-(?:lead|card)"/g) ?? []).length, 10);
+  assert.equal((html.match(/<a href="\/cases\/[^\"]+"[^>]*class="curiosity-(?:lead|card)"/g) ?? []).length, 9);
   assert.match(html, /class="library-index"[^>]*hidden/);
   assert.match(html, /387 case files/);
   assert.match(html, /Search the archive/);
@@ -151,7 +153,8 @@ test("sitemap and directory expose every unique case without requiring JavaScrip
   assert.equal(sitemap.status, 200);
   assert.match(sitemap.headers.get("content-type"), /application\/xml/);
   const xml = await sitemap.text();
-  assert.equal((xml.match(/<loc>/g) ?? []).length, cases.length + 5);
+  assert.equal((xml.match(/<loc>/g) ?? []).length, cases.length + 6);
+  assert.ok(xml.includes('/explore/tremonton-1952</loc>'));
   const directory = await render("/cases");
   assert.equal(directory.status, 200);
   const html = await directory.text();
@@ -168,16 +171,55 @@ test("keeps attribution discoverable and newcomer answers server-readable", asyn
   const sources = await render("/sources");
   assert.equal(sources.status, 200);
   const sourceHtml = await sources.text();
-  assert.match(sourceHtml, /chinleez\/uap-disclosure-2026/);
-  assert.match(sourceHtml, /href="https:\/\/creativecommons.org\/licenses\/by\/4.0\/"/);
-  assert.match(sourceHtml, /July 18, 2026/);
+  assert.match(sourceHtml, /HISTORICAL-CREDITS.md/);
+  assert.match(sourceHtml, /independently collected/);
+  assert.match(sourceHtml, /not reviewed every PDF page/);
   assert.match(sourceHtml, /October 1, 2026/);
+  const historical = await readFile(new URL('../data/source/HISTORICAL-CREDITS.md', import.meta.url), 'utf8');
+  assert.match(historical, /chinleez\/uap-disclosure-2026/);
+  assert.match(historical, /creativecommons.org\/licenses\/by\/4.0/);
   const guide = await render("/guide");
   assert.equal(guide.status, 200);
   const guideHtml = await guide.text();
   assert.match(guideHtml, /What does UAP mean/);
   assert.match(guideHtml, /Are the 3D objects real evidence/);
   assert.match(guideHtml, /https:\/\/science.nasa.gov\/uap\/faqs\//);
+});
+
+test("current dataset is independently sourced without mirror text or media", async () => {
+  const records = JSON.parse(await readFile(new URL('../data/records.json', import.meta.url), 'utf8'));
+  const capture = JSON.parse(await readFile(new URL('../data/source/pursue.official-capture.json', import.meta.url), 'utf8'));
+  const media = JSON.parse(await readFile(new URL('../data/source/pursue.official-media.json', import.meta.url), 'utf8'));
+  assert.equal(capture.records.length, records.length);
+  assert.equal(media.records.length, 32);
+  const allowed = new Set(['www.war.gov', 'd34w7g4gy10iej.cloudfront.net', 'd1ldvf68ux039x.cloudfront.net']);
+  for (const record of records) {
+    const raw = capture.records.find(row => row.title === record.title);
+    assert.ok(raw, record.id);
+    assert.equal(record.descriptionOriginal, raw.description.replace(/\u00a0/g, ' ').replace(/[ \t]+/g, ' ').trim());
+    assert.equal(record.captureHash, raw.captureHash);
+    assert.equal(record.descriptionZh, null);
+    assert.equal(record.sourceAttribution, 'war-pursue-independent-20261002');
+    for (const asset of record.assetUrls) assert.ok(allowed.has(new URL(asset.url).hostname), asset.url);
+  }
+});
+
+test("guided film path is source-linked, accessible and server-readable", async () => {
+  const response = await render('/explore/tremonton-1952');
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  for (const id of ['watch', 'cut', 'compare', 'limits']) assert.ok(html.includes(`id="${id}"`));
+  assert.match(html, /Find the cut/);
+  assert.match(html, /Official digitization/);
+  assert.match(html, /controls/);
+  assert.match(html, /DOD_111985807\.mp4/);
+  assert.match(html, /not a photograph of the reported objects/);
+  assert.match(html, /not an exhaustive review/);
+  assert.match(html, /href="\/archive\?trail=camera"/);
+  const schema = structuredData(html).find(item => item['@type'] === 'Article');
+  assert.equal(schema.citation.length, 4);
+  assert.equal(schema.url, 'https://the-redacted-sky.moonbow166.chatgpt.site/explore/tremonton-1952');
+  assert.doesNotMatch(html, /media\.uap\.silv\.app|\u2014/);
 });
 
 test("every editorial story points to a material in its real source case", async () => {

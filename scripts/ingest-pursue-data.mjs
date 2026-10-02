@@ -4,11 +4,12 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadOfficialSnapshot } from "./official-input.mjs";
 
-const PARSER_VERSION = "1.1.0";
+const PARSER_VERSION = "2.0.0";
 const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = path.join(PROJECT_ROOT, "data");
-const SOURCE_PATH = path.join(DATA_DIR, "source", "pursue.snapshot.json");
+const SOURCE_PATH = path.join(DATA_DIR, "source", "pursue.official-capture.json");
 
 const RELEASE_METADATA = [
   {
@@ -498,7 +499,7 @@ async function atomicWrite(target, value) {
 }
 
 async function main() {
-  const snapshot = JSON.parse(await readFile(SOURCE_PATH, "utf8"));
+  const snapshot = await loadOfficialSnapshot(PROJECT_ROOT);
   if (snapshot.snapshotVersion !== 1) throw new Error(`Unsupported snapshot version: ${snapshot.snapshotVersion}`);
   await mkdir(DATA_DIR, { recursive: true });
 
@@ -541,6 +542,12 @@ async function main() {
       descriptionZh: cleanText(source.descriptionZh),
       sourceAttribution: source.sourceAttribution ?? "pursue-report-mirror",
       metadataNote: source.metadataNote ?? null,
+      capturedAt: source.capturedAt,
+      captureHash: source.captureHash,
+      assetProvenance: source.assetProvenance,
+      mediaSourcePageUrl: source.mediaSourcePageUrl,
+      relatedOfficialTitles: source.relatedOfficialTitles,
+      previewOnly: source.previewOnly,
       sourcePageUrl: `https://www.war.gov/UFO/#${titleHash(source.title)}`,
       assetUrls: buildAssets(source, fileType),
       sourceHash: sha256(JSON.stringify(source)),
@@ -638,13 +645,14 @@ async function main() {
     generatedAt: snapshot.fetchedAt,
     parserVersion: PARSER_VERSION,
     sourceSnapshot: {
-      path: "data/source/pursue.snapshot.json",
+      path: "data/source/pursue.official-capture.json",
       sha256: sha256(await readFile(SOURCE_PATH)),
     },
     sources: snapshot.sources,
+    inputHashes: snapshot.inputHashes,
     licenseNotes: [
-      "U.S. federal-government originals are labeled public domain where 17 U.S.C. §105 applies; individual asset markings and third-party material must still be checked.",
-      "Release 01 Chinese translations and community index structure are attributed to chinleez/uap-disclosure-2026 under CC BY 4.0.",
+      "Follow individual asset markings and applicable terms. Government hosting is not a blanket license for every embedded item.",
+      "Current descriptions and index fields were independently captured from official pages. No community descriptions or Chinese translations are consumed by this build. Historical credits are retained in data/source/HISTORICAL-CREDITS.md and the unchanged legacy snapshot.",
     ],
     normalizationPolicies: {
       identifiers: "Official identifier prefixes are preserved. Only the one identifier reused in multiple releases receives an @release-NN collision suffix.",
@@ -656,11 +664,11 @@ async function main() {
     manualOverrides: [
       {
         field: "source enrichment",
-        reason: "The official CSV rejected non-browser retrieval with HTTP 403. Release 01-04 index rows were verified July 18, 2026; all 116 Release 05-06 rows were verified October 1, 2026 in the official browser UI. Earlier enrichment uses pursue.report; new enrichment uses uap.silv.app. Mirror descriptions and media hosting are separately attributed; no mirror ratings were imported. Three later LLE transcripts were captured directly from official detail panels and have no asserted direct PDF URL.",
+        reason: "All 450 index rows and descriptions were independently recaptured from the official browser-rendered PURSUE interface on October 1, 2026 Pacific time (October 2 UTC). CSV access remained restricted. Thirty-two media replacements were read directly from DVIDS player source elements. Other existing first-party file links are retained, with their earlier discovery history recorded separately. No mirror-hosted URLs remain in current records. Full PDF contents and all media binaries have not been exhaustively reviewed or hashed.",
       },
       {
         field: "descriptionZh",
-        reason: "Release 01 translations were matched by official asset URL, thumbnail URL, DVIDS ID, or unique raw identifier; translation origin is recorded per source snapshot.",
+        reason: "All current descriptionZh fields are null. Earlier translations remain only in the historical snapshot with their original attribution.",
       },
       {
         field: "record id",

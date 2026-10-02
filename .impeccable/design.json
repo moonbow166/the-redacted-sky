@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T01:49:42Z",
+  "title": "Design System: The Redacted Sky",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#020405",
+        "tonalRamp": [
+          "oklch(15.00% 0.0081 223.95)",
+          "oklch(26.43% 0.0081 223.95)",
+          "oklch(37.86% 0.0081 223.95)",
+          "oklch(49.29% 0.0081 223.95)",
+          "oklch(60.71% 0.0081 223.95)",
+          "oklch(72.14% 0.0081 223.95)",
+          "oklch(83.57% 0.0081 223.95)",
+          "oklch(95.00% 0.0081 223.95)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#dce4de",
+        "tonalRamp": [
+          "oklch(15.00% 0.0118 153.66)",
+          "oklch(26.43% 0.0118 153.66)",
+          "oklch(37.86% 0.0118 153.66)",
+          "oklch(49.29% 0.0118 153.66)",
+          "oklch(60.71% 0.0118 153.66)",
+          "oklch(72.14% 0.0118 153.66)",
+          "oklch(83.57% 0.0118 153.66)",
+          "oklch(95.00% 0.0118 153.66)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted green",
+        "canonical": "#a0afa7",
+        "tonalRamp": [
+          "oklch(15.00% 0.0202 162.74)",
+          "oklch(26.43% 0.0202 162.74)",
+          "oklch(37.86% 0.0202 162.74)",
+          "oklch(49.29% 0.0202 162.74)",
+          "oklch(60.71% 0.0202 162.74)",
+          "oklch(72.14% 0.0202 162.74)",
+          "oklch(83.57% 0.0202 162.74)",
+          "oklch(95.00% 0.0202 162.74)"
+        ]
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal mint",
+        "canonical": "#a9fff2",
+        "tonalRamp": [
+          "oklch(15.00% 0.0851 183.96)",
+          "oklch(26.43% 0.0851 183.96)",
+          "oklch(37.86% 0.0851 183.96)",
+          "oklch(49.29% 0.0851 183.96)",
+          "oklch(60.71% 0.0851 183.96)",
+          "oklch(72.14% 0.0851 183.96)",
+          "oklch(83.57% 0.0851 183.96)",
+          "oklch(95.00% 0.0851 183.96)"
+        ]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Warm amber",
+        "canonical": "#c7a56e",
+        "tonalRamp": [
+          "oklch(15.00% 0.0825 78.98)",
+          "oklch(26.43% 0.0825 78.98)",
+          "oklch(37.86% 0.0825 78.98)",
+          "oklch(49.29% 0.0825 78.98)",
+          "oklch(60.71% 0.0825 78.98)",
+          "oklch(72.14% 0.0825 78.98)",
+          "oklch(83.57% 0.0825 78.98)",
+          "oklch(95.00% 0.0825 78.98)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Fine line",
+        "canonical": "rgba(194, 218, 209, 0.18)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0284 171.10)",
+          "oklch(26.43% 0.0284 171.10)",
+          "oklch(37.86% 0.0284 171.10)",
+          "oklch(49.29% 0.0284 171.10)",
+          "oklch(60.71% 0.0284 171.10)",
+          "oklch(72.14% 0.0284 171.10)",
+          "oklch(83.57% 0.0284 171.10)",
+          "oklch(95.00% 0.0284 171.10)"
+        ]
+      },
+      "mint-fill": {
+        "role": "primary",
+        "displayName": "Soft mint fill",
+        "canonical": "#b9ead8",
+        "tonalRamp": [
+          "oklch(15.00% 0.0561 170.58)",
+          "oklch(26.43% 0.0561 170.58)",
+          "oklch(37.86% 0.0561 170.58)",
+          "oklch(49.29% 0.0561 170.58)",
+          "oklch(60.71% 0.0561 170.58)",
+          "oklch(72.14% 0.0561 170.58)",
+          "oklch(83.57% 0.0561 170.58)",
+          "oklch(95.00% 0.0561 170.58)"
+        ]
+      },
+      "archive-bg": {
+        "role": "neutral",
+        "displayName": "Archive ground",
+        "canonical": "#040909",
+        "tonalRamp": [
+          "oklch(15.00% 0.0105 195.96)",
+          "oklch(26.43% 0.0105 195.96)",
+          "oklch(37.86% 0.0105 195.96)",
+          "oklch(49.29% 0.0105 195.96)",
+          "oklch(60.71% 0.0105 195.96)",
+          "oklch(72.14% 0.0105 195.96)",
+          "oklch(83.57% 0.0105 195.96)",
+          "oklch(95.00% 0.0105 195.96)"
+        ]
+      },
+      "archive-text": {
+        "role": "neutral",
+        "displayName": "Archive text",
+        "canonical": "#e1e9e3",
+        "tonalRamp": [
+          "oklch(15.00% 0.0117 153.66)",
+          "oklch(26.43% 0.0117 153.66)",
+          "oklch(37.86% 0.0117 153.66)",
+          "oklch(49.29% 0.0117 153.66)",
+          "oklch(60.71% 0.0117 153.66)",
+          "oklch(72.14% 0.0117 153.66)",
+          "oklch(83.57% 0.0117 153.66)",
+          "oklch(95.00% 0.0117 153.66)"
+        ]
+      },
+      "library-dim": {
+        "role": "neutral",
+        "displayName": "Library dim",
+        "canonical": "#a3b3ac",
+        "tonalRamp": [
+          "oklch(15.00% 0.0204 167.73)",
+          "oklch(26.43% 0.0204 167.73)",
+          "oklch(37.86% 0.0204 167.73)",
+          "oklch(49.29% 0.0204 167.73)",
+          "oklch(60.71% 0.0204 167.73)",
+          "oklch(72.14% 0.0204 167.73)",
+          "oklch(83.57% 0.0204 167.73)",
+          "oklch(95.00% 0.0204 167.73)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display weight",
+        "purpose": "Shared Geist display voice only. Sizes remain scoped to Experience, Archive, and Read surfaces."
+      },
+      "headline": {
+        "displayName": "Archive section heading",
+        "purpose": "Repeated collection and browse headings, not a universal H1."
+      },
+      "body": {
+        "displayName": "Archive body",
+        "purpose": "Default archive reading text. Generic Read pages and the guided path increase leading locally."
+      },
+      "label": {
+        "displayName": "Reading label",
+        "purpose": "Regular control and caption text; not decorative uppercase."
+      },
+      "mono": {
+        "displayName": "Source and measurement",
+        "purpose": "Identifiers, coordinates, timecodes, and informative sequence numbers."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "archive-state",
+        "value": "0.2s ease",
+        "purpose": "Existing card border/background feedback. Removed for reduced-motion preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "catalogue-single-column",
+        "value": "520px"
+      },
+      {
+        "name": "site-navigation-stack",
+        "value": "680px"
+      },
+      {
+        "name": "read-stack",
+        "value": "760px"
+      },
+      {
+        "name": "catalogue-two-column",
+        "value": "1100px"
+      },
+      {
+        "name": "catalogue-four-column-min",
+        "value": "1700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Reading action",
+      "kind": "button",
+      "refersTo": "reading-primary",
+      "description": "The existing ReadingLayout filled-link treatment, with reading-surface focus and hover.",
+      "html": "<a class=\"ds-reading-primary\" href=\"/archive\">Explore archive</a>",
+      "css": ".ds-reading-primary{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;background:#b9ead8;color:#07100d;text-decoration:none;border-radius:6px;font-family:var(--font-geist-sans,\"Geist\"),Arial,sans-serif;font-size:1rem;line-height:1.8}.ds-reading-primary:hover{background:#d6f4e7;color:#07100d}.ds-reading-primary:focus-visible{outline:2px solid #b9ead8;outline-offset:5px}"
+    },
+    {
+      "name": "Catalogue search",
+      "kind": "input",
+      "refersTo": "catalogue-field",
+      "description": "A visible label, dark input, mint caret, and archive keyboard-focus treatment.",
+      "html": "<label class=\"ds-search\"><span>Search records</span><input type=\"search\" placeholder=\"Search by place, date or keyword\" /></label>",
+      "css": ".ds-search{display:flex;flex-direction:column;gap:.6rem;max-width:32rem;font-family:var(--font-geist-sans,\"Geist\"),Arial,sans-serif;font-size:1rem;line-height:1.6}.ds-search>span{font-size:.875rem;color:var(--library-dim,#a3b3ac)}.ds-search input{width:100%;min-width:0;height:52px;border:1px solid #3c5049;border-radius:2px;background:#0b1411;padding:0 .875rem;color:#e1e9e3;caret-color:var(--signal,#a9fff2);font:inherit}.ds-search input::placeholder{color:#9aad9f;opacity:1}.ds-search input:focus-visible{outline:2px solid var(--signal,#a9fff2);outline-offset:5px}@media(max-width:760px){.ds-search input{height:48px}}"
+    },
+    {
+      "name": "Site mode navigation",
+      "kind": "nav",
+      "refersTo": "mode-link-active",
+      "description": "The shared two-destination mode switch. This specimen inherits the archive focus treatment.",
+      "html": "<nav class=\"ds-mode-switch\" aria-label=\"Choose site mode\"><a href=\"/\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"16\" cy=\"16\" r=\"4\"/><ellipse cx=\"16\" cy=\"16\" rx=\"15\" ry=\"7\" transform=\"rotate(-35 16 16)\"/><path d=\"M6 6v.01M26 26v.01M26 6v.01M6 26v.01\" stroke-width=\"3\"/></svg><span>Experience</span></a><a href=\"/archive\" aria-current=\"page\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"16\" cy=\"16\" r=\"12\"/><path d=\"m21 11-3 7-7 3 3-7Z\"/><path d=\"M16 1v3m0 24v3M1 16h3m24 0h3\"/></svg><span>Explore archive</span></a></nav>",
+      "css": ".ds-mode-switch{display:flex;gap:4px;padding:4px;border:1px solid #40544d;border-radius:12px;background:#08110f;width:fit-content;font-family:var(--font-geist-sans,\"Geist\"),Arial,sans-serif;}.ds-mode-switch a{display:flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:8px 16px;border:1px solid transparent;border-radius:8px;color:#baccc3;font-size:.9375rem;text-decoration:none;white-space:nowrap}.ds-mode-switch svg{width:23px;height:23px}.ds-mode-switch a[aria-current=page]{color:#052019;background:#b9ead8}.ds-mode-switch a:hover{border-color:#8db8a7}.ds-mode-switch a:focus-visible{outline:2px solid var(--signal,#a9fff2);outline-offset:5px}@media(max-width:680px){.ds-mode-switch{display:grid;grid-template-columns:1fr 1fr;width:100%}.ds-mode-switch a{padding:6px;font-size:.875rem}.ds-mode-switch svg{width:21px;height:21px}}"
+    },
+    {
+      "name": "Curiosity choice",
+      "kind": "chip",
+      "refersTo": "curiosity-chip",
+      "description": "A real question-led archive filter, shown in its selected state.",
+      "html": "<button class=\"ds-curiosity-chip\" type=\"button\" aria-pressed=\"true\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 3 3.5 9.5L29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5Z\"/><path d=\"M26 3v5m-2.5-2.5h5\"/></svg><span>Start anywhere</span></button>",
+      "css": ".ds-curiosity-chip{display:flex;align-items:center;gap:.65rem;min-height:52px;padding:.65rem 1rem;border:1px solid #355248;background:#07110e;color:#b8cdbf;cursor:pointer;border-radius:6px;font-family:var(--font-geist-sans,\"Geist\"),Arial,sans-serif;font-size:1rem;line-height:1.6}.ds-curiosity-chip svg{width:26px;height:26px;flex-shrink:0}.ds-curiosity-chip[aria-pressed=true]{background:#193d2f;border-color:#97ceb5;color:#dbffeb}.ds-curiosity-chip:hover{border-color:var(--signal,#a9fff2)}.ds-curiosity-chip:focus-visible{outline:2px solid var(--signal,#a9fff2);outline-offset:5px}@media(max-width:760px){.ds-curiosity-chip{font-size:.875rem;padding:.65rem;gap:.5rem;line-height:1.4;text-align:left}.ds-curiosity-chip svg{width:22px;height:22px}}"
+    },
+    {
+      "name": "Catalogue record card",
+      "kind": "card",
+      "refersTo": "record-card",
+      "description": "The existing bordered catalogue card with its missing-preview treatment. Text is a compact specimen, not a new source claim.",
+      "html": "<button class=\"ds-record-card\" type=\"button\"><span class=\"ds-record-preview\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 3h12l6 6v20H7Z\"/><path d=\"M19 3v7h6M11 16h10M11 21h7\"/></svg><span>DOW-UAP-D102</span><small>Preview unavailable</small></span><span class=\"ds-record-copy\"><strong>Investigation record</strong><span class=\"ds-record-location\">Tremonton, Utah</span><span class=\"ds-record-description\">Open the record and its source.</span></span></button>",
+      "css": ".ds-record-card{display:flex;flex-direction:column;width:100%;max-width:380px;min-width:0;text-align:left;padding:0;overflow:hidden;background:#09110e;border:1px solid #273c31;border-radius:3px;cursor:pointer;color:#e1e9e3;transition:border-color .2s ease,background .2s ease;font-family:var(--font-geist-sans,\"Geist\"),Arial,sans-serif;font-size:1rem;line-height:1.6}.ds-record-card:hover,.ds-record-card:focus-visible{border-color:var(--signal,#a9fff2);background:#0e1b15}.ds-record-card:focus-visible{outline:2px solid var(--signal,#a9fff2);outline-offset:5px}.ds-record-preview{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.8rem;width:100%;aspect-ratio:16/10;color:#a7bcb1;background:#0c1713}.ds-record-preview>svg{width:44px;height:44px}.ds-record-preview>span{font-family:var(--font-geist-mono,\"Geist Mono\"),monospace;font-size:.8125rem;overflow-wrap:anywhere}.ds-record-preview>small{font-size:.875rem;color:#9aaa9f}.ds-record-copy{display:flex;flex-direction:column;padding:1.25rem;gap:.6rem;min-width:0}.ds-record-copy>strong{font-size:1.375rem;line-height:1.3;letter-spacing:-.015em;font-weight:500;overflow-wrap:anywhere;text-wrap:balance}.ds-record-location{font-size:.875rem;color:var(--signal,#a9fff2)}.ds-record-description{font-size:1rem;color:#aabbb1;line-height:1.6}@media(prefers-reduced-motion:reduce){.ds-record-card{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Redacted Sky",
+    "overview": "The Redacted Sky is an immersive interface for public UAP records. Preserve its established near-black, deep-green environment, real archival material, restrained mint controls, warm source context, and shared line icons. This is an incumbent system, not a new visual identity.\n\nExperience is the cinematic, spatial expression of that identity. Archive and Read surfaces keep the same materials while making evidence easier to inspect: readable sentence-case type, short copy, explicit source links, and optional deeper detail. Decorative treatments in the existing Experience do not set the reading style for new pages.",
+    "keyCharacteristics": [
+      "Dark, green-tinted surfaces with pale readable text.",
+      "Mint for actions and navigation; warm accents for context.",
+      "Real source media, thin boundaries, and restrained controls.",
+      "Geist Sans for reading; Geist Mono for identifiers and measurements."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Marks Action Rule",
+        "body": "Mint identifies a way to act, navigate, or focus. It is not a credibility score or a claim that a record has been resolved.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Voice Rule",
+        "body": "New Read headings and controls use sentence case and short English. Preserve proper names, source IDs, and agency acronyms; do not turn them into decorative labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Read Surface Rule",
+        "body": "Archive and Read surfaces separate content with tone, whitespace, and thin borders. The existing Experience's optical depth is not a default effect for reading panels.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the incumbent dark environment, shared navigation, and authored line-icon family.",
+      "Do keep real source imagery visible and label comparison material or reconstruction by what it is.",
+      "Do give new Read headings sentence case, short supporting copy, and metadata below the heading.",
+      "Do retain visible source links, keyboard focus, responsive reflow, and a recoverable media fallback.",
+      "Do use disclosure for additional source text without hiding the main evidence limitation."
+    ],
+    "donts": [
+      "Don't replace the Experience identity as a side effect of extending the archive.",
+      "Don't apply the Experience's decorative uppercase, wide tracking, grain, glow, or spatial choreography to new reading text.",
+      "Don't use a new eyebrow above a heading, or treat inherited eyebrow styles as a reusable primitive.",
+      "Don't use color, a generated image, or a reconstruction as proof of a source claim.",
+      "Don't promote Tremonton's splice diagram, four-step composition, local warm colors, or route-specific dimensions into universal rules."
+    ]
+  }
+}
